@@ -1,0 +1,370 @@
+.container{
+    /* zona de tabajo */
+
+    position: relative;
+    width: 100%;
+    height: 726px;
+
+    background: #FFFFFF;
+    padding: 0%;
+    margin: 0%;
+
+    overflow: auto;
+}
+
+.titulo_superior{
+    position: absolute;
+    width: 100%;
+    height: 62px;
+    left: 0px;
+    top: 0px;
+
+    background: rgba(0, 117, 128, 0.982);
+
+    display: grid;
+    place-items: center;
+}
+
+.titulo_superior h1{
+    position: absolute;
+    width: auto;
+    height: auto;
+
+    font-family: 'Comic Sans MS', 'cursive';
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 8px;
+}
+
+section{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    margin: 0%;
+    padding: 0%;
+}
+
+form{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    margin: 0%;
+    padding: 0%;
+}
+
+.frame_f{
+    width: 35.64%;
+    height: 7.85%;
+}
+
+label{
+    width: auto;
+    height: auto;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+input{
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 29px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+
+    background: none;
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+input:focus{
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+.ubicacion_label{
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+.ubicacion_input_1{
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+}
+
+.f1{
+    position: absolute;
+    left: 0.97%;
+    top: 11.71%;
+}
+
+.f2{
+    position: absolute;
+    left: 0.97%;
+    top: 21.35%;
+}
+
+.f3{
+    position: absolute;
+    left: 0.97%;
+    top: 30.99%;
+}
+
+.f4{
+    position: absolute;
+    width: 5.36% !important;
+    left: 0.97%;
+    top: 40.63%;
+}
+
+.f5{
+    position: absolute;
+    left: 0.97%;
+    top: 50.28%;
+}
+
+.f6{
+    position: absolute;
+    left: 0.97%;
+    top: 59.92%;
+}
+
+.f7{
+    position: absolute;
+    left: 0.97%;
+    top: 69.56%;
+}
+
+.f8{
+    position: absolute;
+    left: 0.97%;
+    top: 79.2%;
+}
+
+.f9{
+    position: absolute;
+    left: 0.97%;
+    top: 88.84%;
+}
+
+.f10{
+    position: absolute;
+    left: 50.05%;
+    top: 11.71%;
+}
+
+.f11{
+    position: absolute;
+    left: 50.05%;
+    top: 21.35%;
+}
+
+.f12{
+    position: absolute;
+    left: 50.05%;
+    top: 30.99%;
+}
+
+.f13{
+    position: absolute;
+    left: 50.05%;
+    top: 40.63%;
+}
+
+.f14{
+    position: absolute;
+    height: 9.64% !important;
+    left: 50.05%;
+    top: 50.28%;
+}
+
+fieldset{
+    height: 100%;
+    width: auto;
+    left: 0%;
+    top: 0%;
+    margin: 0%;
+    padding: 0%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.frame_b{
+    position: absolute;
+    width: 26.1%;
+    height: 3.92%;
+    left: 54.72%;
+    bottom: 4.07%;
+}
+
+#img1{
+    position: absolute;
+    width: 39.53%;
+    height: 42.15%;
+    left: 48.39%;
+    bottom: 2.89%;
+}
+
+#btn_guardar{
+    position: absolute;
+    width: 46.64%;
+    height: 100%;
+    left: 0%;
+    top: 0%;    
+    
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+
+    margin-bottom: 50px;
+}
+
+#btn_guardar:hover{
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_guardar:active{
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+#btn_cancelar{
+    position: absolute;
+    width: 46.64%;
+    height: 100%;
+    right: 0%;
+    top: 0%;
+    
+    background: #6C757D;
+    box-shadow: 0px 2.87356px 2.87356px rgba(0, 0, 0, 0.6);
+    border-radius: 7.18391px;
+    border: #6C757D;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_cancelar:hover{
+    background: #3f454b;
+}
+
+#btn_cancelar:active{
+    background: #FFFFFF;
+    color: #3f454b;
+}
+
+@media (max-width: 600px){
+    .titulo{
+        width: 100% !important;
+    }
+    .titulo h1{
+        /* Registrar un nuevo cliente */
+
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 35px;
+    }
+
+    .frame_f{
+        width: 90%;
+        height: 9.68%;
+    }
+
+    #img1{
+        position: absolute;
+        width: 336px;
+        height: 253.24px;
+        left: 9.55%;
+        top: 115.38%;
+    }
+
+    .frame_b{
+        position: absolute;
+        width: 60%;
+        height: 4.83%;
+        left: 21%;
+        bottom: -65%;
+    }
+
+    .f10{
+        position: absolute;
+        left: 0.97%;
+        top: 100.72%;
+    }
+    
+    .f11{
+        position: absolute;
+        left: 0.97%;
+        top: 112.6%;
+    }
+    
+    .f12{
+        position: absolute;
+        left: 0.97%;
+        top: 124.48%;
+    }
+    
+    .f13{
+        position: absolute;
+        left: 0.97%;
+        top: 136.36%;
+    }
+    
+    .f14{
+        position: absolute;
+        height: 9.64% !important;
+        left: 0.97%;
+        top: 148.24%;
+    }
+
+    #img1{
+        position: absolute;
+        width: 336px;
+        height: 253.24px;
+        left: 9.55%;
+        top: 155.38%;
+    }
+
+    .frame_b{
+        position: absolute;
+        width: 60%;
+        height: 4.83%;
+        left: 21%;
+        bottom: -90%;
+    }
+}

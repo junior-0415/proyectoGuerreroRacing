@@ -1,0 +1,29 @@
+h1 {
+    font-family: cursive;
+    background-color: rgba(0, 117, 128, 0.982);
+    color: whitesmoke;
+  }
+
+  h2 {
+    font-family: cursive;
+
+  }
+ 
+  .btn {
+    font-family: cursive;
+    color: whitesmoke !important;
+    
+  }
+
+  .btn_color_1 {
+    background: rgba(0, 117, 128, 0.982) !important;
+    
+  }
+
+  .btn_color_2 {
+    background-color:cadetblue !important;
+  }
+
+  .btn_color_3{
+    background-color: grey!important;
+  }

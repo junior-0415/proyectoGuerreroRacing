@@ -1,0 +1,492 @@
+.container{
+    /* zona de tabajo interfaz marcas*/
+
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 0%;
+    padding: 0%;
+
+    overflow: auto;
+}
+
+.titulo_superior{
+    position: absolute;
+    width: 100%;
+    height: 10.53%;
+    left: 0%;
+    top: 0%;
+
+    background: rgba(0, 117, 128, 0.982);
+
+    display: grid;
+    place-items: center;
+}
+
+.titulo_superior h2{
+    /* Marcas establecidas */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+
+    font-family: 'Comic Sans MS', 'cursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 8px;
+}
+
+.label_buscar{
+    /* Buscar: */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 0.97%;
+    top: 14.43%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+#idMarBusqueda{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 16.36%;
+    height: 29px;
+    left: 11.88%;
+    top: 13.58%;
+    
+    border: 1px solid #000000;
+    border-radius: 10px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.label_filtrar{
+    /* Filtrar: */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 30.77%;
+    top: 14.43%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+#css_propiedades_filtro{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 16.36%;
+    height: 29px;
+    left: 35.83%;
+    top: 13.58%;
+
+    border: 1px solid #000000;
+    border-radius: 10px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+#btn_mostrar_filtro{
+    position: absolute;
+    width: 12.17%;
+    height: 29px;
+    left: 52.68%;
+    top: 13.58%;
+    
+    background: #00B9CA ;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA ;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_mostrar_filtro:hover{
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_mostrar_filtro:active{
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+.contenedor_tabla{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    max-height: 78.78%;
+    /* left: 10px; */
+    top: 21.73%;
+    display: grid;
+    justify-items: center;
+
+    overflow: auto;
+}
+
+table{
+    background-color: #FFFFFF;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+th, td{
+    padding: 15px;
+}
+
+tbody tr{
+    border-bottom: 1px solid #DCDCDC;
+}
+
+thead{
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+}
+
+/* iluminar celdas */
+
+
+tr:hover td{
+    background-color: #E5E5E5;
+}
+
+table tbody tr td:first-child{
+    font-weight: 700;
+}
+
+.columna2{
+    position: absolute;
+    width: 50%;
+    height: auto;
+    right: 0px;
+    top: 109px;
+
+    display: grid;
+    place-items: center;
+}
+
+.columna2 img{
+    width: 100%;
+    height: auto;
+}
+
+#btn_anadir{
+    text-decoration: none;
+
+    width: 125px;
+    height: 28.44px;
+    background: rgba(0, 117, 128, 0.982);
+    display: grid;
+    place-items: center;
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+}
+
+#btn_anadir:hover{
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_anadir:active{
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+/* Modal */
+/* ******************************************************************************************************** */
+
+.modal{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+
+.modal--show{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
+}
+
+.container_modal{
+    position: relative;
+    margin: auto;
+    width: 481px;
+    height: 452px;;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.container_h2{
+    position: absolute;
+    width: 481px;
+    height: 38px;
+    left: 0px;
+    top: 0px;
+
+    background: rgba(0, 117, 128, 0.982);
+
+    display: grid;
+    place-items: center;
+        
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.container_cerrar{
+    position: absolute;
+    width: 5.82%;
+    height: 73.68%;
+
+    left: 91.48%;
+    right: 2.7%;
+    top: 13.16%;
+    bottom: 13.16%;
+
+    margin: 0%;
+    padding: 0%;
+}
+
+.container_cerrar img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.container_modal h2{
+    position: absolute;
+    width: auto;
+    height: auto;
+
+    margin: 0%;
+    padding: 0%;
+
+    font-family: 'Comic Sans MS', 'cursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
+    
+    transition: 3s;
+}
+
+#img1{
+    /* categorias_modal 1 */
+
+    position: absolute;
+    width: 406px;
+    height: 306px;
+    left: 37px;
+    top: 0px;
+}
+
+input{
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+
+    background: none;
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+input:focus{
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+#label_mar_nombre{
+    /* Nombre: */
+
+    position: absolute;
+    width: 62px;
+    height: 19px;
+    left: 57px;
+    top: 252px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+#idmar_nombre{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 366px;
+    height: 29px;
+    left: 57px;
+    top: 280px;
+}
+
+.labelmar_categoria{
+    /* Categoria: */
+
+    position: absolute;
+    width: 89px;
+    height: 19px;
+    left: 57px;
+    top: 322px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+#css_propiedades_categoria{
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 366px;
+    height: 29px;
+    left: 57px;
+    top: 350px;
+}
+
+#btn_guardar{
+    position: absolute;
+    width: 125px;
+    height: 28.44px;
+    left: 106px;
+    top: 403px;
+
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_guardar:hover{
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_guardar:active{
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+#btn_cancelar{
+    position: absolute;
+    width: 125px;
+    height: 28.44px;
+    left: 249px;
+    top: 403px;
+
+    background: rgba(245, 90, 90, 0.937255);
+    box-shadow: 0px 2.87356px 2.87356px rgba(0, 0, 0, 0.6);
+    border-radius: 7.18391px;
+    border: rgba(245, 90, 90, 0.937255);
+    
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_cancelar:hover{
+    background: rgba(245, 39, 39, 0.937);
+}
+
+#btn_cancelar:active{
+    background: #FFFFFF;
+    color: rgba(245, 39, 39, 0.937);
+}

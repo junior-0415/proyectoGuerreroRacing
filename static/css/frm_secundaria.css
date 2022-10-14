@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+html,body{
+    overflow-y: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+body {
+
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav {
+    width: 325px;
+}
+
+.nav__link {
+    color: #303440;
+    display: block;
+    padding: 15px 0;
+    text-decoration: none;
+}
+
+.nav__link--inside {
+    border-radius: 6px;
+    padding-left: 20px;
+    text-align: left;
+}
+
+.nav__link--inside:hover {
+    background: #f6f8fA;
+}
+
+.list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 16px 16px 0;
+    background: #CCD1D1;
+}
+
+.list__item {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    overflow-y: none;
+}
+
+.list__item--click {
+    cursor: pointer;
+    
+}
+
+.list__button {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.arrow .list__arrow {
+    transform: rotate(90deg);
+}
+
+.list__arrow {
+    margin-left: auto;
+    transition: transform .3s;
+}
+
+.list__show {
+    width: 70%;
+    margin-left: auto;
+    border-left: 2px solid #303440;
+    list-style: none;
+    transition: height .4s;
+    height: 0;
+}
+
+#icono_empleado_usuarios{
+    width: 24px;
+    height: 24px;
+}
+.contrast {
+    -webkit-filter: grayscale(1);
+    filter: gray;
+    filter: grayscale(1);
+}
+.nav-accesibilidad{
+    position: fixed;
+    top: 190px;
+    left: 96%;
+}
+@media screen and (max-width: 580px) {
+    .nav-accesibilidad{
+        left: 85%;
+    }
+}
+.btn-vertical {
+    background-color: #AEB6BF;
+  }
+
+
+
+/* nuevo***************************************************************** */
+
+.container_nav{
+    height: 100vh;
+    overflow: auto;
+    background: #CCD1D1;
+}
+
+.container_iframe{
+    width: 100%;
+    height: 89.11vh;
+    overflow: hidden;
+}
+
+.eliminar_scroll{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+@media (max-width: 600px){
+    .container_nav{
+        height: 100vh;
+        overflow: scroll;
+        background: #CCD1D1;
+    }
+    
+    .container_iframe{
+        width: 100%;
+        height: 89.11vh;
+        overflow: scroll;
+        margin-left: 10px;
+    }
+    
+    .eliminar_scroll{
+        width: 100%;
+        height: 100vh;
+        overflow: scroll;
+    }
+}

@@ -1,0 +1,228 @@
+.container {
+    /* Zona de trabajo articulos */
+
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 0%;
+    padding: 0%;
+
+    overflow: auto;
+}
+
+#titulo_superior {
+    position: absolute;
+    width: 100%;
+    height: 10.53%;
+    left: 0%;
+    top: 0%;
+
+    background: rgba(0, 117, 128, 0.982);
+
+    display: grid;
+    place-items: center;
+}
+
+#titulo_superior h1 {
+    /* Artículos registrados */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 8px;
+
+    font-family: 'Comic Sans MS', 'cursive';
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+}
+
+form{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+
+section{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+
+label {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+input {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    background: none;
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+input:focus{
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+
+.label_buscar {
+    /* Buscar: */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 0.97%;
+    top: 14.43%;
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+#idBusquedaNot {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 16.36%;
+    height: 29px;
+    left: 15.38%;
+    top: 13.58%;
+
+}
+
+.label_filtrar {
+    /* Filtrar: */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 34.27%;
+    top: 14.43%;
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+#css_propiedades_filtro {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 16.36%;
+    height: 29px;
+    left: 39.34%;
+    top: 13.58%;
+}
+
+#btn_mostrar_filtro {
+    position: absolute;
+    width: 12.17%;
+    height: 29px;
+    left: 56.18%;
+    top: 13.58%;
+
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_mostrar_filtro:hover {
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_mostrar_filtro:active {
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+.container_tabla {
+    position: absolute;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    /* left: 10px; */
+    top: 21.73%;
+    display: grid;
+    justify-items: center;
+
+    overflow: auto;
+}
+
+table {
+    background-color: #FFFFFF;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #DCDCDC;
+}
+
+thead {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+}
+
+/* iluminar celdas */
+
+
+tr:hover td {
+    background-color: #E5E5E5;
+}
+
+table tbody tr td:first-child {
+    font-weight: 700;
+}
+
+.container_ancla{
+    position: fixed;
+    left: 93.96%;
+    right: 1.99%;
+    top: 89.47%;
+    bottom: 3.46%;
+}
