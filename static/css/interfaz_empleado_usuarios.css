@@ -1,4 +1,4 @@
-.container{
+.container {
     /* Zona de trabajo articulos */
 
     position: relative;
@@ -13,7 +13,7 @@
     overflow: auto;
 }
 
-#titulo_superior{
+#titulo_superior {
     position: absolute;
     width: 100%;
     height: 10.53%;
@@ -26,8 +26,8 @@
     place-items: center;
 }
 
-#titulo_superior h1{
-/* Artículos registrados */
+#titulo_superior h1 {
+    /* Artículos registrados */
 
     position: absolute;
     width: auto;
@@ -44,7 +44,7 @@
     color: #FFFFFF;
 }
 
-section{
+section {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -53,7 +53,7 @@ section{
     padding: 0%;
 }
 
-form{
+form {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -62,7 +62,7 @@ form{
 }
 
 
-.label_buscar{
+.label_buscar {
     /* Buscar empleado: */
 
     position: absolute;
@@ -84,7 +84,7 @@ form{
     color: #000000;
 }
 
-#idBusquedaEmp{
+#idBusquedaEmp {
     box-sizing: border-box;
 
     position: absolute;
@@ -103,7 +103,7 @@ form{
     line-height: 19px;
 }
 
-.label_filtrar{
+.label_filtrar {
     /* Filtrar: */
 
     position: absolute;
@@ -125,7 +125,7 @@ form{
     color: #000000;
 }
 
-#css_propiedades_filtro{
+#css_propiedades_filtro {
     box-sizing: border-box;
 
     position: absolute;
@@ -144,17 +144,17 @@ form{
     line-height: 19px;
 }
 
-#btn_mostrar_filtro{
+#btn_mostrar_filtro {
     position: absolute;
     width: 12.17%;
     height: 29px;
     left: 55.01%;
     top: 13.58%;
-    
-    background: #00B9CA ;
+
+    background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
-    border: #00B9CA ;
+    border: #00B9CA;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -164,17 +164,17 @@ form{
     color: #FFFFFF;
 }
 
-#btn_mostrar_filtro:hover{
+#btn_mostrar_filtro:hover {
     background: rgba(0, 117, 128, 0.982);
 }
 
-#btn_mostrar_filtro:active{
+#btn_mostrar_filtro:active {
     background: #ffffff;
     color: rgba(0, 117, 128, 0.982);
     border: 1.5px solid rgba(0, 117, 128, 0.982);
 }
 
-.container_tabla{
+.container_tabla {
     position: absolute;
     width: 100%;
     height: auto;
@@ -186,7 +186,7 @@ form{
     overflow: auto;
 }
 
-table{
+table {
     background-color: #FFFFFF;
     text-align: left;
     border-collapse: collapse;
@@ -199,15 +199,16 @@ table{
     line-height: 18px;
 }
 
-th, td{
+th,
+td {
     padding: 15px;
 }
 
-tbody tr{
+tbody tr {
     border-bottom: 1px solid #DCDCDC;
 }
 
-thead{
+thead {
     background-color: #ffffff;
     border-bottom: 1px solid #000000;
     color: #000000;
@@ -216,27 +217,27 @@ thead{
 /* iluminar celdas */
 
 
-tr:hover td{
+tr:hover td {
     background-color: #E5E5E5;
 }
 
-table tbody tr td:first-child{
+table tbody tr td:first-child {
     font-weight: 700;
 }
 
 /* ******************************************************************************************************* */
 /* menu inferior desplegable */
 
-nav{
+nav {
     position: fixed;
     width: 47px;
     height: 161px;
     right: 1.95%;
     bottom: 4%;
-    
+
 }
 
-nav ul li{
+nav ul li {
     /* width: 100%;
     height: 100%; */
     position: relative;
@@ -245,7 +246,8 @@ nav ul li{
     padding: 0;
 
 }
-nav ul{
+
+nav ul {
     width: 100%;
     height: 100%;
 
@@ -253,49 +255,55 @@ nav ul{
     margin: 0;
     padding: 0;
 }
-nav ul a{
+
+nav ul a {
     display: block;
     text-decoration: none;
     padding: 5px;
 }
-nav ul ul li a:hover{
+
+nav ul ul li a:hover {
     outline: 4.5px solid #C2DAFF;
 }
-nav ul ul{
-    display:none;
-    position:absolute;
-    top:100%;
+
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
     padding: 0;
 }
-nav ul li:hover > ul{
-    display:block;
+
+nav ul li:hover>ul {
+    display: block;
     visibility: visible;
     opacity: 1;
 }
-nav ul li > ul{
+
+nav ul li>ul {
     visibility: hidden;
     opacity: 0;
     transition: visibility 2s, opacity 5s linear;
 }
-nav #menu_lineas:hover{
+
+nav #menu_lineas:hover {
     transform: rotate(-180deg);
     transition: 0.5s;
     outline: 4.5px solid #C2DAFF;
 }
 
-#menu_lineas{
+#menu_lineas {
     position: absolute;
     top: 113px;
 }
 
-#btn_admistrar{
-   position: absolute;
-   top: 15px;
-   transform: none;
-   /* transform: rotate(-180deg); */
+#btn_admistrar {
+    position: absolute;
+    top: 15px;
+    transform: none;
+    /* transform: rotate(-180deg); */
 }
 
-#btn_añadir{
+#btn_añadir {
     position: absolute;
     top: 60px;
 }
@@ -303,7 +311,7 @@ nav #menu_lineas:hover{
 /* Modal */
 /* ************************************************************************************************* */
 
-.modal{
+.modal {
     position: fixed;
     top: 0%;
     left: 0%;
@@ -316,13 +324,13 @@ nav #menu_lineas:hover{
     transition: opacity .6s;
 }
 
-.modal--show{
+.modal--show {
     opacity: 1;
     pointer-events: unset;
     transition: opacity .6s;
 }
 
-.container_modal{
+.container_modal {
     position: relative;
     margin: auto;
     width: 481px;
@@ -331,7 +339,7 @@ nav #menu_lineas:hover{
     border-radius: 20px;
 }
 
-.container_h2{
+.container_h2 {
     position: absolute;
     width: 481px;
     height: 38px;
@@ -342,12 +350,12 @@ nav #menu_lineas:hover{
 
     display: grid;
     place-items: center;
-        
+
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
 }
 
-.container_h2 h2{
+.container_h2 h2 {
     position: absolute;
     margin: auto;
     width: auto;
@@ -362,7 +370,7 @@ nav #menu_lineas:hover{
     color: #FFFFFF;
 }
 
-.container_cerrar{
+.container_cerrar {
     position: absolute;
     box-sizing: border-box;
 
@@ -378,7 +386,7 @@ nav #menu_lineas:hover{
     place-items: center;
 }
 
-.container_cerrar a{
+.container_cerrar a {
     /* X */
 
     position: absolute;
@@ -395,7 +403,7 @@ nav #menu_lineas:hover{
     text-decoration: none;
 }
 
-#img_modal{
+#img_modal {
     position: absolute;
     width: 406px;
     height: 306px;
@@ -403,7 +411,7 @@ nav #menu_lineas:hover{
     top: 12px;
 }
 
-.btn{
+.btn {
     box-sizing: border-box;
 
     width: 366px;
@@ -413,36 +421,36 @@ nav #menu_lineas:hover{
     border-radius: 5px;
 }
 
-.btn:hover{
+.btn:hover {
     background: #E5E5E5;
 }
 
-.btn_1{
+.btn_1 {
     position: absolute;
     left: 58px;
     top: 304px;
 }
 
-.btn_2{
+.btn_2 {
     position: absolute;
     left: 58px;
     top: 343px;
 }
 
-.btn_3{
+.btn_3 {
     position: absolute;
     left: 58px;
     top: 382px;
     height: 48px;
 }
 
-.btn_4{
+.btn_4 {
     position: absolute;
     left: 58px;
     top: 440px;
 }
 
-.propiedades_text{
+.propiedades_text {
     width: auto;
     height: auto;
 
@@ -460,19 +468,19 @@ nav #menu_lineas:hover{
     text-decoration: none;
 }
 
-.btn_1 a{
+.btn_1 a {
     position: absolute;
     left: 71px;
     top: 5px;
 }
 
-.btn_2 a{
+.btn_2 a {
     position: absolute;
     left: 46px;
     top: 5px;
 }
 
-.btn_3 a{
+.btn_3 a {
     position: absolute;
     left: 0px;
     top: 5px;
@@ -482,8 +490,102 @@ nav #menu_lineas:hover{
     text-align: center;
 }
 
-.btn_4 a{
+.btn_4 a {
     position: absolute;
     left: 67px;
     top: 5px;
+}
+
+@media (max-width: 767px) {
+    #titulo_superior {
+        height: 7.76%;
+    }
+
+    #titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    .label_buscar {
+        /* Buscar: */
+        width: 55px;
+        left: 4.34%;
+        top: 9%;
+    }
+
+    #idBusquedaEmp {
+        width: 28.97%;
+        left: 20.09%;
+        top: 9.29%;
+    }
+
+    .label_filtrar {
+        /* Filtrar: */
+
+        left: 50.23%;
+        top: 9.87%;
+    }
+
+    #css_propiedades_filtro {
+        width: 28.97%;
+        left: 61.92%;
+        top: 9.29%;
+    }
+
+    #btn_mostrar_filtro {
+        width: 6.7%;
+        left: 91.22%;
+        top: 9.29%;
+    }
+
+    .container_tabla {
+        top: 13.51%;
+    }
+
+    nav {
+        position: fixed;
+        width: 47px;
+        height: 161px;
+        right: 7.67%;
+        bottom: 9.99%;
+    }
+
+    .container_modal {
+        width: 100%;
+        height: 56.99%;
+        background-color: #FFFFFF;
+        border-radius: 20px;
+    }
+
+    .container_h2 {
+        width: 100%;
+        height: 7.84%;
+    }
+
+    #img_modal {
+        width: 90.52%;
+        height: 60.21%;
+        left: 4.67%;
+        top: 2.47%;
+    }
+
+    .btn_1 {
+        left: 7.24%;
+        top: 62.68%;
+    }
+
+    .btn_2 {
+        left: 7.24%;
+        top: 65, 72%;
+    }
+
+    .btn_3 {
+        left: 7.24%;
+        top: 78.76%;
+    }
+
+    .btn_4 {
+        left: 7.24%;
+        top: 90.72%;
+    }
 }

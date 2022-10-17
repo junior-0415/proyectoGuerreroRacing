@@ -1,19 +1,18 @@
-.container{
-/* Zona de trabajo proveedores */
+.container {
+    /* Zona de trabajo proveedores */
 
     position: relative;
     width: 100%;
     height: 100vh;
 
     background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin: 0%;
     padding: 0%;
 
     overflow: auto;
 }
 
-#titulo_superior{
+#titulo_superior {
     position: absolute;
     width: 100%;
     height: 10.53%;
@@ -26,7 +25,7 @@
     place-items: center;
 }
 
-#titulo_superior h1{
+#titulo_superior h1 {
     /* Proveedores registrados */
 
     position: absolute;
@@ -44,7 +43,7 @@
     color: #FFFFFF;
 }
 
-form{
+form {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -53,7 +52,7 @@ form{
 }
 
 
-#label_buscar_proveedores{
+#label_buscar_proveedores {
     /* Buscar proveedor: */
 
     position: absolute;
@@ -75,7 +74,7 @@ form{
     color: #000000;
 }
 
-#idbuscar_proveedor{
+#idbuscar_proveedor {
     box-sizing: border-box;
 
     position: absolute;
@@ -88,7 +87,7 @@ form{
     border-radius: 10px;
 }
 
-#label_filtrar{
+#label_filtrar {
     /* Filtrar: */
 
     position: absolute;
@@ -110,7 +109,7 @@ form{
     color: #000000;
 }
 
-#css_propiedades_filtro{
+#css_propiedades_filtro {
     box-sizing: border-box;
 
     position: absolute;
@@ -123,17 +122,17 @@ form{
     border-radius: 10px;
 }
 
-#btn_mostrar_filtro{
+#btn_mostrar_filtro {
     position: absolute;
     width: 12.17%;
     height: 29px;
     left: 55.01%;
     top: 13.58%;
-    
-    background: #00B9CA ;
+
+    background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
-    border: #00B9CA ;
+    border: #00B9CA;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -143,17 +142,17 @@ form{
     color: #FFFFFF;
 }
 
-#btn_mostrar_filtro:hover{
+#btn_mostrar_filtro:hover {
     background: rgba(0, 117, 128, 0.982);
 }
 
-#btn_mostrar_filtro:active{
+#btn_mostrar_filtro:active {
     background: #ffffff;
     color: rgba(0, 117, 128, 0.982);
     border: 1.5px solid rgba(0, 117, 128, 0.982);
 }
 
-.container_tabla{
+.container_tabla {
     position: absolute;
     width: 100%;
     height: auto;
@@ -161,9 +160,11 @@ form{
     top: 21.73%;
     display: grid;
     justify-items: center;
+
+    overflow: auto;
 }
 
-table{
+table {
     background-color: #FFFFFF;
     text-align: left;
     border-collapse: collapse;
@@ -176,15 +177,16 @@ table{
     line-height: 18px;
 }
 
-th, td{
+th,
+td {
     padding: 15px;
 }
 
-tbody tr{
+tbody tr {
     border-bottom: 1px solid #DCDCDC;
 }
 
-thead{
+thead {
     background-color: #ffffff;
     border-bottom: 1px solid #000000;
     color: #000000;
@@ -193,18 +195,72 @@ thead{
 /* iluminar celdas */
 
 
-tr:hover td{
+tr:hover td {
     background-color: #E5E5E5;
 }
 
-table tbody tr td:first-child{
+table tbody tr td:first-child {
     font-weight: 700;
 }
 
-#ancla{
+#ancla {
     position: fixed;
     left: 93.96%;
     right: 1.99%;
     top: 89.47%;
     bottom: 3.46%;
+}
+
+@media (max-width: 767px) {
+    #titulo_superior {
+        height: 7.76%;
+    }
+
+    #titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    #label_buscar_proveedores {
+        /* Buscar: */
+        width: 55px;
+        left: 4.34%;
+        top: 9%;
+    }
+
+    #idbuscar_proveedor {
+        width: 28.97%;
+        left: 20.09%;
+        top: 9.29%;
+    }
+
+    #label_filtrar {
+        /* Filtrar: */
+
+        left: 50.23%;
+        top: 9.87%;
+    }
+
+    #css_propiedades_filtro {
+        width: 28.97%;
+        left: 61.92%;
+        top: 9.29%;
+    }
+
+    #btn_mostrar_filtro {
+        width: 6.7%;
+        left: 91.22%;
+        top: 9.29%;
+    }
+
+    .container_tabla {
+        top: 13.51%;
+    }
+
+    #ancla {
+        left: 85.51%;
+        right: 4.77%;
+        top: 85.08%;
+        bottom: 10.04%;
+    }
 }

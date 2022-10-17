@@ -7,3 +7,20 @@
   .font-position-letter-carousel{
     bottom: 12rem !important;
   }
+
+.slider_responsive{
+  display: none;
+}
+
+.slider_normal{
+  display: block;
+}
+
+@media(max-width: 767px){
+  .slider_normal{
+    display: none;
+  }
+  .slider_responsive{
+    display: block;
+  }
+}

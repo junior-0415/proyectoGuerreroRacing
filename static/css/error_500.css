@@ -1,4 +1,4 @@
-.container{
+.container {
     /* Zona de trabajo articulos */
 
     position: relative;
@@ -13,25 +13,23 @@
     margin: 0%;
     padding: 0%;
 
-    overflow: hidden;   
+    overflow: hidden;
 }
 
-.container_img1{
+.container_img1 {
     position: absolute;
     left: 29.6%;
-    right: 29.6%;
     top: 1.53%;
-    bottom: 63.67%;
 }
 
-#p_1{
+#p_1 {
     /* Error interno del servidor (Error 500) */
 
     position: absolute;
+    width: auto;
+    height: auto;
     left: 31.35%;
-    right: 31.26%;
     top: 35.48%;
-    bottom: 59.76%;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -45,14 +43,14 @@
     color: #000000;
 }
 
-#p_2{
+#p_2 {
     /* Algo ha salido mal */
 
     position: absolute;
+    width: auto;
+    height: auto;
     left: 27.26%;
-    right: 53.46%;
     top: 45.5%;
-    bottom: 49.75%;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -66,12 +64,13 @@
     color: #000000;
 }
 
-#p_3{
+#p_3 {
     position: absolute;
+    width: auto;
+    max-width: 465px;
+    height: auto;
     left: 27.26%;
-    right: 27.26%;
     top: 55.52%;
-    bottom: 32.77%;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -85,7 +84,7 @@
     color: #000000;
 }
 
-.container_iconos{
+.container_iconos {
     position: absolute;
     width: 4.67%;
     height: 18.34%;
@@ -100,7 +99,7 @@
 /* modal */
 /* ****************************************************************************************************** */
 
-.modal{
+.modal {
     position: fixed;
     top: 0%;
     left: 0%;
@@ -113,13 +112,13 @@
     transition: opacity .6s;
 }
 
-.modal--show{
+.modal--show {
     opacity: 1;
     pointer-events: unset;
     transition: opacity .6s;
 }
 
-.container_modal{
+.container_modal {
     position: relative;
     margin: auto;
     width: 46.84%;
@@ -128,7 +127,7 @@
     border-radius: 20px;
 }
 
-#container_ico_info{
+#container_ico_info {
     position: absolute;
     left: 40.96%;
     right: 40.75%;
@@ -136,13 +135,13 @@
     bottom: 62.91%;
 }
 
-#container_ico_info img{
+#container_ico_info img {
     position: absolute;
     width: 100%;
     height: 100%;
 }
 
-#text{
+#text {
     position: absolute;
     left: 5.82%;
     right: 5.61%;
@@ -150,7 +149,7 @@
     bottom: 12.25%;
 }
 
-#text p{
+#text p {
     width: 100%;
     height: 100%;
 
@@ -169,13 +168,13 @@
     padding: 0%;
 }
 
-#btn_entendido{
+#btn_entendido {
     position: absolute;
     left: 69.85%;
     right: 4.16%;
     top: 83.77%;
     bottom: 6.81%;
-    
+
     background: linear-gradient(180deg, #00B9CA 99.99%, rgba(0, 185, 202, 0.21) 100%);
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
@@ -189,12 +188,62 @@
     color: #FFFFFF;
 }
 
-#btn_entendido:hover{
+#btn_entendido:hover {
     background: rgba(0, 117, 128, 0.982);
 }
 
-#btn_entendido:active{
+#btn_entendido:active {
     background: #ffffff;
     color: rgba(0, 117, 128, 0.982);
     border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+@media (max-width: 757px) {
+    .container {
+        background-image: url("vectores_de_fondo/vector_fondo_pantalla3.svg");
+    }
+
+    .container_img1 {
+        width: 97.9%;
+        height: 24.09%;
+        left: 0.59%;
+        top: 1.16%;
+    }
+
+    .container_img1 img {
+        width: 100%;
+        height: 100%;
+        left: 0%;
+        top: 0%;
+    }
+
+    #p_1 {
+        width: 90.19%;
+        left: 5.14%;
+        top: 32.72%;
+    }
+
+    #p_2 {
+        max-width: 90.19%;
+        left: 4.44%;
+        top: 40.12%;
+    }
+
+    #p_3 {
+        width: 90.19%;
+        left: 4.44%;
+        top: 45.52%;
+    }
+
+    .container_iconos {
+        width: 11.21%;
+        height: 12.69%;
+        right: 4.67%;
+        bottom: 9.99%;
+    }
+
+    .container_modal {
+        width: 100%;
+        height: 37.72%;
+    }
 }

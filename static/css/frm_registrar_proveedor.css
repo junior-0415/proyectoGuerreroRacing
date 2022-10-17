@@ -1,4 +1,4 @@
-.container{
+.container {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -10,7 +10,7 @@
     overflow: auto;
 }
 
-.titulo{
+.titulo {
     position: absolute;
     width: 100%;
     height: 10.53%;
@@ -23,7 +23,7 @@
     place-items: center;
 }
 
-.titulo h1{
+.titulo h1 {
     position: absolute;
     width: auto;
     height: auto;
@@ -40,7 +40,7 @@
     padding-bottom: 8px;
 }
 
-form{
+form {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -49,12 +49,12 @@ form{
     padding: 0%;
 }
 
-.frame_f{
+.frame_f {
     width: 35.64%;
-    height: 9.68%;
+    height: 66px;
 }
 
-label{
+label {
     width: auto;
     height: auto;
 
@@ -67,11 +67,11 @@ label{
     color: #000000;
 }
 
-input{
+input {
     box-sizing: border-box;
 
     width: 100%;
-    height: 29px;
+    height: 38px;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -84,78 +84,78 @@ input{
     border-radius: 5px;
 }
 
-input:focus{
+input:focus {
     border: 1px solid #C2DAFF;
     outline: 4.5px solid #C2DAFF;
 }
 
-.ubicacion_label{
+.ubicacion_label {
     position: absolute;
     left: 0%;
     top: 0%;
 }
 
-.ubicacion_input_1{
+.ubicacion_input_1 {
     position: absolute;
     left: 0%;
     bottom: 0%;
 }
 
-.f1{
+.f1 {
     position: absolute;
     left: 0.97%;
     top: 14.43%;
 }
 
-.f2{
+.f2 {
     position: absolute;
     left: 0.97%;
-    top: 26.32%;
+    top: 27.84%;
 }
 
-.f3{
+.f3 {
     position: absolute;
     left: 0.97%;
-    top: 38.2%;
+    top: 41.26%;
 }
 
-.f4{
+.f4 {
     position: absolute;
     left: 0.97%;
-    top: 50.08%;
+    top: 54.67%;
 }
 
-.f5{
+.f5 {
     position: absolute;
     left: 0.97%;
-    top: 61.97%;
+    top: 68.08%;
 }
 
-.f6{
+.f6 {
     position: absolute;
     left: 0.97%;
-    top: 73.85%;
+    top: 81.49%;
 }
 
-.f7{
+.f7 {
     position: absolute;
     left: 0.97%;
-    top: 85.74%;
+    top: 94.91%;
 }
 
-.f8{
+.f8 {
     position: absolute;
     left: 50.05%;
     top: 57.22%;
 }
 
-.f9{
+.f9 {
     position: absolute;
     left: 50.05%;
-    top: 69.1%;
+    top: 70.63%;
 }
 
-#icono_add_proveedor{
+#icono_add_proveedor {
     position: absolute;
     width: 37%;
     height: 37.69%;
@@ -163,15 +163,15 @@ input:focus{
     top: 14.09%;
 }
 
-.frame_b{
+.frame_b {
     position: absolute;
     width: 26.1%;
     height: 4.83%;
     left: 54.72%;
-    bottom: 9.43%;
+    top: 84.21%;
 }
 
-#añadir{
+#añadir {
     position: absolute;
     width: 60px;
     height: 60px;
@@ -179,13 +179,13 @@ input:focus{
     top: 19px;
 }
 
-#btn_guardar{
+#btn_guardar {
     position: absolute;
     width: 46.64%;
     height: 100%;
     left: 0%;
-    top: 0%;   
-    
+    top: 0%;
+
     background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
@@ -199,17 +199,17 @@ input:focus{
     color: #FFFFFF;
 }
 
-#btn_guardar:hover{
+#btn_guardar:hover {
     background: rgba(0, 117, 128, 0.982);
 }
 
-#btn_guardar:active{
+#btn_guardar:active {
     background: #ffffff;
     color: rgba(0, 117, 128, 0.982);
     border: 1.5px solid rgba(0, 117, 128, 0.982);
 }
 
-#btn_cancelar{
+#btn_cancelar {
     position: absolute;
     width: 46.64%;
     height: 100%;
@@ -229,58 +229,85 @@ input:focus{
     color: #FFFFFF;
 }
 
-#btn_cancelar:hover{
+#btn_cancelar:hover {
     background: #3f454b;
 }
 
-#btn_cancelar:active{
+#btn_cancelar:active {
     background: #FFFFFF;
     color: #3f454b;
 }
 
-@media (max-width: 600px){
-    .titulo{
-        width: 100% !important;
-    }
-    .titulo h1{
-        /* Registrar un nuevo cliente */
-
-        font-weight: 400;
-        font-size: 30px;
-        line-height: 35px;
+@media (max-width: 767px) {
+    .titulo {
+        height: 7.76%;
     }
 
-    .frame_f{
-        width: 90%;
-        height: 9.68%;
-        margin: 5px, 0px, 5px, 0px;
+    .titulo h1 {
+        font-size: 32px;
+        line-height: 37px;
     }
 
-    .f8{
-        position: absolute;
-        left: 0.97%;
-        top: 97.62%;
-    }
-    
-    .f9{
-        position: absolute;
-        left: 0.97%;
-        top: 109.5%;
+    .frame_f {
+        width: 85.51%;
+        height: 7.76%;
     }
 
-    #icono_add_proveedor{
-        position: absolute;
-        width: 323.25px;
-        height: 184.02px;
-        left: 15%;
-        top: 115%;
+    .f1 {
+        left: 2.34%;
+        top: 9.87%;
     }
 
-    .frame_b{
-        position: absolute;
-        width: 60%;
-        height: 4.83%;
-        left: 21%;
-        top: 145%;
+    .f2 {
+        left: 2.34%;
+        top: 19.16%;
+    }
+
+    .f3 {
+        left: 2.34%;
+        top: 28.44%;
+    }
+
+    .f4 {
+        left: 2.34%;
+        top: 37.72%;
+    }
+
+    .f5 {
+        left: 2.34%;
+        top: 47.01%;
+    }
+
+    .f6 {
+        left: 2.34%;
+        top: 56.29%;
+    }
+
+    .f7 {
+        left: 2.34%;
+        top: 65.57%;
+    }
+
+    #icono_add_proveedor {
+        width: 91.12%;
+        height: 26.09%;
+        left: 4.44%;
+        top: 73.33%;
+    }
+
+    .f8 {
+        left: 2.34%;
+        top: 100.24%;
+    }
+
+    .f9 {
+        left: 2.34%;
+        top: 109.52%;
+    }
+
+    .frame_b {
+        width: 62.62%;
+        left: 18.69%;
+        top: 119.98%;
     }
 }

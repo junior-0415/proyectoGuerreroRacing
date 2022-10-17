@@ -1,0 +1,148 @@
+{% extends 'partials/bodyApp.html' %}
+
+{% block contenido %}
+    
+
+    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <!-- fuentes de texto -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400&family=Vollkorn:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
+    <!-- propiedades CSS -->
+    <link rel="stylesheet" href="CSS/interfaz_clientes.css">
+</head>
+<body class="container_general">
+    <div class="titulo_superior">
+        <h1 class="text-center py-2">Clientes Registrados</h1>
+    </div>
+    <!-- formulario de busqueda -->
+    <form>
+        <label for="idCliBusqueda" class="label_buscar_cliente">Buscar cliente:</label>
+        <input type="search" name="CliBusqueda" id="idCliBusqueda" placeholder="Buscar">
+
+        <label for="FiltroClientes" class="label_filtrar">Filtrar:</label>
+            <input list="FiltroClientes" name="FiltroClientes" id="css_propiedades_filtro" placeholder="Elige un filtro">
+            <datalist id="FiltroClientes">
+                <option value="Solo clientes con vehiculos"> Opción 1</option>
+                <option value="Clientes sin vehiculo registrado">Opción 2</option>
+                <option value="Mostrar numero de clientes registrados">Opción 3</option>
+                <option value="Mostrar numero de hombre y mujeres registrados">Opción 4</option>
+            </datalist>
+            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+    </form>
+    <div class="container_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Identificación</th>
+                    <th>Tipo de documento</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Género</th>
+                    <th>Dirección</th>
+                    <th>Ciudad</th>
+                    <th>Teléfono</th>
+                    <th>Celular</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1023456</td>
+                    <td>C.C.</td>
+                    <td>Mary</td>
+                    <td>Rodríguez Pérez</td>
+                    <td>F</td>
+                    <td>*********</td>
+                    <td>Bogotá</td>
+                    <td>73049283</td>
+                    <td>3145792608</td>
+                    <td>Mary10@correo.com</td>
+                </tr>
+                <tr>
+                    <td>3654781</td>
+                    <td>C.C.</td>
+                    <td>José</td>
+                    <td>Trujillo Jiménez</td>
+                    <td>M</td>
+                    <td>*********</td>
+                    <td>Bogotá</td>
+                    <td>74830581</td>
+                    <td>3145792608</td>
+                    <td>Jose93@correo.com</td>
+                </tr>
+                <tr>
+                    <td>4721682</td>
+                    <td>C.C.</td>
+                    <td>Pedro</td>
+                    <td>Sánchez Moscada</td>
+                    <td>M</td>
+                    <td>*********</td>
+                    <td>Bogotá</td>
+                    <td>74939485</td>
+                    <td>3175064829</td>
+                    <td>pedro83@correo.com</td>
+                </tr>
+                <tr>
+                    <td>9675214</td>
+                    <td>C.C.</td>
+                    <td>Camila</td>
+                    <td>Tovar Mejía</td>
+                    <td>F</td>
+                    <td>*********</td>
+                    <td>Bogotá</td>
+                    <td>74038495</td>
+                    <td>3145792608</td>
+                    <td>Camila48@correo.com</td>
+                </tr>
+                <tr>
+                    <td>8632459</td>
+                    <td>C.C.</td>
+                    <td>Angie</td>
+                    <td>Guzmán Puerto</td>
+                    <td>F</td>
+                    <td>*********</td>
+                    <td>Bogotá</td>
+                    <td>74957303</td>
+                    <td>3175064829</td>
+                    <td>angie03@correo.com</td>
+                </tr>
+                <tr>
+                    <td>2197548</td>
+                    <td>C.C.</td>
+                    <td>Lorena</td>
+                    <td>Ramírez Prado</td>
+                    <td>F</td>
+                    <td>*********</td>
+                    <td>Bogotá</td>
+                    <td>78304859</td>
+                    <td>3145792608</td>
+                    <td>lorena29@correo.com</td>
+                </tr>
+                <tr>
+                    <td>2197548</td>
+                    <td>C.C.</td>
+                    <td>Felipe</td>
+                    <td>Gámez Rueda</td>
+                    <td>M</td>
+                    <td>*********</td>
+                    <td>Bogotá</td>
+                    <td>74937593</td>
+                    <td>3145792608</td>
+                    <td>felipe98@correo.com</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="frm_registrar_cliente.html" id="ancla"> 
+        <img src="img/anadir.svg" alt="Boton añadir" id="btn_anadir" title="Añadir nuevo cliente">
+    </a>
+</body>
+</html>
+
+{% endblock contenido %}

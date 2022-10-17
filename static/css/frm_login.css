@@ -29,7 +29,7 @@ h2 {
 /* ************************************************************************************************ */
 
 
-.modal1 input{
+.modal1 input {
     box-sizing: border-box;
 
     width: 100%;
@@ -46,12 +46,12 @@ h2 {
     border-radius: 5px;
 }
 
-input:focus{
+input:focus {
     border: 1px solid #C2DAFF;
     outline: 4.5px solid #C2DAFF;
 }
 
-.modal1{
+.modal1 {
     position: fixed;
     top: 0%;
     left: 0%;
@@ -62,16 +62,16 @@ input:focus{
     opacity: 0;
     pointer-events: none;
     transition: opacity .6s;
-    
+
 }
 
-.modal--show1{
+.modal--show1 {
     opacity: 1;
     pointer-events: unset;
     transition: opacity .6s;
 }
 
-.container_modal1{
+.container_modal1 {
     position: relative;
     margin: auto;
     width: 32.67%;
@@ -80,7 +80,7 @@ input:focus{
     border-radius: 5px;
 }
 
-.container_modal1 h2{
+.container_modal1 h2 {
     /* Recuperar tu cuenta */
 
     position: absolute;
@@ -101,7 +101,7 @@ input:focus{
     color: #000000;
 }
 
-.container_modal1 h5{
+.container_modal1 h5 {
     /* Empresa: Guerrero Racing */
 
     position: absolute;
@@ -124,7 +124,7 @@ input:focus{
     color: #000000;
 }
 
-#label1{
+#label1 {
     position: absolute;
     width: 82.81%;
     height: auto;
@@ -143,7 +143,7 @@ input:focus{
     color: #000000;
 }
 
-#idnombre_usuario{
+#idnombre_usuario {
     box-sizing: border-box;
 
     position: absolute;
@@ -162,7 +162,7 @@ input:focus{
     line-height: 19px;
 }
 
-#label2{
+#label2 {
     position: absolute;
     width: 82.81%;
     height: auto;
@@ -181,7 +181,7 @@ input:focus{
     color: #000000;
 }
 
-#idcorreo_usuario{
+#idcorreo_usuario {
     box-sizing: border-box;
 
     position: absolute;
@@ -194,13 +194,13 @@ input:focus{
     border-radius: 5px;
 }
 
-#btn_siguiente1{
+#btn_siguiente1 {
     position: absolute;
     width: 27.9%;
     height: 5.69%;
     right: 4.46%;
     bottom: 4%;
-    
+
     background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
@@ -214,17 +214,17 @@ input:focus{
     color: #FFFFFF;
 }
 
-#btn_siguiente:hover{
+#btn_siguiente:hover {
     background: rgba(0, 117, 128, 0.982);
 }
 
-#btn_siguiente:active{
+#btn_siguiente:active {
     background: #ffffff;
     color: rgba(0, 117, 128, 0.982);
     border: 1.5px solid rgba(0, 117, 128, 0.982);
 }
 
-#atras1{
+#atras1 {
     position: absolute;
     width: 8.04%;
     height: 7.2%;
@@ -234,7 +234,7 @@ input:focus{
 
 /* ****************************************************************************************** */
 
-.modal2 input{
+.modal2 input {
     box-sizing: border-box;
 
     width: 100%;
@@ -251,12 +251,12 @@ input:focus{
     border-radius: 5px;
 }
 
-input:focus{
+input:focus {
     border: 1px solid #C2DAFF;
     outline: 4.5px solid #C2DAFF;
 }
 
-.modal2{
+.modal2 {
     position: fixed;
     top: 0%;
     left: 0%;
@@ -269,13 +269,13 @@ input:focus{
     transition: opacity .6s;
 }
 
-.modal--show2{
+.modal--show2 {
     opacity: 1 !important;
     pointer-events: unset !important;
     transition: opacity .6s;
 }
 
-.container_modal2{
+.container_modal2 {
     position: relative;
     margin: auto;
     width: 32.67%;
@@ -284,7 +284,7 @@ input:focus{
     border-radius: 5px;
 }
 
-.container_modal2 h2{
+.container_modal2 h2 {
     /* Recuperar tu cuenta */
 
     position: absolute;
@@ -305,7 +305,7 @@ input:focus{
     color: #000000;
 }
 
-.container_modal2 h5{
+.container_modal2 h5 {
     /* Empresa: Guerrero Racing */
 
     position: absolute;
@@ -328,7 +328,7 @@ input:focus{
     color: #000000;
 }
 
-#label1{
+#label1 {
     position: absolute;
     width: auto;
     max-width: 371px;
@@ -348,7 +348,7 @@ input:focus{
     color: #000000;
 }
 
-#idnombre_usuario{
+#idnombre_usuario {
     box-sizing: border-box;
 
     position: absolute;
@@ -367,7 +367,7 @@ input:focus{
     line-height: 19px;
 }
 
-#label2{
+#label2 {
     position: absolute;
     width: auto;
     max-width: 371px;
@@ -387,7 +387,7 @@ input:focus{
     color: #000000;
 }
 
-#idcorreo_usuario{
+#idcorreo_usuario {
     box-sizing: border-box;
 
     position: absolute;
@@ -400,7 +400,7 @@ input:focus{
     border-radius: 5px;
 }
 
-#h5-2_m2{
+#h5-2_m2 {
     position: absolute;
     width: auto;
     max-width: 371px;
@@ -422,7 +422,7 @@ input:focus{
     color: #000000;
 }
 
-#label1_m2{
+#label1_m2 {
     position: absolute;
     width: 82.81%;
     height: auto;
@@ -441,7 +441,7 @@ input:focus{
     color: #000000;
 }
 
-#idcodigo_recuperacion{
+#idcodigo_recuperacion {
     box-sizing: border-box;
 
     position: absolute;
@@ -454,7 +454,7 @@ input:focus{
     border-radius: 5px;
 }
 
-#h5_2_1_m2{
+#h5_2_1_m2 {
     position: absolute;
     width: auto;
     height: auto;
@@ -474,7 +474,7 @@ input:focus{
     color: #000000;
 }
 
-#reenviar_codigo{
+#reenviar_codigo {
     position: absolute;
     width: auto;
     height: auto;
@@ -495,13 +495,13 @@ input:focus{
     color: #2400FF;
 }
 
-#btn_siguiente2{
+#btn_siguiente2 {
     position: absolute;
     width: 27.9%;
     height: 5.69%;
     right: 4.46%;
     bottom: 4%;
-    
+
     background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
@@ -515,17 +515,17 @@ input:focus{
     color: #FFFFFF;
 }
 
-#btn_siguiente2:hover{
+#btn_siguiente2:hover {
     background: rgba(0, 117, 128, 0.982);
 }
 
-#btn_siguiente2:active{
+#btn_siguiente2:active {
     background: #ffffff;
     color: rgba(0, 117, 128, 0.982);
     border: 1.5px solid rgba(0, 117, 128, 0.982);
 }
 
-#atras2{
+#atras2 {
     position: absolute;
     width: 8.04%;
     height: 7.2%;
@@ -535,7 +535,7 @@ input:focus{
 
 /* ******************************************************************************************* */
 
-.modal3 input{
+.modal3 input {
     box-sizing: border-box;
 
     width: 100%;
@@ -552,12 +552,12 @@ input:focus{
     border-radius: 5px;
 }
 
-input:focus{
+input:focus {
     border: 1px solid #C2DAFF;
     outline: 4.5px solid #C2DAFF;
 }
 
-.modal3{
+.modal3 {
     position: fixed;
     top: 0%;
     left: 0%;
@@ -570,13 +570,13 @@ input:focus{
     transition: opacity .6s;
 }
 
-.modal--show3{
+.modal--show3 {
     opacity: 1 !important;
     pointer-events: unset !important;
     transition: opacity .6s;
 }
 
-.container_modal3{
+.container_modal3 {
     position: relative;
     margin: auto;
     width: 32.67%;
@@ -585,7 +585,7 @@ input:focus{
     border-radius: 5px;
 }
 
-.container_modal3 h2{
+.container_modal3 h2 {
     /* Restablecer la contraseña */
 
     position: absolute;
@@ -606,7 +606,7 @@ input:focus{
     color: #000000;
 }
 
-.container_modal3 h5{
+.container_modal3 h5 {
     /* Empresa: Guerrero Racing */
 
     position: absolute;
@@ -629,7 +629,7 @@ input:focus{
     color: #000000;
 }
 
-#label1_m3{
+#label1_m3 {
     position: absolute;
     width: auto;
     max-width: 371px;
@@ -649,7 +649,7 @@ input:focus{
     color: #000000;
 }
 
-#idcontrasena_r1{
+#idcontrasena_r1 {
     box-sizing: border-box;
 
     position: absolute;
@@ -662,7 +662,7 @@ input:focus{
     border-radius: 5px;
 }
 
-#label2_m3{
+#label2_m3 {
     /* Repite tu contraseña */
 
     position: absolute;
@@ -685,7 +685,7 @@ input:focus{
     color: #000000;
 }
 
-#idcontrasena_r2{
+#idcontrasena_r2 {
     box-sizing: border-box;
 
     position: absolute;
@@ -698,13 +698,13 @@ input:focus{
     border-radius: 5px;
 }
 
-#btn_siguiente3{
+#btn_siguiente3 {
     position: absolute;
     width: 27.9%;
     height: 5.69%;
     right: 4.46%;
     bottom: 4%;
-    
+
     background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
@@ -718,17 +718,17 @@ input:focus{
     color: #FFFFFF;
 }
 
-#btn_siguiente3:hover{
+#btn_siguiente3:hover {
     background: rgba(0, 117, 128, 0.982);
 }
 
-#btn_siguiente3:active{
+#btn_siguiente3:active {
     background: #ffffff;
     color: rgba(0, 117, 128, 0.982);
     border: 1.5px solid rgba(0, 117, 128, 0.982);
 }
 
-#atras3{
+#atras3 {
     position: absolute;
     width: 8.04%;
     height: 7.2%;
@@ -739,7 +739,7 @@ input:focus{
 
 /* ********************************************************************************************* */
 
-.modal4{
+.modal4 {
     position: fixed;
     top: 0%;
     left: 0%;
@@ -752,13 +752,13 @@ input:focus{
     transition: opacity .6s;
 }
 
-.modal--show4{
+.modal--show4 {
     opacity: 1 !important;
     pointer-events: unset !important;
     transition: opacity .6s;
 }
 
-.container_modal4{
+.container_modal4 {
     position: relative;
     margin: auto;
     width: 35.41%;
@@ -767,7 +767,7 @@ input:focus{
     border-radius: 5px;
 }
 
-#operacion_existosa{
+#operacion_existosa {
     position: absolute;
     width: 22.38%;
     height: 36.19%;
@@ -775,7 +775,7 @@ input:focus{
     top: 7.46%;
 }
 
-.container_modal4 h2{
+.container_modal4 h2 {
     /* ¡Operación exitosa! */
 
     position: absolute;
@@ -796,7 +796,7 @@ input:focus{
     color: #000000;
 }
 
-.container_modal4 p{
+.container_modal4 p {
     position: absolute;
     width: 362px;
     height: auto;
@@ -815,13 +815,13 @@ input:focus{
     color: #000000;
 }
 
-#btn_aceptar_m4{
+#btn_aceptar_m4 {
     position: absolute;
     width: 26.15%;
     height: 10.61%;
     right: 4.46%;
     bottom: 4%;
-    
+
     background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
@@ -835,12 +835,34 @@ input:focus{
     color: #FFFFFF;
 }
 
-#btn_aceptar_m4:hover{
+#btn_aceptar_m4:hover {
     background: rgba(0, 117, 128, 0.982);
 }
 
-#btn_aceptar_m4:active{
+#btn_aceptar_m4:active {
     background: #ffffff;
     color: rgba(0, 117, 128, 0.982);
     border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+@media (max-width: 767px) {
+    .container_modal1 {
+        width: 100%;
+        height: 58.75%;
+    }
+
+    .container_modal2 {
+        width: 100%;
+        height: 58.75%;
+    }
+
+    .container_modal3 {
+        width: 100%;
+        height: 58.75%;
+    }
+
+    .container_modal4 {
+        width: 100%;
+        height: 31.49%;
+    }
 }

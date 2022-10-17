@@ -6,7 +6,6 @@
     height: 100vh;
 
     background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin: 0%;
     padding: 0%;
 
@@ -44,7 +43,7 @@
     color: #FFFFFF;
 }
 
-section{
+section {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -52,7 +51,7 @@ section{
     padding: 0%;
 }
 
-h2{
+h2 {
     /* Notificación */
 
     position: absolute;
@@ -78,17 +77,17 @@ h2{
     padding: 0%;
 }
 
-.menu{
+.menu {
     width: 30.07%;
     height: 16.98%;
 }
 
-.menu:hover{
+.menu:hover {
     background-color: #E5E5E5;
     border: 2px solid #C2DAFF;
 }
 
-.menu1{
+.menu1 {
     position: absolute;
     left: 30.19%;
     top: 20.2%;
@@ -96,7 +95,7 @@ h2{
     bottom: 62.82%;
 }
 
-.menu2{
+.menu2 {
     position: absolute;
     left: 30.19%;
     top: 39.73%;
@@ -104,7 +103,7 @@ h2{
     bottom: 43.29%;
 }
 
-.menu3{
+.menu3 {
     position: absolute;
     left: 30.19%;
     top: 59.25%;
@@ -112,7 +111,7 @@ h2{
     bottom: 23.77%;
 }
 
-.menu4{
+.menu4 {
     position: absolute;
     left: 30.19%;
     top: 78.78%;
@@ -120,7 +119,7 @@ h2{
     bottom: 4.24%;
 }
 
-.menu1 img{
+.menu1 img {
     /* Chat_Flat 1 */
 
     position: absolute;
@@ -130,7 +129,7 @@ h2{
     top: 0%;
 }
 
-.menu1 a{
+.menu1 a {
     /* Notificacion proximo mantenimiento */
 
     position: absolute;
@@ -151,7 +150,7 @@ h2{
     color: #000000;
 }
 
-.menu2 img{
+.menu2 img {
     /* Calendar_Outline 1 */
 
     position: absolute;
@@ -161,7 +160,7 @@ h2{
     top: -15%;
 }
 
-.menu2 a{
+.menu2 a {
     /* Notificacion antes del mantenimiento */
 
     position: absolute;
@@ -182,7 +181,7 @@ h2{
     color: #000000;
 }
 
-.menu3 img{
+.menu3 img {
     position: absolute;
     width: 31.09%;
     height: 96%;
@@ -190,7 +189,7 @@ h2{
     top: -8%;
 }
 
-.menu3 a{
+.menu3 a {
     /* Notificacion vehículo revisado */
 
     position: absolute;
@@ -211,7 +210,7 @@ h2{
     color: #000000;
 }
 
-.menu4 img{
+.menu4 img {
     /* Hand_Flat 1 */
 
     position: absolute;
@@ -221,7 +220,7 @@ h2{
     top: 0%;
 }
 
-.menu4 a{
+.menu4 a {
     /* Notificacion entrega del vehiculo */
 
     position: absolute;
@@ -242,10 +241,60 @@ h2{
     color: #000000;
 }
 
-#icono_lapiz{
+#icono_lapiz {
     position: absolute;
     left: 69.13%;
     top: 11.04%;
     right: 25.12%;
     bottom: 78.95%;
+}
+
+@media (max-width: 767px) {
+    #titulo_superior {
+        height: 8.23%;
+    }
+
+    #titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
+        padding: 0px 5px 0px 5px;
+        text-align: center;
+    }
+
+    h2 {
+        left: 29.44%;
+        top: 9.4%;
+    }
+
+    .menu {
+        width: 72.16%;
+        height: 11.75%;
+    }
+
+    .menu1 {
+        left: 13.79%;
+        top: 16.69%;
+    }
+
+    .menu2 {
+        left: 13.79%;
+        top: 30.2%;
+    }
+
+    .menu3 {
+        left: 13.79%;
+        top: 43.71%;
+    }
+
+    .menu4 {
+        left: 13.79%;
+        top: 57.23%;
+    }
+
+    #icono_lapiz {
+        width: 59px !important;
+        height: 59px !important;
+        right: 1.17% !important;
+        top: 8.81%;
+    }
 }

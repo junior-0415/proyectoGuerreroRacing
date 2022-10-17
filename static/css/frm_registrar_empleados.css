@@ -1,9 +1,9 @@
-.container{
+.container {
     /* zona de tabajo */
 
     position: relative;
     width: 100%;
-    height: 726px;
+    height: 100vh;
 
     background: #FFFFFF;
     padding: 0%;
@@ -12,7 +12,7 @@
     overflow: auto;
 }
 
-.titulo_superior{
+.titulo_superior {
     position: absolute;
     width: 100%;
     height: 62px;
@@ -25,7 +25,7 @@
     place-items: center;
 }
 
-.titulo_superior h1{
+.titulo_superior h1 {
     position: absolute;
     width: auto;
     height: auto;
@@ -42,7 +42,7 @@
     padding-bottom: 8px;
 }
 
-section{
+section {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -51,7 +51,7 @@ section{
     padding: 0%;
 }
 
-form{
+form {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -60,12 +60,12 @@ form{
     padding: 0%;
 }
 
-.frame_f{
+.frame_f {
     width: 35.64%;
-    height: 7.85%;
+    height: 66px;
 }
 
-label{
+label {
     width: auto;
     height: auto;
 
@@ -78,11 +78,11 @@ label{
     color: #000000;
 }
 
-input{
+input {
     box-sizing: border-box;
 
     width: 100%;
-    height: 29px;
+    height: 38px;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -95,111 +95,123 @@ input{
     border-radius: 5px;
 }
 
-input:focus{
+input:focus {
     border: 1px solid #C2DAFF;
     outline: 4.5px solid #C2DAFF;
 }
 
-.ubicacion_label{
+.ubicacion_label {
     position: absolute;
     left: 0%;
     top: 0%;
 }
 
-.ubicacion_input_1{
+.ubicacion_input_1 {
     position: absolute;
     left: 0%;
     bottom: 0%;
 }
 
-.f1{
+.f1 {
     position: absolute;
     left: 0.97%;
-    top: 11.71%;
+    top: 14.43%;
 }
 
-.f2{
+.f2 {
     position: absolute;
     left: 0.97%;
-    top: 21.35%;
+    top: 27.84%;
 }
 
-.f3{
+.f3 {
     position: absolute;
     left: 0.97%;
-    top: 30.99%;
+    top: 41.26%;
 }
 
-.f4{
+.f4 {
+    position: absolute;
+    left: 0.97%;
+    top: 54.67%;
+}
+
+.f5 {
     position: absolute;
     width: 5.36% !important;
     left: 0.97%;
-    top: 40.63%;
+    top: 68.08%;
 }
 
-.f5{
+.f6 {
     position: absolute;
     left: 0.97%;
+    top: 81.49%;
+}
+
+.f7 {
+    position: absolute;
+    left: 0.97%;
+    top: 94.91%;
+}
+
+.f8 {
+    position: absolute;
+    left: 0.97%;
+    top: 108.32%;
+}
+
+.f9 {
+    position: absolute;
+    left: 0.97%;
+    top: 121.73%;
+}
+
+.f10 {
+    position: absolute;
+    left: 0.97%;
+    top: 135.14%;
+}
+
+.f11 {
+    position: absolute;
+    left: 50.05%;
+    top: 54.84%;
+}
+
+.f12 {
+    position: absolute;
+    left: 50.05%;
+    top: 68.25%;
+}
+
+.f13 {
+    position: absolute;
+    left: 50.05%;
+    top: 82.85%;
+}
+
+.f14 {
+    position: absolute;
+    left: 50.05%;
+    top: 97.45%;
+}
+
+.f15 {
+    position: absolute;
+    height: 13.07% !important;
+    left: 50.05%;
+    top: 112.05%;
+}
+
+.f16 {
+    position: absolute;
+    left: 50.05%;
     top: 50.28%;
 }
 
-.f6{
-    position: absolute;
-    left: 0.97%;
-    top: 59.92%;
-}
-
-.f7{
-    position: absolute;
-    left: 0.97%;
-    top: 69.56%;
-}
-
-.f8{
-    position: absolute;
-    left: 0.97%;
-    top: 79.2%;
-}
-
-.f9{
-    position: absolute;
-    left: 0.97%;
-    top: 88.84%;
-}
-
-.f10{
-    position: absolute;
-    left: 50.05%;
-    top: 11.71%;
-}
-
-.f11{
-    position: absolute;
-    left: 50.05%;
-    top: 21.35%;
-}
-
-.f12{
-    position: absolute;
-    left: 50.05%;
-    top: 30.99%;
-}
-
-.f13{
-    position: absolute;
-    left: 50.05%;
-    top: 40.63%;
-}
-
-.f14{
-    position: absolute;
-    height: 9.64% !important;
-    left: 50.05%;
-    top: 50.28%;
-}
-
-fieldset{
-    height: 100%;
+fieldset {
+    height: 65px;
     width: auto;
     left: 0%;
     top: 0%;
@@ -211,29 +223,29 @@ fieldset{
     justify-content: space-evenly;
 }
 
-.frame_b{
+.frame_b {
     position: absolute;
     width: 26.1%;
-    height: 3.92%;
+    height: 4.92%;
     left: 54.72%;
-    bottom: 4.07%;
+    top: 127.33%;
 }
 
-#img1{
+#img1 {
     position: absolute;
     width: 39.53%;
-    height: 42.15%;
+    height: 51.95%;
     left: 48.39%;
-    bottom: 2.89%;
+    top: 8.32%;
 }
 
-#btn_guardar{
+#btn_guardar {
     position: absolute;
     width: 46.64%;
     height: 100%;
     left: 0%;
-    top: 0%;    
-    
+    top: 0%;
+
     background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
@@ -249,23 +261,23 @@ fieldset{
     margin-bottom: 50px;
 }
 
-#btn_guardar:hover{
+#btn_guardar:hover {
     background: rgba(0, 117, 128, 0.982);
 }
 
-#btn_guardar:active{
+#btn_guardar:active {
     background: #ffffff;
     color: rgba(0, 117, 128, 0.982);
     border: 1.5px solid rgba(0, 117, 128, 0.982);
 }
 
-#btn_cancelar{
+#btn_cancelar {
     position: absolute;
     width: 46.64%;
     height: 100%;
     right: 0%;
     top: 0%;
-    
+
     background: #6C757D;
     box-shadow: 0px 2.87356px 2.87356px rgba(0, 0, 0, 0.6);
     border-radius: 7.18391px;
@@ -279,92 +291,119 @@ fieldset{
     color: #FFFFFF;
 }
 
-#btn_cancelar:hover{
+#btn_cancelar:hover {
     background: #3f454b;
 }
 
-#btn_cancelar:active{
+#btn_cancelar:active {
     background: #FFFFFF;
     color: #3f454b;
 }
 
-@media (max-width: 600px){
-    .titulo{
-        width: 100% !important;
-    }
-    .titulo h1{
-        /* Registrar un nuevo cliente */
-
-        font-weight: 400;
-        font-size: 30px;
-        line-height: 35px;
+@media (max-width: 767px) {
+    .titulo_superior {
+        height: 7.76%;
     }
 
-    .frame_f{
-        width: 90%;
-        height: 9.68%;
+    .titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
     }
 
-    #img1{
-        position: absolute;
-        width: 336px;
-        height: 253.24px;
-        left: 9.55%;
-        top: 115.38%;
+    .frame_f {
+        width: 85.51%;
+        height: 7.76%;
     }
 
-    .frame_b{
-        position: absolute;
-        width: 60%;
-        height: 4.83%;
-        left: 21%;
-        bottom: -65%;
+    .f1 {
+        left: 2.34%;
+        top: 9.87%;
     }
 
-    .f10{
-        position: absolute;
-        left: 0.97%;
-        top: 100.72%;
-    }
-    
-    .f11{
-        position: absolute;
-        left: 0.97%;
-        top: 112.6%;
-    }
-    
-    .f12{
-        position: absolute;
-        left: 0.97%;
-        top: 124.48%;
-    }
-    
-    .f13{
-        position: absolute;
-        left: 0.97%;
-        top: 136.36%;
-    }
-    
-    .f14{
-        position: absolute;
-        height: 9.64% !important;
-        left: 0.97%;
-        top: 148.24%;
+    .f2 {
+        left: 2.34%;
+        top: 19.16%;
     }
 
-    #img1{
-        position: absolute;
-        width: 336px;
-        height: 253.24px;
-        left: 9.55%;
-        top: 155.38%;
+    .f3 {
+        left: 2.34%;
+        top: 28.44%;
     }
 
-    .frame_b{
-        position: absolute;
-        width: 60%;
-        height: 4.83%;
-        left: 21%;
-        bottom: -90%;
+    .f4 {
+        left: 2.34%;
+        top: 36.72%;
+    }
+
+    .f5 {
+        left: 2.34%;
+        top: 47.01%;
+    }
+
+    .f6 {
+        left: 2.34%;
+        top: 56.29%;
+    }
+
+    .f7 {
+        left: 2.34%;
+        top: 65.57%;
+    }
+
+    .f8 {
+        left: 2.34%;
+        top: 74.86%;
+    }
+
+    .f9 {
+        left: 2.34%;
+        top: 84.14%;
+    }
+
+    .f10 {
+        left: 2.34%;
+        top: 93.42%;
+    }
+
+    #img1 {
+        width: 94.86%;
+        height: 35.96%;
+        left: 2.34%;
+        top: 98.24%;
+    }
+
+    .f11 {
+        left: 2.34%;
+        top: 130.67%;
+    }
+
+    .f12 {
+        left: 2.34%;
+        top: 139.96%;
+    }
+
+    .f13 {
+        left: 2.34%;
+        top: 149.24%;
+    }
+
+    .f14 {
+        left: 2.34%;
+        top: 158.52%;
+    }
+
+    .f15 {
+        left: 2.34%;
+        top: 167.8%;
+    }
+
+    .f16 {
+        left: 14.95% !important;
+        top: 177.44%;
+    }
+
+    .frame_b {
+        width: 62.62%;
+        left: 3.41%;
     }
 }

@@ -1,4 +1,4 @@
-.container{
+.container {
     /* zona de tabajo registrar cliente */
 
     position: relative;
@@ -12,7 +12,7 @@
     overflow: auto;
 }
 
-#titulo_superior{
+#titulo_superior {
     position: absolute;
     width: 100%;
     height: 10.53%;
@@ -25,7 +25,7 @@
     place-items: center;
 }
 
-#titulo_superior h1{
+#titulo_superior h1 {
 
     position: absolute;
     width: auto;
@@ -43,7 +43,7 @@
     padding-bottom: 8px;
 }
 
-section{
+section {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -52,7 +52,7 @@ section{
     padding: 0%;
 }
 
-form{
+form {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -61,12 +61,12 @@ form{
     padding: 0%;
 }
 
-.frame_f{
+.frame_f {
     width: 35.64%;
-    height: 9.68%;
+    height: 11.21%
 }
 
-label{
+label {
     width: auto;
     height: auto;
 
@@ -79,11 +79,11 @@ label{
     color: #000000;
 }
 
-input{
+input {
     box-sizing: border-box;
 
     width: 100%;
-    height: 29px;
+    height: 38px;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -96,112 +96,112 @@ input{
     border-radius: 5px;
 }
 
-input:focus{
+input:focus {
     border: 1px solid #C2DAFF;
     outline: 4.5px solid #C2DAFF;
 }
 
-.ubicacion_label{
+.ubicacion_label {
     position: absolute;
     left: 0%;
     top: 0%;
 }
 
-.ubicacion_input_1{
+.ubicacion_input_1 {
     position: absolute;
     left: 0%;
     bottom: 0%;
 }
 
-.f1{
+.f1 {
     position: absolute;
     left: 0.97%;
     top: 14.43%;
 }
 
-.f2{
+.f2 {
     position: absolute;
     left: 0.97%;
-    top: 26.32%;
+    top: 27.84%;
 }
 
-.f3{
+.f3 {
     position: absolute;
     left: 0.97%;
-    top: 38.2%;
+    top: 41.26%;
 }
 
-.f4{
+.f4 {
     position: absolute;
-    height: 21.56% !important;
+    height: 24.62% !important;
     left: 0.97%;
-    top: 50.08%;
+    top: 54.67%;
 }
 
-#idcanal_envio{
+#idcanal_envio {
     position: absolute;
     left: 0%;
-    top: 22.05%;
+    top: 19.31%;
 }
 
-#label_script{
+#label_script {
     position: absolute;
     left: 0%;
-    top: 55.12%;
+    top: 54.48%;
 }
 
-.f5{
+.f5 {
     position: absolute;
     left: 0.97%;
-    top: 73.85%;
+    top: 81.49%;
 }
 
-.f6{
+.f6 {
     position: absolute;
     left: 0.97%;
-    top: 85.74%;
+    top: 94.91%;
 }
 
-.f7{
+.f7 {
     position: absolute;
     height: 33.45% !important;
     left: 50.05%;
     top: 14.43%;
 }
 
-#idredaccion{
+#idredaccion {
     height: 85.79% !important;
 }
 
-.f8{
+.f8 {
     position: absolute;
     left: 50.05%;
     top: 50.08%;
 }
 
-img{
+img {
     position: absolute;
-    width: 21.42%;
-    height: 37.35%;
-    left: 57.16%;
-    bottom: 5.6%;
+    width: 30.38%;
+    height: 31.61%;
+    left: 53.85%;
+    top: 61.29%;
 }
 
-.frame_b{
+.frame_b {
     position: absolute;
     width: 26.1%;
     height: 4.83%;
     left: 54.82%;
-    top: 93.21%;
+    top: 95.25%;
 }
 
-#btn_enviar{
+#btn_enviar {
     position: absolute;
     width: 46.64%;
     height: 100%;
     left: 0%;
     bottom: 0%;
-    
+
     background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
@@ -215,17 +215,17 @@ img{
     color: #FFFFFF;
 }
 
-#btn_enviar:hover{
+#btn_enviar:hover {
     background: rgba(0, 117, 128, 0.982);
 }
 
-#btn_enviar:active{
+#btn_enviar:active {
     background: #ffffff;
     color: rgba(0, 117, 128, 0.982);
     border: 1.5px solid rgba(0, 117, 128, 0.982);
 }
 
-#btn_cancelar{
+#btn_cancelar {
     position: absolute;
     width: 46.64%;
     height: 100%;
@@ -245,58 +245,83 @@ img{
     color: #FFFFFF;
 }
 
-#btn_cancelar:hover{
+#btn_cancelar:hover {
     background: #3f454b;
 }
 
-#btn_cancelar:active{
+#btn_cancelar:active {
     background: #FFFFFF;
     color: #3f454b;
 }
 
-@media (max-width: 600px){
-    .titulo{
-        width: 100% !important;
+@media (max-width: 767px) {
+    #titulo_superior {
+        height: 8.23%;
     }
-    #titulo_superior h1{
-        /* Registrar un nuevo cliente */
 
-        font-weight: 400;
-        font-size: 30px;
-        line-height: 35px;
+    #titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
         text-align: center;
     }
 
-    .frame_f{
-        width: 90%;
-        height: 9.68%;
-        margin: 5px, 0px, 5px, 0px;
+    .frame_f {
+        width: 85.51%;
+        height: 7.76%;
     }
 
-    .f7{
-        position: absolute;
-        left: 0.97%;
-        top: 97.62%;
-    }
-    
-    .f8{
-        position: absolute;
-        left: 0.97%;
-        top: 132%;
+    .f1 {
+        left: 2.34%;
+        top: 10.34%;
     }
 
-    img{
-        width: 172px;
-        height: 172px;
-        left: 33%;
-        top: 142%;
+    .f2 {
+        left: 2.34%;
+        top: 19.62%;
     }
 
-    .frame_b{
-        position: absolute;
-        width: 60%;
-        height: 4.83%;
-        left: 21%;
-        top: 168%;
+    .f3 {
+        left: 2.34%;
+        top: 28.91%;
+    }
+
+    .f4 {
+        height: 17.04% !important;
+        left: 2.34%;
+        top: 38.19%;
+    }
+
+    .f5 {
+        left: 2.34%;
+        top: 56.76%;
+    }
+
+    .f6 {
+        left: 2.34%;
+        top: 66.04%;
+    }
+
+    .f7 {
+        height: 24.21% !important;
+        left: 2.34%;
+        top: 75.32%;
+    }
+
+    .f8 {
+        left: 2.34%;
+        top: 101.06%;
+    }
+
+    img {
+        width: 51.4%;
+        height: 25.85%;
+        left: 24.3%;
+        top: 109.52%;
+    }
+
+    .frame_b {
+        width: 62.62%;
+        left: 14.95%;
+        top: 137.6%;
     }
 }

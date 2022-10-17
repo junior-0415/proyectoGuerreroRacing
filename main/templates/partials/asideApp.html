@@ -1,0 +1,269 @@
+{% load static %}
+
+<nav class="col-md-3 col-sm-12 p-0 container_nav modal- ">
+    <ul class="list container_modal">
+        <li class="list__item">
+            <div class="text-end">
+                <img src="{% static 'img/logo racing.png' %}" class="m-3" width="90" alt="">
+            </div>
+        </li>
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'aset/servicio.svg' %}" alt="" class="list__img">
+                <a href="#" class="nav__link">Ordenes-Servicios</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="frm_cotizar_orden_servicio.html" target="iframe1"
+                        class="nav__link nav__link--inside">Registrar orden de servicio</a>
+                </li>
+                <li class="list__inside">
+                    <a href="frm_ordenes_de_servicio.html" target="iframe1"
+                        class="nav__link nav__link--inside">Ver
+                        ordenes de
+                        servicio</a>
+                </li>
+
+
+            </ul>
+
+        </li>
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'aset/vehiculos.svg' %}" alt="" class="list__img">
+                <a href="#" class="nav__link">Vehículos</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="frm_registrar_nuevo_vehiculo.html" target="iframe1"
+                        class="nav__link nav__link--inside">Registrar vehículos</a>
+                </li>
+                <li class="list__inside">
+                    <a href="frm_vehiculos_registrados.html" target="iframe1"
+                        class="nav__link nav__link--inside">Ver vehículos</a>
+                </li>
+                <li class="list__inside">
+                    <a href="frm_estos_vehiculos_estan_dentro_del_taller.html" target="iframe1"
+                        class="nav__link nav__link--inside">Gestionar vehículos en el taller</a>
+                </li>
+                <li class="list__inside">
+                    <a href="interfaz_marcas.html" target="iframe1" class="nav__link nav__link--inside">Marcas
+                        presentes en vehículos</a>
+                </li>
+
+            </ul>
+
+        </li>
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'aset/clientes.svg' %}" alt="" class="list__img">
+                <a href="#" class="nav__link">Clientes</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+
+
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="interfaz_clientes.html" target="iframe1" class="nav__link nav__link--inside">Ver
+                        clientes</a>
+                </li>
+                <li class="list__inside">
+                    <a href="frm_registrar_cliente.html" target="iframe1"
+                        class="nav__link nav__link--inside">Registro de clientes</a>
+                </li>
+
+            </ul>
+
+        </li>
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'aset/empleado_usuarios.svg' %}" alt="" class="list__img" id="icono_empleado_usuarios">
+                <a href="#" class="nav__link">Empleados/usuarios</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="interfaz_empleado_usuarios.html" class="nav__link nav__link--inside"
+                        target="iframe1">Ver empleados</a>
+                </li>
+                <li class="list__inside">
+                    <a href="frm_registrar_empleados.html" class="nav__link nav__link--inside"
+                        target="iframe1">Registrar empleado</a>
+                </li>
+
+            </ul>
+
+        </li>
+
+
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'aset/articulos.svg' %}" alt="" class="list__img">
+                <a href="#" class="nav__link">Articulos</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="interfaz_articulos.html" target="iframe1" class="nav__link nav__link--inside">Ver
+                        artículos</a>
+                </li>
+                <li class="list__inside">
+                    <a href="frm_registrar_articulos.html" target="iframe1"
+                        class="nav__link nav__link--inside">Registrar artículos</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'aset/reportes.svg' %}" alt="" class="list__img">
+                <a href="#" class="nav__link">Reportes</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="reporte_semanal.html" target="iframe1"
+                        class="nav__link nav__link--inside">Semanales</a>
+                </li>
+                <li class="list__inside">
+                    <a href="reporte_mes.html" target="iframe1"
+                        class="nav__link nav__link--inside">Mensuales</a>
+                </li>
+                <li class="list__inside">
+                    <a href="reporte_anio.html" target="iframe1" class="nav__link nav__link--inside">Anual</a>
+                </li>
+
+            </ul>
+
+        </li>
+
+
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'aset/inventarios.svg' %}" alt="" class="list__img">
+                <a href="#" class="nav__link">Inventario</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="inventario_articulos.html" class="nav__link nav__link--inside" target="iframe1">Ver
+                        artículos</a>
+                </li>
+                <li class="list__inside">
+                    <a href="inventario_categorias.html" class="nav__link nav__link--inside"
+                        target="iframe1">Ver
+                        categorías</a>
+                </li>
+                <li class="list__inside">
+                    <a href="inventario_servicios.html" class="nav__link nav__link--inside" target="iframe1">Ver
+                        servicios</a>
+                </li>
+                <li class="list__inside">
+                    <a href="reporte_de_los_inventarios.html" class="nav__link nav__link--inside"
+                        target="iframe1">Reportes de los inventarios</a>
+                </li>
+
+            </ul>
+
+        </li>
+
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'aset/herramientas.svg' %}" alt="" class="list__img">
+                <a href="#" class="nav__link">Herramientas</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="interfaz_notificaciones.html" target="iframe1"
+                        class="nav__link nav__link--inside">Programar notificaciones</a>
+                </li>
+                <li class="list__inside">
+                    <a href="frm_realizar_cotizacion_de_compra.html" target="iframe1"
+                        class="nav__link nav__link--inside">Realizar cotizaciones de compra</a>
+                </li>
+
+            </ul>
+
+        </li>
+
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'aset/Proveedores.svg' %}" alt="" class="list__img">
+                <a href="#" class="nav__link">Proveedores</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="interfaz_proveedores.html" target="iframe1" class="nav__link nav__link--inside">Ver
+                        proveedores</a>
+                </li>
+                <li class="list__inside">
+                    <a href="frm_registrar_proveedores.html" target="iframe1"
+                        class="nav__link nav__link--inside">Registrar proveedores</a>
+                </li>
+
+            </ul>
+
+        </li>
+
+
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'aset/ventas.svg' %}" alt="" class="list__img">
+                <a href="#" class="nav__link">Ventas</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="frm_realizar_venta.html" target="iframe1"
+                        class="nav__link nav__link--inside">Registrar
+                        ventas</a>
+                </li>
+                <li class="list__inside">
+                    <a href="frm_historial_de_las_ventas_realizadas.html" target="iframe1"
+                        class="nav__link nav__link--inside">Ver historial de ventas</a>
+                </li>
+
+            </ul>
+
+        </li>
+
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'aset/compras.svg' %}" alt="" class="list__img">
+                <a href="#" class="nav__link">Compras</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="frm_registrar_compra.html" target="iframe1"
+                        class="nav__link nav__link--inside">Registrar compra</a>
+                </li>
+                <li class="list__inside">
+                    <a href="frm_crear_orden_de_compra.html" target="iframe1"
+                        class="nav__link nav__link--inside">Crear orden de compra</a>
+                </li>
+                <li class="list__inside">
+                    <a href="frm_historial_de_las_compras_realizadas.html" target="iframe1"
+                        class="nav__link nav__link--inside">Ver historial de compras</a>
+                </li>
+            </ul>
+        </li>
+
+        <a href="#" class="modal_close">
+            <img src="{% static 'img/double_arrow_close.svg' %}" alt="" class="img_modal_close">
+        </a>
+    </ul>
+</nav>
