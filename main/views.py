@@ -6,7 +6,8 @@ def inicio(request):
     return render(request,'index.html',context)
 
 def inicioAdmin(request):
+    titulo="Panel Principal"
     context={
-
+        'titulo':titulo
     }
     return render(request,'frm_inicio_app.html',context) 

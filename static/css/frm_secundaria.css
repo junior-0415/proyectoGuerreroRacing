@@ -136,7 +136,8 @@ body {
     top: 11.92%;
     width: 77.25%;
     height: 89.11vh;
-    overflow: hidden;
+    /* overflow: hidden; */
+    overflow-y: scroll;
 }
 
 .eliminar_scroll{

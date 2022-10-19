@@ -1,22 +1,13 @@
 {% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_clientes.css' %}">
+{% endblock css %}
 
 {% block contenido %}
     
-
-    
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clientes</title>
-    <!-- fuentes de texto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400&family=Vollkorn:ital,wght@0,500;0,700;1,700&display=swap" rel="stylesheet">
-    <!-- propiedades CSS -->
-    <link rel="stylesheet" href="CSS/interfaz_clientes.css">
-</head>
-<body class="container_general">
+<section class="container_general">
     <div class="titulo_superior">
         <h1 class="text-center py-2">Clientes Registrados</h1>
     </div>
@@ -52,97 +43,27 @@
                 </tr>
             </thead>
             <tbody>
+                
+                {% for cliente in clientes %}    
                 <tr>
-                    <td>1023456</td>
-                    <td>C.C.</td>
-                    <td>Mary</td>
-                    <td>Rodríguez Pérez</td>
-                    <td>F</td>
-                    <td>*********</td>
-                    <td>Bogotá</td>
-                    <td>73049283</td>
-                    <td>3145792608</td>
-                    <td>Mary10@correo.com</td>
+                    <td>{{cliente.idIdentificacion}}</td>
+                    <td>{{cliente.CliTipoDocumento}}</td>
+                    <td>{{cliente.CliNombres}}</td>
+                    <td>{{cliente.CliApellidos}}</td>
+                    <td>{{cliente.CliGenero}}</td>
+                    <td>{{cliente.CliDireccion}}</td>
+                    <td>{{cliente.CliCiudad}}</td>
+                    <td>{{cliente.CliTelefono}}</td>
+                    <td>{{cliente.CliCelular}}</td>
+                    <td>{{cliente.CliEmail}}</td>
                 </tr>
-                <tr>
-                    <td>3654781</td>
-                    <td>C.C.</td>
-                    <td>José</td>
-                    <td>Trujillo Jiménez</td>
-                    <td>M</td>
-                    <td>*********</td>
-                    <td>Bogotá</td>
-                    <td>74830581</td>
-                    <td>3145792608</td>
-                    <td>Jose93@correo.com</td>
-                </tr>
-                <tr>
-                    <td>4721682</td>
-                    <td>C.C.</td>
-                    <td>Pedro</td>
-                    <td>Sánchez Moscada</td>
-                    <td>M</td>
-                    <td>*********</td>
-                    <td>Bogotá</td>
-                    <td>74939485</td>
-                    <td>3175064829</td>
-                    <td>pedro83@correo.com</td>
-                </tr>
-                <tr>
-                    <td>9675214</td>
-                    <td>C.C.</td>
-                    <td>Camila</td>
-                    <td>Tovar Mejía</td>
-                    <td>F</td>
-                    <td>*********</td>
-                    <td>Bogotá</td>
-                    <td>74038495</td>
-                    <td>3145792608</td>
-                    <td>Camila48@correo.com</td>
-                </tr>
-                <tr>
-                    <td>8632459</td>
-                    <td>C.C.</td>
-                    <td>Angie</td>
-                    <td>Guzmán Puerto</td>
-                    <td>F</td>
-                    <td>*********</td>
-                    <td>Bogotá</td>
-                    <td>74957303</td>
-                    <td>3175064829</td>
-                    <td>angie03@correo.com</td>
-                </tr>
-                <tr>
-                    <td>2197548</td>
-                    <td>C.C.</td>
-                    <td>Lorena</td>
-                    <td>Ramírez Prado</td>
-                    <td>F</td>
-                    <td>*********</td>
-                    <td>Bogotá</td>
-                    <td>78304859</td>
-                    <td>3145792608</td>
-                    <td>lorena29@correo.com</td>
-                </tr>
-                <tr>
-                    <td>2197548</td>
-                    <td>C.C.</td>
-                    <td>Felipe</td>
-                    <td>Gámez Rueda</td>
-                    <td>M</td>
-                    <td>*********</td>
-                    <td>Bogotá</td>
-                    <td>74937593</td>
-                    <td>3145792608</td>
-                    <td>felipe98@correo.com</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
-    <a href="frm_registrar_cliente.html" id="ancla"> 
-        <img src="img/anadir.svg" alt="Boton añadir" id="btn_anadir" title="Añadir nuevo cliente">
+    <a href="{% url 'registrar_cliente' %}" id="ancla"> 
+        <img src="{% static 'img/anadir.svg' %}" alt="Boton añadir" id="btn_anadir" title="Añadir nuevo cliente">
     </a>
-</body>
-</html>
+</section>
 
 {% endblock contenido %}
