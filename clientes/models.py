@@ -6,11 +6,27 @@ from django.db import models
 
 # Create your models here.
 class Departamentos(models.Model):
+    idDepart=models.CharField(max_length=10, verbose_name="Código nacional")
     DepNombre=models.CharField(max_length=45, verbose_name="Nombre")
+    class Estado(models.TextChoices):
+        ACTIVO='1', _('Activo')
+        INACTIVO='0', _('Inactivo')
+    DepEstado=models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
+
+    def __str__(self) -> str:
+        return "%s" %(self.DepNombre)
 
 class Ciudades(models.Model):
+    idCiudad=models.CharField(max_length=10, verbose_name="Código nacional")
     CiuNombre=models.CharField(max_length=45, verbose_name="Nombre")
     TblDepartamento_idDepart=models.ForeignKey(Departamentos, on_delete=models.CASCADE, verbose_name="Departamento")
+    class Estado(models.TextChoices):
+        ACTIVO='1', _('Activo')
+        INACTIVO='0', _('Inactivo')
+    CiuEstado=models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
+
+    def __str__(self) -> str:
+        return "%s - %s" %(self.CiuNombre, self.TblDepartamento_idDepart)
 
 class Cliente(models.Model):
     idIdentificacion=models.CharField(max_length=50, verbose_name="Identificación")
@@ -31,6 +47,10 @@ class Cliente(models.Model):
     CliTelefono=models.CharField(max_length=20, verbose_name="Teléfono")
     CliCelular=models.CharField(max_length=20, verbose_name="Celular")
     CliEmail=models.CharField(max_length=100, verbose_name="Email")
+    class Estado(models.TextChoices):
+        ACTIVO='1', _('Activo')
+        INACTIVO='0', _('Inactivo')
+    CliEstado=models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
 class Marcas(models.Model):
     MarNombre=models.CharField(max_length=50, verbose_name="Nombre")
@@ -39,6 +59,10 @@ class Marcas(models.Model):
         CARRO='Carro', _('Carro')
     MarCategoria=models.CharField(max_length=5, choices=CategoriaMar.choices) #preguntas
     Marvaloracion=models.CharField(max_length=5, verbose_name="Valoración")
+    class Estado(models.TextChoices):
+        ACTIVO='1', _('Activo')
+        INACTIVO='0', _('Inactivo')
+    MarEstado=models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
 class Vehiculo(models.Model):
     idMatricula=models.CharField(max_length=6, verbose_name="Matrícula")
@@ -53,6 +77,10 @@ class Vehiculo(models.Model):
     VehUltima_Fecha_Ingreso=models.DateField(verbose_name="Ultima fecha de ingreso", help_text=u"MM/DD/AAA")
     VehUltima_Fecha_Salida=models.DateField(verbose_name="Ultima fecha de Salida", help_text=u"MM/DD/AAA")
     VehInforme_Tecnico=models.CharField(max_length=200, verbose_name="Informe técnico")
+    class Estado(models.TextChoices):
+        ACTIVO='1', _('Activo')
+        INACTIVO='0', _('Inactivo')
+    VehEstado=models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
 """class TblRelClienteServicios(models.Model):
     TblCliente_idIdentificacion=models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Cliente")

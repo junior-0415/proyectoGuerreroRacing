@@ -262,6 +262,23 @@
             </ul>
         </li>
 
+        <li class="list__item list__item--click">
+            <div class="list__button list__button--click">
+                <img src="{% static 'img/extras.svg' %}" alt="" class="list__img" id="icon_extras">
+                <a href="#" class="nav__link">Extras</a>
+                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
+            </div>
+
+            <ul class="list__show">
+                <li class="list__inside">
+                    <a href="{% url 'ciudades' %}" class="nav__link nav__link--inside">Ciudades y municipios</a>
+                </li>
+                <li class="list__inside">
+                    <a href="{% url 'departamentos' %}" class="nav__link nav__link--inside">Departamentos</a>
+                </li>
+            </ul>
+        </li>
+
         <a href="#" class="modal_close">
             <img src="{% static 'img/double_arrow_close.svg' %}" alt="" class="img_modal_close">
         </a>

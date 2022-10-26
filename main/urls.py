@@ -15,12 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler404
 
-from main.views import inicio, inicioAdmin
+###### Importes para subir imagenes #####
+from django.conf import settings
+from django.conf.urls.static import static
+#########################################
+
+from main.views import eliminar_def_cliente, error_404, inicio, inicioAdmin, login, papelera_reciclaje
+
+handler404= error_404
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',inicio,name='inicio'),
-    path('adm/',inicioAdmin,name='inicio-admin'),
-    path('clientes/',include('clientes.urls')),
-]
+    path('', inicio, name='inicio'),
+    path('adm/', inicioAdmin, name='inicio-admin'),
+    path('', include('clientes.urls')),
+    path('login/', login, name="login"),
+    path('papelera-de-reciclaje/', papelera_reciclaje, name="papelera"),
+    path('papelera-de-reciclaje/clientes/eliminar/', eliminar_def_cliente, name="eliminar_def_cliente"),
+]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
