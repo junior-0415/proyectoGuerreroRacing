@@ -1,0 +1,169 @@
+.titulo_superior {
+    position: absolute;
+    width: 100%;
+    height: 10.53%;
+    left: 0%;
+    top: 0%;
+
+    background: rgba(0, 117, 128, 0.982);
+
+    display: grid;
+    place-items: center;
+}
+
+.titulo_superior h1 {
+    /* Clientes registrados */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 8px;
+
+    font-family: 'Comic Sans MS', 'cursive';
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+}
+
+.cabecera {
+    position: absolute;
+    width: 100%;
+    height: 25.98%;
+    left: 0%;
+    top: 10.19%;
+
+    background: #F3F3F3;
+}
+
+.cabecera p {
+    position: absolute;
+    width: auto;
+    max-width: 66.21%;
+    height: auto;
+    left: 0.96%;
+    top: 19.61%;
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    margin: 0%;
+    padding: 0%;
+}
+
+.cabecera img {
+    position: absolute;
+    width: 9.69%;
+    height: 83.78%;
+    right: 9.01%;
+    top: 16.34%;
+}
+
+.cabecera hr {
+    position: absolute;
+    width: 71.67%;
+    left: 0%;
+    bottom: 5%;
+    background: #00f38a;
+    border: solid 2px #4A9575;
+}
+
+.flex_container {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    left: 0%;
+    top: 36.2%;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+
+.flex_item {
+    margin: 15px 0px 15px 0px;
+}
+
+.titulo_tablas h2 {
+    margin: 0%;
+    padding: 4px;
+}
+
+
+.titulo_tablas {
+    left: 0.96%;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 23px;
+    display: grid;
+    align-items: center;
+    color: #FFFFFF;
+
+    background-color: rgba(0, 117, 128, 0.982);
+}
+
+.container_tabla {
+    display: grid;
+    justify-items: center;
+    overflow: auto;
+}
+
+table {
+    background-color: #FFFFFF;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #DCDCDC;
+}
+
+thead {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+}
+
+/* iluminar celdas */
+
+
+tr:hover td {
+    background-color: #E5E5E5;
+}
+
+table tbody tr td:first-child {
+    font-weight: 700;
+}
+
+.btn_eliminar {
+    /* position: absolute; */
+    width: 24px;
+    height: 24px;
+    /* margin-left: 10px; */
+}
+
+.btn_restablecer {
+    /* position: absolute; */
+    width: 31.5px;
+    height: 31.5px;
+}

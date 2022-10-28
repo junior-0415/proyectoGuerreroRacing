@@ -1,0 +1,102 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404</title>
+    <link rel="stylesheet" href="{% static 'css/frm_error_404.css' %}">
+
+    <!--- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <form>
+        <section>
+            <div id="intro" class="bg-image vh-100" style="
+                  background-image: url('img/Vector\ fondo\ pantalla.svg');
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                ">
+                <div class="mask" style="background-color: rgba(250, 182, 162, 0.15);"></div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <div class="text-center">
+                                <img src="img/404 Page Not Found _Flatline 1.svg">
+                            </div>
+                            <div class="mb-3 text-center">
+                                <h3>La pagina que intentas buscar no esta en el
+                                    servidor (error 404)</h3>
+                            </div>
+                            <div class="text-center">
+                                <p> <a href="frm.secundaria.html">Haga click aquí</a> para regresar a la pagina de
+                                    inicio, también puedes realizar una búsqueda o ver otras rutas sugeridas a
+                                    continuación:</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 ">
+                                <div class="mb-0">
+                                    <label for="text" class="form-label">Otras rutas sugeridas:</label>
+                                </div>
+                                <div>
+                                    <a href="frm_realizar_venta.html">>Registrar venta</a>
+                                </div>
+                                <div>
+                                    <a href="frm_crear_orden_de_compra.html">>Registrar compra</a>
+                                </div>
+                                <div>
+                                    <a href="interfaz_cliente.html">>Clientes registrados</a>
+                                </div>
+                                <div>
+                                    <a href="frm_estos_vehiculos_estan_dentro_del_taller.html">>Vehículos en taller</a>
+                                </div>
+                                <div>
+                                    <a href="reporte_de_los_inventarios.html">>Inventario</a>
+                                </div>
+                                <div>
+                                    <a href="frm_realizar_cotizacion_de_compra.html">>Cotizar compra</a>
+                                </div>
+                                <div>
+                                    <a href="frm_registrar_compra.html">>Crear orden de compra</a>
+                                </div>
+                            </div>
+
+                            <div class="col-6 text-end mb-3 p-5">
+                                <div class="row">
+                                    <div class="col-6 mb-0">
+                                        <input type="text" placeholder="Buscar algo mas" class="form-control"
+                                            id="Celular">
+                                    </div>
+
+                                    <div class="col-4 mb-0">
+                                        <button class="btn btn_color_1 me-5" id="btn_guardar" data-bs-toggle="modal"
+                                            href="#exampleModalToggle" type="sumit" role="button">Buscar</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

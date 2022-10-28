@@ -1,26 +1,32 @@
 {% load static %}
 
-<div id="sed_toolbar_right" class="btn-group-vertical mb-3 nav-accesibilidad" >
-    <!--<button type="button" class="btn btn-info toolbar_right_odd" title="Idioma ESPAÑOL | INGLES" onclick="changeLanguage()">
-<i class="fa fa-language"></i>
-</button>-->
-    <button type="button" class="btn btn-vertical" title="Contraste"
-        onclick="goContrastScreen()">
-        <i class="bi bi-circle-half"></i>
-    </button>
-    <button id="btn-increase" type="button" class="btn btn-vertical" title="Aumentar fuente"
-        onclick="increaseZoom()">
-        <i class="bi bi-zoom-in"></i>
-    </button>
-    <button id="btn-orig" type="button" class="btn btn-vertical" title="Restaurar fuente"
-        onclick="clearZoom()">
-        <i class="bi bi-aspect-ratio"></i>
-    </button>
-    <button id="btn-decrease" type="button" class="btn btn-vertical" title="Disminuir fuente"
-        onclick="decreaseZoom()">
-        <i class="bi bi-zoom-out"></i> </button>
-    <button type="button" class="btn btn-vertical" title="Expandir" onclick="goFullScreen()">
-        <i class="bi bi-arrows-angle-expand"></i> </button>
-    <button type="button" class="btn btn-vertical" title="Reducir" onclick="goFullScreen()">
-        <i class="bi bi-arrows-angle-contract"></i> </button>
-</div>
+<img src="{% static 'img/accesibilidad.svg' %}" alt="Botón de accesibilidad" id="btn_accesibilidad" title="Accesibilidad">
+<section class="modal_accesibilidad ">
+    <div class="container_modal_acc">
+        <img src="{% static 'img/atras2.svg' %}" alt="Bontón cerrar menu de accesibilidad" class="modalAcc_close" id="btn_cerrar_acc">
+        <div id="sed_toolbar_right" class="btn-group-vertical mb-3 nav-accesibilidad" >
+            <!--<button type="button" class="btn btn-info toolbar_right_odd" title="Idioma ESPAÑOL | INGLES" onclick="changeLanguage()">
+        <i class="fa fa-language"></i>
+        </button>-->
+            <button type="button" class="btn btn-vertical" title="Contraste"
+                onclick="goContrastScreen()">
+                <i class="bi bi-circle-half"></i>
+            </button>
+            <button id="btn-increase" type="button" class="btn btn-vertical" title="Aumentar fuente"
+                onclick="increaseZoom()">
+                <i class="bi bi-zoom-in"></i>
+            </button>
+            <button id="btn-orig" type="button" class="btn btn-vertical" title="Restaurar fuente"
+                onclick="clearZoom()">
+                <i class="bi bi-aspect-ratio"></i>
+            </button>
+            <button id="btn-decrease" type="button" class="btn btn-vertical" title="Disminuir fuente"
+                onclick="decreaseZoom()">
+                <i class="bi bi-zoom-out"></i> </button>
+            <button type="button" class="btn btn-vertical" title="Expandir" onclick="goFullScreen()">
+                <i class="bi bi-arrows-angle-expand"></i> </button>
+            <button type="button" class="btn btn-vertical" title="Reducir" onclick="goFullScreen()">
+                <i class="bi bi-arrows-angle-contract"></i> </button>
+        </div>
+    </div>
+</section>

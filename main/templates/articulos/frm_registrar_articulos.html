@@ -1,0 +1,35 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/frm_registrar_articulos.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+    <div id="titulo_superior">
+        <h1>Registrar nuevo artículo</h1>
+    </div>
+    <form action="" method="POST">
+            {{form|crispy}}
+            {% csrf_token %}
+        <div class="frame_b f8">
+            <button type="submit" id="btn_guardar">Guardar</button>
+            <button type="reset" id="btn_cancelar">Cancelar</button>
+        </div>
+    </form>
+    <img src="{% static 'img/registrar_articulo.svg' %}" alt="Icono alucivo a artículos" id="img1">
+    <a href="frm_registrar_proveedores.html" id="texto_guia1" title="Click para registrar un nuevo proveedor">
+        <b>Nota: </b> <br> si el proveedor del artículo que va agregar aún no esta en la base de datos, por favor, registre aquí el proveedor antes de registrar el artículo.
+    </a>
+    <div class="espacio"></div>
+{% endblock contenido %}
+
+
+{% block js %}
+    <script src="JS/libreria_mensajes_emergentes.js"></script>
+    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+{% endblock js %}
+    

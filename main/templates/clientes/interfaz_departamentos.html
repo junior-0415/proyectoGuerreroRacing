@@ -1,0 +1,88 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_departamentos.css' %}">
+{% endblock css %}
+
+
+{% block contenido %}
+<section>
+    <div class="titulo_superior">
+        <h2>Departamentos guardados</h2>
+    </div>
+    <div class="contenedor_form">
+        <form>
+            <label for="DepBusqueda" class="label_buscar">Buscar departamento:</label>
+            <input type="search" name="DepBusqueda" id="DepBusqueda" placeholder="Buscar">
+
+            <label for="FiltroDepartamentos" class="label_filtrar">Filtrar:</label>
+            <input list="FiltroDepartamentos" name="FiltroDepartamentos" id="css_propiedades_filtro"
+                placeholder="Elige un filtro">
+            <datalist id="FiltroDepartamentos">
+                <option value="A-Z">Opción 1</option>
+                <option value="Z-A">Opción 2</option>
+            </datalist>
+            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+        </form>
+    </div>
+    <div class="contenedor_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Código nacional</th>
+                    <th>Departamento</th>
+                    <th>Acciones</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for depart in departamentos %}
+                <tr>
+                    <td>{{depart.idDepart}}</td>
+                    <td>{{depart.DepNombre}}</td>
+                    <td>
+                        <a href="{% url 'editar_departamento' depart.id %}">
+                            <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar departamento">
+                        </a>
+                        <a href="{% url 'eliminar_departamento' depart.id %}">
+                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <img src="{% static 'img/ilustracion_departamentos.svg' %}" alt="Ilustración relaacionada a departamentos"
+        id="img1">
+    <a href="#" id="btn_anadir" title="Añadir nuevo departamento">Añadir</a>
+</section>
+<section class="modal-form ">
+    <div class="container_modal-form">
+        <div class="container_h2-form">
+            <h2>Añadir nuevo departamento</h2>
+            <a href="#" class="modal_close-form container_cerrar-form">
+                <img src="{% static 'img/cerrar.svg' %}" alt="">
+            </a>
+        </div>
+        <img src="{% static 'img/ilustracion_departamentos.svg' %}" alt="Imagen ilustrativa a ciudades" id="img2">
+        <form action="" method="POST">
+            {{form|crispy}}
+            {% csrf_token %}
+            <div class="frame_b">
+                <button type="submit" value="Guardar" id="btn_guardar">Guardar</button>
+                <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock contenido %}
+
+
+{% block js %}
+<script src="{% static 'js/interfaz_departamentos.js' %}"></script>
+{% endblock js %}

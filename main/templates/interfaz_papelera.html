@@ -1,0 +1,305 @@
+{% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_papelera.css' %}">
+{% endblock css %}
+
+
+{% block contenido %}
+<div class="titulo_superior">
+    <h1 class="text-center py-2">Papelera de reciclaje</h1>
+</div>
+<div class="cabecera">
+    <p>Los siguientes registros aún se encuentran en la papelera</p>
+    <hr>
+    <img src="{% static 'img/papelera.svg' %}" alt="Ilustración de una papelera">
+</div>
+<section class="flex_container">
+    <div class="titulo_tablas flex_item">
+        <h2>Clientes</h2>
+    </div>
+    <div class="container_tabla flex_item">
+        <table>
+            <thead>
+                <tr>
+                    <th>Identificación</th>
+                    <th>Tipo de documento</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Género</th>
+                    <th>Dirección</th>
+                    <th>Ciudad</th>
+                    <th>Teléfono</th>
+                    <th>Celular</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for cliente in clientes %}
+                <tr>
+                    <td>{{cliente.idIdentificacion}}</td>
+                    <td>{{cliente.CliTipoDocumento}}</td>
+                    <td>{{cliente.CliNombres}}</td>
+                    <td>{{cliente.CliApellidos}}</td>
+                    <td>{{cliente.CliGenero}}</td>
+                    <td>{{cliente.CliDireccion}}</td>
+                    <td>{{cliente.TblCiudades_idCiudad}}</td>
+                    <td>{{cliente.CliTelefono}}</td>
+                    <td>{{cliente.CliCelular}}</td>
+                    <td>{{cliente.CliEmail}}</td>
+                    <td>
+                        <a href="{% url 'restablecer_cliente' cliente.id %}">
+                            <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
+                        </a>
+                        <a href="{% url 'eliminar_def_cliente' cliente.id %}">
+                            <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón editar" class="btn_eliminar" title="Eliminar definitivamente">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="titulo_tablas flex_item">
+        <h2>Ciudades y municipios</h2>
+    </div>
+    <div class="container_tabla flex_item">
+        <table>
+            <thead>
+                <tr>
+                    <th>Código Nacional:</th>
+                    <th>Ciudad o municipio</th>
+                    <th>Departamento</th>
+                    <th>Acciones</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for ciudad in ciudades %}
+                <tr>
+
+                    <td>{{ciudad.idCiudad}}</td>
+                    <td>{{ciudad.CiuNombre}}</td>
+                    <td>{{ciudad.TblDepartamento_idDepart}}</td>
+                    <td>
+                        <a href="{% url 'restablecer_ciudad' ciudad.id %}">
+                            <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
+                        </a>
+                        <a href="{% url 'eliminar_def_ciudad' ciudad.id %}">
+                            <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón editar" class="btn_eliminar" title="Eliminar definitivamente">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="titulo_tablas flex_item">
+        <h2>Departamentos</h2>
+    </div>
+    <div class="container_tabla flex_item">
+        <table>
+            <thead>
+                <tr>
+                    <th>Código nacional</th>
+                    <th>Departamento</th>
+                    <th>Acciones</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for depart in departamentos %}
+                <tr>
+                    <td>{{depart.idDepart}}</td>
+                    <td>{{depart.DepNombre}}</td>
+                    <td>
+                        <a href="{% url 'restablecer_departamento' depart.id %}">
+                            <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
+                        </a>                        
+                        <a href="{% url 'eliminar_def_depart' depart.id %}">
+                            <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón editar" class="btn_eliminar" title="Eliminar definitivamente">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="titulo_tablas flex_item">
+        <h2>Marcas</h2>
+    </div>
+    <div class="container_tabla flex_item">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for marca in marcas %}
+                <tr>
+                        <td>{{marca.pk}}</td>
+                        <td>{{marca.MarNombre}}</td>
+                        <td>{{marca.MarDescripcion}}</td>
+                        <td>
+                            <a href="{% url 'restablecer_marca' marca.id %}">
+                                <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
+                            </a>
+                            <a href="{% url 'eliminar_def_marca' marca.id %}">
+                                <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón editar" class="btn_eliminar" title="Eliminar definitivamente">
+                            </a>
+                        </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="titulo_tablas flex_item">
+        <h2>Artículos</h2>
+    </div>
+    <div class="container_tabla flex_item">
+        <table>
+            <thead>
+                <tr>
+                    <th>Imagen</th>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Marca</th>
+                    <th>Categoría</th>
+                    <th>Stock</th>
+                    <th>Precio unit</th>
+                    <th>Stock mín.</th>
+                    <th>Stock máx.</th>
+                    <th>Proveedor</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            
+            {% for articulo in articulos %}            
+                <tr>
+                    <td class="align moddle text-center">
+                        <img class="rounded-circle" src="{{ MEDIA_URL }}{{articulo.ArtFoto.url}}" width="50" height="50" alt="">
+                    </td>
+                    <td>{{articulo.pk}}</td>
+                    <td>{{articulo.ArtNombre}}</td>
+                    <td>{{articulo.TblMarcaArticulos_idMarcaArticulo}}</td>
+                    <td>{{articulo.TblCategoria_idCategoria}}</td>
+                    <td>{{articulo.ArtStockDisp}}</td>
+                    <td></td>
+                    <td>{{articulo.ArtStockMinimo}}</td>
+                    <td>{{articulo.ArtStockMaximo}}</td>
+                    <td>{{articulo.TblProveedores_idProveedor}}</td>
+                    <td> 
+                        <a href="#">
+                            <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
+                        </a>
+                        <a href="#">
+                            <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón editar" class="btn_eliminar" title="Eliminar definitivamente">
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="titulo_tablas flex_item">
+        <h2>Categorías</h2>
+    </div>
+    <div class="container_tabla flex_item">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for categoria in categorias %}
+                <tr>
+                    
+                        <td>{{categoria.pk}}</td>
+                        <td>{{categoria.CatNombre}}</td>
+                        <td>{{categoria.CatDescripcion}}</td>
+                        <td>
+                            <a href="{% url 'restablecer_categoria' categoria.id %}">
+                                <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
+                            </a>
+                            <a href="{% url 'eliminar_def_categoria' categoria.id %}">
+                                <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón editar" class="btn_eliminar" title="Eliminar definitivamente">
+                            </a>
+                        </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="titulo_tablas flex_item">
+        <h2>Proveedores</h2>
+    </div>
+    <div class="container_tabla flex_item">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nit_Referencia</th>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Persona_Nat</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Celular</th>
+                    <th>Email</th>
+                    <th>Sitio Web</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            
+            {% for proveedor in proveedores %}
+            <tr>
+                <td>{{proveedor.pk}}</td>
+                <td>{{proveedor.ProNit}}</td>
+                <td>{{proveedor.ProNombre}}</td>
+                <td>{{proveedor.ProCategoria}}</td>
+                <td>{{proveedor.ProPersonaNat}}</td>
+                <td>{{proveedor.ProDireccion}}</td>
+                <td>{{proveedor.ProTelefono}}</td>
+                <td>{{proveedor.ProCelular}}</td>
+                <td>{{proveedor.ProEmail}}</td>
+                <td>{{proveedor.ProSitioWeb}}</td>
+                <td>
+                    <a href="{% url 'restablecer_proveedor' proveedor.id %}">
+                        <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
+                    </a>
+                    <a href="{% url 'eliminar_def_proveedor' proveedor.id %}">
+                        <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón editar" class="btn_eliminar" title="Eliminar definitivamente">
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</section>
+{% endblock contenido %}
+
+
+{% block js %}
+
+{% endblock js %}

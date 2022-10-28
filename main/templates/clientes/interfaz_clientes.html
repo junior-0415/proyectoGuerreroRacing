@@ -6,8 +6,8 @@
 {% endblock css %}
 
 {% block contenido %}
-    
-<section class="container_general">
+
+<section>
     <div class="titulo_superior">
         <h1 class="text-center py-2">Clientes Registrados</h1>
     </div>
@@ -17,14 +17,14 @@
         <input type="search" name="CliBusqueda" id="idCliBusqueda" placeholder="Buscar">
 
         <label for="FiltroClientes" class="label_filtrar">Filtrar:</label>
-            <input list="FiltroClientes" name="FiltroClientes" id="css_propiedades_filtro" placeholder="Elige un filtro">
-            <datalist id="FiltroClientes">
-                <option value="Solo clientes con vehiculos"> Opción 1</option>
-                <option value="Clientes sin vehiculo registrado">Opción 2</option>
-                <option value="Mostrar numero de clientes registrados">Opción 3</option>
-                <option value="Mostrar numero de hombre y mujeres registrados">Opción 4</option>
-            </datalist>
-            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+        <input list="FiltroClientes" name="FiltroClientes" id="css_propiedades_filtro" placeholder="Elige un filtro">
+        <datalist id="FiltroClientes">
+            <option value="Solo clientes con vehiculos"> Opción 1</option>
+            <option value="Clientes sin vehiculo registrado">Opción 2</option>
+            <option value="Mostrar numero de clientes registrados">Opción 3</option>
+            <option value="Mostrar numero de hombre y mujeres registrados">Opción 4</option>
+        </datalist>
+        <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
     </form>
     <div class="container_tabla">
         <table>
@@ -40,11 +40,12 @@
                     <th>Teléfono</th>
                     <th>Celular</th>
                     <th>Email</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
-                
-                {% for cliente in clientes %}    
+
+                {% for cliente in clientes %}
                 <tr>
                     <td>{{cliente.idIdentificacion}}</td>
                     <td>{{cliente.CliTipoDocumento}}</td>
@@ -52,16 +53,24 @@
                     <td>{{cliente.CliApellidos}}</td>
                     <td>{{cliente.CliGenero}}</td>
                     <td>{{cliente.CliDireccion}}</td>
-                    <td>{{cliente.CliCiudad}}</td>
+                    <td>{{cliente.TblCiudades_idCiudad}}</td>
                     <td>{{cliente.CliTelefono}}</td>
                     <td>{{cliente.CliCelular}}</td>
                     <td>{{cliente.CliEmail}}</td>
+                    <td>
+                        <a href="{% url 'editar_cliente' cliente.id %}">
+                            <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar cliente">
+                        </a>
+                        <a href="{% url 'eliminar_cliente' cliente.id %}">
+                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
+                        </a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-    <a href="{% url 'registrar_cliente' %}" id="ancla"> 
+    <a href="{% url 'registrar_cliente' %}" id="ancla">
         <img src="{% static 'img/anadir.svg' %}" alt="Boton añadir" id="btn_anadir" title="Añadir nuevo cliente">
     </a>
 </section>

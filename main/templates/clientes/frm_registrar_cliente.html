@@ -4,87 +4,31 @@
 
 
 {% block css %}
-<!-- <link rel="stylesheet" href="{% static 'css/frm_registrar_cliente.css' %}"> -->
+<link rel="stylesheet" href="{% static 'css/frm_registrar_cliente.css' %}">
 {% endblock css %}
-    
+
 
 {% block contenido %}
-<section class="container">
-        <div class="titulo">
-            <h1>Registrar un nuevo cliente</h1>
-        </div>
-
-    <form action="" method="post">
-        {{form|crispy}}
-        {% csrf_token %}
-        <input type="submit" value="Guardar">
-    </form>
-</section>
-
-<!-- <section class="container">
+<section>
     <div class="titulo">
         <h1>Registrar un nuevo cliente</h1>
     </div>
-    <form action="" method="POST">
-        <div class="frame_f f1">
-            <label for="idCliNombres" class="ubicacion_label">Nombres:</label>
-            <input type="text" name="CliNombres" id="idCliNombres" class="ubicacion_input_1" placeholder="Primer y segundo nombre" required autofocus>
-        </div>
-        <div class="frame_f f2">
-            <label for="idCliApellidos" class="ubicacion_label">Apellidos:</label>
-            <input type="text" name="CliApellidos" id="idCliApellidos" class="ubicacion_input_1" placeholder="Primer y segundo apellido" required>
-        </div>
-        <div class="frame_f f3">
-            <label for="tipo_documento" class="ubicacion_label">Tipo de documento:</label>
-            <input list="tipo_documento" name="CliTipoDocumento"  class="ubicacion_input_1" placeholder="Ingrese el tipo de documento" required>
-            <datalist id="tipo_documento">
-                <option value="T.I.">Tarjeta de Identidad</option>
-                <option value="C.C.">Cédula de Ciudadanía</option>
-                <option value="C.E.">Cédula de Extranjería</option>
-                <option value="Pas">Pasaporte</option>
-            </datalist>
-        </div>
-        <div class="frame_f f4">
-            <label for="idCliIdentificacion" class="ubicacion_label">Identificación:</label>
-            <input type="number" name="idIdentificacion" id="idCliIdentificacion" class="ubicacion_input_1" placeholder="Ingrese sin puntos, separadores o espacios" required>
-        </div>
-        <div class="frame_f f5">
-            <label for="generos" class="ubicacion_label">Género:</label>
-            <input list="generos" name="CliGenero"  class="ubicacion_input_1" placeholder="N/A" required>
-            <datalist id="generos">
-                <option value="F">Femenino</option>
-                <option value="M">Masculino</option>
-            </datalist>
-        </div>
-        <div class="frame_f f6">
-            <label for="idCliDireccion" class="ubicacion_label">Dirección:</label>
-            <input type="text" name="CliDireccion" id="idCliDireccion" class="ubicacion_input_1" placeholder="Dirección de residencia" required>
-        </div>
-        <div class="frame_f f7">
-            <label for="idCliTelefono" class="ubicacion_label">Teléfono:</label>
-            <input type="tel" name="CliTelefono" id="idCliTelefono"  class="ubicacion_input_1" placeholder="Contacto 1">
-        </div>
-        <div class="frame_f f8">
-            <label for="idCliCelular" class="ubicacion_label">Celular:</label>
-            <input type="tel" name="CliCelular" id="idCliCelular" class="ubicacion_input_1" placeholder="Contacto 2" required>
-        </div>
-        <div class="frame_f f9">
-            <label for="IdCliEmail" class="ubicacion_label">Email:</label>
-            <input type="email" name="CliEmail" id="idCliEmail" class="ubicacion_input_1" placeholder="Dirección de correo electrónico">
-        </div>
-        <div class="frame_f f10">
-            <label for="idCliCiudad" class="ubicacion_label">Ciudad:</label>
-            <input type="text" name="TblCiudades_idCiudad" id="idCliCiudad" class="ubicacion_input_1" placeholder="Ciudad residencial" required>
 
-        </div>
-        <img src="img/registrar_cliente_empleado.svg" alt="Icono clientes" id="img1">
+    <form action="" method="POST">
+        <img src="{% static 'img/registrar_cliente_empleado.svg' %}" alt="Icono clientes" id="img1">
+        {{form|crispy}}
+        {% csrf_token %}
         <div class="frame_b">
-            <input type="submit" value="Guardar" id="btn_guardar">
+            <button type="submit" value="Guardar" id="btn_guardar">Guardar</button>
+            <button type="reset" value="Cancelar" id="btn_cancelar">Cancelar</button>
         </div>
     </form>
-    <script src="{% static 'js/libreria_mensajes_emergentes.js' %}"></script>
-    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script> -->
-
 </section>
 
 {% endblock contenido %}
+
+
+{% block js %}
+<script src="{% static 'js/libreria_mensajes_emergentes.js' %}"></script>
+<script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+{% endblock js %}

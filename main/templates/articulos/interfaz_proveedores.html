@@ -1,0 +1,74 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_proveedores.css' %}">
+{% endblock css %}
+
+
+{% block contenido %}
+<div id="titulo_superior">
+    <h1>Proveedores registrados</h1>
+</div>
+<form>
+    <label for="idbuscar_proveedor" id="label_buscar_proveedores">Buscar proveedor:</label>
+    <input type="search" name="Buscar_Proveedor" id="idbuscar_proveedor" placeholder="Buscar">
+
+    <label for="FiltroProveedores" id="label_filtrar">Filtrar:</label>
+    <input list="FiltroProveedores" name="FiltroProveedore" id="css_propiedades_filtro" placeholder="Elige un filtro">
+    <datalist id="FiltroProveedores">
+        <option value="Proveedores del artículo consultado">Opción 1</option>
+        <option value="Proveedores más recurridos">Opción 2</option>
+        <option value="Proveedores de la categoría consultada">Opción 3</option>
+        <option value="Mostrar todo"></option>
+    </datalist>
+    <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+</form>
+<div class="container_tabla">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nit_Referencia</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Persona_Nat</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Celular</th>
+                <th>Email</th>
+                <th>Sitio Web</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        
+        {% for proveedor in proveedores %}
+        <tr>
+            <td>{{proveedor.pk}}</td>
+            <td>{{proveedor.ProNit}}</td>
+            <td>{{proveedor.ProNombre}}</td>
+            <td>{{proveedor.ProCategoria}}</td>
+            <td>{{proveedor.ProPersonaNat}}</td>
+            <td>{{proveedor.ProDireccion}}</td>
+            <td>{{proveedor.ProTelefono}}</td>
+            <td>{{proveedor.ProCelular}}</td>
+            <td>{{proveedor.ProEmail}}</td>
+            <td>{{proveedor.ProSitioWeb}}</td>
+            <td>
+                <a href="{% url 'editar_proveedor' proveedor.id %}">
+                    <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar proveedor">
+                </a>
+                <a href="{% url 'eliminar_proveedor' proveedor.id %}">
+                    <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<a href="{% url 'registrar_proveedor' %}" id="ancla">
+    <img src="{% static 'img/anadir.svg' %}" alt="Icono añadir proveedor" title="Añadir nuevo proveedor">
+</a>
+{% endblock contenido %}

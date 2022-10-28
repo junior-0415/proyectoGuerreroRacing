@@ -62,3 +62,19 @@ function goFullScreen() {
 			document.documentElement.msRequestFullscreen();
 	}
 }
+
+// *****************************Modal **************************************
+
+const openModal = document.querySelector('#btn_accesibilidad');
+const modal = document.querySelector('.modal_accesibilidad');
+const closeModal = document.querySelector('.modalAcc_close')
+
+openModal.addEventListener('click', (e)=>{
+    e.preventDefault();
+    modal.classList.add('modalAcc--show');
+});
+
+closeModal.addEventListener('click', (e)=>{
+   e.preventDefault();
+   modal.classList.remove('modalAcc--show');
+});

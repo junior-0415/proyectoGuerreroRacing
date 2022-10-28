@@ -24,7 +24,7 @@
             </form>
             <ul class="navbar-nav ml-auto">
                 <div class="text-end">
-                    <a class="nav-link" href="#intro">Inicio</a>
+                    <a class="nav-link" href="{% url 'inicio-admin' %}">Inicio</a>
                 </div>
                 <li class="nav-item">
                     <a class="nav-link" href="#nosotros">Nosotros</a>
@@ -42,7 +42,8 @@
                         </a>
                         <div class="dropdown-menu">
                           <a class="dropdown-item" href="#">Cuenta</a>
-                          <a class="dropdown-item" href="#">Mensaje</a>
+                          <a class="dropdown-item" href="#">Mensajes</a>
+                          <a class="dropdown-item" href="{% url 'papelera' %}">Papelera</a>
                           <a class="dropdown-item" href="configuracion_admin.html" target="iframe1">Configuración</a>
                           <a class="dropdown-item" href="interfaz_soporte_ayuda.html" target="iframe1">Soporte y ayuda</a>
                           <a class="dropdown-item" href="#">Cerrar sesión</a>

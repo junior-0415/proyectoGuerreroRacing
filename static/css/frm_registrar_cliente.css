@@ -1,17 +1,3 @@
-.container {
-    /* zona de tabajo registrar cliente */
-
-    position: relative;
-    width: 100%;
-    height: 100vh;
-
-    background: #FFFFFF;
-    padding: 0%;
-    margin: 0%;
-
-    overflow: auto;
-}
-
 .titulo {
     position: absolute;
     width: 100%;
@@ -62,7 +48,8 @@ form {
     padding: 0%;
 }
 
-.frame_f {
+
+.control-group {
     width: 35.64%;
     height: 66px;
 }
@@ -80,7 +67,7 @@ label {
     color: #000000;
 }
 
-input {
+input, select {
     box-sizing: border-box;
 
     width: 100%;
@@ -97,79 +84,79 @@ input {
     border-radius: 5px;
 }
 
-input:focus {
+input:focus, select:focus {
     border: 1px solid #C2DAFF;
     outline: 4.5px solid #C2DAFF;
 }
 
-.ubicacion_label {
+label {
     position: absolute;
     left: 0%;
     top: 0%;
 }
 
-.ubicacion_input_1 {
+input, select {
     position: absolute;
     left: 0%;
     bottom: 0%;
 }
 
-.f1 {
+#div_id_CliNombres {
     position: absolute;
     left: 0.97%;
     top: 14.43%;
 }
 
-.f2 {
+#div_id_CliApellidos {
     position: absolute;
     left: 0.97%;
     top: 27.84%;
 }
 
-.f3 {
+#div_id_CliTipoDocumento {
     position: absolute;
     left: 0.97%;
     top: 41.26%;
 }
 
-.f4 {
+#div_id_idIdentificacion {
     position: absolute;
     left: 0.97%;
     top: 54.67%;
 }
 
-.f5 {
+#div_id_CliGenero {
     position: absolute;
     width: 5.36% !important;
     left: 0.97%;
     top: 68.08%;
 }
 
-.f6 {
+#div_id_CliDireccion {
     position: absolute;
     left: 0.97%;
     top: 81.49%;
 }
 
-.f7 {
+#div_id_TblCiudades_idCiudad {
     position: absolute;
     left: 0.97%;
     top: 94.91%;
 }
 
-.f8 {
+#div_id_CliTelefono {
     position: absolute;
     left: 50.05%;
     top: 59.76%;
 }
 
-.f9 {
+#div_id_CliCelular {
     position: absolute;
     left: 50.05%;
     top: 73.17%;
 }
 
-.f10 {
+#div_id_CliEmail {
     position: absolute;
     left: 50.05%;
     top: 86.59%;
@@ -186,7 +173,8 @@ input:focus {
 .frame_b {
     position: absolute;
     width: 26.1%;
-    height: 4.83%;
+    min-height: 29px;
+    max-height: 5.23%;
     left: 54.72%;
     top: 99%;
 }
@@ -197,12 +185,10 @@ input:focus {
     height: 100%;
     left: 0%;
     top: 0%;
-
     background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
     border: #00B9CA;
-
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -268,42 +254,43 @@ input:focus {
         line-height: 37px;
     }
 
-    .frame_f {
+    .control-group {
         width: 85.51%;
         height: 7.76%;
     }
 
-    .f1 {
+    #div_id_CliNombres {
         left: 2.34%;
         top: 9.87%;
     }
 
-    .f2 {
+    #div_id_CliApellidos {
         left: 2.34%;
         top: 19.16%;
     }
 
-    .f3 {
+    #div_id_CliTipoDocumento {
         left: 2.34%;
         top: 28.44%;
     }
 
-    .f4 {
+    #div_id_idIdentificacion {
         left: 2.34%;
         top: 37.72%;
     }
 
-    .f5 {
+    #div_id_CliGenero {
+        width: 55px !important;
         left: 2.34%;
         top: 47.01%;
     }
 
-    .f6 {
+    #div_id_CliDireccion {
         left: 2.34%;
         top: 56.29%;
     }
 
-    .f7 {
+    #div_id_TblCiudades_idCiudad {
         left: 2.34%;
         top: 65.57%;
     }
@@ -315,17 +302,17 @@ input:focus {
         top: 74.5%;
     }
 
-    .f8 {
+    #div_id_CliTelefono {
         left: 2.34%;
         top: 110.46%;
     }
 
-    .f9 {
+    #div_id_CliCelular {
         left: 2.34%;
         top: 119.74%;
     }
 
-    .f10 {
+    #div_id_CliEmail {
         left: 2.34%;
         top: 129.03%;
     }
