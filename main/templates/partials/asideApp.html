@@ -51,8 +51,8 @@
                         class="nav__link nav__link--inside">Gestionar vehículos en el taller</a>
                 </li>
                 <li class="list__inside">
-                    <a href="interfaz_marcas.html" target="iframe1" class="nav__link nav__link--inside">Marcas
-                        presentes en vehículos</a>
+                    <a href="{% url 'marcas' %}"
+                        class="nav__link nav__link--inside">Marcas</a>
                 </li>
 
             </ul>
@@ -73,7 +73,7 @@
                 </li>
                 <li class="list__inside">
                     <a href="{% url 'registrar_cliente' %}"
-                        class="nav__link nav__link--inside">Registro de clientes</a>
+                        class="nav__link nav__link--inside">Registrar cliente</a>
                 </li>
 
             </ul>
@@ -109,12 +109,16 @@
             </div>
             <ul class="list__show">
                 <li class="list__inside">
-                    <a href="interfaz_articulos.html" target="iframe1" class="nav__link nav__link--inside">Ver
+                    <a href="{% url 'articulos' %}" class="nav__link nav__link--inside">Ver
                         artículos</a>
                 </li>
                 <li class="list__inside">
-                    <a href="frm_registrar_articulos.html" target="iframe1"
-                        class="nav__link nav__link--inside">Registrar artículos</a>
+                    <a href="{% url 'registrar_articulo' %}"
+                        class="nav__link nav__link--inside">Registrar artículo</a>
+                </li>
+                <li class="list__inside">
+                    <a href="{% url 'categorias' %}"
+                        class="nav__link nav__link--inside">Categorías</a>
                 </li>
             </ul>
         </li>
@@ -204,12 +208,11 @@
 
             <ul class="list__show">
                 <li class="list__inside">
-                    <a href="interfaz_proveedores.html" target="iframe1" class="nav__link nav__link--inside">Ver
+                    <a href="{% url 'proveedores' %}" class="nav__link nav__link--inside">Ver
                         proveedores</a>
                 </li>
                 <li class="list__inside">
-                    <a href="frm_registrar_proveedores.html" target="iframe1"
-                        class="nav__link nav__link--inside">Registrar proveedores</a>
+                    <a href="{% url 'registrar_proveedor' %}" class="nav__link nav__link--inside">Registrar proveedores</a>
                 </li>
 
             </ul>

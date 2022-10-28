@@ -1,0 +1,91 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_marcas.css' %}">
+{% endblock css %}
+
+
+{% block contenido %}
+<section>
+    <div class="titulo_superior">
+        <h2>Marcas establecidas</h2>
+    </div>
+    <div class="contenedor_form">
+        <form>
+            <label for="MarABusqueda" class="label_buscar">Buscar marca:</label>
+            <input type="search" name="MarABusqueda" id="MarABusqueda" placeholder="Buscar">
+
+            <label for="FiltroMarcasA" class="label_filtrar">Filtrar:</label>
+            <input list="FiltroMarcasA" name="FiltroMarcasA" id="css_propiedades_filtro"
+                placeholder="Elige un filtro">
+            <datalist id="FiltroMarcasA">
+                <option value="A-Z">Opción 1</option>
+                <option value="Z-A">Opción 2</option>
+            </datalist>
+            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+        </form>
+    </div>
+    <div class="contenedor_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for marca in marcas %}
+                <tr>
+                    
+                        <td>{{marca.pk}}</td>
+                        <td>{{marca.MarNombre}}</td>
+                        <td>{{marca.MarDescripcion}}</td>
+                        <td>
+                            <a href="{% url 'editar_marca' marca.id %}">
+                                <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar marca">
+                            </a>
+                            <a href="{% url 'eliminar_marca' marca.id %}">
+                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
+                            </a>
+                        </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <img src="{% static 'img/Data_Arranging_Outline1.svg' %}" alt="Ilustración relativa a marcas" id="img1">
+    <a href="#" id="btn_anadir" title="Añadir nueva marca">Añadir</a>
+</section>
+<section class="modal-form1 ">
+    <div class="container_modal-form1">
+        <div class="container_h2-form1">
+            <h2>Registrar nueva marca</h2>
+            <a href="#" class="modal_close-form1 container_cerrar-form1">
+                <img src="{% static 'img/cerrar.svg' %}" alt="Icono cerrar ventana" title="Cerrar">
+            </a>
+        </div>
+        <img src="{% static 'img/Data Arranging_Flatline.svg' %}" alt="Imagen ilustrativa a marcas" id="img2">
+        <form action="" method="POST">
+            {{form|crispy}}
+            {% csrf_token %}
+            <div class="frame_b">
+                <button type="submit" value="Guardar" id="btn_guardar">Guardar</button>
+                <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock contenido %}
+    
+
+{% block js %}
+<script src="{% static 'js/modal_form1.js' %}"></script>
+{% endblock js %}
+    

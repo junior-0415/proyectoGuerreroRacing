@@ -1,5 +1,6 @@
 from contextlib import redirect_stderr
 from multiprocessing import context
+from xml.dom.minidom import Document
 from django.shortcuts import redirect, render
 from django.contrib import messages
 
@@ -25,6 +26,9 @@ def registrar_cliente(request):
         form = ClienteForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(
+                request,f"Se ha registrado el cliente {request.POST['CliNombre']} exitosamente"
+            )
             return redirect('clientes')
         else:
             print('Error')
@@ -45,6 +49,9 @@ def editar_cliente(request, pk):
         form = ClienteForm(request.POST, instance=cliente)
         if form.is_valid():
             form.save()
+            messages.success(
+                request,f"Se editó el cliente {request.POST['CliNombre']} exitosamente"
+            )
             return redirect('clientes')
         else:
             print('Error al guardar')
@@ -65,7 +72,9 @@ def eliminar_cliente(request, pk):
     Cliente.objects.filter(id=pk).update(
         CliEstado='0'
     )
-
+    messages.success(
+        request,f"Se eliminó el cliente exitosamente"
+    )
     return redirect('clientes')
 
     context = {
@@ -73,6 +82,7 @@ def eliminar_cliente(request, pk):
         'clientes': clientes
     }
     return render(request, 'clientes/interfaz_clientes.html', context)
+
 
 def ciudades(request):
     titulo = "Ciudades y municipios"
@@ -104,6 +114,9 @@ def editar_ciudad(request, pk):
         form = CiudadesForm(request.POST, instance=ciudad)
         if form.is_valid():
             form.save()
+            messages.success(
+                request,f"Se editó la ciudad o municipio {request.POST['CiuNombre']} exitosamente"
+            )
             return redirect('ciudades')
         else:
             print('Error al guardar')
@@ -124,7 +137,9 @@ def eliminar_ciudad(request, pk):
     Ciudades.objects.filter(id=pk).update(
         CiuEstado='0'
     )
-
+    messages.success(
+        request,f"Se editó la ciudad o municipio exitosamente"
+    )
     return redirect('ciudades')
 
     context = {
@@ -164,6 +179,9 @@ def editar_departamento(request, pk):
         form = DepartamentosForm(request.POST, instance=departamento)
         if form.is_valid():
             form.save()
+            messages.success(
+                request,f"Se editó {request.POST['DepNombre']} exitosamente"
+            )
             return redirect('departamentos')
         else:
             print('Error al guardar')
@@ -182,6 +200,9 @@ def eliminar_departamento(request, pk):
     departamento = Departamentos.objects.all()
     Departamentos.objects.filter(id=pk).update(
         DepEstado='0'
+    )
+    messages.success(
+        request,f"Se eliminó exitosamente el registro"
     )
     return redirect('departamentos')
     context = {

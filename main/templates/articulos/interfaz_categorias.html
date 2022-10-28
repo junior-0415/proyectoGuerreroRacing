@@ -1,0 +1,91 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_categorias.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+<section>
+    <div class="titulo_superior">
+        <h2>Categorías en artículos establecidas</h2>
+    </div>
+    <div class="contenedor_form">
+        <form>
+            <label for="CatBusqueda" class="label_buscar">Buscar categoría:</label>
+            <input type="search" name="CatBusqueda" id="CatBusqueda" placeholder="Buscar">
+
+            <label for="FiltroCategorias" class="label_filtrar">Filtrar:</label>
+            <input list="FiltroCategorias" name="FiltroCategorias" id="css_propiedades_filtro"
+                placeholder="Elige un filtro">
+            <datalist id="FiltroCategorias">
+                <option value="A-Z">Opción 1</option>
+                <option value="Z-A">Opción 2</option>
+            </datalist>
+            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+        </form>
+    </div>
+    <div class="contenedor_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for categoria in categorias %}
+                <tr>
+                    
+                        <td>{{categoria.pk}}</td>
+                        <td>{{categoria.CatNombre}}</td>
+                        <td>{{categoria.CatDescripcion}}</td>
+                        <td>
+                            <a href="{% url 'editar_categoria' categoria.id %}">
+                                <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar categoría">
+                            </a>
+                            <a href="{% url 'eliminar_categoria' categoria.id %}">
+                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
+                            </a>
+                        </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <img src="{% static 'img/categoriasArt.svg' %}" alt="Ilustración relativa a categorías" id="img1">
+    <a href="#" id="btn_anadir" title="Añadir nueva categoría">Añadir</a>
+</section>
+<section class="modal-form-cat ">
+    <div class="container_modal-form-cat">
+        <div class="container_h2-form-cat">
+            <h2>Añadir nueva categoría</h2>
+            <a href="#" class="modal_close-form-cat container_cerrar-form-cat">
+                <img src="{% static 'img/cerrar.svg' %}" alt="Icono cerrar ventana" title="Cerrar">
+            </a>
+        </div>
+        <img src="{% static 'img/categoriasArt.svg' %}" alt="Imagen ilustrativa a categorías" id="img2">
+        <form action="" method="POST">
+            {{form|crispy}}
+            {% csrf_token %}
+            <div class="frame_b">
+                <button type="submit" value="Guardar" id="btn_guardar">Guardar</button>
+                <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock contenido %}
+
+
+{% block js %}
+    <script src="{% static 'js/interfaz_categorias.js' %}"></script>
+{% endblock js %}
+    

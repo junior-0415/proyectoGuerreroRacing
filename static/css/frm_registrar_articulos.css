@@ -61,7 +61,7 @@ form {
     padding: 0%;
 }
 
-.frame_f {
+.control-group {
     width: 35.64%;
     height: 66px;
 }
@@ -79,7 +79,7 @@ label {
     color: #000000;
 }
 
-input {
+input, select, textarea {
     box-sizing: border-box;
 
     width: 100%;
@@ -96,68 +96,74 @@ input {
     border-radius: 5px;
 }
 
-input:focus {
+input:focus, select:focus, textarea:focus {
     border: 1px solid #C2DAFF;
     outline: 4.5px solid #C2DAFF;
 }
 
-.ubicacion_label {
+label {
     position: absolute;
     left: 0%;
     top: 0%;
 }
 
-.ubicacion_input_1 {
+input, select, textarea {
     position: absolute;
     left: 0%;
     bottom: 0%;
 }
 
-.f1 {
+#div_id_ArtNombre {
     position: absolute;
     left: 0.97%;
     top: 14.43%;
 }
 
-.f2 {
+#div_id_TblCategoria_idCategoria {
     position: absolute;
     left: 0.97%;
     top: 27.84%;
 }
 
-.f3 {
+#div_id_ArtStockMaximo {
     position: absolute;
     left: 0.97%;
     top: 41.26%;
 }
 
-.f4 {
+#div_id_ArtStockMinimo {
     position: absolute;
     left: 0.97%;
     top: 54.67%;
 }
 
-.f5 {
+#div_id_ArtDescripcion {
     position: absolute;
-    height: 34.97%;
+    height: 34.97% !important;
     left: 0.97%;
     top: 68.08%;
 }
 
-.f5 input {
+#div_id_ArtDescripcion textarea {
     height: 86.41% !important;
 }
 
-.f6 {
+#div_id_ArtFoto {
     position: absolute;
     left: 50.05%;
     top: 41.26%;
 }
 
-.f7 {
+#div_id_TblProveedores_idProveedor {
     position: absolute;
     left: 50.05%;
     top: 54.67%;
+}
+
+#div_id_TblMarcas_idMarca {
+    position: absolute;
+    left: 50.05%;
+    top: 68.08%;
 }
 
 #img1 {
@@ -173,7 +179,7 @@ input:focus {
     width: 26.1%;
     height: 4.83%;
     left: 54.72%;
-    top: 68.93%;
+    top: 82.34%;
 }
 
 #btn_guardar {
@@ -241,7 +247,7 @@ input:focus {
     width: 26.1%;
     height: auto;
     left: 54.72%;
-    top: 77.25%;
+    top: 90.66%;
 
     font-family: 'Roboto';
     font-style: normal;
@@ -254,6 +260,13 @@ input:focus {
 
     color: #000000;
     text-decoration: none;
+}
+
+.espacio {
+    position: absolute;
+    top: 90%;
+    width: 100px;
+    height: 100px;
 }
 
 @media (max-width: 767px) {

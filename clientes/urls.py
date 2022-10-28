@@ -9,7 +9,7 @@ urlpatterns = [
     path('extras/ciudades-municipios/', ciudades, name="ciudades"),
     path('extras/ciudades-municipios/editar/<int:pk>/', editar_ciudad, name="editar_ciudad"),
     path('extras/ciudades-municipios/eliminar/<int:pk>/', eliminar_ciudad, name="eliminar_ciudad"),
-    path('extras/departamentos', departamentos, name="departamentos"),
+    path('extras/departamentos/', departamentos, name="departamentos"),
     path('extras/departamentos/editar/<int:pk>/', editar_departamento, name="editar_departamento"),
     path('extras/departamentos/eliminar/<int:pk>/', eliminar_departamento, name="eliminar_departamento"),
 ]
