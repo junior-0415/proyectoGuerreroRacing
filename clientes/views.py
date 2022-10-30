@@ -4,8 +4,8 @@ from xml.dom.minidom import Document
 from django.shortcuts import redirect, render
 from django.contrib import messages
 
-from clientes.forms import CiudadesForm, ClienteForm, DepartamentosForm
-from clientes.models import Ciudades, Cliente, Departamentos
+from clientes.forms import CiudadesForm, ClienteForm, DepartamentosForm, VehiculosForm
+from clientes.models import Ciudades, Cliente, Departamentos, Vehiculo
 
 # Create your views here.
 
@@ -210,3 +210,139 @@ def eliminar_departamento(request, pk):
         'departamento': departamento
     }
     return render(request, 'clientes/interfaz_departamentos.html', context)
+
+def vehiculos(request):
+    titulo = "Vehículos"
+    vehiculos = Vehiculo.objects.filter(VehEstado = '1')
+    context = {
+        'titulo': titulo,
+        'vehiculos': vehiculos
+    }
+    return render(request, 'clientes/vehiculos_registrados.html', context)
+
+def registrar_vehiculo(request):
+    titulo = "Registrar vehículo"
+    if request.method == "POST":
+        form = VehiculosForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,f"Se ha registrado el vehículo {request.POST['idMatricula']} exitosamente"
+            )
+            return redirect('vehiculos')
+        else:
+            print('Error')
+    else:
+        form = VehiculosForm()
+
+    context = {
+        'titulo': titulo,
+        'form': form
+    }
+    return render(request, 'clientes/frm_registrar_nuevo_vehiculo.html', context)
+
+def editar_vehiculo(request, pk):
+    titulo = "Editar vehículo"
+    vehiculo = Vehiculo.objects.get(id=pk)
+    if request.method == "POST":
+        form = VehiculosForm(request.POST, instance=vehiculo)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,f"Se editó el vehículo {request.POST['idMatricula']} exitosamente"
+            )
+            return redirect('vehiculos')
+        else:
+            print('Error al guardar')
+    else:
+        form = VehiculosForm(instance=vehiculo)
+
+    context = {
+        'titulo': titulo,
+        'form': form
+    }
+    return render(request, 'clientes/frm_registrar_nuevo_vehiculo.html', context)
+
+
+def eliminar_vehiculo(request, pk):
+    titulo = "Eliminar vehículo"
+    vehiculo = Vehiculo.objects.all()
+
+    Vehiculo.objects.filter(id=pk).update(
+        VehEstado='0'
+    )
+    messages.success(
+        request,f"Se eliminó el vehículo exitosamente"
+    )
+    return redirect('vehiculos')
+
+    context = {
+        'titulo': titulo,
+        'vehiculo': vehiculo
+    }
+    return render(request, 'clientes/vehiculos_registrados.html', context)
+
+def vehiculos_taller(request):
+    titulo = "Vehículos en taller"
+    vehiculos = Vehiculo.objects.filter(VehTaller = 'Si', VehEstado = '1')
+    context = {
+        'titulo': titulo,
+        'vehiculos': vehiculos
+    }
+    return render(request, 'clientes/interfaz_vehiculos_en_taller.html', context)
+
+def editar_vehiculo_taller(request, pk):
+    titulo = "Editar vehículo"
+    vehiculo = Vehiculo.objects.get(id=pk)
+    if request.method == "POST":
+        form = VehiculosForm(request.POST, instance=vehiculo)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,f"Se editó el vehículo {request.POST['idMatricula']} exitosamente"
+            )
+            return redirect('vehiculos_taller')
+        else:
+            print('Error al guardar')
+    else:
+        form = VehiculosForm(instance=vehiculo)
+
+    context = {
+        'titulo': titulo,
+        'form': form,
+    }
+    return render(request, 'clientes/frm_registrar_nuevo_vehiculo.html', context)
+
+def sacar_vehiculo_taller(request, pk):
+    titulo = "Sacar vehículo del taller"
+    vehiculo = Vehiculo.objects.all()
+    Vehiculo.objects.filter(id=pk).update(
+        VehTaller='No'
+    )
+    messages.success(
+        request,f"El vehiculo ha salido del taller"
+    )
+    return redirect('vehiculos_taller')
+
+    context = {
+        'titulo': titulo,
+        'vehiculo': vehiculo
+    }
+    return render(request, 'clientes/interfaz_vehiculos_en_taller.html', context)
+
+def ingresar_vehiculo_taller(request, pk):
+    titulo = "ingresar vehículo del taller"
+    vehiculo = Vehiculo.objects.all()
+    Vehiculo.objects.filter(id=pk).update(
+        VehTaller='Si'
+    )
+    messages.success(
+        request,f"El vehiculo se ha ingresado al taller"
+    )
+    return redirect('vehiculos_taller')
+
+    context = {
+        'titulo': titulo,
+        'vehiculo': vehiculo
+    }
+    return render(request, 'clientes/interfaz_vehiculos_en_taller.html', context)

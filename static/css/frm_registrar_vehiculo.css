@@ -1,0 +1,340 @@
+.titulo {
+    position: absolute;
+    width: 100%;
+    height: 10.53%;
+    left: 0%;
+    top: 0%;
+
+    background: rgba(0, 117, 128, 0.982);
+
+    display: grid;
+    place-items: center;
+}
+
+.titulo h1 {
+    /* Registrar un nuevo cliente */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+
+    font-family: 'Comic Sans MS', 'cursive';
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 8px;
+}
+
+section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    margin: 0%;
+    padding: 0%;
+}
+
+form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    margin: 0%;
+    padding: 0%;
+}
+
+
+.control-group {
+    width: 35.64%;
+    height: 66px;
+}
+
+label {
+    width: auto;
+    height: auto;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+input, select {
+    box-sizing: border-box;
+    width: 100%;
+    height: 38px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+    background: none;
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+input:focus, select:focus, textarea:focus {
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+label {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+input, select, textarea {
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+}
+
+#div_id_idMatricula {
+    position: absolute;
+    left: 0.97%;
+    top: 14.43%;
+}
+
+#div_id_TblCliente_idIdentificacion {
+    position: absolute;
+    left: 0.97%;
+    top: 27.84%;
+}
+
+#div_id_VehModelo {
+    position: absolute;
+    left: 0.97%;
+    top: 41.26%;
+}
+
+#div_id_VehColor {
+    position: absolute;
+    left: 0.97%;
+    top: 54.67%;
+}
+
+#div_id_TblMarcas_idMarca {
+    position: absolute;
+    left: 0.97%;
+    top: 68.08%;
+}
+
+#div_id_VehVersion {
+    position: absolute;
+    left: 0.97%;
+    top: 81.49%;
+}
+
+#div_id_VehAnio {
+    position: absolute;
+    left: 0.97%;
+    top: 94.91%;
+}
+
+#div_id_VehChasis_VIN {
+    position: absolute;
+    left: 0.97%;
+    top: 108.33%;
+}
+
+#div_id_VehMotor {
+    position: absolute;
+    left: 0.97%;
+    top: 121.74%;
+}
+
+#div_id_VehUltima_Fecha_Ingreso {
+    position: absolute;
+    left: 50.05%;
+    top: 68.08%
+}
+
+#div_id_VehUltima_Fecha_Salida {
+    position: absolute;
+    left: 50.05%;
+    top: 81.49%;
+}
+
+#div_id_VehInforme_Tecnico {
+    position: absolute;
+    height: 190px !important;
+    left: 50.05%;
+    top: 94.91%;
+}
+
+#div_id_VehInforme_Tecnico  textarea {
+    width: 100%;
+    max-height: 80%;
+}
+
+#icono_add_proveedor {
+    position: absolute;
+    width: 34.48%;
+    height: 46.31%;
+    left: 51.41%;
+    top: 13.24%;
+}
+
+.frame_b {
+    position: absolute;
+    width: 26.1%;
+    min-height: 29px;
+    max-height: 5.23%;
+    left: 54.72%;
+    top: 130%;
+}
+
+#btn_guardar {
+    position: absolute;
+    width: 46.64%;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_guardar:hover {
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_guardar:active {
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+#btn_cancelar {
+    position: absolute;
+    width: 46.64%;
+    height: 100%;
+    right: 0%;
+    top: 0%;
+
+    background: #6c757d;
+    box-shadow: 0px 2.87356px 2.87356px rgba(0, 0, 0, 0.6);
+    border-radius: 7.18391px;
+    border: #6c757d;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_cancelar:hover {
+    background: #3f454b;
+}
+
+#btn_cancelar:active {
+    background: #FFFFFF;
+    color: #3f454b;
+}
+
+#ancla_btn_cancelar {
+    position: absolute;
+    width: 125px;
+    height: 28.44px;
+    left: 710px;
+    top: 488px;
+}
+
+@media (max-width: 767px) {
+    .titulo {
+        height: 7.76%;
+    }
+
+    .titulo h1 {
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    .control-group {
+        width: 85.51%;
+        height: 7.76%;
+    }
+
+    #div_id_CliNombres {
+        left: 2.34%;
+        top: 9.87%;
+    }
+
+    #div_id_CliApellidos {
+        left: 2.34%;
+        top: 19.16%;
+    }
+
+    #div_id_CliTipoDocumento {
+        left: 2.34%;
+        top: 28.44%;
+    }
+
+    #div_id_idIdentificacion {
+        left: 2.34%;
+        top: 37.72%;
+    }
+
+    #div_id_CliGenero {
+        width: 55px !important;
+        left: 2.34%;
+        top: 47.01%;
+    }
+
+    #div_id_CliDireccion {
+        left: 2.34%;
+        top: 56.29%;
+    }
+
+    #div_id_TblCiudades_idCiudad {
+        left: 2.34%;
+        top: 65.57%;
+    }
+
+    #img1 {
+        width: 94.86%;
+        height: 35.96%;
+        left: 2.34%;
+        top: 74.5%;
+    }
+
+    #div_id_CliTelefono {
+        left: 2.34%;
+        top: 110.46%;
+    }
+
+    #div_id_CliCelular {
+        left: 2.34%;
+        top: 119.74%;
+    }
+
+    #div_id_CliEmail {
+        left: 2.34%;
+        top: 129.03%;
+    }
+
+    .frame_b {
+        width: 62.62%;
+        left: 14.95%;
+        top: 139.49%;
+    }
+
+}

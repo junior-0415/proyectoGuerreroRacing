@@ -203,10 +203,10 @@
                     <td>{{articulo.ArtStockMaximo}}</td>
                     <td>{{articulo.TblProveedores_idProveedor}}</td>
                     <td> 
-                        <a href="#">
+                        <a href="{% url 'restablecer_articulo' articulo.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
                         </a>
-                        <a href="#">
+                        <a href="{% url 'eliminar_def_articulo' articulo.id %}">
                             <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón editar" class="btn_eliminar" title="Eliminar definitivamente">
                         </a>
                     </td>
@@ -296,10 +296,57 @@
             {% endfor %}
         </table>
     </div>
+
+    <div class="titulo_tablas flex_item">
+        <h2>Vehículos</h2>
+    </div>
+    <div class="container_tabla flex_item">
+        <table>
+            <thead>
+                <tr>
+                    <th>Matrícula</th>
+                    <th>Propietario</th>
+                    <th>Modelo</th>
+                    <th>Color</th>
+                    <th>Marca</th>
+                    <th>Versión</th>
+                    <th>Año</th>
+                    <th>Chasis_VIN</th>
+                    <th>Motor</th>
+                    <th>Ultima fecha ingreso</th>
+                    <th>Ultima fecha salida</th>
+                    <th>informe técnico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+  
+                {% for vehiculo in vehiculos %}
+                <tr>
+                    <td>{{vehiculo.idMatricula}}</td>
+                    <td>{{vehiculo.TblCliente_idIdentificacion}}</td>
+                    <td>{{vehiculo.VehModelo}}</td>
+                    <td>{{vehiculo.VehColor}}</td>
+                    <td>{{vehiculo.TblMarcas_idMarca}}</td>
+                    <td>{{vehiculo.VehVersion}}</td>
+                    <td>{{vehiculo.VehAnio}}</td>
+                    <td>{{vehiculo.VehChasis_VIN}}</td>
+                    <td>{{vehiculo.VehMotor}}</td>
+                    <td>{{vehiculo.VehUltima_Fecha_Ingreso}}</td>
+                    <td>{{vehiculo.VehUltima_Fecha_Salida}}</td>
+                    <td>{{vehiculo.VehInforme_Tecnico}}</td>
+                    <td>
+                        <a href="{% url 'restablecer_vehiculo' vehiculo.id %}">
+                            <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
+                        </a>
+                        <a href="{% url 'eliminar_def_vehiculo' vehiculo.id %}">
+                            <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón editar" class="btn_eliminar" title="Eliminar definitivamente">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </section>
 {% endblock contenido %}
-
-
-{% block js %}
-
-{% endblock js %}

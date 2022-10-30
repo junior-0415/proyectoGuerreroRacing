@@ -2,9 +2,10 @@ from multiprocessing import context
 from django.shortcuts import render, redirect
 from django.views.defaults import page_not_found
 from django.contrib import messages
+from django.views.generic import View, TemplateView, ListView, DetailView
 from articulos.models import Articulos, Categoria, Marcas, Proveedores
 
-from clientes.models import Cliente, Ciudades, Departamentos
+from clientes.models import Cliente, Ciudades, Departamentos, Vehiculo
 
 def inicio(request):
     context = {}
@@ -26,8 +27,11 @@ def inicioAdmin(request):
     }
     return render(request, 'frm_inicio_app.html', context)
 
-def error_404(request, exception):
-    return page_not_found(request, 'error_404.html')
+# def error_404(request, exception):
+#     return page_not_found(request, 'error_404.html')
+
+# class Error_404(TemplateView):
+#     template_name = "error_404.html"
 
 def papelera_reciclaje(request):
     titulo = "Papelera de reciclaje"
@@ -38,6 +42,7 @@ def papelera_reciclaje(request):
     articulos = Articulos.objects.filter(ArtEstado = '0')
     categorias = Categoria.objects.filter(CatEstado = '0')
     proveedores = Proveedores.objects.filter(ProEstado = '0')
+    vehiculos = Vehiculo.objects.filter(VehEstado = '0')
     context = {
         'titulo':titulo,
         'clientes':clientes,
@@ -46,7 +51,8 @@ def papelera_reciclaje(request):
         'marcas':marcas,
         'articulos':articulos,
         'categorias':categorias,
-        'proveedores':proveedores
+        'proveedores':proveedores,
+        'vehiculos':vehiculos,
     }
     return render(request, 'interfaz_papelera.html', context)
 
@@ -240,5 +246,69 @@ def eliminar_def_proveedor(request, pk):
     context = {
         'titulo': titulo,
         'proveedor': proveedor
+    }
+    return render(request, 'interfaz_papelera.html', context)
+
+def restablecer_articulo(request, pk):
+    titulo = "Restablecer artículo"
+    articulo = Articulos.objects.all()
+
+    Articulos.objects.filter(id=pk).update(
+        ArtEstado='1'
+    )
+    messages.success(
+        request,f"Se restableció el registro exitosamente"
+    )
+    return redirect('articulos')
+
+    context = {
+        'titulo': titulo,
+        'articulo': articulo
+    }
+    return render(request, 'articulos/interfaz_proveedores.html', context)
+
+def eliminar_def_articulo(request, pk):
+    titulo = "Eliminar artículo"
+    articulo = Articulos.objects.filter(id=pk).delete()
+    messages.warning(
+        request,f"Se eliminó definitivamente el registro"
+    )
+    return redirect('papelera')
+
+    context = {
+        'titulo': titulo,
+        'articulo': articulo
+    }
+    return render(request, 'interfaz_papelera.html', context)
+
+def restablecer_vehiculo(request, pk):
+    titulo = "Restablecer vehículo"
+    vehiculo = Vehiculo.objects.all()
+
+    Vehiculo.objects.filter(id=pk).update(
+        VehEstado='1'
+    )
+    messages.success(
+        request,f"Se restableció el registro exitosamente"
+    )
+    return redirect('vehiculos')
+
+    context = {
+        'titulo': titulo,
+        'vehiculo': vehiculo
+    }
+    return render(request, 'clientes/vehiculos_registrados.html', context)
+
+def eliminar_def_vehiculo(request, pk):
+    titulo = "Eliminar vehículo"
+    vehiculo = Vehiculo.objects.filter(id=pk).delete()
+    messages.warning(
+        request,f"Se eliminó definitivamente el registro"
+    )
+    return redirect('papelera')
+
+    context = {
+        'titulo': titulo,
+        'vehiculo': vehiculo
     }
     return render(request, 'interfaz_papelera.html', context)

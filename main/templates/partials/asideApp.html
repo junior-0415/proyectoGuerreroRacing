@@ -39,16 +39,13 @@
 
             <ul class="list__show">
                 <li class="list__inside">
-                    <a href="frm_registrar_nuevo_vehiculo.html" target="iframe1"
-                        class="nav__link nav__link--inside">Registrar vehículos</a>
+                    <a href="{% url 'vehiculos' %}" class="nav__link nav__link--inside">Ver vehículos</a>
                 </li>
                 <li class="list__inside">
-                    <a href="frm_vehiculos_registrados.html" target="iframe1"
-                        class="nav__link nav__link--inside">Ver vehículos</a>
+                    <a href="{% url 'registrar_vehiculo' %}" class="nav__link nav__link--inside">Registrar vehículos</a>
                 </li>
                 <li class="list__inside">
-                    <a href="frm_estos_vehiculos_estan_dentro_del_taller.html" target="iframe1"
-                        class="nav__link nav__link--inside">Gestionar vehículos en el taller</a>
+                    <a href="{% url 'vehiculos_taller' %}" class="nav__link nav__link--inside">Vehículos en taller</a>
                 </li>
                 <li class="list__inside">
                     <a href="{% url 'marcas' %}"
