@@ -6,24 +6,24 @@ from django import forms
 from articulos.models import Articulos, Categoria, Marcas, Proveedores
 
 class ArticulosForm(forms.ModelForm):
-    ArtNombre = forms.CharField(
+    art_nombre = forms.CharField(
         widget=forms.TextInput(attrs={'placeholder':'Ingrese el nombre de artículo'})
     )
     class Meta:
         model= Articulos
-        exclude = ['ArtStockDisp', 'ArtEstado']
+        exclude = ['art_stock_disp', 'art_estado']
 
 class CategoriasForm(forms.ModelForm):
     class Meta:
         model= Categoria
-        exclude = ['CatEstado']
+        exclude = ['cat_estado']
 
 class MarcasForm(forms.ModelForm):
     class Meta:
         model= Marcas
-        exclude = ['MarEstado']
+        exclude = ['mar_estado']
 
 class ProveedoresForm(forms.ModelForm):
     class Meta:
         model= Proveedores
-        exclude = ['ProEstado']
+        exclude = ['pro_estado']

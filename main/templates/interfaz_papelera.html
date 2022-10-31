@@ -40,16 +40,16 @@
 
                 {% for cliente in clientes %}
                 <tr>
-                    <td>{{cliente.idIdentificacion}}</td>
-                    <td>{{cliente.CliTipoDocumento}}</td>
-                    <td>{{cliente.CliNombres}}</td>
-                    <td>{{cliente.CliApellidos}}</td>
-                    <td>{{cliente.CliGenero}}</td>
-                    <td>{{cliente.CliDireccion}}</td>
-                    <td>{{cliente.TblCiudades_idCiudad}}</td>
-                    <td>{{cliente.CliTelefono}}</td>
-                    <td>{{cliente.CliCelular}}</td>
-                    <td>{{cliente.CliEmail}}</td>
+                    <td>{{cliente.id_identificacion}}</td>
+                    <td>{{cliente.cli_tipo_documento}}</td>
+                    <td>{{cliente.cli_nombres}}</td>
+                    <td>{{cliente.cli_apellidos}}</td>
+                    <td>{{cliente.cli_genero}}</td>
+                    <td>{{cliente.cli_direccion}}</td>
+                    <td>{{cliente.tbl_ciudades_idciudad}}</td>
+                    <td>{{cliente.cli_telefono}}</td>
+                    <td>{{cliente.cli_celular}}</td>
+                    <td>{{cliente.cli_email}}</td>
                     <td>
                         <a href="{% url 'restablecer_cliente' cliente.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
@@ -82,9 +82,9 @@
                 {% for ciudad in ciudades %}
                 <tr>
 
-                    <td>{{ciudad.idCiudad}}</td>
-                    <td>{{ciudad.CiuNombre}}</td>
-                    <td>{{ciudad.TblDepartamento_idDepart}}</td>
+                    <td>{{ciudad.id_ciudad}}</td>
+                    <td>{{ciudad.ciu_nombre}}</td>
+                    <td>{{ciudad.tbl_departamento_idepart}}</td>
                     <td>
                         <a href="{% url 'restablecer_ciudad' ciudad.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
@@ -116,8 +116,8 @@
 
                 {% for depart in departamentos %}
                 <tr>
-                    <td>{{depart.idDepart}}</td>
-                    <td>{{depart.DepNombre}}</td>
+                    <td>{{depart.id_depart}}</td>
+                    <td>{{depart.dep_nombre}}</td>
                     <td>
                         <a href="{% url 'restablecer_departamento' depart.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
@@ -151,8 +151,8 @@
                 {% for marca in marcas %}
                 <tr>
                         <td>{{marca.pk}}</td>
-                        <td>{{marca.MarNombre}}</td>
-                        <td>{{marca.MarDescripcion}}</td>
+                        <td>{{marca.mar_nombre}}</td>
+                        <td>{{marca.mar_descripcion}}</td>
                         <td>
                             <a href="{% url 'restablecer_marca' marca.id %}">
                                 <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
@@ -194,14 +194,14 @@
                         <img class="rounded-circle" src="{{ MEDIA_URL }}{{articulo.ArtFoto.url}}" width="50" height="50" alt="">
                     </td>
                     <td>{{articulo.pk}}</td>
-                    <td>{{articulo.ArtNombre}}</td>
-                    <td>{{articulo.TblMarcaArticulos_idMarcaArticulo}}</td>
-                    <td>{{articulo.TblCategoria_idCategoria}}</td>
-                    <td>{{articulo.ArtStockDisp}}</td>
+                    <td>{{articulo.art_nombre}}</td>
+                    <td>{{articulo.tbl_marca_articulos_idmarca_articulo}}</td>
+                    <td>{{articulo.tbl_categoria_idcategoria}}</td>
+                    <td>{{articulo.art_stock_disp}}</td>
                     <td></td>
-                    <td>{{articulo.ArtStockMinimo}}</td>
-                    <td>{{articulo.ArtStockMaximo}}</td>
-                    <td>{{articulo.TblProveedores_idProveedor}}</td>
+                    <td>{{articulo.Art_stock_minimo}}</td>
+                    <td>{{articulo.art_stock_maximo}}</td>
+                    <td>{{articulo.tbl_proveedores_idproveedor}}</td>
                     <td> 
                         <a href="{% url 'restablecer_articulo' articulo.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
@@ -235,8 +235,8 @@
                 <tr>
                     
                         <td>{{categoria.pk}}</td>
-                        <td>{{categoria.CatNombre}}</td>
-                        <td>{{categoria.CatDescripcion}}</td>
+                        <td>{{categoria.cat_nombre}}</td>
+                        <td>{{categoria.cat_descripcion}}</td>
                         <td>
                             <a href="{% url 'restablecer_categoria' categoria.id %}">
                                 <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
@@ -275,15 +275,15 @@
             {% for proveedor in proveedores %}
             <tr>
                 <td>{{proveedor.pk}}</td>
-                <td>{{proveedor.ProNit}}</td>
-                <td>{{proveedor.ProNombre}}</td>
-                <td>{{proveedor.ProCategoria}}</td>
-                <td>{{proveedor.ProPersonaNat}}</td>
-                <td>{{proveedor.ProDireccion}}</td>
-                <td>{{proveedor.ProTelefono}}</td>
-                <td>{{proveedor.ProCelular}}</td>
-                <td>{{proveedor.ProEmail}}</td>
-                <td>{{proveedor.ProSitioWeb}}</td>
+                <td>{{proveedor.pro_nit}}</td>
+                <td>{{proveedor.pro_nombre}}</td>
+                <td>{{proveedor.pro_categoria}}</td>
+                <td>{{proveedor.pro_persona_nat}}</td>
+                <td>{{proveedor.pro_direccion}}</td>
+                <td>{{proveedor.pro_telefono}}</td>
+                <td>{{proveedor.pro_celular}}</td>
+                <td>{{proveedor.pro_email}}</td>
+                <td>{{proveedor.pro_sitio_web}}</td>
                 <td>
                     <a href="{% url 'restablecer_proveedor' proveedor.id %}">
                         <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">
@@ -323,18 +323,18 @@
   
                 {% for vehiculo in vehiculos %}
                 <tr>
-                    <td>{{vehiculo.idMatricula}}</td>
-                    <td>{{vehiculo.TblCliente_idIdentificacion}}</td>
-                    <td>{{vehiculo.VehModelo}}</td>
-                    <td>{{vehiculo.VehColor}}</td>
-                    <td>{{vehiculo.TblMarcas_idMarca}}</td>
-                    <td>{{vehiculo.VehVersion}}</td>
-                    <td>{{vehiculo.VehAnio}}</td>
-                    <td>{{vehiculo.VehChasis_VIN}}</td>
-                    <td>{{vehiculo.VehMotor}}</td>
-                    <td>{{vehiculo.VehUltima_Fecha_Ingreso}}</td>
-                    <td>{{vehiculo.VehUltima_Fecha_Salida}}</td>
-                    <td>{{vehiculo.VehInforme_Tecnico}}</td>
+                    <td>{{vehiculo.id_matricula}}</td>
+                    <td>{{vehiculo.tbl_cliente_ididentificacion}}</td>
+                    <td>{{vehiculo.veh_modelo}}</td>
+                    <td>{{vehiculo.veh_color}}</td>
+                    <td>{{vehiculo.tbl_marcas_idmarca}}</td>
+                    <td>{{vehiculo.veh_version}}</td>
+                    <td>{{vehiculo.veh_anio}}</td>
+                    <td>{{vehiculo.veh_chasis_vin}}</td>
+                    <td>{{vehiculo.veh_motor}}</td>
+                    <td>{{vehiculo.veh_ultima_fecha_ingreso}}</td>
+                    <td>{{vehiculo.veh_ultima_fecha_salida}}</td>
+                    <td>{{vehiculo.veh_informe_tecnico}}</td>
                     <td>
                         <a href="{% url 'restablecer_vehiculo' vehiculo.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón editar" class="btn_restablecer" title="Recuperar desde papelera">

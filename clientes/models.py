@@ -5,18 +5,19 @@ from django.utils.translation import gettext_lazy as _
 from django.db import models
 
 from articulos.models import Marcas
+from empleadosuser.models import Servicios
 
 # Create your models here.
 
 
 class Departamentos(models.Model):
-    idDepart = models.CharField(max_length=10, verbose_name="Código nacional")
-    DepNombre = models.CharField(max_length=45, verbose_name="Nombre")
+    id_depart = models.CharField(max_length=10, verbose_name="Código nacional")
+    dep_nombre = models.CharField(max_length=45, verbose_name="Nombre")
 
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
-    DepEstado = models.CharField(
+    dep_estado = models.CharField(
         max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
     def __str__(self) -> str:
@@ -24,15 +25,15 @@ class Departamentos(models.Model):
 
 
 class Ciudades(models.Model):
-    idCiudad = models.CharField(max_length=10, verbose_name="Código nacional")
-    CiuNombre = models.CharField(max_length=45, verbose_name="Nombre")
-    TblDepartamento_idDepart = models.ForeignKey(
+    id_ciudad = models.CharField(max_length=10, verbose_name="Código nacional")
+    ciu_nombre = models.CharField(max_length=45, verbose_name="Nombre")
+    tbl_departamento_iddepart = models.ForeignKey(
         Departamentos, on_delete=models.CASCADE, verbose_name="Departamento")
 
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
-    CiuEstado = models.CharField(
+    ciu_estado = models.CharField(
         max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
     def __str__(self) -> str:
@@ -40,7 +41,7 @@ class Ciudades(models.Model):
 
 
 class Cliente(models.Model):
-    idIdentificacion = models.CharField(
+    id_identificacion = models.CharField(
         max_length=50, verbose_name="Identificación:")
 
     class TipoDocumento(models.TextChoices):
@@ -48,59 +49,59 @@ class Cliente(models.Model):
         CC = 'C.C', _('Cédula de Ciudadanía')
         CE = 'C.E', _('Cédula de Extranjería')
         Pas = 'Pas', _('Pasaporte')
-    CliTipoDocumento = models.CharField(max_length=4, choices=TipoDocumento.choices, default=TipoDocumento.CC, verbose_name="Tipo de documento")
-    CliNombres = models.CharField(max_length=50, verbose_name="Nombres")
-    CliApellidos = models.CharField(max_length=50, verbose_name="Apellidos")
+    cli_tipo_documento = models.CharField(max_length=3, choices=TipoDocumento.choices, default=TipoDocumento.CC, verbose_name="Tipo de documento")
+    cli_nombres = models.CharField(max_length=50, verbose_name="Nombres:")
+    cli_apellidos = models.CharField(max_length=50, verbose_name="Apellidos:")
 
     class Genero(models.TextChoices):
         FEMENINO = 'F', _('Femenino')
         MASCULINO = 'M', _('Maculino')
-    CliGenero = models.CharField(max_length=2, choices=Genero.choices)
-    CliDireccion = models.CharField(max_length=100, verbose_name="Dirección")
-    TblCiudades_idCiudad = models.ForeignKey(
+    cli_genero = models.CharField(max_length=2, choices=Genero.choices)
+    cli_direccion = models.CharField(max_length=100, verbose_name="Dirección")
+    tbl_ciudades_idciudad = models.ForeignKey(
         Ciudades, on_delete=models.CASCADE, verbose_name="Ciudad")
-    CliTelefono = models.CharField(max_length=20, blank=True, verbose_name="Teléfono")
-    CliCelular = models.CharField(max_length=20, verbose_name="Celular")
-    CliEmail = models.EmailField(max_length=100, verbose_name="Email")
+    cli_telefono = models.CharField(max_length=20, blank=True, verbose_name="Teléfono")
+    cli_celular = models.CharField(max_length=20, verbose_name="Celular")
+    cli_email = models.EmailField(max_length=100, verbose_name="Email")
 
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
-    CliEstado = models.CharField(
+    cli_estado = models.CharField(
         max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
     def __str__(self) -> str:
         return "%s - %s" % (self.CliNombres, self.CliApellidos)
 
 class Vehiculo(models.Model):
-    idMatricula = models.CharField(max_length=6, verbose_name="Matrícula")
-    TblCliente_idIdentificacion = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Dueño")
-    VehModelo = models.CharField(max_length=45, verbose_name="Modelo")
-    VehColor = models.CharField(max_length=20, verbose_name="Color")
-    TblMarcas_idMarca = models.ForeignKey(Marcas, on_delete=models.CASCADE, verbose_name="Marca")
-    VehVersion = models.CharField(max_length=20, verbose_name="Versión")
-    VehAnio = models.CharField(max_length=4, verbose_name="Año")  # preguntas
-    VehChasis_VIN = models.CharField(max_length=45, verbose_name="Chasis_VIN")
-    VehMotor = models.CharField(max_length=45, verbose_name="Motor")
-    VehUltima_Fecha_Ingreso = models.DateField(
+    id_matricula = models.CharField(max_length=6, verbose_name="Matrícula")
+    tbl_cliente_ididentificacion = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Dueño")
+    veh_modelo = models.CharField(max_length=45, verbose_name="Modelo")
+    veh_color = models.CharField(max_length=20, verbose_name="Color")
+    tbl_marcas_idmarca = models.ForeignKey(Marcas, on_delete=models.CASCADE, verbose_name="Marca")
+    veh_version = models.CharField(max_length=20, verbose_name="Versión")
+    veh_anio = models.CharField(max_length=4, verbose_name="Año")  # preguntas
+    veh_chasis_vin = models.CharField(max_length=45, verbose_name="Chasis_VIN")
+    veh_motor = models.CharField(max_length=45, verbose_name="Motor")
+    veh_ultima_fecha_ingreso = models.DateField(
         verbose_name="Ultima fecha de ingreso")
-    VehUltima_Fecha_Salida = models.DateField(
+    veh_ultima_fecha_salida = models.DateField(
         verbose_name="Ultima fecha de Salida")
-    VehInforme_Tecnico = models.TextField(
+    veh_informe_tecnico = models.TextField(
         max_length=200, verbose_name="Informe técnico")
 
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
-    VehEstado = models.CharField(
+    veh_estado = models.CharField(
         max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
     class EnTaller(models.TextChoices):
         EN_TALLER = 'Si', _('En taller')
         ENTREGADO = 'No', _('Entregado')
-    VehTaller = models.CharField(max_length=2, choices=EnTaller.choices, default=EnTaller.EN_TALLER, verbose_name="Proceso:")
+    veh_taller = models.CharField(max_length=2, choices=EnTaller.choices, default=EnTaller.EN_TALLER, verbose_name="Proceso:")
 
 
-"""class TblRelClienteServicios(models.Model):
-    TblCliente_idIdentificacion=models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Cliente")
-    TblServicios_idServicio=models.ForeignKey('Servicios', on_delete=models.CASCADE, verbose_name="Servicio")"""
+class TblRelClienteServicios(models.Model):
+    tbl_cliente_ididentificacion=models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Cliente:")
+    tbl_servicios_idservicio=models.ForeignKey(Servicios, on_delete=models.CASCADE, verbose_name="Servicio:")

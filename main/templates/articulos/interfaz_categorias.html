@@ -45,8 +45,8 @@
                 <tr>
                     
                         <td>{{categoria.pk}}</td>
-                        <td>{{categoria.CatNombre}}</td>
-                        <td>{{categoria.CatDescripcion}}</td>
+                        <td>{{categoria.cat_nombre}}</td>
+                        <td>{{categoria.cat_descripcion}}</td>
                         <td>
                             <a href="{% url 'editar_categoria' categoria.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar categoría">

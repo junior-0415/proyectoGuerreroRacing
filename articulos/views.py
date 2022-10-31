@@ -10,7 +10,7 @@ from articulos.models import Articulos, Categoria, Marcas, Proveedores
 
 def articulos(request):
      titulo = "Artículos"
-     articulos = Articulos.objects.filter(ArtEstado = '1')
+     articulos = Articulos.objects.filter(art_estado = '1')
      context = {
         'titulo':titulo,
         'articulos':articulos
@@ -24,7 +24,7 @@ def registrar_articulo(request):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se agregó el articulo {request.POST['ArtNombre']} exitosamente"
+                request,f"Se agregó el articulo {request.POST['art_nombre']} exitosamente"
             )
             return redirect('articulos')
         else:
@@ -46,7 +46,7 @@ def editar_articulo(request, pk):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se editó el artículo {request.POST['ArtNombre']} exitosamente"
+                request,f"Se editó el artículo {request.POST['art_nombre']} exitosamente"
             )
             return redirect('articulos')
         else:
@@ -65,7 +65,7 @@ def eliminar_articulo(request, pk):
     articulo = Articulos.objects.all()
 
     Articulos.objects.filter(id=pk).update(
-        ArtEstado='0'
+        art_estado='0'
     )
     messages.success(
         request,f"Se eliminó el artículo exitosamente"
@@ -80,13 +80,13 @@ def eliminar_articulo(request, pk):
 
 def categorias(request):
     titulo = "Categorías en artículos"
-    categorias = Categoria.objects.filter(CatEstado = '1')
+    categorias = Categoria.objects.filter(cat_estado = '1')
     if request.method == "POST":
         form = CategoriasForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se agregó la categoría {request.POST['CatNombre']} exitosamente"
+                request,f"Se agregó la categoría {request.POST['cat_nombre']} exitosamente"
             )
             return redirect('categorias')
         else:
@@ -109,7 +109,7 @@ def editar_categoria(request, pk):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se editó la categoría {request.POST['CatNombre']} exitosamente"
+                request,f"Se editó la categoría {request.POST['cat_nombre']} exitosamente"
             )
             return redirect('categorias')
         else:
@@ -128,11 +128,11 @@ def eliminar_categoria(request, pk):
     ciudad = Categoria.objects.all()
 
     Categoria.objects.filter(id=pk).update(
-        CatEstado='0'
+        cat_estado='0'
     )
-    # messages.WARNING(
-    #     request,f"Se elimino la categoría {request.POST['']} exitosamente" #pregunta
-    # )    
+    messages.success(
+        request,f"Se eliminó la categoría exitosamente" #pregunta
+    )    
     return redirect('categorias')
 
     context = {
@@ -143,13 +143,13 @@ def eliminar_categoria(request, pk):
 
 def marcas(request):
     titulo = "Marcas"
-    marcas = Marcas.objects.filter(MarEstado = '1')
+    marcas = Marcas.objects.filter(mar_estado = '1')
     if request.method == "POST":
         form = MarcasForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se agregó la marca {request.POST['MarNombre']} exitosamente"
+                request,f"Se agregó la marca {request.POST['mar_nombre']} exitosamente"
             )
             return redirect('marcas')
         else:
@@ -171,7 +171,7 @@ def editar_marca(request, pk):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se editó la marca {request.POST['MarNombre']} exitosamente"
+                request,f"Se editó la marca {request.POST['mar_nombre']} exitosamente"
             )
             return redirect('marcas')
         else:
@@ -190,7 +190,7 @@ def eliminar_marca(request, pk):
     marca = Marcas.objects.all()
 
     Marcas.objects.filter(id=pk).update(
-        MarEstado='0'
+        mar_estado='0'
     )
     messages.success(
         request,f"Se eliminó la marca exitosamente"
@@ -205,7 +205,7 @@ def eliminar_marca(request, pk):
 
 def proveedores(request):
     titulo = "Proveedores"
-    proveedores = Proveedores.objects.filter(ProEstado = '1')  # ver formulario
+    proveedores = Proveedores.objects.filter(pro_estado = '1')  # ver formulario
     context = {
         'titulo': titulo,
         'proveedores': proveedores
@@ -219,7 +219,7 @@ def registrar_proveedor(request):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se agregó el proveedor {request.POST['ProNombre']} exitosamente"
+                request,f"Se agregó el proveedor {request.POST['pro_nombre']} exitosamente"
             )
             return redirect('proveedores')
         else:
@@ -241,7 +241,7 @@ def editar_proveedor(request, pk):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se editó el proveedor {request.POST['ProNombre']} exitosamente"
+                request,f"Se editó el proveedor {request.POST['pro_nombre']} exitosamente"
             )
             return redirect('proveedores')
         else:
@@ -260,7 +260,7 @@ def eliminar_proveedor(request, pk):
     proveedor = Proveedores.objects.all()
 
     Proveedores.objects.filter(id=pk).update(
-        ProEstado='0'
+        pro_estado='0'
     )
     messages.success(
         request,f"Se eliminó el proveedor exitosamente"

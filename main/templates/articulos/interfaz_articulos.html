@@ -53,14 +53,14 @@
                             <img class="rounded-circle" src="{{ MEDIA_URL }}{{articulo.ArtFoto.url}}" width="50" height="50" alt="">
                         </td>
                         <td>{{articulo.pk}}</td>
-                        <td>{{articulo.ArtNombre}}</td>
-                        <td>{{articulo.TblMarcaArticulos_idMarcaArticulo}}</td>
-                        <td>{{articulo.TblCategoria_idCategoria}}</td>
-                        <td>{{articulo.ArtStockDisp}}</td>
+                        <td>{{articulo.art_nombre}}</td>
+                        <td>{{articulo.tbl_marca_articulos_idmarca_articulo}}</td>
+                        <td>{{articulo.tbl_categoria_idcategoria}}</td>
+                        <td>{{articulo.art_stock_disp}}</td>
                         <td></td>
-                        <td>{{articulo.ArtStockMinimo}}</td>
-                        <td>{{articulo.ArtStockMaximo}}</td>
-                        <td>{{articulo.TblProveedores_idProveedor}}</td>
+                        <td>{{articulo.Art_stock_minimo}}</td>
+                        <td>{{articulo.art_stock_maximo}}</td>
+                        <td>{{articulo.tbl_proveedores_idproveedor}}</td>
                         <td> 
                             <a href="{% url 'editar_articulo' articulo.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar artículo">

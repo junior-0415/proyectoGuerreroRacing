@@ -12,7 +12,7 @@ from clientes.models import Ciudades, Cliente, Departamentos, Vehiculo
 
 def clientes(request):
     titulo = "Clientes"
-    clientes = Cliente.objects.filter(CliEstado = '1')  # guardar formulario
+    clientes = Cliente.objects.filter(cli_estado = '1')  # guardar formulario
     context = {
         'titulo': titulo,
         'clientes': clientes
@@ -27,7 +27,7 @@ def registrar_cliente(request):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se ha registrado el cliente {request.POST['CliNombre']} exitosamente"
+                request,f"Se ha registrado el cliente {request.POST['cli_nombre']} exitosamente"
             )
             return redirect('clientes')
         else:
@@ -50,7 +50,7 @@ def editar_cliente(request, pk):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se editó el cliente {request.POST['CliNombre']} exitosamente"
+                request,f"Se editó el cliente {request.POST['cli_nombre']} exitosamente"
             )
             return redirect('clientes')
         else:
@@ -70,7 +70,7 @@ def eliminar_cliente(request, pk):
     clientes = Cliente.objects.all()
 
     Cliente.objects.filter(id=pk).update(
-        CliEstado='0'
+        cli_estado='0'
     )
     messages.success(
         request,f"Se eliminó el cliente exitosamente"
@@ -86,13 +86,13 @@ def eliminar_cliente(request, pk):
 
 def ciudades(request):
     titulo = "Ciudades y municipios"
-    ciudades = Ciudades.objects.filter(CiuEstado = '1')
+    ciudades = Ciudades.objects.filter(ciu_estado = '1')
     if request.method == "POST":
         form = CiudadesForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se agregó la ciudad o municipio {request.POST['CiuNombre']} exitosamente"
+                request,f"Se agregó la ciudad o municipio {request.POST['ciu_nombre']} exitosamente"
             )
             return redirect('ciudades')
         else:
@@ -115,7 +115,7 @@ def editar_ciudad(request, pk):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se editó la ciudad o municipio {request.POST['CiuNombre']} exitosamente"
+                request,f"Se editó la ciudad o municipio {request.POST['ciu_nombre']} exitosamente"
             )
             return redirect('ciudades')
         else:
@@ -135,7 +135,7 @@ def eliminar_ciudad(request, pk):
     ciudad = Ciudades.objects.all()
 
     Ciudades.objects.filter(id=pk).update(
-        CiuEstado='0'
+        ciu_estado='0'
     )
     messages.success(
         request,f"Se editó la ciudad o municipio exitosamente"
@@ -151,13 +151,13 @@ def eliminar_ciudad(request, pk):
 
 def departamentos(request):
     titulo = "Departamentos"
-    departamentos = Departamentos.objects.filter(DepEstado = '1')
+    departamentos = Departamentos.objects.filter(dep_estado = '1')
     if request.method == 'POST':
         form = DepartamentosForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se agregó el departamento {request.POST['DepNombre']} exitosamente"
+                request,f"Se agregó el departamento {request.POST['Dep_Nombre']} exitosamente"
             )
             return redirect('departamentos')
         else:
@@ -180,7 +180,7 @@ def editar_departamento(request, pk):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se editó {request.POST['DepNombre']} exitosamente"
+                request,f"Se editó {request.POST['dep_nombre']} exitosamente"
             )
             return redirect('departamentos')
         else:
@@ -199,7 +199,7 @@ def eliminar_departamento(request, pk):
     titulo = "Eliminar departamento"
     departamento = Departamentos.objects.all()
     Departamentos.objects.filter(id=pk).update(
-        DepEstado='0'
+        dep_estado='0'
     )
     messages.success(
         request,f"Se eliminó exitosamente el registro"
@@ -213,7 +213,7 @@ def eliminar_departamento(request, pk):
 
 def vehiculos(request):
     titulo = "Vehículos"
-    vehiculos = Vehiculo.objects.filter(VehEstado = '1')
+    vehiculos = Vehiculo.objects.filter(veh_estado = '1')
     context = {
         'titulo': titulo,
         'vehiculos': vehiculos
@@ -227,7 +227,7 @@ def registrar_vehiculo(request):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se ha registrado el vehículo {request.POST['idMatricula']} exitosamente"
+                request,f"Se ha registrado el vehículo {request.POST['id_matricula']} exitosamente"
             )
             return redirect('vehiculos')
         else:
@@ -249,7 +249,7 @@ def editar_vehiculo(request, pk):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se editó el vehículo {request.POST['idMatricula']} exitosamente"
+                request,f"Se editó el vehículo {request.POST['id_matricula']} exitosamente"
             )
             return redirect('vehiculos')
         else:
@@ -269,7 +269,7 @@ def eliminar_vehiculo(request, pk):
     vehiculo = Vehiculo.objects.all()
 
     Vehiculo.objects.filter(id=pk).update(
-        VehEstado='0'
+        veh_estado='0'
     )
     messages.success(
         request,f"Se eliminó el vehículo exitosamente"
@@ -284,7 +284,7 @@ def eliminar_vehiculo(request, pk):
 
 def vehiculos_taller(request):
     titulo = "Vehículos en taller"
-    vehiculos = Vehiculo.objects.filter(VehTaller = 'Si', VehEstado = '1')
+    vehiculos = Vehiculo.objects.filter(veh_taller = 'Si', veh_estado = '1')
     context = {
         'titulo': titulo,
         'vehiculos': vehiculos
@@ -299,7 +299,7 @@ def editar_vehiculo_taller(request, pk):
         if form.is_valid():
             form.save()
             messages.success(
-                request,f"Se editó el vehículo {request.POST['idMatricula']} exitosamente"
+                request,f"Se editó el vehículo {request.POST['id_matricula']} exitosamente"
             )
             return redirect('vehiculos_taller')
         else:
@@ -317,7 +317,7 @@ def sacar_vehiculo_taller(request, pk):
     titulo = "Sacar vehículo del taller"
     vehiculo = Vehiculo.objects.all()
     Vehiculo.objects.filter(id=pk).update(
-        VehTaller='No'
+        veh_taller='No'
     )
     messages.success(
         request,f"El vehiculo ha salido del taller"
@@ -334,7 +334,7 @@ def ingresar_vehiculo_taller(request, pk):
     titulo = "ingresar vehículo del taller"
     vehiculo = Vehiculo.objects.all()
     Vehiculo.objects.filter(id=pk).update(
-        VehTaller='Si'
+        veh_taller='Si'
     )
     messages.success(
         request,f"El vehiculo se ha ingresado al taller"

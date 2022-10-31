@@ -44,9 +44,9 @@
                 {% for ciudad in ciudades %}
                 <tr>
                     
-                        <td>{{ciudad.idCiudad}}</td>
-                        <td>{{ciudad.CiuNombre}}</td>
-                        <td>{{ciudad.TblDepartamento_idDepart}}</td>
+                        <td>{{ciudad.id_ciudad}}</td>
+                        <td>{{ciudad.ciu_nombre}}</td>
+                        <td>{{ciudad.tbl_departamento_iddepart}}</td>
                         <td>
                             <a href="{% url 'editar_ciudad' ciudad.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar ciudad">
