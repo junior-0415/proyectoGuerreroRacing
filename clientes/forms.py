@@ -9,19 +9,19 @@ from clientes.models import Ciudades, Cliente, Departamentos, Vehiculo
 class ClienteForm(forms.ModelForm):
     class Meta:
         model= Cliente
-        exclude = ['CliEstado']
+        exclude = ['cli_estado']
 
 class CiudadesForm(forms.ModelForm):
     class Meta:
         model= Ciudades
-        exclude = ['CiuEstado']
+        exclude = ['ciu_estado']
 
 class DepartamentosForm(forms.ModelForm):
     class Meta:
         model= Departamentos
-        exclude = ['DepEstado']
+        exclude = ['dep_estado']
 
 class VehiculosForm(forms.ModelForm):
     class Meta:
         model= Vehiculo
-        exclude = ['VehEstado', 'VehTaller']
+        exclude = ['veh_estado', 'veh_taller']

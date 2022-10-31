@@ -47,16 +47,16 @@
 
                 {% for cliente in clientes %}
                 <tr>
-                    <td>{{cliente.idIdentificacion}}</td>
-                    <td>{{cliente.CliTipoDocumento}}</td>
-                    <td>{{cliente.CliNombres}}</td>
-                    <td>{{cliente.CliApellidos}}</td>
-                    <td>{{cliente.CliGenero}}</td>
-                    <td>{{cliente.CliDireccion}}</td>
-                    <td>{{cliente.TblCiudades_idCiudad}}</td>
-                    <td>{{cliente.CliTelefono}}</td>
-                    <td>{{cliente.CliCelular}}</td>
-                    <td>{{cliente.CliEmail}}</td>
+                    <td>{{cliente.id_identificacion}}</td>
+                    <td>{{cliente.cli_tipo_documento}}</td>
+                    <td>{{cliente.cli_nombres}}</td>
+                    <td>{{cliente.cli_apellidos}}</td>
+                    <td>{{cliente.cli_genero}}</td>
+                    <td>{{cliente.cli_direccion}}</td>
+                    <td>{{cliente.tbl_ciudades_idciudad}}</td>
+                    <td>{{cliente.cli_telefono}}</td>
+                    <td>{{cliente.cli_celular}}</td>
+                    <td>{{cliente.cli_email}}</td>
                     <td>
                         <a href="{% url 'editar_cliente' cliente.id %}">
                             <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar cliente">

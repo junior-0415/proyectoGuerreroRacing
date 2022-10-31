@@ -47,15 +47,15 @@
         {% for proveedor in proveedores %}
         <tr>
             <td>{{proveedor.pk}}</td>
-            <td>{{proveedor.ProNit}}</td>
-            <td>{{proveedor.ProNombre}}</td>
-            <td>{{proveedor.ProCategoria}}</td>
-            <td>{{proveedor.ProPersonaNat}}</td>
-            <td>{{proveedor.ProDireccion}}</td>
-            <td>{{proveedor.ProTelefono}}</td>
-            <td>{{proveedor.ProCelular}}</td>
-            <td>{{proveedor.ProEmail}}</td>
-            <td>{{proveedor.ProSitioWeb}}</td>
+            <td>{{proveedor.pro_nit}}</td>
+            <td>{{proveedor.pro_nombre}}</td>
+            <td>{{proveedor.pro_categoria}}</td>
+            <td>{{proveedor.pro_persona_nat}}</td>
+            <td>{{proveedor.pro_direccion}}</td>
+            <td>{{proveedor.pro_telefono}}</td>
+            <td>{{proveedor.pro_celular}}</td>
+            <td>{{proveedor.pro_email}}</td>
+            <td>{{proveedor.pro_sitio_web}}</td>
             <td>
                 <a href="{% url 'editar_proveedor' proveedor.id %}">
                     <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar proveedor">

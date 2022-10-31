@@ -49,18 +49,18 @@
 
                 {% for vehiculo in vehiculos %}
                 <tr>
-                    <td>{{vehiculo.idMatricula}}</td>
-                    <td>{{vehiculo.TblCliente_idIdentificacion}}</td>
-                    <td>{{vehiculo.VehModelo}}</td>
-                    <td>{{vehiculo.VehColor}}</td>
-                    <td>{{vehiculo.TblMarcas_idMarca}}</td>
-                    <td>{{vehiculo.VehVersion}}</td>
-                    <td>{{vehiculo.VehAnio}}</td>
-                    <td>{{vehiculo.VehChasis_VIN}}</td>
-                    <td>{{vehiculo.VehMotor}}</td>
-                    <td>{{vehiculo.VehUltima_Fecha_Ingreso}}</td>
-                    <td>{{vehiculo.VehUltima_Fecha_Salida}}</td>
-                    <td>{{vehiculo.VehInforme_Tecnico}}</td>
+                    td>{{vehiculo.id_matricula}}</td>
+                    <td>{{vehiculo.tbl_cliente_ididentificacion}}</td>
+                    <td>{{vehiculo.veh_modelo}}</td>
+                    <td>{{vehiculo.veh_color}}</td>
+                    <td>{{vehiculo.tbl_marcas_idmarca}}</td>
+                    <td>{{vehiculo.veh_version}}</td>
+                    <td>{{vehiculo.veh_anio}}</td>
+                    <td>{{vehiculo.veh_chasis_vin}}</td>
+                    <td>{{vehiculo.veh_motor}}</td>
+                    <td>{{vehiculo.veh_ultima_fecha_ingreso}}</td>
+                    <td>{{vehiculo.veh_ultima_fecha_salida}}</td>
+                    <td>{{vehiculo.veh_informe_tecnico}}</td>
                     <td class="flex">
                         <a href="{% url 'editar_vehiculo' vehiculo.id %}">
                             <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar"

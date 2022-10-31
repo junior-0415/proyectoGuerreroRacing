@@ -42,8 +42,8 @@
 
                 {% for depart in departamentos %}
                 <tr>
-                    <td>{{depart.idDepart}}</td>
-                    <td>{{depart.DepNombre}}</td>
+                    <td>{{depart.id_depart}}</td>
+                    <td>{{depart.dep_nombre}}</td>
                     <td>
                         <a href="{% url 'editar_departamento' depart.id %}">
                             <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar departamento">
