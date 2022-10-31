@@ -4,6 +4,8 @@ from tabnanny import verbose
 from django.utils.translation import gettext_lazy as _
 from django.db import models
 
+from articulos.models import Marcas
+
 # Create your models here.
 
 
@@ -67,41 +69,24 @@ class Cliente(models.Model):
     CliEstado = models.CharField(
         max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
-
-class Marcas(models.Model):
-    MarNombre = models.CharField(max_length=50, verbose_name="Nombre")
-
-    class CategoriaMar(models.TextChoices):
-        MOTO = 'Motos', _('Motos')
-        CARRO = 'Carro', _('Carro')
-    MarCategoria = models.CharField(max_length=5, choices=CategoriaMar.choices)
-    Marvaloracion = models.CharField(max_length=5, verbose_name="Valoración")
-
-    class Estado(models.TextChoices):
-        ACTIVO = '1', _('Activo')
-        INACTIVO = '0', _('Inactivo')
-    MarEstado = models.CharField(
-        max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
-
+    def __str__(self) -> str:
+        return "%s - %s" % (self.CliNombres, self.CliApellidos)
 
 class Vehiculo(models.Model):
     idMatricula = models.CharField(max_length=6, verbose_name="Matrícula")
-    TblCliente_idIdentificacion = models.ForeignKey(
-        Cliente, on_delete=models.CASCADE, verbose_name="Dueño")
+    TblCliente_idIdentificacion = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Dueño")
     VehModelo = models.CharField(max_length=45, verbose_name="Modelo")
     VehColor = models.CharField(max_length=20, verbose_name="Color")
-    TblMarcas_idMarca = models.ForeignKey(
-        Marcas, on_delete=models.CASCADE, verbose_name="Marca")
+    TblMarcas_idMarca = models.ForeignKey(Marcas, on_delete=models.CASCADE, verbose_name="Marca")
     VehVersion = models.CharField(max_length=20, verbose_name="Versión")
-    VehAnio = models.DateField(
-        verbose_name="Año", help_text=u"AAAA")  # preguntas
+    VehAnio = models.CharField(max_length=4, verbose_name="Año")  # preguntas
     VehChasis_VIN = models.CharField(max_length=45, verbose_name="Chasis_VIN")
     VehMotor = models.CharField(max_length=45, verbose_name="Motor")
     VehUltima_Fecha_Ingreso = models.DateField(
-        verbose_name="Ultima fecha de ingreso", help_text=u"MM/DD/AAA")
+        verbose_name="Ultima fecha de ingreso")
     VehUltima_Fecha_Salida = models.DateField(
-        verbose_name="Ultima fecha de Salida", help_text=u"MM/DD/AAA")
-    VehInforme_Tecnico = models.CharField(
+        verbose_name="Ultima fecha de Salida")
+    VehInforme_Tecnico = models.TextField(
         max_length=200, verbose_name="Informe técnico")
 
     class Estado(models.TextChoices):
@@ -109,6 +94,11 @@ class Vehiculo(models.Model):
         INACTIVO = '0', _('Inactivo')
     VehEstado = models.CharField(
         max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
+
+    class EnTaller(models.TextChoices):
+        EN_TALLER = 'Si', _('En taller')
+        ENTREGADO = 'No', _('Entregado')
+    VehTaller = models.CharField(max_length=2, choices=EnTaller.choices, default=EnTaller.EN_TALLER, verbose_name="Proceso:")
 
 
 """class TblRelClienteServicios(models.Model):

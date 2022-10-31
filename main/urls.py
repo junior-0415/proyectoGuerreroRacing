@@ -22,9 +22,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 #########################################
 
-from main.views import eliminar_def_categoria, eliminar_def_ciudad, eliminar_def_cliente, eliminar_def_depart, eliminar_def_marca, eliminar_def_proveedor, restablecer_categoria, restablecer_ciudad, restablecer_cliente, error_404, inicio, inicioAdmin, login, papelera_reciclaje, restablecer_departamento, restablecer_marca, restablecer_proveedor
+from main.views import eliminar_def_articulo, eliminar_def_categoria, eliminar_def_ciudad, eliminar_def_cliente, eliminar_def_depart, eliminar_def_marca, eliminar_def_proveedor, eliminar_def_vehiculo, restablecer_articulo, restablecer_categoria, restablecer_ciudad, restablecer_cliente, inicio, inicioAdmin, login, papelera_reciclaje, restablecer_departamento, restablecer_marca, restablecer_proveedor, restablecer_vehiculo
 
-handler404= error_404
+# handler404= Error_404.as_view()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -46,6 +46,8 @@ urlpatterns = [
     path('papelera-de-reciclaje/categorias/eliminar/<int:pk>/', eliminar_def_categoria, name="eliminar_def_categoria"),
     path('papelera-de-reciclaje/proveedores/restablecer/<int:pk>/', restablecer_proveedor, name="restablecer_proveedor"),
     path('papelera-de-reciclaje/proveedores/eliminar/<int:pk>/', eliminar_def_proveedor, name="eliminar_def_proveedor"),
-
-
+    path('papelera-de-reciclaje/articulos/restablecer/<int:pk>/', restablecer_articulo, name="restablecer_articulo"),
+    path('papelera-de-reciclaje/articulos/eliminar/<int:pk>/', eliminar_def_articulo, name="eliminar_def_articulo"),
+    path('papelera-de-reciclaje/vehiculos/restablecer/<int:pk>/', restablecer_vehiculo, name="restablecer_vehiculo"),
+    path('papelera-de-reciclaje/vehiculos/eliminar/<int:pk>/', eliminar_def_vehiculo, name="eliminar_def_vehiculo"),
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

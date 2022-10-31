@@ -1,0 +1,36 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/frm_registrar_vehiculo.css' %}">
+{% endblock css %}
+    
+
+
+{% block contenido %}
+<section>
+    <div class="titulo">
+        <h1>Registrar nuevo vehículo</h1>
+    </div>
+
+    <form action="" method="POST">
+        <img src="{% static 'img/registrar_vehiculos.svg' %}" alt="Icono añadir proveedor" id="icono_add_proveedor">
+        {{form|crispy}}
+        {% csrf_token %}
+        <div class="frame_b">
+            <button type="submit" value="Guardar" id="btn_guardar">Guardar</button>
+            <button type="reset" value="Cancelar" id="btn_cancelar">Cancelar</button>
+        </div>
+    </form>
+</section>
+{% endblock contenido %}
+
+
+{% block js %}
+<script src="JS/libreria_mensajes_emergentes.js"></script>
+<script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
+{% endblock js %}
+    
+

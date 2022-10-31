@@ -1,5 +1,5 @@
 from django.urls import path
-from clientes.views import ciudades, clientes, departamentos, editar_ciudad, editar_cliente, editar_departamento, eliminar_ciudad, eliminar_cliente, eliminar_departamento, registrar_cliente
+from clientes.views import ciudades, clientes, departamentos, editar_ciudad, editar_cliente, editar_departamento, editar_vehiculo, editar_vehiculo_taller, eliminar_ciudad, eliminar_cliente, eliminar_departamento, eliminar_vehiculo, ingresar_vehiculo_taller, registrar_cliente, registrar_vehiculo, sacar_vehiculo_taller, vehiculos, vehiculos_taller
 
 urlpatterns = [
     path('clientes/', clientes, name="clientes"),
@@ -12,4 +12,12 @@ urlpatterns = [
     path('extras/departamentos/', departamentos, name="departamentos"),
     path('extras/departamentos/editar/<int:pk>/', editar_departamento, name="editar_departamento"),
     path('extras/departamentos/eliminar/<int:pk>/', eliminar_departamento, name="eliminar_departamento"),
+    path('vehiculos/', vehiculos, name="vehiculos"),
+    path('vehiculos/crear/', registrar_vehiculo, name="registrar_vehiculo"),
+    path('vehiculos/editar/<int:pk>/', editar_vehiculo, name="editar_vehiculo"),
+    path('vehiculos/eliminar/<int:pk>/', eliminar_vehiculo, name="eliminar_vehiculo"),
+    path('vehiculos/en-taller/', vehiculos_taller, name="vehiculos_taller"),
+    path('vehiculos/en-taller/editar/<int:pk>/', editar_vehiculo_taller, name="editar_vehiculo_taller"),
+    path('vehiculos/en-taller/sacar/<int:pk>/', sacar_vehiculo_taller, name="sacar_vehiculo_taller"),
+    path('vehiculos/ingresar-al-taller//<int:pk>/', ingresar_vehiculo_taller, name="ingresar_vehiculo_taller"),
 ]
