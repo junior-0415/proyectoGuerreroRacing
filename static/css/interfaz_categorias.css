@@ -405,18 +405,18 @@ input:focus, textarea:focus {
     height: 66px;
 }
 
-#div_id_CatNombre {
+#div_id_cat_nombre {
     left: 0%;
     top: 0%;
 }
 
-#div_id_CatDescripcion {
+#div_id_cat_descripcion {
     left: 0%;
     top: 34.72%;
     height: 140px;
 }
 
-#div_id_CatDescripcion textarea {
+#div_id_cat_descripcion textarea {
     position: absolute;
     width: 100%;
     max-height: 80%;

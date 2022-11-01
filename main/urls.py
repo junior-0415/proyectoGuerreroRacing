@@ -22,17 +22,17 @@ from django.conf import settings
 from django.conf.urls.static import static
 #########################################
 
-from main.views import eliminar_def_articulo, eliminar_def_categoria, eliminar_def_ciudad, eliminar_def_cliente, eliminar_def_depart, eliminar_def_marca, eliminar_def_proveedor, eliminar_def_vehiculo, restablecer_articulo, restablecer_categoria, restablecer_ciudad, restablecer_cliente, inicio, inicioAdmin, login, papelera_reciclaje, restablecer_departamento, restablecer_marca, restablecer_proveedor, restablecer_vehiculo
+from main.views import eliminar_def_articulo, eliminar_def_categoria, eliminar_def_ciudad, eliminar_def_cliente, eliminar_def_depart, eliminar_def_marca, eliminar_def_proveedor, eliminar_def_vehiculo, inicio, inicioAdmin, login, papelera_reciclaje, restablecer_articulo, restablecer_categoria, restablecer_ciudad, restablecer_cliente, restablecer_departamento, restablecer_marca, restablecer_proveedor, restablecer_vehiculo
 
-# handler404= Error_404.as_view()
+# handler404= Error_404.as_view()s
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio, name='inicio'),
     path('adm/', inicioAdmin, name='inicio-admin'),
-    path('', include('clientes.urls')),
     path('login/', login, name="login"),
     path('', include('articulos.urls')),
+    path('', include('usuarios.urls')),
     path('papelera-de-reciclaje/', papelera_reciclaje, name="papelera"),
     path('papelera-de-reciclaje/clientes/restablecer/<int:pk>/', restablecer_cliente, name="restablecer_cliente"),
     path('papelera-de-reciclaje/clientes/eliminar/<int:pk>/', eliminar_def_cliente, name="eliminar_def_cliente"),

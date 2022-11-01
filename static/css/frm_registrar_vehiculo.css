@@ -98,80 +98,80 @@ input, select, textarea {
     bottom: 0%;
 }
 
-#div_id_idMatricula {
+#div_id_id_matricula {
     position: absolute;
     left: 0.97%;
     top: 14.43%;
 }
 
-#div_id_TblCliente_idIdentificacion {
+#div_id_tbl_cliente_ididentificacion {
     position: absolute;
     left: 0.97%;
     top: 27.84%;
 }
 
-#div_id_VehModelo {
+#div_id_veh_modelo {
     position: absolute;
     left: 0.97%;
     top: 41.26%;
 }
 
-#div_id_VehColor {
+#div_id_veh_color {
     position: absolute;
     left: 0.97%;
     top: 54.67%;
 }
 
-#div_id_TblMarcas_idMarca {
+#div_id_tbl_marcas_idmarca {
     position: absolute;
     left: 0.97%;
     top: 68.08%;
 }
 
-#div_id_VehVersion {
+#div_id_veh_version {
     position: absolute;
     left: 0.97%;
     top: 81.49%;
 }
 
-#div_id_VehAnio {
+#div_id_veh_anio {
     position: absolute;
     left: 0.97%;
     top: 94.91%;
 }
 
-#div_id_VehChasis_VIN {
+#div_id_veh_chasis_vin {
     position: absolute;
     left: 0.97%;
     top: 108.33%;
 }
 
-#div_id_VehMotor {
+#div_id_veh_motor {
     position: absolute;
     left: 0.97%;
     top: 121.74%;
 }
 
-#div_id_VehUltima_Fecha_Ingreso {
+#div_id_veh_ultima_fecha_ingreso {
     position: absolute;
     left: 50.05%;
     top: 68.08%
 }
 
-#div_id_VehUltima_Fecha_Salida {
+#div_id_veh_ultima_fecha_salida {
     position: absolute;
     left: 50.05%;
     top: 81.49%;
 }
 
-#div_id_VehInforme_Tecnico {
+#div_id_veh_informe_tecnico {
     position: absolute;
     height: 190px !important;
     left: 50.05%;
     top: 94.91%;
 }
 
-#div_id_VehInforme_Tecnico  textarea {
+#div_id_veh_informe_tecnico  textarea {
     width: 100%;
     max-height: 80%;
 }

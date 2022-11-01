@@ -191,7 +191,7 @@
             {% for articulo in articulos %}            
                 <tr>
                     <td class="align moddle text-center">
-                        <img class="rounded-circle" src="{{ MEDIA_URL }}{{articulo.ArtFoto.url}}" width="50" height="50" alt="">
+                        <img class="rounded-circle" src="{{ MEDIA_URL }}{{articulo.art_foto.url}}" width="50" height="50" alt="">
                     </td>
                     <td>{{articulo.pk}}</td>
                     <td>{{articulo.art_nombre}}</td>
@@ -199,7 +199,7 @@
                     <td>{{articulo.tbl_categoria_idcategoria}}</td>
                     <td>{{articulo.art_stock_disp}}</td>
                     <td></td>
-                    <td>{{articulo.Art_stock_minimo}}</td>
+                    <td>{{articulo.art_stock_minimo}}</td>
                     <td>{{articulo.art_stock_maximo}}</td>
                     <td>{{articulo.tbl_proveedores_idproveedor}}</td>
                     <td> 

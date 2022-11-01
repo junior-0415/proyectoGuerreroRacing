@@ -41,12 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5', # pip install django-bootstrap-v5
     'crispy_forms', # pip install crispy-bootstrap5
-    'clientes',
     'articulos',
-    'empleadosuser',
     'inventario',
     'notificaciones',
     'facturacion',
+    'usuarios',
 ]
 
 MIDDLEWARE = [

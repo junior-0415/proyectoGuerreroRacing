@@ -89,55 +89,55 @@ input, select, textarea {
     bottom: 0%;
 }
 
-#div_id_ProNit {
+#div_id_pro_nit {
     position: absolute;
     left: 0.97%;
     top: 14.43%;
 }
 
-#div_id_ProNombre {
+#div_id_pro_nombre {
     position: absolute;
     left: 0.97%;
     top: 27.84%;
 }
 
-#div_id_ProCategoria {
+#div_id_pro_categoria {
     position: absolute;
     left: 0.97%;
     top: 41.26%;
 }
 
-#div_id_ProPersonaNat {
+#div_id_pro_persona_nat {
     position: absolute;
     left: 0.97%;
     top: 54.67%;
 }
 
-#div_id_ProDireccion {
+#div_id_pro_direccion {
     position: absolute;
     left: 0.97%;
     top: 68.08%;
 }
 
-#div_id_ProTelefono {
+#div_id_pro_telefono {
     position: absolute;
     left: 0.97%;
     top: 81.49%;
 }
 
-#div_id_ProCelular {
+#div_id_pro_celular {
     position: absolute;
     left: 0.97%;
     top: 94.91%;
 }
 
-#div_id_ProEmail {
+#div_id_pro_email {
     position: absolute;
     left: 50.05%;
     top: 57.22%;
 }
 
-#div_id_ProSitioWeb {
+#div_id_pro_sitio_web {
     position: absolute;
     left: 50.05%;
     top: 70.63%;

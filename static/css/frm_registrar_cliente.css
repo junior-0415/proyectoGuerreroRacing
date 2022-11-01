@@ -101,62 +101,62 @@ input, select {
     bottom: 0%;
 }
 
-#div_id_CliNombres {
+#div_id_cli_nombres {
     position: absolute;
     left: 0.97%;
     top: 14.43%;
 }
 
-#div_id_CliApellidos {
+#div_id_cli_apellidos {
     position: absolute;
     left: 0.97%;
     top: 27.84%;
 }
 
-#div_id_CliTipoDocumento {
+#div_id_cli_tipo_documento {
     position: absolute;
     left: 0.97%;
     top: 41.26%;
 }
 
-#div_id_idIdentificacion {
+#div_id_id_identificacion {
     position: absolute;
     left: 0.97%;
     top: 54.67%;
 }
 
-#div_id_CliGenero {
+#div_id_cli_genero {
     position: absolute;
     width: 5.36% !important;
     left: 0.97%;
     top: 68.08%;
 }
 
-#div_id_CliDireccion {
+#div_id_cli_direccion {
     position: absolute;
     left: 0.97%;
     top: 81.49%;
 }
 
-#div_id_TblCiudades_idCiudad {
+#div_id_tbl_ciudades_idciudad {
     position: absolute;
     left: 0.97%;
     top: 94.91%;
 }
 
-#div_id_CliTelefono {
+#div_id_cli_telefono {
     position: absolute;
     left: 50.05%;
     top: 59.76%;
 }
 
-#div_id_CliCelular {
+#div_id_cli_celular {
     position: absolute;
     left: 50.05%;
     top: 73.17%;
 }
 
-#div_id_CliEmail {
+#div_id_cli_email {
     position: absolute;
     left: 50.05%;
     top: 86.59%;
