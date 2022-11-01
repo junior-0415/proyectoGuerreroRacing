@@ -5,7 +5,7 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from usuarios.forms import CiudadesForm, ClienteForm, DepartamentosForm, VehiculosForm
 
-from usuarios.models import Ciudades, Cliente, Departamentos, Vehiculo
+from usuarios.models import Ciudades, Cliente, Departamentos, Empleados, Vehiculo
 
 # Create your views here.
 
@@ -345,3 +345,14 @@ def ingresar_vehiculo_taller(request, pk):
         'vehiculo': vehiculo
     }
     return render(request, 'usuarios/interfaz_vehiculos_en_taller.html', context)
+
+
+def empleado(request):
+    titulo = "Empleados"
+    empleado = Empleados.objects.filter(emp_estado='1')
+
+    context = {
+        'titulo': titulo,
+        'empleado': empleado
+    }
+    return render(request, 'usuarios/interfaz_empleado_usuarios.html', context)

@@ -1,0 +1,175 @@
+{% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+
+{% block css %}
+   <!-- <link rel="stylesheet" href="{% static 'css/interfaz_empleado_usuarios.css' %}"> -->
+{% endblock css %}
+
+
+{% block contenido %}
+<section>
+    <div id="titulo_superior">
+        <h1>Empleados y control de usuarios</h1>
+    </div>
+    <form>
+        <label for="idBusquedaEmp" class="label_buscar">Buscar empleado:</label>
+        <input type="search" name="EmpBusqueda" id="idBusquedaEmp" placeholder="Buscar">
+
+        <label for="FiltroEmp" class="label_filtrar">Filtrar:</label>
+        <input list="FiltroEmp" name="FiltroEmp" id="css_propiedades_filtro" placeholder="Elige un filtro">
+        <datalist id="FiltroEmp">
+            <option value="A-Z">Opción 1</option>
+            <option value="Z-A">Opción 2</option>
+            <option value="Mas recientes">Opción 3</option>
+            <option value="Menos recientes">Opción 4</option>
+            <option value="Mostrar todo"></option>
+        </datalist>
+        <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+    </form>
+    <div class="container_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Identificación</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Género</th>
+                    <th>Dirección</th>
+                    <th>Ciudad</th>
+                    <th>Télefono</th>
+                    <th>Celular</th>
+                    <th>Email</th>
+                    <th>Fecha nacimiento</th>
+                    <th>Cargo</th>
+                    <th>No_Contrato</th>
+                    <th>Fecha de ingreso</th>
+                    <th>Servicios asociados</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1047384950</td>
+                    <td>Sofia</td>
+                    <td>Puerto Arrieta</td>
+                    <td>F</td>
+                    <td>*********</td>
+                    <td>Bogóta</td>
+                    <td>750000</td>
+                    <td>3145792608</td>
+                    <td>sofia83@correo.com</td>
+                    <td>31/02/1989</td>
+                    <td>Cajero(a)</td>
+                    <td>8739</td>
+                    <td>01/02/2009</td>
+                    <td>Ventas y cargo</td>
+                </tr>
+                <tr>
+                    <td>1048375903</td>
+                    <td>Jose Miguel</td>
+                    <td>Ramos Ramos</td>
+                    <td>M</td>
+                    <td>*********</td>
+                    <td>Bogóta</td>
+                    <td>780000</td>
+                    <td>3145792608</td>
+                    <td>jose49@correo.com</td>
+                    <td>29/03/1990</td>
+                    <td>Vendedor(a)</td>
+                    <td>8723</td>
+                    <td>11/02/2010</td>
+                    <td>Ventas y cargo</td>
+                </tr>
+                <tr>
+                    <td>1048593895</td>
+                    <td>Maria Camila</td>
+                    <td>Osa Gill</td>
+                    <td>F</td>
+                    <td>*********</td>
+                    <td>Bogóta</td>
+                    <td>720000</td>
+                    <td>3175064829</td>
+                    <td>maria93@correo.com</td>
+                    <td>30/09/2000</td>
+                    <td>Administrador(a)</td>
+                    <td>7832</td>
+                    <td>11/05/2010</td>
+                    <td>Solo cargo</td>
+                </tr>
+                <tr>
+                    <td>1948563784</td>
+                    <td>Eduardo Jose</td>
+                    <td>Barrios Prado</td>
+                    <td>M</td>
+                    <td>*********</td>
+                    <td>Bogóta</td>
+                    <td>757000</td>
+                    <td>3145792608</td>
+                    <td>eduardo39@correo.com</td>
+                    <td>27/12/2001</td>
+                    <td>Mecanico(a)</td>
+                    <td>6239</td>
+                    <td>26/11/2011</td>
+                    <td>Mantenimiento</td>
+                </tr>
+                <tr>
+                    <td>1947385902</td>
+                    <td>Miguel Jose</td>
+                    <td>Puentes</td>
+                    <td>M</td>
+                    <td>*********</td>
+                    <td>Bogóta</td>
+                    <td>775000</td>
+                    <td>3175064829</td>
+                    <td>miguel93@correo.com</td>
+                    <td>12/11/2003</td>
+                    <td>Mecanico(a)</td>
+                    <td>8732</td>
+                    <td>01/02/2020</td>
+                    <td>Mantenimiento</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#" id="menu_lineas"><img src="img/menu_lineas.svg" alt="Menú: mas acciones"
+                        title="Menú: mas acciones"></a>
+                <ul>
+                    <li id="btn_admistrar"><a href="#"><img src="img/administrar.svg"
+                                alt="Icono boton administrar usuarios" title="Administrar"></a></li>
+                    <li id="btn_añadir"><a href="frm_registrar_empleados.html"><img src="img/anadir.svg"
+                                alt="Icono boton añadir" title="Añadir/Registrar nuevo empleado"></a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</section>
+<section class="modal_acciones">
+    <div class="container_modal_acciones">
+        <div class="container_h2_acciones">
+            <h2>Mas acciones</h2>
+
+            <div class="container_cerrar_acciones">
+                <a href="#"><img src="img/cerrar.svg" alt="Icono cerrar ventana" title="Cerrar ventana"
+                        class="modal_close_acciones"></a>
+            </div>
+        </div>
+        <img src="img/administrar_mas_acciones.svg" alt="Imagen administrar" id="img_modal">
+        <div class="btn btn_1">
+            <a href="#" class="propiedades_text">Eliminar un empleado o usuario</a>
+        </div>
+        <div class="btn btn_2">
+            <a href="#" class="propiedades_text">Editar datos de un empleado o usuario</a>
+        </div>
+        <div class="btn btn_3">
+            <a href="#" class="propiedades_text">Invitar a un empleado a crear un usuario en la plataforma</a>
+        </div>
+        <div class="btn btn_4">
+            <a href="#" class="propiedades_text">Administrar permisos de usuario</a>
+        </div>
+    </div>
+    <script src="JS/interfaz_empleado_usuarios.js"></script>
+</section>
+{% endblock contenido %}
+    

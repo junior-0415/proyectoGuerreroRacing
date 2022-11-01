@@ -14,6 +14,13 @@ def inicio(request):
     }
     return render(request, 'index.html', context)
 
+def nosotros(request):
+    titulo = "Nosotros"
+    context = {
+        'titulo': titulo
+    }
+    return render(request, 'nosotros.html', context)
+
 
 def login(request):
     titulo = "Iniciar sesión"

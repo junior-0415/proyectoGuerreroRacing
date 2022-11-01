@@ -22,7 +22,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 #########################################
 
-from main.views import eliminar_def_articulo, eliminar_def_categoria, eliminar_def_ciudad, eliminar_def_cliente, eliminar_def_depart, eliminar_def_marca, eliminar_def_proveedor, eliminar_def_vehiculo, inicio, inicioAdmin, login, papelera_reciclaje, restablecer_articulo, restablecer_categoria, restablecer_ciudad, restablecer_cliente, restablecer_departamento, restablecer_marca, restablecer_proveedor, restablecer_vehiculo
+from main.views import eliminar_def_articulo, eliminar_def_categoria, eliminar_def_ciudad, eliminar_def_cliente, eliminar_def_depart, eliminar_def_marca, eliminar_def_proveedor, eliminar_def_vehiculo, inicio, inicioAdmin, login, nosotros, papelera_reciclaje, restablecer_articulo, restablecer_categoria, restablecer_ciudad, restablecer_cliente, restablecer_departamento, restablecer_marca, restablecer_proveedor, restablecer_vehiculo
 
 # handler404= Error_404.as_view()s
 
@@ -31,6 +31,7 @@ urlpatterns = [
     path('', inicio, name='inicio'),
     path('adm/', inicioAdmin, name='inicio-admin'),
     path('login/', login, name="login"),
+    path('nosotros/', nosotros, name="nosotros"),
     path('', include('articulos.urls')),
     path('', include('usuarios.urls')),
     path('papelera-de-reciclaje/', papelera_reciclaje, name="papelera"),
