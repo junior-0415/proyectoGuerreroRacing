@@ -405,18 +405,18 @@ input:focus, textarea:focus {
     height: 66px;
 }
 
-#div_id_MarNombre {
+#div_id_mar_nombre {
     left: 0%;
     top: 0%;
 }
 
-#div_id_MarDescripcion {
+#div_id_mar_descripcion {
     left: 0%;
     top: 34.72%;
     height: 140px;
 }
 
-#div_id_MarDescripcion textarea {
+#div_id_mar_descripcion textarea {
     position: absolute;
     width: 100%;
     max-height: 80%;

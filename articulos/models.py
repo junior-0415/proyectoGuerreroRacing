@@ -21,7 +21,7 @@ class Proveedores(models.Model):
     pro_estado = models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
     def __str__(self) -> str:
-        return "%s" % (self.ProNombre)
+        return "%s" % (self.pro_nombre)
 
 class Categoria(models.Model):
     cat_nombre = models.CharField(max_length=50, verbose_name="Nombre:")
@@ -33,7 +33,7 @@ class Categoria(models.Model):
     cat_estado = models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")        
 
     def __str__(self) -> str:
-        return "%s" % (self.CatNombre)
+        return "%s" % (self.cat_nombre)
 
 class Marcas(models.Model):
     mar_nombre = models.CharField(max_length=50, verbose_name="Nombre:")
@@ -45,7 +45,7 @@ class Marcas(models.Model):
     mar_estado = models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
     def __str__(self) -> str:
-        return "%s" % (self.MarNombre)
+        return "%s" % (self.mar_nombre)
 
 class Articulos(models.Model):
     art_nombre = models.CharField(max_length=50, verbose_name="Nombre:")
@@ -61,7 +61,7 @@ class Articulos(models.Model):
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
-    ArtEstado = models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
+    art_estado = models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
     def __str__(self) -> str:
-        return "%s" % (self.ArtNombre)
+        return "%s" % (self.art_nombre)

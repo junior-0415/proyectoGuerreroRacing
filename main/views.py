@@ -4,11 +4,14 @@ from django.views.defaults import page_not_found
 from django.contrib import messages
 from django.views.generic import View, TemplateView, ListView, DetailView
 from articulos.models import Articulos, Categoria, Marcas, Proveedores
+from usuarios.models import Ciudades, Cliente, Departamentos, Vehiculo
 
-from clientes.models import Cliente, Ciudades, Departamentos, Vehiculo
+#from clientes.models import Cliente, Ciudades, Departamentos, Vehiculo
 
 def inicio(request):
-    context = {}
+    context = {
+
+    }
     return render(request, 'index.html', context)
 
 
@@ -35,14 +38,14 @@ def inicioAdmin(request):
 
 def papelera_reciclaje(request):
     titulo = "Papelera de reciclaje"
-    clientes = Cliente.objects.filter(CliEstado = '0')
-    ciudades = Ciudades.objects.filter(CiuEstado = '0')
-    departamentos = Departamentos.objects.filter(DepEstado = '0')
-    marcas = Marcas.objects.filter(MarEstado = '0')
-    articulos = Articulos.objects.filter(ArtEstado = '0')
-    categorias = Categoria.objects.filter(CatEstado = '0')
-    proveedores = Proveedores.objects.filter(ProEstado = '0')
-    vehiculos = Vehiculo.objects.filter(VehEstado = '0')
+    clientes = Cliente.objects.filter(cli_estado = '0')
+    ciudades = Ciudades.objects.filter(ciu_estado = '0')
+    departamentos = Departamentos.objects.filter(dep_estado = '0')
+    marcas = Marcas.objects.filter(mar_estado = '0')
+    articulos = Articulos.objects.filter(art_estado = '0')
+    categorias = Categoria.objects.filter(cat_estado = '0')
+    proveedores = Proveedores.objects.filter(pro_estado = '0')
+    vehiculos = Vehiculo.objects.filter(veh_estado = '0')
     context = {
         'titulo':titulo,
         'clientes':clientes,
@@ -61,7 +64,7 @@ def restablecer_cliente(request, pk):
     clientes = Cliente.objects.all()
 
     Cliente.objects.filter(id=pk).update(
-        CliEstado='1'
+        cli_estado='1'
     )
     messages.success(
         request,f"Se ha restablecido el registro exitosamente"
@@ -72,7 +75,7 @@ def restablecer_cliente(request, pk):
         'titulo': titulo,
         'clientes': clientes
     }
-    return render(request, 'clientes/interfaz_clientes.html', context)
+    return render(request, 'usuarios/interfaz_clientes.html', context)
 
 
 def eliminar_def_cliente(request, pk):
@@ -94,7 +97,7 @@ def restablecer_ciudad(request, pk):
     ciudades = Ciudades.objects.all()
 
     Ciudades.objects.filter(id=pk).update(
-        CiuEstado='1'
+        ciu_estado='1'
     )
     messages.success(
         request,f"Se restableció el registro exitosamente"
@@ -105,7 +108,7 @@ def restablecer_ciudad(request, pk):
         'titulo': titulo,
         'ciudades': ciudades
     }
-    return render(request, 'clientes/interfaz_ciu_municipios.html', context)
+    return render(request, 'usuarios/interfaz_ciu_municipios.html', context)
 
 def eliminar_def_ciudad(request, pk):
     titulo = "Eliminar ciudad"
@@ -126,7 +129,7 @@ def restablecer_departamento(request, pk):
     departamento = Departamentos.objects.all()
 
     Departamentos.objects.filter(id=pk).update(
-        DepEstado='1'
+        dep_estado='1'
     )
     messages.success(
         request,f"Se restableció el registro exitosamente"
@@ -137,7 +140,7 @@ def restablecer_departamento(request, pk):
         'titulo': titulo,
         'departamento': departamento
     }
-    return render(request, 'clientes/interfaz_departamentos.html', context)
+    return render(request, 'usuarios/interfaz_departamentos.html', context)
 
 def eliminar_def_depart(request, pk):
     titulo = "Eliminar departamento"
@@ -158,7 +161,7 @@ def restablecer_marca(request, pk):
     marca = Marcas.objects.all()
 
     Marcas.objects.filter(id=pk).update(
-        MarEstado='1'
+        mar_estado='1'
     )
     messages.success(
         request,f"Se restableció el registro exitosamente"
@@ -169,7 +172,7 @@ def restablecer_marca(request, pk):
         'titulo': titulo,
         'marca': marca
     }
-    return render(request, 'clientes/interfaz_marcas.html', context)
+    return render(request, 'usuarios/interfaz_marcas.html', context)
 
 def eliminar_def_marca(request, pk):
     titulo = "Eliminar marca"
@@ -190,7 +193,7 @@ def restablecer_categoria(request, pk):
     categoria = Categoria.objects.all()
 
     Categoria.objects.filter(id=pk).update(
-        CatEstado='1'
+        cat_estado='1'
     )
     messages.success(
         request,f"Se restableció el registro exitosamente"
@@ -201,7 +204,7 @@ def restablecer_categoria(request, pk):
         'titulo': titulo,
         'categoria': categoria
     }
-    return render(request, 'articulos/interfaz_categorias.html', context)
+    return render(request, 'usuarios/interfaz_categorias.html', context)
 
 def eliminar_def_categoria(request, pk):
     titulo = "Eliminar categoria"
@@ -222,7 +225,7 @@ def restablecer_proveedor(request, pk):
     proveedor = Proveedores.objects.all()
 
     Proveedores.objects.filter(id=pk).update(
-        ProEstado='1'
+        pro_estado='1'
     )
     messages.success(
         request,f"Se restableció el registro exitosamente"
@@ -233,7 +236,7 @@ def restablecer_proveedor(request, pk):
         'titulo': titulo,
         'proveedor': proveedor
     }
-    return render(request, 'articulos/interfaz_proveedores.html', context)
+    return render(request, 'usuarios/interfaz_proveedores.html', context)
 
 def eliminar_def_proveedor(request, pk):
     titulo = "Eliminar proveedor"
@@ -254,7 +257,7 @@ def restablecer_articulo(request, pk):
     articulo = Articulos.objects.all()
 
     Articulos.objects.filter(id=pk).update(
-        ArtEstado='1'
+        art_estado='1'
     )
     messages.success(
         request,f"Se restableció el registro exitosamente"
@@ -265,7 +268,7 @@ def restablecer_articulo(request, pk):
         'titulo': titulo,
         'articulo': articulo
     }
-    return render(request, 'articulos/interfaz_proveedores.html', context)
+    return render(request, 'usuarios/interfaz_proveedores.html', context)
 
 def eliminar_def_articulo(request, pk):
     titulo = "Eliminar artículo"
@@ -286,7 +289,7 @@ def restablecer_vehiculo(request, pk):
     vehiculo = Vehiculo.objects.all()
 
     Vehiculo.objects.filter(id=pk).update(
-        VehEstado='1'
+        veh_estado='1'
     )
     messages.success(
         request,f"Se restableció el registro exitosamente"
@@ -297,7 +300,7 @@ def restablecer_vehiculo(request, pk):
         'titulo': titulo,
         'vehiculo': vehiculo
     }
-    return render(request, 'clientes/vehiculos_registrados.html', context)
+    return render(request, 'usuarios/vehiculos_registrados.html', context)
 
 def eliminar_def_vehiculo(request, pk):
     titulo = "Eliminar vehículo"

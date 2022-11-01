@@ -400,20 +400,16 @@ table tbody tr td:first-child {
     height: 66px;
 }
 
-#div_id_idDepart {
+#div_id_id_depart {
     left: 0%;
     top: 0%;
 }
 
-#div_id_DepNombre {
+#div_id_dep_nombre {
     left: 0%;
     bottom: 0%;
 }
 
-#div_id_TblDepartamento_idDepart {
-    left: 0%;
-    bottom: 0%;
-}
 
 .frame_b {
     position: absolute;
