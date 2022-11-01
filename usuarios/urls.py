@@ -1,6 +1,6 @@
 from django.urls import path
 
-from usuarios.views import ciudades, clientes, departamentos, editar_ciudad, editar_cliente, editar_departamento, editar_vehiculo, editar_vehiculo_taller, eliminar_ciudad, eliminar_cliente, eliminar_departamento, eliminar_vehiculo, ingresar_vehiculo_taller, registrar_cliente, registrar_vehiculo, sacar_vehiculo_taller, vehiculos, vehiculos_taller
+from usuarios.views import ciudades, clientes, departamentos, editar_ciudad, editar_cliente, editar_departamento, editar_vehiculo, editar_vehiculo_taller, eliminar_ciudad, eliminar_cliente, eliminar_departamento, eliminar_vehiculo, empleado, ingresar_vehiculo_taller, registrar_cliente, registrar_vehiculo, sacar_vehiculo_taller, vehiculos, vehiculos_taller
 
 
 urlpatterns = [
@@ -22,4 +22,5 @@ urlpatterns = [
     path('vehiculos/en-taller/editar/<int:pk>/', editar_vehiculo_taller, name="editar_vehiculo_taller"),
     path('vehiculos/en-taller/sacar/<int:pk>/', sacar_vehiculo_taller, name="sacar_vehiculo_taller"),
     path('vehiculos/ingresar-al-taller//<int:pk>/', ingresar_vehiculo_taller, name="ingresar_vehiculo_taller"),
+    path('empleados/', empleado, name='empleados')
 ]
