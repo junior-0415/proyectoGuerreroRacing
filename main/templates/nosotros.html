@@ -1,0 +1,46 @@
+{% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+
+{% block css %}
+
+    
+{% endblock css %}
+
+
+{% block contenido %}
+<div class="container mt-4 mb-5">
+    <seccion class="w-50 mx-auto text-center" id="intro">
+        <h4 class="p-3 fs-2 border-top border-3 "></h4>
+        <p class="text-justify content-center"> 
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit et in inventore ad iure. Fuga quibusdam ut expedita earum delectus architecto, laborum quo voluptates nisi, maiores, quasi rem suscipit incidunt.
+            Minima soluta nobis odit iste quos, sint quo nam. Libero illo pariatur harum dignissimos quam eos culpa commodi ipsa voluptatibus quia perferendis qui exercitationem totam, iste velit voluptas nisi a.
+            Nisi illum sed temporibus nobis repudiandae minus nostrum tempora error ab a sunt voluptatum iure quo nam molestiae eligendi voluptatibus dolor, libero similique, quaerat accusamus. Consequatur totam quas adipisci magni.
+            Optio quae accusamus illo exercitationem ipsum nemo commodi alias similique incidunt quo, dolorum rem tenetur. Sunt, repellat facilis. Ipsum minima facere accusamus odio reprehenderit repellendus, mollitia eveniet quasi quidem tempore?
+            
+            
+        </p>
+    </seccion>
+</div>
+<div class="container mt-4 mb-5">
+    <div class="row">
+        <div class="col text-center">
+            <img src="{% static 'img/Usuario.png' %}" width="64" height="64" alt="">
+            <h5>Maria Ximena Poveda Caro</h5>
+            <p>Desarrolladora</p>
+            <p>Celular: 3202741662</p>
+            <p>E-mail: ximenapoveda45@gmail.com</p>
+        </div>
+
+        <div class="col text-center">
+            <img src="{% static 'img/Usuario.png' %}" width="64" height="64" alt="">
+            <h5>Junior Santiago Salgado Sanchez</h5>
+            <p>Desarrollador</p>
+            <p>Celular: </p>
+            <p>E-mail: </p>
+        </div>
+    </div>
+</div>
+{% endblock contenido %}
+    
+
