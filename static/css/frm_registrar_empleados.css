@@ -1,21 +1,7 @@
-.container {
-    /* zona de tabajo */
-
-    position: relative;
-    width: 100%;
-    height: 100vh;
-
-    background: #FFFFFF;
-    padding: 0%;
-    margin: 0%;
-
-    overflow: auto;
-}
-
 .titulo_superior {
     position: absolute;
     width: 100%;
-    height: 62px;
+    height: 10.53%;
     left: 0px;
     top: 0px;
 
@@ -60,7 +46,8 @@ form {
     padding: 0%;
 }
 
-.frame_f {
+.control-group {
+    /* position: absolute; */
     width: 35.64%;
     height: 66px;
 }
@@ -78,7 +65,7 @@ label {
     color: #000000;
 }
 
-input {
+input, select {
     box-sizing: border-box;
 
     width: 100%;
@@ -95,119 +82,120 @@ input {
     border-radius: 5px;
 }
 
-input:focus {
+input:focus, select:focus {
     border: 1px solid #C2DAFF;
     outline: 4.5px solid #C2DAFF;
 }
 
-.ubicacion_label {
+label {
     position: absolute;
     left: 0%;
-    top: 0%;
+    top: 0% !important;
 }
 
-.ubicacion_input_1 {
+input, select {
     position: absolute;
     left: 0%;
     bottom: 0%;
 }
 
-.f1 {
+#div_id_emp_tipo_documento {
     position: absolute;
     left: 0.97%;
     top: 14.43%;
 }
 
-.f2 {
+#div_id_id_emp_identificacion {
     position: absolute;
     left: 0.97%;
     top: 27.84%;
 }
 
-.f3 {
+#div_id_emp_nombre {
     position: absolute;
     left: 0.97%;
     top: 41.26%;
 }
 
-.f4 {
+#div_id_emp_apellidos {
     position: absolute;
     left: 0.97%;
     top: 54.67%;
 }
 
-.f5 {
+#div_id_emp_genero {
     position: absolute;
     width: 5.36% !important;
     left: 0.97%;
     top: 68.08%;
 }
 
-.f6 {
+#div_id_emp_direccion {
     position: absolute;
     left: 0.97%;
     top: 81.49%;
 }
 
-.f7 {
+#div_id_tbl_ciudad_idciudad {
     position: absolute;
     left: 0.97%;
     top: 94.91%;
 }
 
-.f8 {
+#div_id_emp_telefono {
     position: absolute;
     left: 0.97%;
     top: 108.32%;
 }
 
-.f9 {
+#div_id_emp_celular {
     position: absolute;
     left: 0.97%;
     top: 121.73%;
 }
 
-.f10 {
+#div_id_emp_email {
     position: absolute;
     left: 0.97%;
     top: 135.14%;
 }
 
-.f11 {
+#div_id_tbl_sucursal_idsucursal {
+    position: absolute;
+    left: 0.97%;
+    top: 149.74%;
+}
+
+
+#div_id_emp_fecha_nacimiento {
     position: absolute;
     left: 50.05%;
     top: 54.84%;
 }
 
-.f12 {
+#div_id_emp_cargo {
     position: absolute;
     left: 50.05%;
     top: 68.25%;
 }
 
-.f13 {
+#div_id_emp_num_contrato {
     position: absolute;
     left: 50.05%;
     top: 82.85%;
 }
 
-.f14 {
+#div_id_emp_fecha_ingreso {
     position: absolute;
     left: 50.05%;
     top: 97.45%;
 }
 
-.f15 {
+#div_id_emp_foto {
     position: absolute;
     height: 13.07% !important;
     left: 50.05%;
     top: 112.05%;
-}
-
-.f16 {
-    position: absolute;
-    left: 50.05%;
-    top: 50.28%;
 }
 
 fieldset {

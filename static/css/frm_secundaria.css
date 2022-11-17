@@ -21,10 +21,10 @@ a {
     text-decoration: none !important;
 }
 
-body {
+/* body {
 
-/* font-family: 'Roboto', sans-serif; */
-}
+font-family: 'Roboto', sans-serif;
+} */
 
 .nav {
     width: 325px;
@@ -291,10 +291,10 @@ body {
 
     }
 
-    .open_modal_btn {
-        /* position: relative; */
-        /* z-index: 7 !important; */
-    }
+    /* .open_modal_btn {
+        position: relative;
+        z-index: 7 !important;
+    } */
 
     .modal_close {
         display: flex;

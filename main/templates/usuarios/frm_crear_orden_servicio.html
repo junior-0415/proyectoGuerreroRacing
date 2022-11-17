@@ -1,0 +1,41 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/frm_crear_orden_servicio.css' %}">
+{% endblock css %}
+
+
+{% block contenido %}
+<section>
+  <div class="titulo_superior">
+    <h1>Órden de servicio</h1>
+  </div>
+  <div class="sub1">
+    <h2>Cliente:</h2>
+  </div>
+  <div class="sub2">
+    <h2>Responsable/Empleado</h2>
+  </div>
+  <div class="sub3">
+    <h2>Servicio</h2>
+  </div>
+  <form action="" method="POST" id="form1">
+    {{form|crispy}}
+    {% csrf_token %}
+    <img src="{% static 'img/orden_servicio.svg' %}" alt="Imaegen órden de servico" id="img1">
+    <div class="frame_b">
+      <button type="submit" id="btn_guardar">Continuar</button>
+      <button type="reset" id="btn_cancelar">Cancelar</button>
+    </div>
+  </form>
+  <form action="" method="POST">
+    {{form2|crispy}}
+    {% csrf_token %}
+    <button type="submit" id="">Guardar</button>
+    <button type="reset" id="">Cancelar</button>
+  </form>
+</section>
+{% endblock contenido %}

@@ -3,15 +3,126 @@ from multiprocessing import context
 from xml.dom.minidom import Document
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from usuarios.forms import CiudadesForm, ClienteForm, DepartamentosForm, VehiculosForm
+from django.contrib.auth.decorators import login_required
+from articulos.models import Articulos
+from usuarios.forms import CiudadesForm, ClienteForm, DepartamentosForm, EmpleadosForm, EmpresaForm, OrdenServicioForm, ServiciosForm, SucursalesForm, TblRelOrdenServicioArticulosForm, VehiculosForm
+from django.contrib.auth.models import User
 
-from usuarios.models import Ciudades, Cliente, Departamentos, Empleados, Vehiculo
+from usuarios.models import Ciudades, Cliente, Departamentos, Empleados, Empresa, OrdenServicio, Servicios, Sucursales, TblRelOrdenServicioArticulos, Vehiculo
 
 # Create your views here.
 
+@login_required(login_url='login')
+def empresa(request):
+    titulo = "Tu empresa"
+    empresa = Empresa.objects.filter(empr_estado = '1')
+    if request.method == "POST":
+        form = EmpresaForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,f"Se registró tu empresa {request.POST['empr_nombre']} exitosamente"
+            )
+            return redirect('empresa')
+        else:
+            print('Error')
+    else:
+        form = EmpresaForm()
+    context = {
+        'titulo': titulo,
+        'empresa': empresa,
+        'form': form
+    }
+    return render(request, 'usuarios/empresa.html', context)
+
+def sucursales(request):
+    titulo = "Sucursales"
+    sucursal = Sucursales.objects.filter(suc_estado = '1')
+    if request.method == "POST":
+        form = SucursalesForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,f"Se registró la sucursal {request.POST['suc_nombre']} exitosamente"
+            )
+            return redirect('sucursales')
+        else:
+            print('Error')
+    else:
+        form = SucursalesForm()
+    context = {
+        'titulo': titulo,
+        'sucursal': sucursal,
+        'form': form
+    }
+    return render(request, 'usuarios/sucursales.html', context)
+
+def servicios(request):
+    titulo = "Servicios"
+    servicios = Servicios.objects.filter(ser_estado = '1')
+    if request.method == "POST":
+        form = ServiciosForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,f"Se agregó el servicio {request.POST['ser_nombre']} exitosamente"
+            )
+            return redirect('servicios')
+        else:
+            print('Error')
+    else:
+        form = ServiciosForm()
+    context = {
+        'titulo': titulo,
+        'servicios': servicios,
+        'form': form
+    }
+    return render(request, 'usuarios/interfaz_servicios.html', context)
+
+def editar_servicio(request, pk):
+    titulo = "Editar servicio"
+    servicio = Servicios.objects.get(id=pk)
+    if request.method == "POST":
+        form = ServiciosForm(request.POST, instance=servicio)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,f"Se editó el servicio {request.POST['ser_nombre']} exitosamente"
+            )
+            return redirect('servicios')
+        else:
+            print('Error al guardar')
+    else:
+        form = ServiciosForm(instance=servicio)
+
+    context = {
+        'titulo': titulo,
+        'form': form
+    }
+    return render(request, 'usuarios/interfaz_servicios.html', context)
+
+
+def eliminar_servicio(request, pk):
+    titulo = "Eliminar servicio"
+    servicio = Servicios.objects.all()
+
+    Servicios.objects.filter(id=pk).update(
+        ser_estado='0'
+    )
+    messages.success(
+        request,f"Se eliminó el servicio exitosamente"
+    )
+    return redirect('servicios')
+
+    context = {
+        'titulo': titulo,
+        'servicio': servicio
+    }
+    return render(request, 'usuarios/interfaz_servicios.html', context)
+
 def clientes(request):
     titulo = "Clientes"
-    clientes = Cliente.objects.filter(cli_estado = '1')  # guardar formulario
+    clientes = Cliente.objects.filter(cli_estado = '1')
     context = {
         'titulo': titulo,
         'clientes': clientes
@@ -356,3 +467,143 @@ def empleado(request):
         'empleado': empleado
     }
     return render(request, 'usuarios/interfaz_empleado_usuarios.html', context)
+
+@login_required(login_url='login')
+def registrar_empleado(request):
+    titulo = "Registrar nuevo empleado"
+    if request.method == "POST":
+        form = EmpleadosForm(request.POST, request.FILES)
+        if form.is_valid():
+            if not User.objects.filter(username=request.POST['id_emp_identificacion']): # si este filtro esta vacio significa que el usuario no se ha creado
+                user = User.objects.create_user('nombre', 'email@email', 'pass')
+                user.username = request.POST['id_emp_identificacion']
+                user.first_name = request.POST['emp_nombre']
+                user.last_name = request.POST['emp_apellidos']
+                user.email = request.POST['emp_email']
+                user.password = "@" + request.POST['id_emp_identificacion']
+                user.save()
+            else:
+                user = User.objects.get(username=request.POST['id_emp_identificacion'])
+            
+            usuario = Empleados.objects.create(
+                tbl_sucursal_idsucursal = Sucursales.objects.get(id=int(request.POST['tbl_sucursal_idsucursal'])),
+                id_emp_identificacion = request.POST['id_emp_identificacion'],
+                emp_tipo_documento = request.POST['emp_tipo_documento'],
+                tbl_ciudad_idciudad = Ciudades.objects.get(id=int(request.POST['tbl_ciudad_idciudad'])),
+                emp_nombre = request.POST['emp_nombre'],
+                emp_apellidos = request.POST['emp_apellidos'],
+                emp_genero = request.POST['emp_genero'],
+                emp_direccion = request.POST['emp_direccion'],
+                emp_telefono = request.POST['emp_telefono'],
+                emp_celular = request.POST['emp_celular'],
+                emp_email = request.POST['emp_email'],
+                emp_fecha_nacimiento = request.POST['emp_fecha_nacimiento'],
+                emp_cargo = request.POST['emp_cargo'],
+                emp_num_contrato = request.POST['emp_num_contrato'],
+                emp_fecha_ingreso = request.POST['emp_fecha_ingreso'],
+                emp_foto = form.cleaned_data.get('emp_foto'),
+                user = user,
+            )
+            return redirect('empleados')
+
+        else:
+            form = EmpleadosForm(request.POST, request.FILES)
+    else:
+        form = EmpleadosForm()
+
+    context = {
+        'titulo': titulo,
+        'form': form
+    }
+    return render(request, 'usuarios/frm_registrar_empleados.html', context)
+
+def editar_empleado(request, pk):
+    titulo = "Editar empleado"
+    empleado = Empleados.objects.get(id=pk)
+    if request.method == "POST":
+        form = EmpleadosForm(request.POST, instance=empleado)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,f"Se editó el empleado {request.POST['emp_nombre']} exitosamente"
+            )
+            return redirect('empleados')
+        else:
+            print('Error al guardar')
+    else:
+        form = EmpleadosForm(instance=empleado)
+
+    context = {
+        'titulo': titulo,
+        'form': form
+    }
+    return render(request, 'usuarios/frm_registrar_empleados.html', context)
+
+def eliminar_empleado(request, pk):
+    titulo = "Eliminar empleado"
+    empleado = Empleados.objects.all()
+
+    Empleados.objects.filter(id=pk).update(
+        emp_estado='0'
+    )
+    messages.success(
+        request,f"Se eliminó el empleado exitosamente"
+    )
+    return redirect('empleados')
+
+    context = {
+        'titulo': titulo,
+        'empleado': empleado
+    }
+    return render(request, 'usuarios/interfaz_empleado_usuarios.html', context)
+
+def ordenes_servicio(request):
+    titulo = "Órdenes de servicio"
+    ordenes_servicio = OrdenServicio.objects.filter(ser_estado='1')
+    rel_articulos = TblRelOrdenServicioArticulos.objects.filter(tbl_estado='1')
+
+    context = {
+        'titulo': titulo,
+        'ordenes_servicio': ordenes_servicio,
+        'rel_articulos':rel_articulos
+    }
+    return render(request, 'usuarios/interfaz_ordenes_servicio.html', context)
+
+def crear_orden_servicio(request):
+    titulo = "Crear órden servicio"
+    if request.method == "POST":
+        form = OrdenServicioForm(request.POST)
+        if form.is_valid():
+            form.save()
+            llave_primaria_form = ""
+            # messages.success(
+            #     request,f"Se ha registrado la orden número {request.POST['pk']} exitosamente"
+            # )
+            #return redirect('ordenes_servicio')
+        else:
+            print('Error')
+        
+    else:
+        form = OrdenServicioForm()
+
+    context = {
+        'titulo': titulo,
+        'form': form,
+    }
+    return render(request, 'usuarios/frm_crear_orden_servicio.html', context)
+
+def tbl_rel_orden_ser_articulos(request, llave_primaria_form):
+    if request.method == "POST":
+        form2 = TblRelOrdenServicioArticulosForm(request.POST)
+        if form2.is_valid():
+            tbl_rel = TblRelOrdenServicioArticulos.objects.create(
+                tbl_orden_servicio_idorden_servicio = llave_primaria_form,
+                Ttbl_articulos_idarticulo = Articulos.objects.get(id=int(request.POST['Ttbl_articulos_idarticulo'])),
+                art_cantidad = request.POST['art_cantidad'],
+                art_precio = request.POST['art_precio'],   
+            )
+            return redirect('ordenes_servicio')
+        else:
+            print('Error')
+    else:
+        form2 = TblRelOrdenServicioArticulosForm()

@@ -64,4 +64,4 @@ class Articulos(models.Model):
     art_estado = models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado")
 
     def __str__(self) -> str:
-        return "%s" % (self.art_nombre)
+        return "%s | %s" % (self.art_nombre, self.art_stock_disp)

@@ -1,0 +1,68 @@
+{% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/historial_de_compras.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+<section>
+    <div id="titulo_superior">
+        <h1>Historial de compras</h1>
+    </div>
+    <form>
+        <label for="idbuscar_compra" id="label_buscar_compra">Buscar compra:</label>
+        <input type="search" name="BuscarCompra" id="idbuscar_compra" placeholder="Buscar">
+        
+        <label for="FiltroCompras" id="label_filtrar">Filtrar:</label>
+        <input list="FiltroCompras" name="FiltroCompras" id="css_propiedades_filtro" placeholder="Elige un filtro">
+        <datalist id="FiltroCompras">
+            <option value="Mas recientes">Opción 1</option>
+            <option value="Menos recientes">Opción 2</option>
+        </datalist>
+        <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+    </form>
+    <div class="container_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Fecha</th>
+                    <th>Costo</th>
+                    <th>Número órden</th>
+                    <th>Número pedido</th>
+                    <th>Recepcionada por</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            
+            {% for historial in historial_compras %}            
+                <tr>
+                    <td>{{historial.ped_fecha_recivido}}</td>
+                    <td>{{historial.ped_precio}}</td>
+                    <td>{{historial.pk}}</td>
+                    <td>{{historial.ped_recivido_por}}</td>
+                    <td> 
+                        <a href="#">
+                            <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar Órden">
+                        </a>
+                        <a href="#">
+                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <a href="{% url 'registrar_pedido_compra' %}" id="ancla">
+        <img src="{% static 'img/anadir.svg' %}" alt="Icono registrar compra" title="Registrar nueva compra o pedido">
+    </a>
+</section>
+{% endblock contenido %}
+    
+
+{% block js %}
+    
+{% endblock js %}
+    
