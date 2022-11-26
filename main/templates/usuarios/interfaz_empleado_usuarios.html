@@ -44,6 +44,7 @@
                     <th>Cargo</th>
                     <th>No_Contrato</th>
                     <th>Fecha de ingreso</th>
+                    <th>Permisos de usuario</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
@@ -67,11 +68,12 @@
                     <td>{{empleado.emp_cargo}}</td>
                     <td>{{empleado.emp_num_contrato}}</td>
                     <td>{{empleado.emp_fecha_ingreso}}</td>
+                    <th>{{empleado.user.groups.all.0}}</th>
                     <td>
                         <a href="{% url 'editar_empleado' empleado.id %}">
                             <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar empleado">
                         </a>
-                        <a href="{% url 'eliminar_empleado' empleado.id %}">
+                        <a href="#" onclick="eliminar_registros({{ empleado.id }})">
                             <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                         </a>
                     </td>

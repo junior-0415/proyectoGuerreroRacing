@@ -2,5 +2,74 @@
 {% load crispy_forms_tags %}
 
 {% block contenido %}
-<form method="POST"></form>
+<div class="row my-4">
+
+    <div class="col-md-4">
+
+        <div class="border bg-white p-3">
+            <h4>Agregar Artículo</h4>
+            <hr>
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-success btn-block" name="agregar-producto">Agregar Artículo</button>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Agrega artículos a tu factura</h3>
+            </div>
+
+            <div class="card-body">
+                <table id="tabla-general" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Factura</th>
+                            <th>Artículo</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>dep_total</th>
+                            <th>Acciones</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for detalle in detalles %}
+                        <tr>
+                            <td>{{detalle.tbl_facturas_idfactura}}</td>
+                            <td>{{detalle.tbl_articulos_idarticulo}}</td>
+                            <td>{{detalle.dep_precio}}</td>
+                            <td>{{detalle.dep_cantidad}}</td>
+                            <td>{{detalle.dep_total}}</td>
+
+                            <td>
+                                <form action="" method="POST" class="col-8">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="compra-p-id" value="{{detalle.id}}">
+                                    <button class="btn btn-danger col" name="eliminar-producto">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                </form>
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
 {% endblock contenido %}
+
+
+{% block js %}
+<!-- {{form.media.js}} -->
+<script>
+    $(function () {
+        $("#id_tbl_articulos_idarticulo").select2();
+    });
+</script>
+{% endblock js %}

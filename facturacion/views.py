@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
-from facturacion.forms import DetalleFacturaForm, FacturaVentaForm
-from facturacion.models import FacturaVenta
+from facturacion.forms import DetalleFacturaVentaForm, FacturaVentaForm
+from facturacion.models import DetalleFacturaVenta, FacturaVenta
 from usuarios.models import Empleados
 from django.contrib import messages
 
@@ -45,7 +45,7 @@ def facturar_venta(request, modal_status='hid'):
 
         ### Cuerpo del modal ###
         modal_title = f"Eliminar {factura}"
-        modal_txt = f"Eliminar de la factura{factura}"
+        modal_txt = f"Eliminar la factura{factura}"
         modal_submit = "Eliminar"
         ########################
 
@@ -71,7 +71,9 @@ def facturar_venta(request, modal_status='hid'):
             factura = FacturaVenta.objects.filter(id = int(request.POST['modal-pk'])).update(
                 fac_estado = '0'
             )
-            # mensajes de success o confirmacion de que se elimino
+            messages.success(
+                request,f"Se eliminó la factura {factura.fac_numero_serie} exitosamente!"
+            )
             return redirect('facturar_venta')
 
         if request.POST['tipo'] == 'editar':
@@ -81,7 +83,9 @@ def facturar_venta(request, modal_status='hid'):
 
             if form_update.is_valid():
                 form_update.save()
-                # Mensaja de edito la factura
+                messages.success(
+                    request,f"Se editó la factura {factura.fac_numero_serie} exitosamente!"
+                )
                 return redirect('facturar_venta')
     context = {
         'titulo':titulo,
@@ -99,9 +103,24 @@ def facturar_venta(request, modal_status='hid'):
 
 def detalle_fac_venta(request, pk):
     titulo = f"Detalle de la factura de venta {pk}"
-    form = DetalleFacturaForm()
+    detalles = DetalleFacturaVenta.objects.filter(dep_estado = '1')
+    if request.method == "POST":
+        form = DetalleFacturaVentaForm(request.POST, instance=detalles)
+        if form.is_valid():
+            temp = form.save(commit=False)
+            temp.tbl_facturas_idfactura = pk
+            temp.save()
+            messages.success(
+                request, f"Se agregó el artículo {request.POST['tbl_articulos_idarticulo']} existosamente"
+            )
+            return redirect('detalle_fac_venta')
+        else:
+            print('Error')
+    else:
+        form = DetalleFacturaVentaForm()
     context = {
         'titulo':titulo,
         'form':form,
+        'detalles':detalles,
     }
     return render(request, 'facturacion/detalle_factura_venta.html', context)

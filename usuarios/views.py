@@ -3,7 +3,7 @@ from multiprocessing import context
 from xml.dom.minidom import Document
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required, permission_required
 from articulos.models import Articulos
 from usuarios.forms import CiudadesForm, ClienteForm, DepartamentosForm, EmpleadosForm, EmpresaForm, OrdenServicioForm, ServiciosForm, SucursalesForm, TblRelOrdenServicioArticulosForm, VehiculosForm
 from django.contrib.auth.models import User
@@ -103,22 +103,13 @@ def editar_servicio(request, pk):
 
 
 def eliminar_servicio(request, pk):
-    titulo = "Eliminar servicio"
-    servicio = Servicios.objects.all()
-
     Servicios.objects.filter(id=pk).update(
         ser_estado='0'
     )
     messages.success(
-        request,f"Se eliminó el servicio exitosamente"
+        request,f"El servicio se envió a papelera exitosamente"
     )
     return redirect('servicios')
-
-    context = {
-        'titulo': titulo,
-        'servicio': servicio
-    }
-    return render(request, 'usuarios/interfaz_servicios.html', context)
 
 def clientes(request):
     titulo = "Clientes"
@@ -176,24 +167,16 @@ def editar_cliente(request, pk):
 
 
 def eliminar_cliente(request, pk):
-    titulo = "Eliminar cliente"
-    clientes = Cliente.objects.all()
-
     Cliente.objects.filter(id=pk).update(
         cli_estado='0'
     )
     messages.success(
-        request,f"Se eliminó el cliente exitosamente"
+        request,f"El cliente se envió a papelera exitosamente"
     )
     return redirect('clientes')
 
-    context = {
-        'titulo': titulo,
-        'clientes': clientes
-    }
-    return render(request, 'usuarios/interfaz_clientes.html', context)
-
-
+@login_required(login_url='login')
+@permission_required('usuarios.view_ciudades')
 def ciudades(request):
     titulo = "Ciudades y municipios"
     ciudades = Ciudades.objects.filter(ciu_estado = '1')
@@ -241,22 +224,13 @@ def editar_ciudad(request, pk):
 
 
 def eliminar_ciudad(request, pk):
-    titulo = "Eliminar ciudad"
-    ciudad = Ciudades.objects.all()
-
     Ciudades.objects.filter(id=pk).update(
         ciu_estado='0'
     )
     messages.success(
-        request,f"Se eliminó la ciudad o municipio exitosamente"
+        request,f"La ciudad o municipio se envió a papelera exitosamente"
     )
     return redirect('ciudades')
-
-    context = {
-        'titulo': titulo,
-        'ciudad': ciudad
-    }
-    return render(request, 'usuarios/interfaz_ciu_municipios.html', context)
 
 
 def departamentos(request):
@@ -306,20 +280,13 @@ def editar_departamento(request, pk):
 
 
 def eliminar_departamento(request, pk):
-    titulo = "Eliminar departamento"
-    departamento = Departamentos.objects.all()
     Departamentos.objects.filter(id=pk).update(
         dep_estado='0'
     )
     messages.success(
-        request,f"Se eliminó exitosamente el registro"
+        request,f"El departamento se envió a papelera exitosamente"
     )
     return redirect('departamentos')
-    context = {
-        'titulo': titulo,
-        'departamento': departamento
-    }
-    return render(request, 'usuarios/interfaz_departamentos.html', context)
 
 def vehiculos(request):
     titulo = "Vehículos"
@@ -375,22 +342,13 @@ def editar_vehiculo(request, pk):
 
 
 def eliminar_vehiculo(request, pk):
-    titulo = "Eliminar vehículo"
-    vehiculo = Vehiculo.objects.all()
-
     Vehiculo.objects.filter(id=pk).update(
         veh_estado='0'
     )
     messages.success(
-        request,f"Se eliminó el vehículo exitosamente"
+        request,f"El vehículo se envió a papelera exitosamente"
     )
     return redirect('vehiculos')
-
-    context = {
-        'titulo': titulo,
-        'vehiculo': vehiculo
-    }
-    return render(request, 'usuarios/vehiculos_registrados.html', context)
 
 def vehiculos_taller(request):
     titulo = "Vehículos en taller"
@@ -424,38 +382,22 @@ def editar_vehiculo_taller(request, pk):
     return render(request, 'usuarios/frm_registrar_nuevo_vehiculo.html', context)
 
 def sacar_vehiculo_taller(request, pk):
-    titulo = "Sacar vehículo del taller"
-    vehiculo = Vehiculo.objects.all()
     Vehiculo.objects.filter(id=pk).update(
         veh_taller='No'
     )
     messages.success(
-        request,f"El vehiculo ha salido del taller"
+        request,f"El vehículo ha salido del taller"
     )
     return redirect('vehiculos_taller')
 
-    context = {
-        'titulo': titulo,
-        'vehiculo': vehiculo
-    }
-    return render(request, 'usuarios/interfaz_vehiculos_en_taller.html', context)
-
 def ingresar_vehiculo_taller(request, pk):
-    titulo = "ingresar vehículo del taller"
-    vehiculo = Vehiculo.objects.all()
     Vehiculo.objects.filter(id=pk).update(
         veh_taller='Si'
     )
     messages.success(
-        request,f"El vehiculo se ha ingresado al taller"
+        request,f"El vehículo se ha ingresado al taller"
     )
     return redirect('vehiculos_taller')
-
-    context = {
-        'titulo': titulo,
-        'vehiculo': vehiculo
-    }
-    return render(request, 'usuarios/interfaz_vehiculos_en_taller.html', context)
 
 
 def empleado(request):
@@ -482,6 +424,10 @@ def registrar_empleado(request):
                 user.email = request.POST['emp_email']
                 user.password = "@" + request.POST['id_emp_identificacion']
                 user.save()
+                user_group = User
+                my_group = Group.objects.get(name='User_Normal')
+                usuario.user.groups.clear() # para cuando se borre el grupo de usuarios, se borre el viejo y quede el nuevo grupo
+                my_group.user_set.add(usuario.user)
             else:
                 user = User.objects.get(username=request.POST['id_emp_identificacion'])
             
@@ -540,22 +486,13 @@ def editar_empleado(request, pk):
     return render(request, 'usuarios/frm_registrar_empleados.html', context)
 
 def eliminar_empleado(request, pk):
-    titulo = "Eliminar empleado"
-    empleado = Empleados.objects.all()
-
     Empleados.objects.filter(id=pk).update(
         emp_estado='0'
     )
     messages.success(
-        request,f"Se eliminó el empleado exitosamente"
+        request,f"El empleado se envió a papelera exitosamente"
     )
     return redirect('empleados')
-
-    context = {
-        'titulo': titulo,
-        'empleado': empleado
-    }
-    return render(request, 'usuarios/interfaz_empleado_usuarios.html', context)
 
 def ordenes_servicio(request):
     titulo = "Órdenes de servicio"

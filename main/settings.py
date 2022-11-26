@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
 
 # Application definition
 
@@ -158,4 +159,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.googlemail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'junior.salgado@misena.edu.co'
+EMAIL_HOST_PASSWORD = 'jjsvrcuhpjuvysiw'
+EMAIL_USE_TLS = True
+
+LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'inicio-admin'

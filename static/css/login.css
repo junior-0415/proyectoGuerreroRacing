@@ -57,18 +57,11 @@ input:focus {
     left: 0%;
     right: 0%;
     bottom: 0%;
-    background-color: #111111bd;
+    /* background-color: #111111bd; */
     display: flex;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .6s;
-
-}
-
-.modal--show1 {
     opacity: 1;
-    pointer-events: unset;
     transition: opacity .6s;
+
 }
 
 .container_modal1 {
@@ -181,7 +174,7 @@ input:focus {
     color: #000000;
 }
 
-#idcorreo_usuario {
+#id_email {
     box-sizing: border-box;
 
     position: absolute;
@@ -246,7 +239,7 @@ input:focus {
     font-size: 15px;
     line-height: 19px;
 
-    background: none;
+    /* background: none; */
     border: 1.5px solid #acacac;
     border-radius: 5px;
 }
@@ -264,16 +257,16 @@ input:focus {
     bottom: 0%;
     background-color: #111111bd;
     display: flex;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .6s;
+    opacity: 1;
+    /* pointer-events: none;
+    transition: opacity .6s; */
 }
 
-.modal--show2 {
+/* .modal--show2 {
     opacity: 1 !important;
     pointer-events: unset !important;
     transition: opacity .6s;
-}
+} */
 
 .container_modal2 {
     position: relative;

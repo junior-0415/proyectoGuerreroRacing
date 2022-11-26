@@ -194,7 +194,7 @@
                                 <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                             </a>
                             <a href="{% url 'eliminar_def_marca' marca.id %}">
-                                <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar class="btn_eliminar" title="Eliminar definitivamente">
+                                <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                             </a>
                         </td>
                 </tr>
@@ -432,7 +432,7 @@
                         <a href="{% url 'restablecer_empleado' empleado.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                         </a>
-                        <a href="{% url 'eliminar_def_empleado' empleado.id %}">
+                        <a href="#" onclick="eliminar_registros_def({{empleado.id}})">
                             <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                         </a>
                     </td>

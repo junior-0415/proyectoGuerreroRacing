@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import handler404
-from django.contrib.auth.views import LoginView as login
+from django.contrib.auth import views as auth_views
 
 ###### Importes para subir imagenes #####
 from django.conf import settings
@@ -33,13 +33,19 @@ urlpatterns = [
     path('loggein/', loggedIn, name='inicio-sesion'),
     path('logout/', logout, name='fin-sesion'),
     path('adm/', inicioAdmin, name='inicio-admin'),
-    path('login/', login.as_view(), name="login"),
+    #path('login/', login.as_view(), name="login"),
+    path('login/', auth_views.LoginView.as_view(), name="login"),
+    path('reiniciar/', auth_views.PasswordResetView.as_view(), name='password_reset'),
+    path('reiniciar/enviar/', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
+    path('reiniciar/<uid64>/<token>', auth_views.PasswordResetConfirmView.as_view(), name='password_reset_confirm'),
+    path('reiniciar/completo', auth_views.PasswordResetCompleteView.as_view(), name='password_reset_complete'),
     path('nosotros/', nosotros, name='nosotros'),
     path('', include('articulos.urls')),
     path('', include('usuarios.urls')),
     path('', include('inventario.urls')),
     path('', include('facturacion.urls')),
-    path('select2/', include('django_select2.urls')),
+    path('', include('django.contrib.auth.urls')),
+    #path("select2/", include('django_select2.urls')),
     path('papelera-de-reciclaje/', papelera_reciclaje, name="papelera"),
     path('papelera-de-reciclaje/clientes/restablecer/<int:pk>/', restablecer_cliente, name="restablecer_cliente"),
     path('papelera-de-reciclaje/clientes/eliminar/<int:pk>/', eliminar_def_cliente, name="eliminar_def_cliente"),

@@ -217,7 +217,7 @@ table tbody tr td:first-child {
     font-weight: 700;
 }
 
-#btn_eliminar {
+.btn_eliminar {
     position: absolute;
     width: 24px;
     height: 24px;

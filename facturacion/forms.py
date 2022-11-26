@@ -3,9 +3,15 @@ from pyexpat import model
 from socket import fromshare
 from django import forms
 from django.forms import widgets
-from articulos.forms import ArticulosWidget
+#from django_select2 import forms as s2form
 
-from facturacion.models import DetalleFactura, FacturaVenta
+from facturacion.models import DetalleFacturaVenta, FacturaVenta
+
+# class ArticuloWidget(s2form.ModelSelect2Widget):
+#     search_fields = {
+#         "art_nombre__icontains",
+#         "id__icontains",
+#     }
 
 class FacturaVentaForm(forms.ModelForm):
     class Meta:
@@ -15,10 +21,10 @@ class FacturaVentaForm(forms.ModelForm):
             'fac_fecha': widgets.DateInput(attrs={'type':'date'}, format='%Y-%m-%d')
         }
 
-class DetalleFacturaForm(forms.ModelForm):
+class DetalleFacturaVentaForm(forms.ModelForm):
     class Meta:
-        model = DetalleFactura
+        model = DetalleFacturaVenta
         exclude = ['dep_estado', 'tbl_facturas_idfactura']
-        widgets = {
-            'tbl_articulos_idarticulo':ArticulosWidget,
-        }
+        # widgets = {
+        #     'tbl_articulos_idarticulo':ArticuloWidget,
+        # }

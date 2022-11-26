@@ -11,8 +11,8 @@ class FacturaVenta(models.Model):
     tbl_ordenes_servicio_idorden_servicio = models.ForeignKey(OrdenServicio, on_delete=models.CASCADE, blank=True, verbose_name="Órden de servicio número:")
     tbl_empleados_idempleado = models.ForeignKey(Empleados, on_delete=models.CASCADE, verbose_name="Empleado:")
     tbl_clientes_idcliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Cliente:")
-    fac_fecha = models.DateField(verbose_name="Fecha:")
-    fac_caja = models.DateField(max_length=10, verbose_name="Caja número:")
+    fac_fecha = models.DateField(auto_now=True, verbose_name="Fecha:")
+    fac_caja = models.CharField(max_length=10, verbose_name="Caja número:")
     fac_descuentos = models.DecimalField(max_digits=7, decimal_places=2, default=0, verbose_name="Descuento:")
     fac_total_pagar = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name="Total a pagar:")
     fac_observaciones = models.TextField(max_length=350, verbose_name="Observaciones:")
@@ -24,7 +24,7 @@ class FacturaVenta(models.Model):
     def __str__(self) -> str:
         return "%s" % (self.fac_numero_serie)
 
-class DetalleFactura(models.Model):
+class DetalleFacturaVenta(models.Model):
     tbl_facturas_idfactura = models.ForeignKey(FacturaVenta, on_delete=models.CASCADE, verbose_name="Factura número:")
     tbl_articulos_idarticulo = models.ForeignKey(Articulos, on_delete=models.CASCADE, verbose_name="Artículos:")
     dep_precio = models.DecimalField(max_digits=8, decimal_places=2, verbose_name="Precio:")

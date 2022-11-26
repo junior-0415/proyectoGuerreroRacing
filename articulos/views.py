@@ -61,22 +61,13 @@ def editar_articulo(request, pk):
     return render(request, 'articulos/frm_registrar_articulos.html', context)
 
 def eliminar_articulo(request, pk):
-    titulo = "Eliminar artículo"
-    articulo = Articulos.objects.all()
-
     Articulos.objects.filter(id=pk).update(
         art_estado='0'
     )
     messages.success(
-        request,f"Se eliminó el artículo exitosamente"
+        request,f"El artículo se envió a papelera exitosamente"
     )
     return redirect('articulos')
-
-    context = {
-        'titulo': titulo,
-        'articulo': articulo
-    }
-    return render(request, 'articulos/frm_registrar_articulos.html', context)
 
 def categorias(request):
     titulo = "Categorías en artículos"
@@ -124,22 +115,13 @@ def editar_categoria(request, pk):
     return render(request, 'articulos/interfaz_categorias.html', context)
 
 def eliminar_categoria(request, pk):
-    titulo = "Eliminar categoria"
-    ciudad = Categoria.objects.all()
-
     Categoria.objects.filter(id=pk).update(
         cat_estado='0'
     )
     messages.success(
-        request,f"Se eliminó la categoría exitosamente" #pregunta
+        request,f"La categoría se envió a papelera exitosamente"
     )    
     return redirect('categorias')
-
-    context = {
-        'titulo': titulo,
-        'ciudad': ciudad
-    }
-    return render(request, 'articulos/interfaz_categorias.html', context)
 
 def marcas(request):
     titulo = "Marcas"
@@ -186,22 +168,13 @@ def editar_marca(request, pk):
     return render(request, 'articulos/interfaz_marcas.html', context)
 
 def eliminar_marca(request, pk):
-    titulo = "Eliminar marca"
-    marca = Marcas.objects.all()
-
     Marcas.objects.filter(id=pk).update(
         mar_estado='0'
     )
     messages.success(
-        request,f"Se eliminó la marca exitosamente"
+        request,f"La marca se envió a papelera exitosamente"
     )
     return redirect('marcas')
-
-    context = {
-        'titulo': titulo,
-        'marca': marca
-    }
-    return render(request, 'articulos/interfaz_marcas.html', context)
 
 def proveedores(request):
     titulo = "Proveedores"
@@ -256,19 +229,10 @@ def editar_proveedor(request, pk):
     return render(request, 'articulos/frm_registrar_proveedores.html', context)
 
 def eliminar_proveedor(request, pk):
-    titulo = "Eliminar proveedor"
-    proveedor = Proveedores.objects.all()
-
     Proveedores.objects.filter(id=pk).update(
         pro_estado='0'
     )
     messages.success(
-        request,f"Se eliminó el proveedor exitosamente"
+        request,f"El proveedor se envió a papelera exitosamente"
     )
     return redirect('proveedores')
-
-    context = {
-        'titulo': titulo,
-        'proveedor': proveedor
-    }
-    return render(request, 'articulos/frm_registrar_proveedores.html', context)

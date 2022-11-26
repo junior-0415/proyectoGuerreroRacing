@@ -51,8 +51,8 @@
                             <a href="{% url 'editar_servicio' servicio.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar servicio">
                             </a>
-                            <a href="{% url 'eliminar_servicio' servicio.id %}">
-                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
+                            <a href="#" onclick="eliminar_registros({{ servicio.id }})">
+                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" id="btn_eliminar" title="Mover a papelera">
                             </a>
                         </td>
                 </tr>
@@ -87,5 +87,4 @@
 
 {% block js %}
 <script src="{% static 'js/interfaz_servicios.js' %}"></script>
-<script src="{% static 'js/libreria_mensajes_emergentes.js' %}"></script>
 {% endblock js %}

@@ -1,198 +1,103 @@
+{% extends 'partials/body_login.html' %}
 {% load static %}
-{% load bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-{% bootstrap_messages %}
 
-<!DOCTYPE html>
-<html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{titulo}}</title>
-    <link rel="stylesheet" href="{% static 'css/frm_login.css' %}">
-    <!-- fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Faster+One&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Vollkorn:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap"
-        rel="stylesheet">>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-</head>
-
-<body>
-    <div class="container w-75 bg-primary mt-5 rounted shadow">
-        <div class="row align-items-stretch">
-            <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
-                <div class="bg">
-                    <img src="{% static 'img/Portada.jpg' %}" width="500px" alt="200px">
-                </div>
-
+{% block contenido %}
+<div class="container w-75 bg-primary mt-5 rounted shadow">
+    <div class="row align-items-stretch">
+        <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+            <div class="bg">
+                <img src="{% static 'img/Portada.jpg' %}" width="500px" alt="200px">
             </div>
-            <div class="col bg-white p-4 rounded-end">
-                <div class="text-end">
-                    <img src="{% static 'img/logo racing.png' %}" width="55" alt="">
+
+        </div>
+        <div class="col bg-white p-4 rounded-end">
+            <div class="text-end">
+                <img src="{% static 'img/logo racing.png' %}" width="55" alt="">
+            </div>
+            <h2 class="fw-bold text-center py5">Bienvenido</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="text" class="form-label">Usuario</label>
+                    {{form.username}}
                 </div>
-                <h2 class="fw-bold text-center py5">Bienvenido</h2>
-                <form method="POST">
-                    {% csrf_token %}
-                    <div class="mb-4">
-                        <label for="text" class="form-label">Usuario</label>
-                        {{form.username}}
-                    </div>
-                    <div class="mb-4">
-                        <label for="password" class="form-label">Contraseña</label>
-                        {{form.password}}
-                    </div>
-                    <div class="mb-4">
-                        <input type="checkbox" name="connected" class="form-check-input">
-                        <label for="connected" class="form-check-label">Recordar usuario y contraseña</label>
-                    </div>
-                    <div class="row text-end">
-                        <span><a role="button" type="button" class="btn_olvidar_contrasena">¿Olvidaste tu
-                                contraseña?</a></span>
-                    </div>
-                    <!-- data-bs-toggle="modal" href="#exampleModalToggle" -->
-                    <div class="d-grid">
-                        <input id="btn_enviar" type="submit" class="btn btn_color_1 mx-3" value="Acceder">
-                    </div>
-                    <div class="row text-center my-2">
-                        <span>¿No tienes cuenta?<a href="#"></a></span> <br>
-                    </div>
+                <div class="mb-4">
+                    <label for="password" class="form-label">Contraseña</label>
+                    {{form.password}}
+                </div>
+                <div class="mb-4">
+                    <input type="checkbox" name="connected" class="form-check-input">
+                    <label for="connected" class="form-check-label">Recordar usuario y contraseña</label>
+                </div>
+                <div class="row text-end">
+                    <span><a href="{% url 'password_reset' %}" class="btn_olvidar_contrasena">¿Olvidaste tu
+                            contraseña?</a></span>
+                </div>
+                <!-- data-bs-toggle="modal" href="#exampleModalToggle" -->
+                <div class="d-grid">
+                    <input id="btn_enviar" type="submit" class="btn btn_color_1 mx-3" value="Acceder">
+                </div>
+                <div class="row text-center my-2">
+                    <span>¿No tienes cuenta?<a href="#"></a></span> <br>
+                </div>
 
-                    <div class="d-grid">
-                        <a href="frm_registro_usuario.html" id="btn_guardar" type="button" class="btn btn_color_2 mx-3"
-                            target="_blank">Registrate</a>
-                    </div>
+                <div class="d-grid">
+                    <a href="frm_registro_usuario.html" id="btn_guardar" type="button" class="btn btn_color_2 mx-3"
+                        target="_blank">Registrate</a>
+                </div>
 
-                </form>
+            </form>
 
-                <div class="container w-100 my-5">
-                    <div class="row text-center">
-                        <div class="col-12">Iniciar sesión</div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <a href="https://es-la.facebook.com/" type="button"
-                                class="btn btn-outline-primary w-100 my-1" target="_blank">
-                                <div class="row align-items-center">
-                                    <div class="col-2 d-none d-md-block">
-                                        <img src="{% static 'img/facebook.png' %}" width="32" alt="">
-                                    </div>
-
-                                    <div class="col-12 col-md-10 text-center">
-                                        Facebook
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+            <div class="container w-100 my-5">
+                <div class="row text-center">
+                    <div class="col-12">Iniciar sesión</div>
+                </div>
+                <div class="row">
                     <div class="col">
-                        <a href="https://www.google.com/intl/es-419/gmail/about/" type="button"
-                            class="btn btn-outline-danger w-100 my-1" target="_blank">
+                        <a href="https://es-la.facebook.com/" type="button" class="btn btn-outline-primary w-100 my-1"
+                            target="_blank">
                             <div class="row align-items-center">
                                 <div class="col-2 d-none d-md-block">
-                                    <img src="{% static 'img/google.png' %}" width="32" alt="">
+                                    <img src="{% static 'img/facebook.png' %}" width="32" alt="">
                                 </div>
 
                                 <div class="col-12 col-md-10 text-center">
-                                    Google
+                                    Facebook
                                 </div>
                             </div>
                         </a>
                     </div>
                 </div>
+                <div class="col">
+                    <a href="https://www.google.com/intl/es-419/gmail/about/" type="button"
+                        class="btn btn-outline-danger w-100 my-1" target="_blank">
+                        <div class="row align-items-center">
+                            <div class="col-2 d-none d-md-block">
+                                <img src="{% static 'img/google.png' %}" width="32" alt="">
+                            </div>
+
+                            <div class="col-12 col-md-10 text-center">
+                                Google
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Mododulo de olvidar contraseña -->
+<!-- Mododulo de olvidar contraseña -->
 
-    <section>
-        <div class="modal1 ">
-            <div class="container_modal1">
-                <a href="#">
-                    <img src="{% static 'img/atras1.svg' %}" alt="Retroceder" title="Volver atrás" id="atras1"
-                        class="modal_close1">
-                </a>
-                <h2>Recuperar tu cuenta</h2>
-                <h5>Empresa: Guerrero Racing</h5>
-                <form action="">
-                    <label for="idnombre_usuario" id="label1">Ingresa tu nombre completo igual como te habías registrado
-                        en el sistema:</label>
-                    <input type="text" name="nombre_usuario" id="idnombre_usuario" placeholder="Nombres y apellidos"
-                        required autofocus>
-                    <label for="idcorreo_usuario" id="label2">Ingresa la dirección de correo electrónico con el que te
-                        habías registrado: </label>
-                    <input type="email" name="correo_usuario" id="idcorreo_usuario"
-                        placeholder="Dirección de correo electrónico" required>
-                    <button type="submit" id="btn_siguiente1">Siguiente</button>
-                </form>
-            </div>
-    </section>
-    <section>
-        <div class="modal2 ">
-            <div class="container_modal2">
-                <a href="#">
-                    <img src="{% static 'img/atras1.svg' %}" alt="Retroceder" title="Volver atrás" id="atras2"
-                        class="modal_close2">
-                </a>
-                <h2>Recuperar tu cuenta</h2>
-                <h5>Empresa: Guerrero Racing</h5>
-                <h5 id="h5-2_m2">¡Hola! Señor(a) ----------------------------------------------------------. </h5>
-                <form action="">
-                    <label for="idcodigo_recuperacion" id="label1_m2">Se ha enviado un código de cuatro dígitos al
-                        correo recibido: ejemplo@correo.com</label>
-                    <input type="number" name="codigo_recuperacion" id="idcodigo_recuperacion"
-                        placeholder="Ingresa aquí el código" required>
-                    <button type="submit" id="btn_siguiente2">Siguiente</button>
-                </form>
-                <h5 id="h5_2_1_m2">¿No has recibido el código?</h5>
-                <a href="#" id="reenviar_codigo">Enviar código nuevamente</a>
-            </div>
-    </section>
-    <section>
-        <div class="modal3 ">
-            <div class="container_modal3">
-                <a href="#">
-                    <img src="{% static 'img/atras1.svg' %}" alt="Retroceder" title="Volver atrás" id="atras3"
-                        class="modal_close3">
-                </a>
-                <h2>Restablecer la contraseña</h2>
-                <h5>Empresa: Guerrero Racing</h5>
-                <form action="">
-                    <label for="idcontrasena_r" id="label1_m3">Ingresa tu nueva contraseña de mínimo ocho dígitos, una
-                        mayúscula, una minúscula, cuatro números y un carácter especial:</label>
-                    <input type="password" name="contrasena_r" id="idcontrasena_r1" placeholder="Nueva contraseña"
-                        required autofocus>
-                    <label for="idcontrasena_r2" id="label2_m3">Repite tu contraseña:</label>
-                    <input type="password" name="contrasena_r2" id="idcontrasena_r2"
-                        placeholder="Vuelve a escribir la contraseña" required>
-                    <button type="submit" id="btn_siguiente3">Siguiente</button>
-                </form>
-            </div>
-    </section>
-    <section>
-        <div class="modal4 ">
-            <div class="container_modal4">
-                <img src="{% static 'img/operacion_existosa.svg' %}" alt="Operación exitosa" id="operacion_existosa">
-                <h2>¡Operación exitosa!</h2>
-                <p>Su contraseña se ha reestablecido con éxito, por favor vuelve a iniciar sesión</p>
-                <button type="submit" id="btn_aceptar_m4" class="modal_close4">Aceptar</button>
-            </div>
-    </section>
+<section>
+    <div class="modal4 ">
+        <div class="container_modal4">
+            <img src="{% static 'img/operacion_existosa.svg' %}" alt="Operación exitosa" id="operacion_existosa">
+            <h2>¡Operación exitosa!</h2>
+            <p>Su contraseña se ha reestablecido con éxito, por favor vuelve a iniciar sesión</p>
+            <button type="submit" id="btn_aceptar_m4" class="modal_close4">Aceptar</button>
+        </div>
+</section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-    <script src="{% static 'js/libreria_mensajes_emergentes.js' %}"></script>
-    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
-    <script src="{% static 'js/frm_login.js' %}"></script>
-
-</body>
-
-</html>
+{% endblock contenido %}
