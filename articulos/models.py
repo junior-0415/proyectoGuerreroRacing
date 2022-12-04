@@ -50,6 +50,7 @@ class Marcas(models.Model):
 class Articulos(models.Model):
     art_nombre = models.CharField(max_length=50, verbose_name="Nombre:")
     tbl_categoria_idcategoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, verbose_name="Categoría:")
+    art_precio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Precio:")
     art_stock_disp = models.SmallIntegerField(blank=True, default=0, verbose_name="Stock Disponible:")
     art_descripcion = models.TextField(max_length=200, verbose_name="Descripción:")
     art_stock_minimo = models.SmallIntegerField(verbose_name="Stock mínimo:")

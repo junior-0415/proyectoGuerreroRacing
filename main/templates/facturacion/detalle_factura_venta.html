@@ -1,75 +1,77 @@
 {% extends 'partials/bodyApp.html' %}
 {% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/frm_detalle_fac_venta.css' %}">
+{% endblock css %}
+
 
 {% block contenido %}
-<div class="row my-4">
+<div class="titulo_superior">
+    <h1>Agrega artículos de la factura</h1>
+</div>
 
-    <div class="col-md-4">
-
-        <div class="border bg-white p-3">
-            <h4>Agregar Artículo</h4>
-            <hr>
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{ form|crispy }}
-                <button class="btn btn-success btn-block" name="agregar-producto">Agregar Artículo</button>
-            </form>
-        </div>
+<div class="form_articulos">
+    <div class="sub_articulos">
+        <h2>Agregar Artículo</h2>
     </div>
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Agrega artículos a tu factura</h3>
-            </div>
+    <form action="" method="POST" class="form1">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn_agregar" name="agregar-producto">Agregar Artículo</button>
+    </form>
+</div>
+<div class="contenedor_secundario">
+        <div class="titulo_tabla">
+            <h2>Agrega artículos a la factura</h2>
+        </div>
+        <div class="contenedor_tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factura</th>
+                        <th>Artículo</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
 
-            <div class="card-body">
-                <table id="tabla-general" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Factura</th>
-                            <th>Artículo</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
-                            <th>dep_total</th>
-                            <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for detalle in detalles %}
+                    <tr>
+                        <td>{{detalle.tbl_facturas_idfactura}}</td>
+                        <td>{{detalle.tbl_articulos_idarticulo}}</td>
+                        <td>{{detalle.dep_precio}}</td>
+                        <td>{{detalle.dep_cantidad}}</td>
+                        <td>{{detalle.dep_total}}</td>
 
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for detalle in detalles %}
-                        <tr>
-                            <td>{{detalle.tbl_facturas_idfactura}}</td>
-                            <td>{{detalle.tbl_articulos_idarticulo}}</td>
-                            <td>{{detalle.dep_precio}}</td>
-                            <td>{{detalle.dep_cantidad}}</td>
-                            <td>{{detalle.dep_total}}</td>
+                        <td>
+                                <a href="#" onclick="eliminar_art_detalle_fac({{detalle.id}})">
+                                    <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Quitar artículo">
+                                </a>
+                        </td>
 
-                            <td>
-                                <form action="" method="POST" class="col-8">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="compra-p-id" value="{{detalle.id}}">
-                                    <button class="btn btn-danger col" name="eliminar-producto">
-                                        <i class="bi bi-trash"></i>
-                                    </button>
-                                </form>
-                            </td>
-
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
 
-    </div>
-{% endblock contenido %}
+    {% endblock contenido %}
 
 
-{% block js %}
-<!-- {{form.media.js}} -->
-<script>
-    $(function () {
-        $("#id_tbl_articulos_idarticulo").select2();
-    });
-</script>
-{% endblock js %}
+    {% block js %}
+    <script>
+        $(function () {
+            $("#sidebarToggle").click();
+            $("#id_tbl_articulos_idarticulo").select2({
+                placeholder:"Seleccione un artículo",
+                allowClear:true,
+            });
+        });
+    </script>
+    {% endblock js %}

@@ -12,9 +12,7 @@ class Departamentos(models.Model):
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
-    dep_estado = models.CharField(
-        max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado:")
-
+    dep_estado = models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado:")
     def __str__(self) -> str:
         return "%s" % (self.dep_nombre)
 
@@ -44,6 +42,7 @@ class Empresa(models.Model):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
     empr_estado = models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO, verbose_name="Estado:")
+    empr_foto = models.ImageField(upload_to='images/empresa', blank=True, default='images/empresa/default.png', verbose_name = "Foto:")
     
     def __str__(self) -> str:
         return "%s" % (self.empr_nombre)
@@ -178,25 +177,17 @@ class TblRelClienteServicios(models.Model):
 
 class OrdenServicio(models.Model):
     tbl_empleados_idempleado = models.ForeignKey(Empleados, on_delete=models.CASCADE, verbose_name="Nombre:")
-    ord_s_identificacion_responsable = models.CharField(max_length=20, verbose_name="Identificación:")
-    ord_s_fecha = models.DateField(verbose_name="Fecha:")
-    ord_s_telefono_responsable = models.CharField(max_length=20, blank=True, verbose_name="Teléfono:")
-    ord_s_celular_resposable = models.CharField(max_length=20, verbose_name="Celular:")
-    ord_s_direccion_responsable = models.CharField(max_length=100, verbose_name="Dirección:")
-    ord_s_email_responsable = models.EmailField(max_length=100, verbose_name="Email:")
+    ord_s_fecha = models.DateField(verbose_name="Fecha de registro:")
     ord_s_fecha_entrega = models.DateField(verbose_name="Entrega:")
-    tbl_clientes_idcliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Nombre:")
+    tbl_clientes_idcliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Cliente:")
     ord_s_identificacion_cli = models.CharField(max_length=20, verbose_name="Identificación:")
-    ord_s_telefono_cli = models.CharField(max_length=20, blank=True, verbose_name="Teléfono:")
     ord_s_celular_cli = models.CharField(max_length=20, verbose_name="Celular:")
-    ord_s_direccion_cli = models.CharField(max_length=100, blank=True, verbose_name="Dirección:")
-    ord_s_email_cli = models.EmailField(max_length=100, verbose_name="Email:")
     tbl_servicos_idservicio = models.ForeignKey(Servicios, on_delete=models.CASCADE, verbose_name="Servicio:")
     ord_s_vehiculo = models.CharField(max_length=6, verbose_name="Vehículo:")
     ord_s_informe_tecnico = models.TextField(max_length=300, verbose_name="Informe técnico:")
     class EstadoPago(models.TextChoices):
         PAGADO = '1', _('Pagado')
-        SINPAGAR = '0', _('Sin pagar')  
+        SINPAGAR = '0', _('Sin pagar')
     ord_s_estado_pago = models.CharField(max_length=1, choices=EstadoPago.choices, verbose_name="Estado de pago")
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
@@ -214,7 +205,6 @@ class TblRelOrdenServicioArticulos(models.Model):
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
-    tbl_estado = models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO,  verbose_name="Estado:")
     def _get_costo(self):
         return self.art_cantidad*self.art_precio
     art_costo = property(_get_costo)

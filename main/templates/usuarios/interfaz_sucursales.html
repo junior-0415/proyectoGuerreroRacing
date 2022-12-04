@@ -2,10 +2,30 @@
 {% load crispy_forms_tags %}
 {% load static %}
 
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_sucursales.css' %}">
+{% endblock css %}
+    
+
 {% block contenido %}
+<section class="form_sucursales">
+    <div class="sub_sucursal">
+        <h2>Registrar sucursal</h2>
+    </div>
+    <form action="" method="POST">
+        {{form|crispy}}
+        {% csrf_token %}
+        <div class="frame_b">
+            <button type="submit" value="Guardar" id="btn_guardar">Guardar</button>
+            <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
+        </div>
+    </form>
+</section>
+
 <section>
     <div class="titulo_superior">
-        <h2>Sucursales</h2>
+        <h1>Sucursales</h1>
     </div>
     <div class="contenedor_tabla">
         <table>
@@ -39,10 +59,10 @@
                         <td>{{sucursal.suc_celular}}</td>
                         <td>{{sucursal.suc_email}}</td>
                         <td>
-                            <a href="#">
-                                <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar ciudad">
+                            <a href="{% url 'editar_sucursal' sucursal.id %}">
+                                <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar sucursal">
                             </a>
-                            <a href="#">
+                            <a href="#" onclick="eliminar_registros({{ sucursal.id }})">
                                 <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                             </a>
                         </td>
@@ -52,20 +72,4 @@
         </table>
     </div>
 </section>
-<section>
-    <div>
-        <div>
-            <h2>Registra tu empresa aquí</h2>
-        </div>
-        <form action="" method="POST">
-            {{form|crispy}}
-            {% csrf_token %}
-            <div class="frame_b">
-                <button type="submit" value="Guardar" id="btn_guardar">Guardar</button>
-                <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
-            </div>
-        </form>
-    </div>
-</section>
-<a href="{% url 'empresa' %}">Antras</a>
 {% endblock contenido %}

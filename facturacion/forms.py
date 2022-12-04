@@ -24,7 +24,4 @@ class FacturaVentaForm(forms.ModelForm):
 class DetalleFacturaVentaForm(forms.ModelForm):
     class Meta:
         model = DetalleFacturaVenta
-        exclude = ['dep_estado', 'tbl_facturas_idfactura']
-        # widgets = {
-        #     'tbl_articulos_idarticulo':ArticuloWidget,
-        # }
+        exclude = ['tbl_facturas_idfactura',]

@@ -1,11 +1,15 @@
 from django.urls import path
 
-from usuarios.views import ciudades, clientes, crear_orden_servicio, departamentos, editar_ciudad, editar_cliente, editar_departamento, editar_empleado, editar_servicio, editar_vehiculo, editar_vehiculo_taller, eliminar_ciudad, eliminar_cliente, eliminar_departamento, eliminar_empleado, eliminar_servicio, eliminar_vehiculo, empleado, empresa, ingresar_vehiculo_taller, ordenes_servicio, registrar_cliente, registrar_empleado, registrar_vehiculo, sacar_vehiculo_taller, servicios, sucursales, vehiculos, vehiculos_taller
+from usuarios.views import ciudades, clientes, departamentos, editar_ciudad, editar_cliente, editar_departamento, editar_empleado, editar_empresa, editar_servicio, editar_sucursal, editar_vehiculo, editar_vehiculo_taller, eliminar_ciudad, eliminar_cliente, eliminar_departamento, eliminar_empleado, eliminar_orden_ser, eliminar_servicio, eliminar_sucursal, eliminar_vehiculo, empleado, empresa, ingresar_vehiculo_taller, ordenes_servicio, quitar_art_rel_ord_art, registrar_cliente, registrar_empleado, registrar_empresa, registrar_vehiculo, sacar_vehiculo_taller, servicios, sucursales, tbl_rel_orden_ser_articulos, vehiculos, vehiculos_taller
 
 
 urlpatterns = [
     path('tu-empresa/', empresa, name='empresa'),
+    path('tu-empresa/registrar/', registrar_empresa, name='registrar_empresa'),
+    path('tu-empresa/editar/<int:pk>/', editar_empresa, name='editar_empresa'),
     path('sucursales/', sucursales, name='sucursales'),
+    path('sucursales/editar/<int:pk>/', editar_sucursal, name='editar_sucursal'),
+    path('sucursales/eliminar/<int:pk>/', eliminar_sucursal, name='eliminar_sucursal'),
     path('clientes/', clientes, name='clientes'),
     path('clientes/crear/', registrar_cliente, name='registrar_cliente'),
     path('clientes/editar/<int:pk>/', editar_cliente, name='editar_cliente'),
@@ -29,7 +33,9 @@ urlpatterns = [
     path('empleados/editar/<int:pk>/', editar_empleado, name='editar_empleado'),
     path('empleados/eliminar/<int:pk>/', eliminar_empleado, name='eliminar_empleado'),
     path('ordenes-de-servicio/', ordenes_servicio, name='ordenes_servicio'),
-    path('ordenes-de-servicio/crear/', crear_orden_servicio, name='crear_orden_servicio'),
+    path('ordenes-de-servicio/articulos/<int:pk>/', tbl_rel_orden_ser_articulos, name='detalle_orden_servicio'),
+    path('quitar-articulo-orden-compra/<int:pk>/', quitar_art_rel_ord_art, name="quitar_art_rel_ord_art"),
+    path('ordenes-de-servicio/eliminar/<int:pk>/', eliminar_orden_ser, name='eliminar_orden_ser'),
     path('servicios/', servicios, name='servicios'),
     path('servicios/editar/<int:pk>/', editar_servicio, name='editar_servicio'),
     path('servicios/eliminar/<int:pk>/', eliminar_servicio, name='eliminar_servicio'),

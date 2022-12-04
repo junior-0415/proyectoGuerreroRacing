@@ -8,7 +8,7 @@ from usuarios.models import Cliente, Empleados, OrdenServicio
 
 class FacturaVenta(models.Model):
     fac_numero_serie = models.IntegerField(primary_key=True, verbose_name="Número de serie:", unique=True)
-    tbl_ordenes_servicio_idorden_servicio = models.ForeignKey(OrdenServicio, on_delete=models.CASCADE, blank=True, verbose_name="Órden de servicio número:")
+    tbl_ordenes_servicio_idorden_servicio = models.OneToOneField(OrdenServicio, on_delete=models.CASCADE, blank=True, verbose_name="Órden de servicio número:")
     tbl_empleados_idempleado = models.ForeignKey(Empleados, on_delete=models.CASCADE, verbose_name="Empleado:")
     tbl_clientes_idcliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Cliente:")
     fac_fecha = models.DateField(auto_now=True, verbose_name="Fecha:")
@@ -32,7 +32,10 @@ class DetalleFacturaVenta(models.Model):
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
-    dep_estado = models.CharField(max_length=1, choices=Estado.choices, default=Estado.ACTIVO,  verbose_name="Estado:")
-    @property
-    def dep_total(self):
-        return self.dep_precio*self.dep_cantidad
+    
+    def _dep_total(self):
+        return self.dep_cantidad*self.dep_precio
+    dep_total = property(_dep_total)
+
+    def __str__(self) -> str:
+        return "%s" % (self.tbl_articulos_idarticulo)

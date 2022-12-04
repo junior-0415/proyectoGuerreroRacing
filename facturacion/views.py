@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 
 from facturacion.forms import DetalleFacturaVentaForm, FacturaVentaForm
 from facturacion.models import DetalleFacturaVenta, FacturaVenta
@@ -35,7 +36,7 @@ def facturar_venta(request, modal_status='hid'):
         else:
             form = FacturaVentaForm(request.POST)
             messages.error(
-                request, "Error al abrir la factura"
+                request, f"Error al abrir la factura"
             )
 ###################### configuracion modal de eliminacion ########################
     if  request.method == "POST" and 'form-eliminar' in request.POST:
@@ -103,17 +104,18 @@ def facturar_venta(request, modal_status='hid'):
 
 def detalle_fac_venta(request, pk):
     titulo = f"Detalle de la factura de venta {pk}"
-    detalles = DetalleFacturaVenta.objects.filter(dep_estado = '1')
+    detalles = DetalleFacturaVenta.objects.filter(tbl_facturas_idfactura_id=pk)
+    print(detalles)
     if request.method == "POST":
-        form = DetalleFacturaVentaForm(request.POST, instance=detalles)
+        form = DetalleFacturaVentaForm(request.POST)
         if form.is_valid():
             temp = form.save(commit=False)
-            temp.tbl_facturas_idfactura = pk
+            temp.tbl_facturas_idfactura_id = pk
             temp.save()
             messages.success(
-                request, f"Se agregó el artículo {request.POST['tbl_articulos_idarticulo']} existosamente"
+                request, f"Se agregó el artículo con codígo {request.POST['tbl_articulos_idarticulo']} existosamente"
             )
-            return redirect('detalle_fac_venta')
+            return redirect('detalle_fac_venta', pk)
         else:
             print('Error')
     else:
@@ -124,3 +126,10 @@ def detalle_fac_venta(request, pk):
         'detalles':detalles,
     }
     return render(request, 'facturacion/detalle_factura_venta.html', context)
+
+def eliminar_art_detalle_fac(request, pk):
+    DetalleFacturaVenta.objects.filter(id=pk).delete()
+    messages.success(
+        request,f"Se ha quitado el artículo"
+    )
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))

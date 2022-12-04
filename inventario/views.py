@@ -65,3 +65,9 @@ def historial_ord_compra(request):
         'orden_compra':orden_compra
      }
      return render(request, 'inventario/interfaz_historial_ord_compras.html', context)
+
+def reporte_semanal(request):
+    titulo = "Reporte semanal"
+    context = {
+        'titulo':titulo,
+    }

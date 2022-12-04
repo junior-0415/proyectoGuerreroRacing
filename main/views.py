@@ -4,8 +4,9 @@ from django.views.defaults import page_not_found
 from django.contrib import messages
 from django.views.generic import View, TemplateView, ListView, DetailView
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 from articulos.models import Articulos, Categoria, Marcas, Proveedores
-from usuarios.models import Ciudades, Cliente, Departamentos, Empleados, Servicios, Vehiculo
+from usuarios.models import Ciudades, Cliente, Departamentos, Empleados, OrdenServicio, Servicios, Sucursales, Vehiculo
 
 #from clientes.models import Cliente, Ciudades, Departamentos, Vehiculo
 
@@ -22,15 +23,16 @@ def nosotros(request):
     }
     return render(request, 'nosotros.html', context)
 
-def loggedIn(request):
-    if request.user.is_authenticated:
-        respuesta:"Ingresado como: "  + request.user.username
-    else:
-        respuesta:"No estas autenticado."
-    return HttpResponse(respuesta)
+# def loggedIn(request):
+#     if request.user.is_authenticated:
+#         respuesta:"Ingresado como: "  + request.user.username
+#     else:
+#         respuesta:"No estas autenticado."
+#     return HttpResponse(respuesta)
 
-def logout(request):
-    return redirect("registration/login.html")
+def logout_user(request):
+    logout(request)
+    return redirect('inicio')
 
 
 @login_required(login_url='login')
@@ -59,6 +61,8 @@ def papelera_reciclaje(request):
     vehiculos = Vehiculo.objects.filter(veh_estado = '0')
     empleado = Empleados.objects.filter(emp_estado = '0')
     servicios = Servicios.objects.filter(ser_estado = '0')
+    sucursales = Sucursales.objects.filter(suc_estado = '0')
+    ordenes = OrdenServicio.objects.filter(ser_estado = '0')
     context = {
         'titulo':titulo,
         'clientes':clientes,
@@ -70,7 +74,9 @@ def papelera_reciclaje(request):
         'proveedores':proveedores,
         'vehiculos':vehiculos,
         'empleado':empleado,
-        'servicios':servicios
+        'servicios':servicios,
+        'sucursales':sucursales,
+        'ordenes':ordenes,
     }
     return render(request, 'interfaz_papelera.html', context)
 
@@ -394,3 +400,35 @@ def eliminar_def_servicio(request, pk):
         'servicio': servicio
     }
     return render(request, 'interfaz_papelera.html', context)
+
+def restablecer_sucursal(request, pk):
+    Sucursales.objects.filter(id=pk).update(
+        suc_estado='1'
+    )
+    messages.success(
+        request,f"Se restableció el registro exitosamente"
+    )
+    return redirect('sucursales')
+
+def eliminar_def_sucursal(request, pk):
+    Sucursales.objects.filter(id=pk).delete()
+    messages.warning(
+        request,f"Se eliminó definitivamente el registro"
+    )
+    return redirect('papelera')
+
+def restablecer_orden_ser(request, pk):
+    OrdenServicio.objects.filter(id=pk).update(
+        ser_estado='1'
+    )
+    messages.success(
+        request,f"Se restableció el registro exitosamente"
+    )
+    return redirect('ordenes_servicio')
+
+def eliminar_def_orden_ser(request, pk):
+    OrdenServicio.objects.filter(id=pk).delete()
+    messages.warning(
+        request,f"Se eliminó definitivamente el registro"
+    )
+    return redirect('papelera')

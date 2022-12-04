@@ -17,6 +17,54 @@
 </div>
 <section class="flex_container">
     <div class="titulo_tablas flex_item">
+        <h2>Órdenes de Servicio</h2>
+    </div>
+    <div class="container_tabla flex_item">
+        <table>
+            <thead>
+                <tr>
+                    <th>Empleado</th>
+                    <th>Fecha de registro</th>
+                    <th>Entrega</th>
+                    <th>Cliente</th>
+                    <th>Identificación</th>
+                    <th>Celular</th>
+                    <th>Servicio</th>
+                    <th>Vehiculo</th>
+                    <th>Estado</th>
+                    <th>Informe técnico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for orden in ordenes %}
+                <tr>
+                    <td>{{orden.tbl_empleados_idempleado}}</td>
+                    <td>{{orden.ord_s_fecha}}</td>
+                    <td>{{orden.ord_s_fecha_entrega}}</td>
+                    <td>{{orden.tbl_clientes_idcliente}}</td>
+                    <td>{{orden.ord_s_identificacion_cli}}</td>
+                    <td>{{orden.ord_s_celular_cli}}</td>
+                    <td>{{orden.tbl_servicos_idservicio}}</td>
+                    <td>{{orden.ord_s_vehiculo}}</td>
+                    <td>{{orden.ord_s_estado_pago}}</td>
+                    <td>{{orden.ord_s_informe_tecnico}}</td>
+                    <td>
+                        <a href="{% url 'restablecer_orden_ser' orden.id %}">
+                            <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
+                        </a>
+                        <a href="#" onclick="eliminar_orden_ser_def_alert({{orden.id}})">
+                            <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="titulo_tablas flex_item">
         <h2>Servicios</h2>
     </div>
     <div class="container_tabla flex_item">
@@ -42,7 +90,7 @@
                             <a href="{% url 'restablecer_servicio' servicio.id %}">
                                 <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                             </a>
-                            <a href="{% url 'eliminar_def_servicio' servicio.id %}">
+                            <a href="#" onclick="eliminar_servicio_def_alert({{servicio.id}})">
                                 <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                             </a>
                         </td>
@@ -90,7 +138,7 @@
                         <a href="{% url 'restablecer_cliente' cliente.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                         </a>
-                        <a href="{% url 'eliminar_def_cliente' cliente.id %}">
+                        <a href="#" onclick="eliminar_cliente_def_alert({{cliente.id}})">
                             <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                         </a>
                     </td>
@@ -125,7 +173,7 @@
                         <a href="{% url 'restablecer_ciudad' ciudad.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                         </a>
-                        <a href="{% url 'eliminar_def_ciudad' ciudad.id %}">
+                        <a href="#" onclick="eliminar_ciudad_def_alert({{ciudad.id}})">
                             <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                         </a>
                     </td>
@@ -158,7 +206,7 @@
                         <a href="{% url 'restablecer_departamento' depart.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                         </a>                        
-                        <a href="{% url 'eliminar_def_depart' depart.id %}">
+                        <a href="#" onclick="eliminar_depart_def_alert({{depart.id}})">
                             <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                         </a>
                     </td>
@@ -193,7 +241,7 @@
                             <a href="{% url 'restablecer_marca' marca.id %}">
                                 <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                             </a>
-                            <a href="{% url 'eliminar_def_marca' marca.id %}">
+                            <a href="#" onclick="eliminar_marca_def_alert({{marca.id}})">
                                 <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                             </a>
                         </td>
@@ -242,7 +290,7 @@
                         <a href="{% url 'restablecer_articulo' articulo.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                         </a>
-                        <a href="{% url 'eliminar_def_articulo' articulo.id %}">
+                        <a href="#" onclick="eliminar_articulo_def_alert({{articulo.id}})">
                             <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                         </a>
                     </td>
@@ -277,7 +325,7 @@
                             <a href="{% url 'restablecer_categoria' categoria.id %}">
                                 <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                             </a>
-                            <a href="{% url 'eliminar_def_categoria' categoria.id %}">
+                            <a href="#" onclick="eliminar_categoria_def_alert({{categoria.id}})">
                                 <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                             </a>
                         </td>
@@ -324,7 +372,7 @@
                     <a href="{% url 'restablecer_proveedor' proveedor.id %}">
                         <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                     </a>
-                    <a href="{% url 'eliminar_def_proveedor' proveedor.id %}">
+                    <a href="#" onclick="eliminar_proveedor_def_alert({{proveedor.id}})">
                         <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                     </a>
                 </td>
@@ -375,7 +423,7 @@
                         <a href="{% url 'restablecer_vehiculo' vehiculo.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                         </a>
-                        <a href="{% url 'eliminar_def_vehiculo' vehiculo.id %}">
+                        <a href="#" onclick="eliminar_vehiculo_def_alert({{vehiculo.id}})">
                             <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                         </a>
                     </td>
@@ -432,10 +480,57 @@
                         <a href="{% url 'restablecer_empleado' empleado.id %}">
                             <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
                         </a>
-                        <a href="#" onclick="eliminar_registros_def({{empleado.id}})">
+                        <a href="#" onclick="eliminar_empleado_def_alert({{empleado.id}})">
                             <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
                         </a>
                     </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="titulo_tablas flex_item">
+        <h2>Sucursales</h2>
+    </div>
+    <div class="container_tabla flex_item">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Empresa</th>
+                    <th>Administrador</th>
+                    <th>Dirección</th>
+                    <th>Tipo de sucursal</th>
+                    <th>Teléfono</th>
+                    <th>Celular</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for sucursal in sucursales %}
+                <tr>
+                    
+                        <td>{{sucursal.suc_nombre}}</td>
+                        <td>{{sucursal.tbl_ciudad_idciudad}}</td>
+                        <td>{{sucursal.tbl_empresas_idempresa}}</td>
+                        <td>{{sucursal.suc_administrador}}</td>
+                        <td>{{sucursal.suc_direccion}}</td>
+                        <td>{{sucursal.suc_tipo}}</td>
+                        <td>{{sucursal.suc_telefono}}</td>
+                        <td>{{sucursal.suc_celular}}</td>
+                        <td>{{sucursal.suc_email}}</td>
+                        <td>
+                            <a href="{% url 'restablecer_sucursal' sucursal.id %}">
+                                <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
+                            </a>
+                            <a href="#" onclick="eliminar_sucursal_def_alert({{sucursal.id}})">
+                                <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
+                            </a>
+                        </td>
                 </tr>
                 {% endfor %}
             </tbody>

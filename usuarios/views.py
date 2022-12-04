@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from articulos.models import Articulos
 from usuarios.forms import CiudadesForm, ClienteForm, DepartamentosForm, EmpleadosForm, EmpresaForm, OrdenServicioForm, ServiciosForm, SucursalesForm, TblRelOrdenServicioArticulosForm, VehiculosForm
 from django.contrib.auth.models import User
+from django.http import HttpResponseRedirect
 
 from usuarios.models import Ciudades, Cliente, Departamentos, Empleados, Empresa, OrdenServicio, Servicios, Sucursales, TblRelOrdenServicioArticulos, Vehiculo
 
@@ -16,6 +17,14 @@ from usuarios.models import Ciudades, Cliente, Departamentos, Empleados, Empresa
 def empresa(request):
     titulo = "Tu empresa"
     empresa = Empresa.objects.filter(empr_estado = '1')
+    context = {
+        'titulo': titulo,
+        'empresa': empresa,
+    }
+    return render(request, 'usuarios/interfaz_empresa.html', context)
+
+def registrar_empresa(request):
+    titulo = "Registrar empresa"
     if request.method == "POST":
         form = EmpresaForm(request.POST)
         if form.is_valid():
@@ -29,15 +38,36 @@ def empresa(request):
     else:
         form = EmpresaForm()
     context = {
+        'titulo':titulo,
+        'form':form
+    }
+    return render(request, 'usuarios/frm_empresa.html', context)
+
+def editar_empresa(request, pk):
+    titulo = 'Editar empresa'
+    empresa = Empresa.objects.get(id=pk)
+    if request.method == "POST":
+        form = EmpresaForm(request.POST, instance=empresa)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,f"Se editó la empresa {request.POST['empr_nombre']} exitosamente"
+            )
+            return redirect('empresa')
+        else:
+            print('Error al guardar')
+    else:
+        form = EmpresaForm(instance=empresa)
+
+    context = {
         'titulo': titulo,
-        'empresa': empresa,
         'form': form
     }
-    return render(request, 'usuarios/empresa.html', context)
+    return render(request, 'usuarios/frm_empresa.html', context)
 
 def sucursales(request):
     titulo = "Sucursales"
-    sucursal = Sucursales.objects.filter(suc_estado = '1')
+    sucursales = Sucursales.objects.filter(suc_estado = '1')
     if request.method == "POST":
         form = SucursalesForm(request.POST)
         if form.is_valid():
@@ -52,10 +82,41 @@ def sucursales(request):
         form = SucursalesForm()
     context = {
         'titulo': titulo,
-        'sucursal': sucursal,
+        'sucursales': sucursales,
         'form': form
     }
-    return render(request, 'usuarios/sucursales.html', context)
+    return render(request, 'usuarios/interfaz_sucursales.html', context)
+
+def editar_sucursal(request, pk):
+    titulo = 'Editar sucursal'
+    sucursal = Sucursales.objects.get(id=pk)
+    if request.method == "POST":
+        form = SucursalesForm(request.POST, instance=sucursal)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,f"Se editó la sucursal {request.POST['suc_nombre']} exitosamente"
+            )
+            return redirect('sucursales')
+        else:
+            print('Error al guardar')
+    else:
+        form = SucursalesForm(instance=sucursal)
+
+    context = {
+        'titulo': titulo,
+        'form': form
+    }
+    return render(request, 'usuarios/interfaz_sucursales.html', context)
+
+def eliminar_sucursal(request, pk):
+    Sucursales.objects.filter(id=pk).update(
+        suc_estado='0'
+    )
+    messages.success(
+        request,f"La sucursal se envió a papelera exitosamente"
+    )
+    return redirect('sucursales')
 
 def servicios(request):
     titulo = "Servicios"
@@ -494,53 +555,137 @@ def eliminar_empleado(request, pk):
     )
     return redirect('empleados')
 
-def ordenes_servicio(request):
-    titulo = "Órdenes de servicio"
-    ordenes_servicio = OrdenServicio.objects.filter(ser_estado='1')
-    rel_articulos = TblRelOrdenServicioArticulos.objects.filter(tbl_estado='1')
+def ordenes_servicio(request, modal_status='hid'):
+    titulo = "Registrar órdenes de venta"
+    ordenes = OrdenServicio.objects.filter(ser_estado='1')
 
-    context = {
-        'titulo': titulo,
-        'ordenes_servicio': ordenes_servicio,
-        'rel_articulos':rel_articulos
-    }
-    return render(request, 'usuarios/interfaz_ordenes_servicio.html', context)
+    ### cuerpo del modal ###
+    modal_title = ""
+    modal_txt = ""
+    modal_submit = ""
+    #######################
 
-def crear_orden_servicio(request):
-    titulo = "Crear órden servicio"
-    if request.method == "POST":
+    pk_orden = ""
+    tipo = None
+    form_update = None
+    form = OrdenServicioForm()
+
+    if request.method == "POST" and 'form-crear' in request.POST:
         form = OrdenServicioForm(request.POST)
         if form.is_valid():
-            form.save()
-            llave_primaria_form = ""
-            # messages.success(
-            #     request,f"Se ha registrado la orden número {request.POST['pk']} exitosamente"
-            # )
-            #return redirect('ordenes_servicio')
+            aux = form.save(commit=False)
+            aux.tbl_empleados_idempleado = Empleados.objects.get(user_id=request.user.id)
+            aux.save()
+            messages.success(
+                request, f"La Órden de servicio {aux.id} ha sido abierta"
+            )
+            return redirect('detalle_orden_servicio', aux.id)
         else:
-            print('Error')
-        
-    else:
-        form = OrdenServicioForm()
+            form = OrdenServicioForm(request.POST)
+            messages.error(
+                request, f"Error al abrir lar Órden de servicio"
+            )
+###################### configuracion modal de eliminacion ########################
+    if  request.method == "POST" and 'form-eliminar' in request.POST:
+        modal_status = 'show'
+        pk_orden = request.POST['pk']
+        orden = OrdenServicio.objects.get(id=pk_orden)
 
+        ### Cuerpo del modal ###
+        modal_title = f"Eliminar {orden}"
+        modal_txt = f"Eliminar la orden{orden}"
+        modal_submit = "Eliminar"
+        ########################
+
+        tipo = "eliminar"
+
+#################### Configuracon modal de edicion ##############################
+    if request.method == "POST" and 'form-editar' in request.POST:
+        modal_status = 'show'
+        pk_orden = request.POST['pk']
+        orden = OrdenServicio.objects.get(id=pk_orden)
+
+        ### Cuerpo del modal ###
+        modal_title = f"Editar {orden}"
+        modal_submit = "Editar"
+        ########################
+
+        tipo = "editar"
+        form_update = OrdenServicioUpdateForm(instance=orden)
+
+################### Configuración de eliminación ###############################
+    if request.method == 'POST' and 'modal-confirmar' in request.POST:
+        if request.POST['tipo'] == 'eliminar':
+            orden = OrdenServicio.objects.filter(id = int(request.POST['modal-pk'])).update(
+                ser_estado = '0'
+            )
+            messages.success(
+                request,f"Se eliminó la órden {orden.id} exitosamente!"
+            )
+            return redirect('ordenes_servicio')
+
+        if request.POST['tipo'] == 'editar':
+            pk_orden = request.POST['modal-pk']
+            orden = OrdenServicio.objects.get(id=pk_orden)
+            form_update = OrdenServicioUpdateForm(request.POST, instance=orden)
+
+            if form_update.is_valid():
+                form_update.save()
+                messages.success(
+                    request,f"Se editó la órden {orden.id} exitosamente!"
+                )
+                return redirect('ordenes_servicio')
     context = {
-        'titulo': titulo,
-        'form': form,
+        'titulo':titulo,
+        'ordenes':ordenes,
+        'form':form,
+        'modal_status':modal_status,
+        'modal_submit':modal_submit,
+        'modal_title':modal_title,
+        'modal_text':modal_txt,
+        'pk':pk_orden,
+        'tipo':tipo,
+        'form_update':form_update,
     }
     return render(request, 'usuarios/frm_crear_orden_servicio.html', context)
 
-def tbl_rel_orden_ser_articulos(request, llave_primaria_form):
+def tbl_rel_orden_ser_articulos(request, pk):
+    titulo = f"Detalle de la orden de venta {pk}"
+    rel = TblRelOrdenServicioArticulos.objects.filter(tbl_orden_servicio_idorden_servicio_id=pk)
+    print(rel)
     if request.method == "POST":
-        form2 = TblRelOrdenServicioArticulosForm(request.POST)
-        if form2.is_valid():
-            tbl_rel = TblRelOrdenServicioArticulos.objects.create(
-                tbl_orden_servicio_idorden_servicio = llave_primaria_form,
-                Ttbl_articulos_idarticulo = Articulos.objects.get(id=int(request.POST['Ttbl_articulos_idarticulo'])),
-                art_cantidad = request.POST['art_cantidad'],
-                art_precio = request.POST['art_precio'],   
+        form = TblRelOrdenServicioArticulosForm(request.POST)
+        if form.is_valid():
+            temp = form.save(commit=False)
+            temp.tbl_orden_servicio_idorden_servicio_id = pk
+            temp.save()
+            messages.success(
+                request, f"Se agregó el artículo con codígo {request.POST['Ttbl_articulos_idarticulo']} existosamente"
             )
-            return redirect('ordenes_servicio')
+            return redirect('detalle_orden_servicio', pk)
         else:
             print('Error')
     else:
-        form2 = TblRelOrdenServicioArticulosForm()
+        form = TblRelOrdenServicioArticulosForm()
+    context = {
+        'titulo':titulo,
+        'form':form,
+        'rel':rel,
+    }
+    return render(request, 'usuarios/rel_orden_servicio_articulos.html', context)
+
+def eliminar_orden_ser(request, pk):
+    OrdenServicio.objects.filter(id=pk).update(
+        ser_estado='0'
+    )
+    messages.success(
+        request,f"La órden se envió a papelera exitosamente"
+    )
+    return redirect('ordenes_servicio')
+
+def quitar_art_rel_ord_art(request, pk):
+    TblRelOrdenServicioArticulos.objects.filter(id=pk).delete()
+    messages.success(
+        request,f"Se ha quitado el artículo"
+    )
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))

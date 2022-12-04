@@ -4,79 +4,95 @@
 
 
 {% block css %}
-    
+<link rel="stylesheet" href="{% static 'css/frm_registrar_ventas.css' %}">
 {% endblock css %}
-    
+
 
 {% block contenido %}
-<div class="row my-4">
-    <div class="col-md-4">
-        
-        <div class="border bg-white p-3">
-            <h4>Agregar Facturas</h4>
-            <hr>
-            <form action="" method="POST">
-                {% csrf_token %}
-                {{form|crispy}}
-                <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">
-                <button class="btn btn-success btn-block" name="form-crear">Agregar factura</button>
-            </form>
-        </div>
-
+<section>
+    <div class="titulo_superior">
+        <h1>Registra tus ventas aquí</h1>
     </div>
-    <div class="col-md-8">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-tittle">Gestiona tus facturas</h3>
-            </div>
-            <div class="card-body">
-                <table id="tabla-general" class="table table-bordered table-striped">
-                    <thead>
-                        <tr>
-                            <th>Órden de servicio</th>
-                            <th>Empleado</th>
-                            <th>Cliente</th>
-                            <th>Fecha</th>
-                            <th>Caja</th>
-                            <th>Descuentos</th>
-                            <th>Total a pagar</th>
-                            <th>Observaciones</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        {% for factura in facturas %}
-                        <tr>
-                            <td>{{factura.tbl_ordenes_servicio_idorden_servicio}}</td>
-                            <td>{{factura.tbl_empleados_idempleado}}</td>
-                            <td>{{factura.tbl_clientes_idcliente}}</td>
-                            <td>{{factura.fac_fecha}}</td>
-                            <td>{{factura.fac_caja}}</td>
-                            <td>{{factura.fac_descuentos}}</td>
-                            <td>{{factura.fac_total_pagar}}</td>
-                            <td>{{factura.fac_observaciones}}</td>
-                            <td>
-                                <div class="row">
-                                        {% csrf_token %}
-                                       <a href="{% url 'detalle_fac_venta' factura.fac_numero_serie %}" class="btn btn-primary"><i class="bi bi-pencil-square"></i></a>
+    <div class="form_facturas">
+        <div class="sub_frm_fac">
+            <h2>Agregar Facturas</h2>
+        </div>
+        <form action="" method="POST" class="form_factura">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">
+            <button class="btn_agregar" name="form-crear">Agregar factura</button>
+        </form>
+    </div>
+    <div class="contenedor_secundario">
+        <div class="titulo_tabla">
+            <h2>Gestiona tus facturas</h2>
+        </div>
+        <div class="contenedor_tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Órden de servicio</th>
+                        <th>Empleado</th>
+                        <th>Cliente</th>
+                        <th>Fecha</th>
+                        <th>Caja</th>
+                        <th>Descuentos</th>
+                        <th>Total a pagar</th>
+                        <th>Observaciones</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
 
-                                    <form action="" method="POST" class="col-4">
-                                        {% csrf_token %}
-                                        <input type="hidden" name="pk" value="{{factura.id}}">
-                                        <button class="btn btn-danger btn-block" name="form-eliminar">
-                                            <i class="bi bi-trash"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                            
-                    </tbody>
-                </table>
-            </div>
+                    {% for factura in facturas %}
+                    <tr>
+                        <td>{{factura.tbl_ordenes_servicio_idorden_servicio}}</td>
+                        <td>{{factura.tbl_empleados_idempleado}}</td>
+                        <td>{{factura.tbl_clientes_idcliente}}</td>
+                        <td>{{factura.fac_fecha}}</td>
+                        <td>{{factura.fac_caja}}</td>
+                        <td>{{factura.fac_descuentos}}</td>
+                        <td>{{factura.fac_total_pagar}}</td>
+                        <td>{{factura.fac_observaciones}}</td>
+                        <td class="d-flex flex-row">
+                                {% csrf_token %}
+                                <a href="{% url 'detalle_fac_venta' factura.fac_numero_serie %}">
+                                    <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar factura">
+                                </a>
+
+                                <form action="" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="pk" value="{{factura.id}}">
+                                    <button name="form-eliminar" class="reset">
+                                        <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Mover a papelera">
+                                    </button>
+                                </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
         </div>
     </div>
-</div>
+</section>
 {% endblock contenido %}
+
+{% block js %}
+<script>
+    $(function () {
+        $("#sidebarToggle").click();
+        $("#id_tbl_ordenes_servicio_idorden_servicio").select2({
+            placeholder:"Selecciona una órden (opcional)",
+            allowClear:true,
+            width:"100%",
+        });
+        $("#id_tbl_clientes_idcliente").select2({
+            placeholder:"Selecciona un cliente",
+            allowClear:true,
+            width:"100%",
+        });
+    });
+</script>
+{% endblock js %}

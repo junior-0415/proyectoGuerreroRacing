@@ -23,15 +23,15 @@ from django.conf import settings
 from django.conf.urls.static import static
 #########################################
 
-from main.views import eliminar_def_articulo, eliminar_def_categoria, eliminar_def_ciudad, eliminar_def_cliente, eliminar_def_depart, eliminar_def_empleado, eliminar_def_marca, eliminar_def_proveedor, eliminar_def_servicio, eliminar_def_vehiculo, inicio, inicioAdmin, loggedIn, logout, nosotros, papelera_reciclaje, restablecer_articulo, restablecer_categoria, restablecer_ciudad, restablecer_cliente, restablecer_departamento, restablecer_empleado, restablecer_marca, restablecer_proveedor, restablecer_servicio, restablecer_vehiculo
+from main.views import eliminar_def_articulo, eliminar_def_categoria, eliminar_def_ciudad, eliminar_def_cliente, eliminar_def_depart, eliminar_def_empleado, eliminar_def_marca, eliminar_def_orden_ser, eliminar_def_proveedor, eliminar_def_servicio, eliminar_def_sucursal, eliminar_def_vehiculo, inicio, inicioAdmin, logout_user, nosotros, papelera_reciclaje, restablecer_articulo, restablecer_categoria, restablecer_ciudad, restablecer_cliente, restablecer_departamento, restablecer_empleado, restablecer_marca, restablecer_orden_ser, restablecer_proveedor, restablecer_servicio, restablecer_sucursal, restablecer_vehiculo
 
 # handler404= Error_404.as_view()s
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', inicio, name='inicio'),
-    path('loggein/', loggedIn, name='inicio-sesion'),
-    path('logout/', logout, name='fin-sesion'),
+    # path('loggein/', loggedIn, name='inicio-sesion'),
+    path('logout/',logout_user,name='logout'),
     path('adm/', inicioAdmin, name='inicio-admin'),
     #path('login/', login.as_view(), name="login"),
     path('login/', auth_views.LoginView.as_view(), name="login"),
@@ -67,4 +67,8 @@ urlpatterns = [
     path('papelera-de-reciclaje/empleados/eliminar/<int:pk>/', eliminar_def_empleado, name="eliminar_def_empleado"),
     path('papelera-de-reciclaje/servicios/restablecer/<int:pk>/', restablecer_servicio, name="restablecer_servicio"),
     path('papelera-de-reciclaje/servicios/eliminar/<int:pk>/', eliminar_def_servicio, name="eliminar_def_servicio"),
+    path('papelera-de-reciclaje/sucursales/restablecer/<int:pk>/', restablecer_sucursal, name='restablecer_sucursal'),
+    path('papelera-de-reciclaje/sucursales/eliminar/<int:pk>/', eliminar_def_sucursal, name='eliminar_def_sucursal'),
+    path('papelera-de-reciclaje/ordenes-servicio/restablecer/<int:pk>/', restablecer_orden_ser, name='restablecer_orden_ser'),
+    path('papelera-de-reciclaje/ordenes-sericio/eliminar/<int:pk>/', eliminar_def_orden_ser, name='eliminar_def_orden_ser'),
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)
