@@ -1,0 +1,39 @@
+{% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="CSS/reporte_semanal.css">
+{% endblock css %}
+
+
+{% block contenido %}    
+<!-- texto superior -->
+<div class="titulo_superior">
+    <h1>Reporte semanal</h1>
+</div>
+<!-- filtrar datos -->
+<form>
+    <div class="filtro">
+        <label for="idfiltro_Rep_Semana">Filtrar:</label>
+        <input type="week" id="idfiltro_Rep_Semana" name="filtro_Rep_Semana">
+    </div>
+    <button id="boton_imprimir" type="submit">Imprimir</button>
+</form>
+<hr>
+<!-- graficos en adelante -->
+<div class="grafico1">
+    <h2>Compras realizadas</h2>
+    <img src="img/grafico_1_semana.png" alt="Grafica 1: compras realizadas semanales">
+</div>
+<div class="grafico2">
+    <h2>Ventas realizadas</h2>
+    <img src="img/grafico_2_semana.png" alt="Grafica 2: ventas realizadas semanales">
+</div>
+<div class="info_textual">
+    <h2 id="total1">Total compras:</h2>
+    <h2 id="num1">$900000 Mil</h2>
+    <h2 id="total2">Total ventas:</h2>
+    <h2 id="num2">$1500000 Mill</h2>
+</div>
+{% endblock contenido %}

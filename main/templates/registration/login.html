@@ -1,0 +1,103 @@
+{% extends 'partials/body_login.html' %}
+{% load static %}
+
+
+{% block contenido %}
+<div class="container w-75 bg-primary mt-5 rounted shadow">
+    <div class="row align-items-stretch">
+        <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+            <div class="bg">
+                <img src="{% static 'img/Portada.jpg' %}" width="500px" alt="200px">
+            </div>
+
+        </div>
+        <div class="col bg-white p-4 rounded-end">
+            <div class="text-end">
+                <img src="{% static 'img/logo racing.png' %}" width="55" alt="">
+            </div>
+            <h2 class="fw-bold text-center py5">Bienvenido</h2>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label for="text" class="form-label">Usuario</label>
+                    {{form.username}}
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="form-label">Contraseña</label>
+                    {{form.password}}
+                </div>
+                <div class="mb-4">
+                    <input type="checkbox" name="connected" class="form-check-input">
+                    <label for="connected" class="form-check-label">Recordar usuario y contraseña</label>
+                </div>
+                <div class="row text-end">
+                    <span><a href="{% url 'password_reset' %}" class="btn_olvidar_contrasena">¿Olvidaste tu
+                            contraseña?</a></span>
+                </div>
+                <!-- data-bs-toggle="modal" href="#exampleModalToggle" -->
+                <div class="d-grid">
+                    <input id="btn_enviar" type="submit" class="btn btn_color_1 mx-3" value="Acceder">
+                </div>
+                <div class="row text-center my-2">
+                    <span>¿No tienes cuenta?<a href="#"></a></span> <br>
+                </div>
+
+                <div class="d-grid">
+                    <a href="frm_registro_usuario.html" id="btn_guardar" type="button" class="btn btn_color_2 mx-3"
+                        target="_blank">Registrate</a>
+                </div>
+
+            </form>
+
+            <div class="container w-100 my-5">
+                <div class="row text-center">
+                    <div class="col-12">Iniciar sesión</div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <a href="https://es-la.facebook.com/" type="button" class="btn btn-outline-primary w-100 my-1"
+                            target="_blank">
+                            <div class="row align-items-center">
+                                <div class="col-2 d-none d-md-block">
+                                    <img src="{% static 'img/facebook.png' %}" width="32" alt="">
+                                </div>
+
+                                <div class="col-12 col-md-10 text-center">
+                                    Facebook
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <a href="https://www.google.com/intl/es-419/gmail/about/" type="button"
+                        class="btn btn-outline-danger w-100 my-1" target="_blank">
+                        <div class="row align-items-center">
+                            <div class="col-2 d-none d-md-block">
+                                <img src="{% static 'img/google.png' %}" width="32" alt="">
+                            </div>
+
+                            <div class="col-12 col-md-10 text-center">
+                                Google
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mododulo de olvidar contraseña -->
+
+<section>
+    <div class="modal4 ">
+        <div class="container_modal4">
+            <img src="{% static 'img/operacion_existosa.svg' %}" alt="Operación exitosa" id="operacion_existosa">
+            <h2>¡Operación exitosa!</h2>
+            <p>Su contraseña se ha reestablecido con éxito, por favor vuelve a iniciar sesión</p>
+            <button type="submit" id="btn_aceptar_m4" class="modal_close4">Aceptar</button>
+        </div>
+</section>
+
+{% endblock contenido %}

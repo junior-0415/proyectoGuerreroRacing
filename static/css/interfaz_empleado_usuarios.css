@@ -1,18 +1,3 @@
-.container {
-    /* Zona de trabajo articulos */
-
-    position: relative;
-    width: 100%;
-    height: 100vh;
-
-    background: #FFFFFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin: 0%;
-    padding: 0%;
-
-    overflow: auto;
-}
-
 #titulo_superior {
     position: absolute;
     width: 100%;
@@ -228,7 +213,7 @@ table tbody tr td:first-child {
 /* ******************************************************************************************************* */
 /* menu inferior desplegable */
 
-nav {
+.menu_acciones {
     position: fixed;
     width: 47px;
     height: 161px;
@@ -237,7 +222,7 @@ nav {
 
 }
 
-nav ul li {
+.menu_acciones ul li {
     /* width: 100%;
     height: 100%; */
     position: relative;
@@ -247,7 +232,7 @@ nav ul li {
 
 }
 
-nav ul {
+.menu_acciones ul {
     width: 100%;
     height: 100%;
 
@@ -256,36 +241,36 @@ nav ul {
     padding: 0;
 }
 
-nav ul a {
+.menu_acciones ul a {
     display: block;
     text-decoration: none;
     padding: 5px;
 }
 
-nav ul ul li a:hover {
+.menu_acciones ul ul li a:hover {
     outline: 4.5px solid #C2DAFF;
 }
 
-nav ul ul {
+.menu_acciones ul ul {
     display: none;
     position: absolute;
     top: 100%;
     padding: 0;
 }
 
-nav ul li:hover>ul {
+.menu_acciones ul li:hover>ul {
     display: block;
     visibility: visible;
     opacity: 1;
 }
 
-nav ul li>ul {
+.menu_acciones ul li>ul {
     visibility: hidden;
     opacity: 0;
     transition: visibility 2s, opacity 5s linear;
 }
 
-nav #menu_lineas:hover {
+.menu_acciones #menu_lineas:hover {
     transform: rotate(-180deg);
     transition: 0.5s;
     outline: 4.5px solid #C2DAFF;
@@ -311,7 +296,7 @@ nav #menu_lineas:hover {
 /* Modal */
 /* ************************************************************************************************* */
 
-.modal {
+.modal_acciones {
     position: fixed;
     top: 0%;
     left: 0%;
@@ -324,13 +309,13 @@ nav #menu_lineas:hover {
     transition: opacity .6s;
 }
 
-.modal--show {
+.modal--show-acciones {
     opacity: 1;
     pointer-events: unset;
     transition: opacity .6s;
 }
 
-.container_modal {
+.container_modal_acciones {
     position: relative;
     margin: auto;
     width: 481px;
@@ -339,7 +324,7 @@ nav #menu_lineas:hover {
     border-radius: 20px;
 }
 
-.container_h2 {
+.container_h2_acciones {
     position: absolute;
     width: 481px;
     height: 38px;
@@ -411,14 +396,19 @@ nav #menu_lineas:hover {
     top: 12px;
 }
 
-.btn {
+.btn-adm {
     box-sizing: border-box;
-
     width: 366px;
     height: 29px;
-
     border: 1.5px solid #ACACAC;
     border-radius: 5px;
+}
+
+#btn_eliminar {
+    /* position: absolute; */
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
 }
 
 .btn:hover {

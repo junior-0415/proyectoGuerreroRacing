@@ -35,7 +35,9 @@
                     <th>Código Nacional:</th>
                     <th>Ciudad o municipio</th>
                     <th>Departamento</th>
+                    {% if perms.usuarios.delete_ciudades or perms.usuarios.change_ciudades %}
                     <th>Acciones</th>
+                    {% endif %}
                 </tr>
                 </tr>
             </thead>
@@ -47,14 +49,23 @@
                         <td>{{ciudad.id_ciudad}}</td>
                         <td>{{ciudad.ciu_nombre}}</td>
                         <td>{{ciudad.tbl_departamento_iddepart}}</td>
+                        {% if perms.usuarios.delete_ciudades or perms.usuarios.change_ciudades %}
                         <td>
-                            <a href="{% url 'editar_ciudad' ciudad.id %}">
+                            
+                            {% if perms.usuarios.change_ciudades %}
+                            <a href="{% url 'editar_ciudad' ciudad.pk %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar ciudad">
                             </a>
-                            <a href="{% url 'eliminar_ciudad' ciudad.id %}">
+                            {% endif %}
+
+                            {% if perms.usuarios.delete_ciudades %}                           
+                            <a href="#" onclick="eliminar_registros({{ ciudad.pk }})">
                                 <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                             </a>
+                            {% endif %}
+
                         </td>
+                        {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
@@ -62,7 +73,7 @@
     </div>
     <img src="{% static 'img/ilustracion_ciudades.svg' %}" alt="Ilustración relativa a ciudades" id="img1">
     <a href="#" id="btn_anadir" title="Añadir nueva ciudad">Añadir</a>
-</section>
+</section>    
 <section class="modal-form ">
     <div class="container_modal-form">
         <div class="container_h2-form">
@@ -72,6 +83,7 @@
             </a>
         </div>
         <img src="{% static 'img/ilustracion_ciudades.svg' %}" alt="Imagen ilustrativa a ciudades" id="img2">
+        {% if perms.usuarios.add_ciudades %}
         <form action="" method="POST">
             {{form|crispy}}
             {% csrf_token %}
@@ -80,6 +92,7 @@
                 <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
             </div>
         </form>
+        {% endif %}
     </div>
 </section>
 {% endblock contenido %}
@@ -87,5 +100,4 @@
 
 {% block js %}
 <script src="{% static 'js/interfaz_ciu_municipios.js' %}"></script>
-<script src="{% static 'js/libreria_mensajes_emergentes.js' %}"></script>
 {% endblock js %}

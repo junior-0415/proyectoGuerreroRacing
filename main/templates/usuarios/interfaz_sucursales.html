@@ -1,0 +1,75 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_sucursales.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+<section class="form_sucursales">
+    <div class="sub_sucursal">
+        <h2>Registrar sucursal</h2>
+    </div>
+    <form action="" method="POST">
+        {{form|crispy}}
+        {% csrf_token %}
+        <div class="frame_b">
+            <button type="submit" value="Guardar" id="btn_guardar">Guardar</button>
+            <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
+        </div>
+    </form>
+</section>
+
+<section>
+    <div class="titulo_superior">
+        <h1>Sucursales</h1>
+    </div>
+    <div class="contenedor_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Ciudad</th>
+                    <th>Empresa</th>
+                    <th>Administrador</th>
+                    <th>Dirección</th>
+                    <th>Tipo de sucursal</th>
+                    <th>Teléfono</th>
+                    <th>Celular</th>
+                    <th>Email</th>
+                    <th>Acciones</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for sucursal in sucursales %}
+                <tr>
+                    
+                        <td>{{sucursal.suc_nombre}}</td>
+                        <td>{{sucursal.tbl_ciudad_idciudad}}</td>
+                        <td>{{sucursal.tbl_empresas_idempresa}}</td>
+                        <td>{{sucursal.suc_administrador}}</td>
+                        <td>{{sucursal.suc_direccion}}</td>
+                        <td>{{sucursal.suc_tipo}}</td>
+                        <td>{{sucursal.suc_telefono}}</td>
+                        <td>{{sucursal.suc_celular}}</td>
+                        <td>{{sucursal.suc_email}}</td>
+                        <td>
+                            <a href="{% url 'editar_sucursal' sucursal.id %}">
+                                <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar sucursal">
+                            </a>
+                            <a href="#" onclick="eliminar_registros({{ sucursal.id }})">
+                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
+                            </a>
+                        </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock contenido %}

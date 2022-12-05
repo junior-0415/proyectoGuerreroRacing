@@ -1,0 +1,90 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_servicios.css' %}">
+{% endblock css %}
+
+
+{% block contenido %}
+<section>
+    <div class="titulo_superior">
+        <h2>Servicios de tu empresa</h2>
+    </div>
+    <div class="contenedor_form">
+        <form>
+            <label for="Serv_Busqueda" class="label_buscar">Buscar ciudad:</label>
+            <input type="search" name="ServBusqueda" id="Serv_Busqueda" placeholder="Buscar">
+
+            <label for="FiltroServicios" class="label_filtrar">Filtrar:</label>
+            <input list="FiltroServicios" name="FiltroServicios" id="css_propiedades_filtro"
+                placeholder="Elige un filtro">
+            <datalist id="FiltroServicios">
+                <option value="A-Z">Opción 1</option>
+                <option value="Z-A">Opción 2</option>
+            </datalist>
+            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+        </form>
+    </div>
+    <div class="contenedor_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Sucursal:</th>
+                    <th>Servicio:</th>
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for servicio in servicios %}
+                <tr>
+                    
+                        <td>{{servicio.tbl_sucursales_idsucursal}}</td>
+                        <td>{{servicio.ser_nombre}}</td>
+                        <td>{{servicio.ser_descripcion}}</td>
+                        <td>
+                            <a href="{% url 'editar_servicio' servicio.id %}">
+                                <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar servicio">
+                            </a>
+                            <a href="#" onclick="eliminar_registros({{ servicio.id }})">
+                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" id="btn_eliminar" title="Mover a papelera">
+                            </a>
+                        </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <img src="{% static 'img/interfaz_servicios.svg' %}" alt="Ilustración relativa a servicios" id="img1">
+    <a href="#" id="btn_anadir" title="Añadir nuevo servicio">Añadir</a>
+</section>
+<section class="modal-form ">
+    <div class="container_modal-form">
+        <div class="container_h2-form">
+            <h2>Añadir nuevo servicio</h2>
+            <a href="#" class="modal_close-form container_cerrar-form">
+                <img src="{% static 'img/cerrar.svg' %}" alt="">
+            </a>
+        </div>
+        <img src="{% static 'img/interfaz_servicios.svg' %}" alt="Imagen ilustrativa a servicios" id="img2">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form|crispy}}
+            <div class="frame_b">
+                <button type="submit" id="btn_guardar">Guardar</button>
+                <button type="reset" id="btn_cancelar">Cancelar</button>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock contenido %}
+
+
+{% block js %}
+<script src="{% static 'js/interfaz_servicios.js' %}"></script>
+{% endblock js %}

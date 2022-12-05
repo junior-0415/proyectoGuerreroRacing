@@ -1,0 +1,20 @@
+{% load static %}
+
+{% if messages %}
+                
+    {% for message in messages %}
+        <script>
+            Swal.fire({
+                title: 'Operación exitosa!',
+                text: '{{message}}',
+                icon: 'success',
+                confirmButtonText: 'Entendio',
+                confirmButtonColor: '#00B9CA'
+            })
+        </script>
+    {% endfor %}
+                    
+{% endif %}
+
+<!-- Ventanas de confirmacion -->
+

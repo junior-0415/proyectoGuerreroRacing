@@ -1,0 +1,77 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/frm_detalle_fac_venta.css' %}">
+{% endblock css %}
+
+
+{% block contenido %}
+<div class="titulo_superior">
+    <h1>Agrega artículos de la factura</h1>
+</div>
+
+<div class="form_articulos">
+    <div class="sub_articulos">
+        <h2>Agregar Artículo</h2>
+    </div>
+    <form action="" method="POST" class="form1">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn_agregar" name="agregar-producto">Agregar Artículo</button>
+    </form>
+</div>
+<div class="contenedor_secundario">
+        <div class="titulo_tabla">
+            <h2>Agrega artículos a la factura</h2>
+        </div>
+        <div class="contenedor_tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Factura</th>
+                        <th>Artículo</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th>Acciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for detalle in detalles %}
+                    <tr>
+                        <td>{{detalle.tbl_facturas_idfactura}}</td>
+                        <td>{{detalle.tbl_articulos_idarticulo}}</td>
+                        <td>{{detalle.dep_precio}}</td>
+                        <td>{{detalle.dep_cantidad}}</td>
+                        <td>{{detalle.dep_total}}</td>
+
+                        <td>
+                                <a href="#" onclick="eliminar_art_detalle_fac({{detalle.id}})">
+                                    <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Quitar artículo">
+                                </a>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    {% endblock contenido %}
+
+
+    {% block js %}
+    <script>
+        $(function () {
+            $("#sidebarToggle").click();
+            $("#id_tbl_articulos_idarticulo").select2({
+                placeholder:"Seleccione un artículo",
+                allowClear:true,
+            });
+        });
+    </script>
+    {% endblock js %}

@@ -51,7 +51,7 @@
                             <a href="{% url 'editar_marca' marca.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar marca">
                             </a>
-                            <a href="{% url 'eliminar_marca' marca.id %}">
+                            <a href="#" onclick="eliminar_registros({{ marca.id }})">
                                 <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                             </a>
                         </td>

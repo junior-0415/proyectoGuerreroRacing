@@ -1,99 +1,45 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registrar empleado</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400&family=Vollkorn:ital,wght@0,500;0,700;1,700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="CSS/frm_registrar_empleados.css">
-</head>
 
-<body class="container text_center">
-    <header class="titulo_superior">
-        <h1>Registrar nuevo empleado</h1>
-    </header>
-    <section>
-        <form action="">
-            <div class="frame_f f1">
-                <label for="idEmpleado" id="label_identificacion">Identificación</label>
-                <input type="number" name="idEmpleado" id="idempleado" class="ubicacion_input_1" placeholder="Ingrese sin puntos, separadores o espacios" required autofocus>
-            </div>
-            <div class="frame_f f2">
-                <label for="idemp_nombres" id="label_nombres">Nombres:</label>
-                <input type="text" name="EmpNombres" id="idemp_nombres" class="ubicacion_input_1" placeholder="Primer y segundo nombre" required>
-            </div>
-            <div class="frame_f f3">
-                <label for="idemp_apellidos" id="label_apellidos">Apellidos:</label>
-                <input type="text" name="EmpApellidos" id="idemp_apellidos" class="ubicacion_input_1" placeholder="Primer y segundo apellido" required>
-            </div>
-            <div class="frame_f f4">
-                <label for="generos" id="label_genero">Género:</label>
-                <input list="generos" name="EmpGenero" id="css_propiedades_generos" class="ubicacion_input_1" placeholder="N/A" required>
-                <datalist id="generos">
-                    <option value="F">Femenino</option>
-                    <option value="M">Masculino</option>
-                </datalist>
-            </div>
-            <div class="frame_f f5">
-                <label for="idemp_direccion" class="ubicacion_label">Dirección:</label>
-                <input type="text" name="EmpDireccion" id="idemp_direccion" class="ubicacion_input_1" placeholder="Dirección de residencia">
-            </div>
-            <div class="frame_f f6">
-                <label for="idemp_ciudad" class="ubicacion_label">Ciudad:</label>
-                <input type="text" name="EmpCiudad" id="idemp_ciudad" class="ubicacion_input_1" placeholder="Ciudad de residencia" required>
-            </div>
-            <div class="frame_f f7">
-                <label for="idemp_telefono" class="ubicacion_label">Télefono:</label>
-                <input type="tel" name="EmpTelefono" id="idemp_telefono" class="ubicacion_input_1" placeholder="Contacto 1">
-            </div>
-            <div class="frame_f f8">
-                <label for="idemp_celular" class="ubicacion_label">Celular:</label>
-                <input type="tel" name="EmoCelular" id="idemp_celular" class="ubicacion_input_1" placeholder="Contacto 2" required>
-            </div>
-            <div class="frame_f f9">
-                <label for="idemp_email" class="ubicacion_label">Email:</label>
-                <input type="email" name="EmpEmail" id="idemp_email" class="ubicacion_input_1" placeholder="Dirección de correo electrónico" required>
-            </div>
-            <div class="frame_f f10">
-                <label for="idemp_fecha_nacimiento" class="ubicacion_label">Fecha de nacimiento:</label>
-                <input type="date" name="EmpFecha_Nacimiento" id="idemp_fecha_nacimiento" class="ubicacion_input_1" placeholder="Seleccione la fecha de nacimiento" required>
-            </div>
-            <div class="frame_f f11">
-                <label for="idemp_cargo" class="ubicacion_label">Cargo principal:</label>
-                <input type="text" name="EmpCargo" id="idemp_cargo" class="ubicacion_input_1" placeholder="Cargo que ejercerá en la empresa" required>
-            </div>
-            <div class="frame_f f12">
-                <label for="idemp_no_contrato" class="ubicacion_label">Número de contrato:</label>
-                <input type="number" name="EmpNo_Contrato" id="idemp_no_contrato" class="ubicacion_input_1" placeholder="Establezca un número de contrado irrepetible" required>
-            </div>
-            <div class="frame_f f13">
-                <label for="idemp_fecha_ingreso" class="ubicacion_label">Fecha de ingreso:</label>
-                <input type="date" name="EmpFecha_Ingreso" id="idemp_fecha_ingreso" class="ubicacion_input_1" placeholder="Seleccione la fecha de ingreso" required>
-            </div>
-            <img src="img/registrar_cliente_empleado.svg" alt="Imgem aluciva a empleados" id="img1">
-            <div class="frame_f f14">
-                <fieldset>
-                    <legend>Servicios asociados:</legend>
-                    <label for="s_ventas" id="label_s_ventas">S.Ventas</label>
-                    <input type="checkbox" id="s_ventas" name="s_ventas" value="Ventas">
-                    <label for="s_mantenimiento" id="label_s_mantenimiento">S.Mantenimiento</label>
-                    <input type="checkbox" id="s_mantenimiento" name="s_mantenimiento" value="Mantenimiento">
-                    <label for="solo_cargo" id="label_solo_cargo">Solo cargo</label>
-                    <input type="checkbox" id="solo_cargo" name="solo_cargo" value="Solo cargo">
-                </fieldset>
-            </div>
-            <div class="frame_b f15">
-                <button type="submit" id="btn_guardar">Guardar</button>
-                <button type="reset" id="btn_cancelar">Cancelar</button>
-            </div>
-        </form>
-    </section>
-    <script src="JS/libreria_mensajes_emergentes.js"></script>
-    <script src=" https://unpkg.com/sweetalert/dist/sweetalert.min.js "></script>
-</body>
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/frm_registrar_empleados.css' %}">
+{% endblock css %}
 
-</html>
+
+{% block contenido %}    
+<div class="titulo_superior">
+    <h1>Registrar nuevo empleado</h1>
+</div>
+<section>
+    <form action="" method="POST">
+       
+        <img src="{% static 'img/registrar_cliente_empleado.svg' %}" alt="Imgem aluciva a empleados" id="img1">
+        {{form|crispy}}
+        {% csrf_token %}
+        
+        <!-- <div class="frame_f f14">
+            <fieldset>
+                <legend>Servicios asociados:</legend>
+                <label for="s_ventas" id="label_s_ventas">S.Ventas</label>
+                <input type="checkbox" id="s_ventas" name="s_ventas" value="Ventas">
+                <label for="s_mantenimiento" id="label_s_mantenimiento">S.Mantenimiento</label>
+                <input type="checkbox" id="s_mantenimiento" name="s_mantenimiento" value="Mantenimiento">
+                <label for="solo_cargo" id="label_solo_cargo">Solo cargo</label>
+                <input type="checkbox" id="solo_cargo" name="solo_cargo" value="Solo cargo">
+            </fieldset>
+        </div> -->
+        <div class="frame_b f15">
+            <button type="submit" id="btn_guardar">Guardar</button>
+            <button type="reset" id="btn_cancelar">Cancelar</button>
+        </div>
+    </form>
+</section>
+{% endblock contenido %}
+
+
+{% block js %}
+
+{% endblock js %}
+    

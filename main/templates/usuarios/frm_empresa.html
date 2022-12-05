@@ -1,0 +1,27 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/frm_empresa.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+<section>
+        <div class="titulo_superior">
+            <h1>Registra tu empresa aquí</h1>
+        </div>
+        <form action="" method="POST">
+            {{form|crispy}}
+            {% csrf_token %}
+            <img src="{% static 'img/registrar_empresa.svg' %}" alt="Ilustración a gestionar empresa" id="img1">
+            <div class="frame_b">
+                <button type="submit" value="Guardar" id="btn_guardar">Guardar</button>
+                <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
+            </div>
+        </form>
+</section>
+{% endblock contenido %}
+    

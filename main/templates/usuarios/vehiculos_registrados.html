@@ -70,7 +70,7 @@
                             <img src="{% static 'img/ingresar_al_taller.svg' %}" alt="Botón ingresar Vehículo al taller"
                                 class="btn_mandar_al_taller" title="Ingresar vehículo al taller">
                         </a>
-                        <a href="{% url 'eliminar_vehiculo' vehiculo.id %}">
+                        <a href="#" onclick="eliminar_registros({{ vehiculo.id }})">
                             <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar"
                                 title="Mover a papelera">
                         </a>

@@ -1,0 +1,130 @@
+.titulo {
+    position: absolute;
+    width: 100%;
+    height: 10.53%;
+    left: 0px;
+    top: 0px;
+
+    background: rgba(0, 117, 128, 0.982);
+
+    display: grid;
+    place-items: center;
+}
+
+.titulo h1 {
+    position: absolute;
+    width: auto;
+    height: auto;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 8px;
+}
+
+section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    margin: 0%;
+    padding: 0%;
+}
+
+form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    margin: 0%;
+    padding: 0%;
+}
+
+.control-group {
+    width: 35.64%;
+    height: 66px;
+}
+
+label {
+    width: auto;
+    height: auto;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+input, select, textarea {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 38px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+
+    background: none;
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+input:focus, select:focus, textarea:focus {
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+label {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+input, select, textarea {
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+}
+
+#div_id_tbl_orden_compras_idorden_compra {
+    position: absolute;
+    left: 0.97%;
+    top: 14.43%;
+}
+
+#div_id_ped_recivido_por {
+    position: absolute;
+    left: 0.97%;
+    top: 27.84%;
+}
+
+#div_id_ped_fecha_recivido {
+    position: absolute;
+    left: 0.97%;
+    top: 41.26%;
+}
+
+#div_id_ped_precio {
+    position: absolute;
+    left: 0.97%;
+    top: 54.67%;
+}
+
+#img1 {
+    position: absolute;
+    width: 35%;
+    left: 50%;
+    top: 14.43%;
+}

@@ -1,0 +1,110 @@
+{% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_empresa.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+<section>
+    <div class="titulo_superior">
+        <h1>Tu empresa</h1>
+    </div>
+    
+    {% for empresa in empresa %}
+    <a href="{% url 'editar_empresa' empresa.id %}" id="editar">Editar</a>
+    {% endfor %}
+    <a href="{% url 'sucursales' %}" id="sucursales">Ver sucursales</a>
+    <div class="contenedor_tabla1">
+        <table>
+            <tbody>
+                {% for empresa in empresa %}
+                <tr>
+                    <td class="align moddle text-center">
+                        <img class="rounded-circle" src="{{ MEDIA_URL }}{{empresa.empr_foto.url}}" width="227px" height="227px" alt="Foto empresa">
+                    </td>
+                </tr>
+                {% endfor %}                    
+            </tbody>
+        </table>
+    </div>
+    <div class="contenedor_tabla2">
+        <table>
+            <tbody>
+                
+                {% for empresa in empresa %}
+                         
+                <td>{{empresa.empr_nombre}}</td>
+                
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="contenedor_tabla3">
+        <table>
+            <thead>
+                <th>Número NIT:</th>
+            </thead>
+            <tbody>
+                
+                {% for empresa in empresa %}
+                    
+                    <td>{{empresa.empr_nit}}</td>
+
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="contenedor_tabla4">
+        <table>
+            <thead>
+                <th>Dueño:</th>
+            </thead>
+            <tbody>
+                
+                {% for empresa in empresa %}
+                    
+                    <td>{{empresa.empr_dueno}}</td>
+                    
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="contenedor_tabla5">
+        <table>
+            <thead>
+                <th>Razón social:</th>
+            </thead>
+            <tbody>
+                
+                {% for empresa in empresa %}
+                    
+                    <td>{{empresa.empr_razon_social}}</td>
+                    
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="contenedor_tabla6">
+        <table>
+            <thead>
+                <th>Sitio web:</th>
+            </thead>
+            <tbody>
+                
+                {% for empresa in empresa %}
+                    
+                    <td>{{empresa.empr_sitio_web}}</td>
+                    
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <p class="texto_guia1">
+        El registro de tu empresa es necesario para otras funciones como la facturación, para realizar órdenes de servicio, órdenes de compras, entre otras opciones.
+    </p>
+</section>
+{% endblock contenido %}

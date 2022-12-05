@@ -10,23 +10,20 @@
         <li class="list__item list__item--click">
             <div class="list__button list__button--click">
                 <img src="{% static 'aset/servicio.svg' %}" alt="" class="list__img">
-                <a href="#" class="nav__link">Ordenes-Servicios</a>
+                <a href="#" class="nav__link">Órdenes-Servicios</a>
                 <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
             </div>
 
             <ul class="list__show">
                 <li class="list__inside">
-                    <a href="frm_cotizar_orden_servicio.html" target="iframe1"
-                        class="nav__link nav__link--inside">Registrar orden de servicio</a>
+                    <a href="{% url 'ordenes_servicio' %}" class="nav__link nav__link--inside">Crear órden de servicio</a>
                 </li>
                 <li class="list__inside">
-                    <a href="frm_ordenes_de_servicio.html" target="iframe1"
-                        class="nav__link nav__link--inside">Ver
-                        ordenes de
-                        servicio</a>
+                    <a href="#" class="nav__link nav__link--inside">Historial órden de servicio</a>
                 </li>
-
-
+                <li class="list__inside">
+                    <a href="{% url 'servicios' %}" class="nav__link nav__link--inside">Servicios de tu empresa</a>
+                </li>
             </ul>
 
         </li>
@@ -89,8 +86,7 @@
                         >Ver empleados</a>
                 </li>
                 <li class="list__inside">
-                    <a href="frm_registrar_empleados.html" class="nav__link nav__link--inside"
-                        target="iframe1">Registrar empleado</a>
+                    <a href="{% url 'registrar_empleado' %}" class="nav__link nav__link--inside">Registrar empleado</a>
                 </li>
 
             </ul>
@@ -226,13 +222,12 @@
 
             <ul class="list__show">
                 <li class="list__inside">
-                    <a href="frm_realizar_venta.html" target="iframe1"
-                        class="nav__link nav__link--inside">Registrar
+                    <a href="{% url 'facturar_venta' %}" class="nav__link nav__link--inside">Registrar
                         ventas</a>
                 </li>
                 <li class="list__inside">
                     <a href="frm_historial_de_las_ventas_realizadas.html" target="iframe1"
-                        class="nav__link nav__link--inside">Ver historial de ventas</a>
+                        class="nav__link nav__link--inside">Historial de ventas</a>
                 </li>
 
             </ul>
@@ -248,16 +243,16 @@
 
             <ul class="list__show">
                 <li class="list__inside">
-                    <a href="frm_registrar_compra.html" target="iframe1"
-                        class="nav__link nav__link--inside">Registrar compra</a>
+                    <a href="{% url 'registrar_pedido_compra' %}" class="nav__link nav__link--inside">Registrar compra o pedido</a>
                 </li>
                 <li class="list__inside">
-                    <a href="frm_crear_orden_de_compra.html" target="iframe1"
-                        class="nav__link nav__link--inside">Crear orden de compra</a>
+                    <a href="{% url 'historial_compras' %}" class="nav__link nav__link--inside">Historial de compras</a>
                 </li>
                 <li class="list__inside">
-                    <a href="frm_historial_de_las_compras_realizadas.html" target="iframe1"
-                        class="nav__link nav__link--inside">Ver historial de compras</a>
+                    <a href="{% url 'crear_orden_compra' %}" class="nav__link nav__link--inside">Crear orden de compra</a>
+                </li>
+                <li class="list__inside">
+                    <a href="{% url 'historial_ord_compra' %}" class="nav__link nav__link--inside">Historial de órdenes de compra</a>
                 </li>
             </ul>
         </li>

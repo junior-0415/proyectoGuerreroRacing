@@ -1,0 +1,500 @@
+.titulo_superior {
+    position: absolute;
+    width: 100%;
+    height: 10.53%;
+    left: 0%;
+    top: 0%;
+
+    background: rgba(0, 117, 128, 0.982);
+
+    display: grid;
+    place-items: center;
+}
+
+.titulo_superior h2 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 8px;
+
+    font-family: 'Comic Sans MS', 'cursive';
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+}
+
+form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+
+
+.label_buscar {
+    /* Buscar cliente: */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 0.97%;
+    top: 14.43%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+#Serv_Busqueda {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 16.36%;
+    height: 29px;
+    left: 11.88%;
+    top: 13.58%;
+
+    border: 1px solid #000000;
+    border-radius: 10px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+.label_filtrar {
+    /* Filtrar: */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 30.77%;
+    top: 14.43%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+#css_propiedades_filtro {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 16.36%;
+    height: 29px;
+    left: 35.83%;
+    top: 13.58%;
+
+    border: 1px solid #000000;
+    border-radius: 10px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+
+#btn_mostrar_filtro {
+    position: absolute;
+    width: 12.17%;
+    height: 29px;
+    left: 52.68%;
+    top: 13.58%;
+
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_mostrar_filtro:hover {
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_mostrar_filtro:active {
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+.contenedor_tabla {
+    position: absolute;
+    width: 50%;
+    height: auto;
+    max-height: 78.78%;
+    /* left: 10px; */
+    top: 21.73%;
+    display: grid;
+    justify-items: center;
+
+    overflow: auto;
+}
+
+table {
+    background-color: #FFFFFF;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #DCDCDC;
+}
+
+thead {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+}
+
+/* iluminar celdas */
+
+
+tr:hover td {
+    background-color: #E5E5E5;
+}
+
+table tbody tr td:first-child {
+    font-weight: 700;
+}
+
+#btn_eliminar {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+#img1 {
+    position: absolute;
+    width: 30.53%;
+    height: 41.58%;
+    left: 59.69%;
+    top: 27.5%;
+}
+
+#btn_anadir {
+    position: absolute;
+
+    left: 68.94%;
+    top: 70.8%;
+    width: 125px;
+    height: 28.44px;
+    background: rgba(0, 117, 128, 0.982);
+    display: grid;
+    place-items: center;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+
+    text-decoration: none;
+}
+
+#btn_anadir:hover {
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_anadir:active {
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+/* Modal */
+/* ******************************************************************************************************** */
+
+.modal-form {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+    z-index: 4;
+}
+
+.modal--show-form {
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .6s;
+}
+
+.container_modal-form {
+    position: relative;
+    margin: auto;
+    width: 35.63%;
+    height: 77.76%;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+}
+
+.container_h2-form {
+    position: absolute;
+    width: 100%;
+    height: 8.41%;
+    left: 0%;
+    top: 0%;
+
+    background: rgba(0, 117, 128, 0.982);
+
+    display: grid;
+    place-items: center;
+
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+input {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+input:focus {
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+.container_h2-form h2 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    /* left: 72px;
+    top: 5px; */
+
+    font-family: 'Comic Sans MS', 'cursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #FFFFFF;
+}
+
+.container_cerrar-form {
+    position: absolute;
+    width: 5.82%;
+    height: 73.68%;
+
+    left: 91.48%;
+    right: 2.7%;
+    top: 13.16%;
+    bottom: 13.16%;
+
+    margin: 0%;
+    padding: 0%;
+}
+
+.container_cerrar-form img {
+    width: 100%;
+    height: 100%;
+}
+
+#img2 {
+    position: absolute;
+    width: 54.89%;
+    height: 40.12%;
+    left: 22.66%;
+    top: 7.78%;
+}
+
+.container_modal-form form {
+    width: 76.09%;
+    height: 42.02%;
+    left: 11.85%;
+    top: 45.72%;
+}
+
+.container_modal-form form label {
+    position: absolute;
+    width: auto;
+    left: 0%;
+    top: 0%;
+}
+
+.container_modal-form form input, select, textarea {
+    position: absolute;
+    width: 100%;
+    height: 38px;
+    left: 0%;
+    bottom: 0%;
+
+    box-sizing: border-box;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+
+    background: none;
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+.container_modal-form form input:focus, select:focus, textarea:focus {
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+.control-group {
+    position: absolute;
+    width: 100%;
+    height: 66px;
+}
+
+#div_id_tbl_sucursales_idsucursal {
+    left: 0%;
+    top: 0%;
+}
+
+#div_id_ser_nombre {
+    left: 0%;
+    top: 34.72%;
+}
+
+#div_id_ser_descripcion {
+    left: 0%;
+    bottom: 0%;
+}
+
+#div_id_ser_descripcion textarea {
+    position: absolute;
+    top: 35%;
+    width: 100%;
+    max-width: 100%;
+    max-height: 80%;
+}
+
+.frame_b {
+    position: absolute;
+    width: 73.22%;
+    min-height: 29px;
+    max-height: 13.43%;
+    left: 13.39%;
+    top: 106.48%;
+}
+
+#btn_guardar {
+    position: absolute;
+    width: 125px;
+    height: 100%;
+    left: 0%;
+    top: 0%;
+
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_guardar:hover {
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_guardar:active {
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+#btn_cancelar {
+    position: absolute;
+    width: 125px;
+    height: 100%;
+    right: 0%;
+    bottom: 0%;
+
+    background: #6c757d;
+    box-shadow: 0px 2.87356px 2.87356px rgba(0, 0, 0, 0.6);
+    border-radius: 7.18391px;
+    border: #6c757d;
+    ;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_cancelar:hover {
+    background: #3f454b;
+}
+
+#btn_cancelar:active {
+    background: #FFFFFF;
+    color: #3f454b;
+}

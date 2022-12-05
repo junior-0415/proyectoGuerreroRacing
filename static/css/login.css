@@ -1,0 +1,861 @@
+body {
+    background: #59e3ff7e;
+    background: linear-gradient(to right, #252c2f8f, #333d4472);
+}
+
+.bg {
+    background-size: cover;
+}
+
+h2 {
+    font-family: cursive;
+    color: black;
+}
+
+.btn {
+    font-family: cursive;
+    color: whitesmoke !important;
+}
+
+.btn_color_1 {
+    background-color: rgba(0, 117, 128, 0.982) !important;
+}
+
+.btn_color_2 {
+    background-color: grey !important;
+}
+
+/* modales */
+/* ************************************************************************************************ */
+
+
+.modal1 input {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 29px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+
+    background: none;
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+input:focus {
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+.modal1 {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    /* background-color: #111111bd; */
+    display: flex;
+    opacity: 1;
+    transition: opacity .6s;
+
+}
+
+.container_modal1 {
+    position: relative;
+    margin: auto;
+    width: 32.67%;
+    height: 75.64%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.container_modal1 h2 {
+    /* Recuperar tu cuenta */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 25.89%;
+    top: 10%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+.container_modal1 h5 {
+    /* Empresa: Guerrero Racing */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 8.48%;
+    top: 21.4%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+#label1 {
+    position: absolute;
+    width: 82.81%;
+    height: auto;
+    left: 8.48%;
+    top: 30.8%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+#idnombre_usuario {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 81.25%;
+    height: 10.4%;
+    left: 8.48%;
+    top: 41.8%;
+
+    border: 1.5px solid #ACACAC;
+    border-radius: 5px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+#label2 {
+    position: absolute;
+    width: 82.81%;
+    height: auto;
+    left: 8.48%;
+    top: 57.8%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+#id_email {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 81.25%;
+    height: 10.4%;
+    left: 8.48%;
+    top: 68.8%;
+
+    border: 1.5px solid #ACACAC;
+    border-radius: 5px;
+}
+
+#btn_siguiente1 {
+    position: absolute;
+    width: 27.9%;
+    height: 5.69%;
+    right: 4.46%;
+    bottom: 4%;
+
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_siguiente:hover {
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_siguiente:active {
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+#atras1 {
+    position: absolute;
+    width: 8.04%;
+    height: 7.2%;
+    left: 3.13%;
+    top: 2.8%;
+}
+
+/* ****************************************************************************************** */
+
+.modal2 input {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 29px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+
+    /* background: none; */
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+input:focus {
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+.modal2 {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 1;
+    /* pointer-events: none;
+    transition: opacity .6s; */
+}
+
+/* .modal--show2 {
+    opacity: 1 !important;
+    pointer-events: unset !important;
+    transition: opacity .6s;
+} */
+
+.container_modal2 {
+    position: relative;
+    margin: auto;
+    width: 32.67%;
+    height: 75.64%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.container_modal2 h2 {
+    /* Recuperar tu cuenta */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 25.89%;
+    top: 10%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+.container_modal2 h5 {
+    /* Empresa: Guerrero Racing */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 8.48%;
+    top: 21.4%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+#label1 {
+    position: absolute;
+    width: auto;
+    max-width: 371px;
+    height: auto;
+    left: 8.48%;
+    top: 30.8%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+#idnombre_usuario {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 81.25%;
+    height: 10.4%;
+    left: 8.48%;
+    top: 41.8%;
+
+    border: 1.5px solid #ACACAC;
+    border-radius: 5px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+}
+
+#label2 {
+    position: absolute;
+    width: auto;
+    max-width: 371px;
+    height: auto;
+    left: 8.48%;
+    top: 57.8%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+#idcorreo_usuario {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 81.25%;
+    height: 10.4%;
+    left: 8.48%;
+    top: 68.8%;
+
+    border: 1.5px solid #ACACAC;
+    border-radius: 5px;
+}
+
+#h5-2_m2 {
+    position: absolute;
+    width: auto;
+    max-width: 371px;
+    height: auto;
+    left: 7.6%;
+    top: 30.8%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+#label1_m2 {
+    position: absolute;
+    width: 82.81%;
+    height: auto;
+    left: 7.6%;
+    top: 40.2%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+#idcodigo_recuperacion {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 81.25%;
+    height: 10.4%;
+    left: 8.48%;
+    top: 51.2%;
+
+    border: 1.5px solid #ACACAC;
+    border-radius: 5px;
+}
+
+#h5_2_1_m2 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 8.48%;
+    top: 67.2%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
+#reenviar_codigo {
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 8.48%;
+    top: 72%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+
+    color: #2400FF;
+}
+
+#btn_siguiente2 {
+    position: absolute;
+    width: 27.9%;
+    height: 5.69%;
+    right: 4.46%;
+    bottom: 4%;
+
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_siguiente2:hover {
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_siguiente2:active {
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+#atras2 {
+    position: absolute;
+    width: 8.04%;
+    height: 7.2%;
+    left: 3.13%;
+    top: 2.8%;
+}
+
+/* ******************************************************************************************* */
+
+.modal3 input {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 29px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+
+    background: none;
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+input:focus {
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+.modal3 {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+
+.modal--show3 {
+    opacity: 1 !important;
+    pointer-events: unset !important;
+    transition: opacity .6s;
+}
+
+.container_modal3 {
+    position: relative;
+    margin: auto;
+    width: 32.67%;
+    height: 75.64%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+.container_modal3 h2 {
+    /* Restablecer la contraseña */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 18.97%;
+    top: 10%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+.container_modal3 h5 {
+    /* Empresa: Guerrero Racing */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 8.48%;
+    top: 21.4%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+#label1_m3 {
+    position: absolute;
+    width: auto;
+    max-width: 371px;
+    height: auto;
+    left: 8.48%;
+    top: 30.8%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+#idcontrasena_r1 {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 81.25%;
+    height: 10.4%;
+    left: 8.48%;
+    top: 45.6%;
+
+    border: 1.5px solid #ACACAC;
+    border-radius: 5px;
+}
+
+#label2_m3 {
+    /* Repite tu contraseña */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 8.48%;
+    top: 61.6%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: justify;
+
+    color: #000000;
+}
+
+#idcontrasena_r2 {
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 81.25%;
+    height: 10.4%;
+    left: 8.48%;
+    top: 68.8%;
+
+    border: 1.5px solid #ACACAC;
+    border-radius: 5px;
+}
+
+#btn_siguiente3 {
+    position: absolute;
+    width: 27.9%;
+    height: 5.69%;
+    right: 4.46%;
+    bottom: 4%;
+
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_siguiente3:hover {
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_siguiente3:active {
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+#atras3 {
+    position: absolute;
+    width: 8.04%;
+    height: 7.2%;
+    left: 3.13%;
+    top: 2.8%;
+}
+
+
+/* ********************************************************************************************* */
+
+.modal4 {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+
+.modal--show4 {
+    opacity: 1 !important;
+    pointer-events: unset !important;
+    transition: opacity .6s;
+}
+
+.container_modal4 {
+    position: relative;
+    margin: auto;
+    width: 35.41%;
+    height: 40.54%;
+    background-color: #FFFFFF;
+    border-radius: 5px;
+}
+
+#operacion_existosa {
+    position: absolute;
+    width: 22.38%;
+    height: 36.19%;
+    left: 38.91%;
+    top: 7.46%;
+}
+
+.container_modal4 h2 {
+    /* ¡Operación exitosa! */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 28.66%;
+    top: 52.99%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.container_modal4 p {
+    position: absolute;
+    width: 362px;
+    height: auto;
+    left: 12.13%;
+    top: 67.54%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+#btn_aceptar_m4 {
+    position: absolute;
+    width: 26.15%;
+    height: 10.61%;
+    right: 4.46%;
+    bottom: 4%;
+
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+#btn_aceptar_m4:hover {
+    background: rgba(0, 117, 128, 0.982);
+}
+
+#btn_aceptar_m4:active {
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+@media (max-width: 767px) {
+    .container_modal1 {
+        width: 100%;
+        height: 58.75%;
+    }
+
+    .container_modal2 {
+        width: 100%;
+        height: 58.75%;
+    }
+
+    .container_modal3 {
+        width: 100%;
+        height: 58.75%;
+    }
+
+    .container_modal4 {
+        width: 100%;
+        height: 31.49%;
+    }
+}

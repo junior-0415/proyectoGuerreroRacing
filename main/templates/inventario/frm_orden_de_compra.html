@@ -1,0 +1,32 @@
+{% extends 'partials/bodyApp.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/frm_orden_de_compra.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+<div class="titulo">
+    <h1>Crear órden de compra</h1>
+  </div>
+  <form action="" method="POST">
+    {{form|crispy}}
+    {% csrf_token %}
+    <div class="hr_p"></div>
+    <div class="frame_b">
+      <button id="btn_guardar" type="submit ">Guardar</button>
+      <button id="btn_cancelar" type="reset">Cancelar</button>
+    </div>
+    <img src="{% static 'img/orden_compra.svg' %}" alt="Icono alucivo a proveedores" id="img1" id> 
+  </form>
+{% endblock contenido %}
+
+
+{% block js %}
+
+{% endblock js %}
+    
+    
