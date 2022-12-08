@@ -19,7 +19,7 @@
     padding: 0%;
     padding-bottom: 8px;
 
-    font-family: 'Comic Sans MS', 'cursive';
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 40px;
     line-height: 48px;
@@ -321,7 +321,7 @@ input:focus {
     /* left: 72px;
     top: 5px; */
 
-    font-family: 'Comic Sans MS', 'cursive';
+    font-family: 'Open Sans', sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 24px;

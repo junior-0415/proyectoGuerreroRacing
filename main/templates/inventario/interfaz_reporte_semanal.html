@@ -3,7 +3,7 @@
 
 
 {% block css %}
-<link rel="stylesheet" href="CSS/reporte_semanal.css">
+<link rel="stylesheet" href="{% static 'css/reporte_semanal.css' %}">
 {% endblock css %}
 
 
@@ -22,13 +22,13 @@
 </form>
 <hr>
 <!-- graficos en adelante -->
-<div class="grafico1">
-    <h2>Compras realizadas</h2>
-    <img src="img/grafico_1_semana.png" alt="Grafica 1: compras realizadas semanales">
+<h2 class="titulo_grafico1">Compras realizadas</h2>
+<div id="grafico1">
+    <canvas id="compras_canvas"></canvas>
 </div>
-<div class="grafico2">
-    <h2>Ventas realizadas</h2>
-    <img src="img/grafico_2_semana.png" alt="Grafica 2: ventas realizadas semanales">
+<h2 class="titulo_grafico2">Ventas realizadas</h2>
+<div id="grafico2">
+    <canvas id="ventas_canvas"></canvas>
 </div>
 <div class="info_textual">
     <h2 id="total1">Total compras:</h2>
@@ -37,3 +37,11 @@
     <h2 id="num2">$1500000 Mill</h2>
 </div>
 {% endblock contenido %}
+
+
+{% block js %}
+<script>
+    {% include 'charts/chart_compras_semana.js' %}
+</script>
+{% endblock js %}
+    

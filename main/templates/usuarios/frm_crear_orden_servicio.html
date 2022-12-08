@@ -26,7 +26,7 @@
   </div>
   <div class="contenedor_secundario">
       <div class="titulo_tabla">
-          <h2>Gestiona tus órdenes</h2>
+          <h2>Órdenes activas</h2>
       </div>
       <div class="contenedor_tabla">
           <table>
@@ -64,8 +64,11 @@
                             <a href="{% url 'detalle_orden_servicio' orden.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar orden">
                             </a>
-                            <a href="#" onclick="eliminar_registros({{orden.id}})" class="reset">
-                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Mover a papelera">
+                            <a href="#" onclick="cerrar_orden_servicio({{orden.id}})" class="reset">
+                                <img src="{% static 'img/finalizar_tarea.svg' %}" class="btn_finalizar_tarea" alt="Cerrar órden" title="Cerrar órden">
+                            </a>
+                            <a href="#" onclick="imprimir_orden_ser_redirec({{orden.id}})">
+                                <img src="{% static 'img/imprimir.svg' %}" alt="Imprimir factura" class="btn_imprimir" title="Imprimir factura">
                             </a>
                       </td>
                   </tr>
@@ -94,4 +97,5 @@
         });
     });
 </script>
+<script src="{% static 'js/pdf_e_impresiones.js' %}"></script>
 {% endblock js %}

@@ -26,7 +26,7 @@
     </div>
     <div class="contenedor_secundario">
         <div class="titulo_tabla">
-            <h2>Gestiona tus facturas</h2>
+            <h2>Facturas activas</h2>
         </div>
         <div class="contenedor_tabla">
             <table>
@@ -37,6 +37,7 @@
                         <th>Cliente</th>
                         <th>Fecha</th>
                         <th>Caja</th>
+                        <th>Costo servicio</th>
                         <th>Descuentos</th>
                         <th>Total a pagar</th>
                         <th>Observaciones</th>
@@ -52,6 +53,7 @@
                         <td>{{factura.tbl_clientes_idcliente}}</td>
                         <td>{{factura.fac_fecha}}</td>
                         <td>{{factura.fac_caja}}</td>
+                        <td>{{factura.fac_costo_servicio}}</td>
                         <td>{{factura.fac_descuentos}}</td>
                         <td>{{factura.fac_total_pagar}}</td>
                         <td>{{factura.fac_observaciones}}</td>
@@ -60,14 +62,12 @@
                                 <a href="{% url 'detalle_fac_venta' factura.fac_numero_serie %}">
                                     <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar factura">
                                 </a>
-
-                                <form action="" method="POST">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="pk" value="{{factura.id}}">
-                                    <button name="form-eliminar" class="reset">
-                                        <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Mover a papelera">
-                                    </button>
-                                </form>
+                                <a href="#" onclick="cerrar_factura({{factura.fac_numero_serie}})" class="reset">
+                                    <img src="{% static 'img/finalizar_tarea.svg' %}" class="btn_finalizar_tarea" alt="Cerrar factura" title="Cerrar factura">
+                                </a>
+                                <a href="#" onclick="imprimir_factura_redirec({{factura.fac_numero_serie}})">
+                                    <img src="{% static 'img/imprimir.svg' %}" alt="Imprimir factura" class="btn_imprimir" title="Imprimir factura">
+                                </a>
                         </td>
                     </tr>
                     {% endfor %}
@@ -95,4 +95,6 @@
         });
     });
 </script>
+
+<script src="{% static 'js/pdf_e_impresiones.js' %}"></script>
 {% endblock js %}

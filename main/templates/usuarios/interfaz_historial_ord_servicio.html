@@ -3,7 +3,7 @@
 
 
 {% block css %}
-<link rel="stylesheet" href="{% static 'css/interfaz_ordenes_servicio.css' %}">
+<link rel="stylesheet" href="{% static 'css/interfaz_historial_ord_servicio.css' %}">
 {% endblock css %}
     
 
@@ -26,38 +26,44 @@
             <option value="Ordenes sin pagar">Opción 4</option>
             <option value="Mostrar todo">Opción 5</option>
         </datalist>
-        <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
     </form>
     <div class="container_tabla">
         <table>
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Estado de pago</th>
+                    <th>Empleado</th>
+                    <th>Fecha de registro</th>
+                    <th>Entrega</th>
                     <th>Cliente</th>
-                    <th>Responsable/Empleado</th>
+                    <th>Identificación</th>
+                    <th>Celular</th>
                     <th>Servicio</th>
+                    <th>Vehiculo</th>
+                    <th>Estado</th>
                     <th>Informe técnico</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
 
-                {% for orden_servicio in ordenes_servicio %}
+                {% for orden in ordenes_servicio_h %}
                 <tr>
-                    <td>{{orden_servicio.id}}</td>
-                    <td>{{orden_servicio.tbl_empleados_idempleado}}</td>
-                    <td>{{orden_servicio}}</td>
-                    <td>{{orden_servicio}}</td>
-                    <td>{{orden_servicio}}</td>
-                    <td>{{orden_servicio}}</td>
-                    <td>{{orden_servicio}}</td>
+                    <td>{{orden.tbl_empleados_idempleado}}</td>
+                    <td>{{orden.ord_s_fecha}}</td>
+                    <td>{{orden.ord_s_fecha_entrega}}</td>
+                    <td>{{orden.tbl_clientes_idcliente}}</td>
+                    <td>{{orden.ord_s_identificacion_cli}}</td>
+                    <td>{{orden.ord_s_celular_cli}}</td>
+                    <td>{{orden.tbl_servicos_idservicio}}</td>
+                    <td>{{orden.ord_s_vehiculo}}</td>
+                    <td>{{orden.ord_s_estado_pago}}</td>
+                    <td>{{orden.ord_s_informe_tecnico}}</td>
                     <td>
-                        <a href="#">
-                            <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar órden">
+                        <a href="{% url 'tbl_rel_orden_ser_art_hist' orden.id %}">
+                            <img src="{% static 'img/ver.svg' %}" alt="Botón ver detalles" id="btn_editar" title="Ver detalles">
                         </a>
-                        <a href="#">
-                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
+                        <a href="#" onclick="eliminar_registros({{orden.id}})">
+                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" id="btn_eliminar" title="Eliminar del historial">
                         </a>
                     </td>
                 </tr>
@@ -65,7 +71,7 @@
             </tbody>
         </table>
     </div>
-    <a href="{% url 'crear_orden_servicio' %}" id="ancla">
+    <a href="{% url 'ordenes_servicio' %}" id="ancla">
         <img src="{% static 'img/anadir.svg' %}" alt="Boton añadir" id="btn_anadir" title="Crear nueva órden">
     </a>
 </section>

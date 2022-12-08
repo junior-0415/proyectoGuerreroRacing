@@ -186,9 +186,9 @@ class OrdenServicio(models.Model):
     ord_s_vehiculo = models.CharField(max_length=6, verbose_name="Vehículo:")
     ord_s_informe_tecnico = models.TextField(max_length=300, verbose_name="Informe técnico:")
     class EstadoPago(models.TextChoices):
-        PAGADO = '1', _('Pagado')
-        SINPAGAR = '0', _('Sin pagar')
-    ord_s_estado_pago = models.CharField(max_length=1, choices=EstadoPago.choices, verbose_name="Estado de pago")
+        PAGADO = 'Pagado', _('Pagado')
+        SINPAGAR = 'Sin pagar', _('Sin pagar')
+    ord_s_estado_pago = models.CharField(max_length=9, choices=EstadoPago.choices, verbose_name="Estado de pago")
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')

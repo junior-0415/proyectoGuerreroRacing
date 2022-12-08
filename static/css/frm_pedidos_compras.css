@@ -1,9 +1,9 @@
-.titulo {
+.titulo_superior {
     position: absolute;
     width: 100%;
     height: 10.53%;
-    left: 0px;
-    top: 0px;
+    left: 0%;
+    top: 0%;
 
     background: rgba(0, 117, 128, 0.982);
 
@@ -11,33 +11,68 @@
     place-items: center;
 }
 
-.titulo h1 {
+.titulo_superior h1 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 8px;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+}
+
+.form_compras {
+    position: absolute;
+    width: 34.08%;
+    height: 60%;
+    left: 0%;
+    top: 14.43%;
+    border: 1px solid #ACACAC;
+    border-radius: 5px;
+
+    overflow: auto;
+}
+
+.sub_frm_compra {
+    position: absolute;
+    width: 91.14%;
+    height: 38px;
+    left: 10px;
+    top: 12px;
+
+    display: grid;
+    place-items: center;
+
+    background: #007580;
+    border-radius: 5px;
+}
+
+.sub_frm_compra h2, .titulo_tabla h2 {
+    /* Agregar compra */
+
     position: absolute;
     width: auto;
     height: auto;
 
     font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 48px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
 
     color: #FFFFFF;
 
-    margin: 0%;
     padding: 0%;
-    padding-bottom: 8px;
+    margin: 0%;
 }
 
-section {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    margin: 0%;
-    padding: 0%;
-}
-
-form {
+.form_compra {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -47,7 +82,8 @@ form {
 }
 
 .control-group {
-    width: 35.64%;
+    position: absolute;
+    width: 91.86%;
     height: 66px;
 }
 
@@ -64,67 +100,181 @@ label {
     color: #000000;
 }
 
-input, select, textarea {
+#div_id_ped_recivido_por input, #div_id_ped_fecha_recivido input, #div_id_ped_precio input, select {
     box-sizing: border-box;
-
     width: 100%;
     height: 38px;
-
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 19px;
-
     background: none;
     border: 1.5px solid #acacac;
     border-radius: 5px;
 }
 
 input:focus, select:focus, textarea:focus {
-    border: 1px solid #C2DAFF;
+    border: 1px solid #C2DAFF !important;
     outline: 4.5px solid #C2DAFF;
 }
 
-label {
+#div_id_ped_recivido_por label, #div_id_ped_fecha_recivido label, #div_id_ped_precio label {
     position: absolute;
     left: 0%;
     top: 0%;
 }
 
-input, select, textarea {
+#div_id_ped_recivido_por input, #div_id_ped_fecha_recivido input, #div_id_ped_precio input, select, textarea {
     position: absolute;
     left: 0%;
     bottom: 0%;
 }
 
-#div_id_tbl_orden_compras_idorden_compra {
-    position: absolute;
-    left: 0.97%;
-    top: 14.43%;
+.select2-selection__rendered {
+    line-height: 38px !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 38px !important;
 }
 
 #div_id_ped_recivido_por {
-    position: absolute;
-    left: 0.97%;
-    top: 27.84%;
+    left: 10px;
+    top: 20%;
 }
 
 #div_id_ped_fecha_recivido {
-    position: absolute;
-    left: 0.97%;
-    top: 41.26%;
+    left: 10px;
+    top: 40%;
 }
 
 #div_id_ped_precio {
-    position: absolute;
-    left: 0.97%;
-    top: 54.67%;
+    left: 10px;
+    top: 62%;
 }
 
-#img1 {
+.btn_agregar {
     position: absolute;
-    width: 35%;
-    left: 50%;
+    width: 91.86%;
+    height: 38px;
+    left: 10px;
+    bottom: 3%;
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.btn_agregar:hover {
+    background: rgba(0, 117, 128, 0.982);
+}
+
+.btn_agregar:active {
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+.contenedor_secundario {
+    position: absolute;
+    width: 60%;
+    height: 84%;
+    left: 38%;
     top: 14.43%;
+
+    border: 1px solid #ACACAC;
+    border-radius: 5px;
+}
+
+.titulo_tabla {
+    position: absolute;
+    width: 95%;
+    height: 38px;
+    left: 10px;
+    top: 12px;
+
+    display: grid;
+    place-items: center;
+
+    background: #007580;
+    border-radius: 5px;
+}
+
+.contenedor_tabla {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    max-height: 89%;
+    left: 0%;
+    top: 10%;
+    display: grid;
+    justify-items: center;
+
+    overflow: auto;
+}
+
+table {
+    background-color: #FFFFFF;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #DCDCDC;
+}
+
+thead {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+}
+
+/* iluminar celdas */
+
+
+tr:hover td {
+    background-color: #E5E5E5;
+}
+
+table tbody tr td:first-child {
+    font-weight: 700;
+}
+
+.reset {
+    border: none;
+    background: none;
+    margin: 0%;
+    padding: 0%;
+}
+
+.btn_eliminar {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+.btn_finalizar_tarea {
+    margin-left: 10px;
 }

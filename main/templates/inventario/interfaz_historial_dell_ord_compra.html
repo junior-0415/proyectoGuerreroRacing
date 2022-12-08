@@ -1,0 +1,46 @@
+{% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_historial_dell_ord_compra.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+<section>
+    <div class="titulo_superior">
+        <h1>Artículos de la órden de compra</h1>
+    </div>
+    <!-- formulario de busqueda -->
+    <form>
+        <label for="idOrdSBusqueda" class="label_buscar_orden">Buscar órden:</label>
+        <input type="search" name="OrdSBusqueda" id="idOrdSBusqueda" placeholder="Buscar">
+    </form>
+    <div class="container_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Pedido</th>
+                    <th>Artículos</th>
+                    <th>Cantidad</th>
+                    <th>Precio compra</th>
+                    <th>Total</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for rel in rel %}
+                <tr>
+                    <td>{{rel.tbl_orden_compras_idorden_compra}}</td>
+                    <td>{{rel.tbl_articulos_idarticulo}}</td>
+                    <td>{{rel.rel_cantidad}}</td>
+                    <td>{{rel.rel_precio}}</td>
+                    <td>{{rel.rel_total}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock contenido %}

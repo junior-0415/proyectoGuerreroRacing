@@ -7,7 +7,15 @@ from django.contrib.auth.decorators import login_required, permission_required
 from articulos.models import Articulos
 from usuarios.forms import CiudadesForm, ClienteForm, DepartamentosForm, EmpleadosForm, EmpresaForm, OrdenServicioForm, ServiciosForm, SucursalesForm, TblRelOrdenServicioArticulosForm, VehiculosForm
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+
+from django.views.generic import View
+import os
+from django.conf import settings
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.urls import reverse_lazy
+from django.contrib.staticfiles import finders
 
 from usuarios.models import Ciudades, Cliente, Departamentos, Empleados, Empresa, OrdenServicio, Servicios, Sucursales, TblRelOrdenServicioArticulos, Vehiculo
 
@@ -557,7 +565,7 @@ def eliminar_empleado(request, pk):
 
 def ordenes_servicio(request, modal_status='hid'):
     titulo = "Registrar órdenes de venta"
-    ordenes = OrdenServicio.objects.filter(ser_estado='1')
+    ordenes = OrdenServicio.objects.filter(ser_estado='1', ord_s_estado_pago='Sin pagar')
 
     ### cuerpo del modal ###
     modal_title = ""
@@ -679,7 +687,16 @@ def eliminar_orden_ser(request, pk):
         ser_estado='0'
     )
     messages.success(
-        request,f"La órden se envió a papelera exitosamente"
+        request,f"La órden se eliminó exitosamente"
+    )
+    return redirect('ordenes_servicio')
+
+def cerrar_orden_servicio(request, pk):
+    OrdenServicio.objects.filter(id=pk).update(
+        ord_s_estado_pago='Pagado'
+    )
+    messages.success(
+        request,f"La órden se ha cerrado exitosamente"
     )
     return redirect('ordenes_servicio')
 
@@ -689,3 +706,76 @@ def quitar_art_rel_ord_art(request, pk):
         request,f"Se ha quitado el artículo"
     )
     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+
+class ImprimirOrdenServicio(View):
+    def link_callback(self, uri, rel):
+            """
+            Convert HTML URIs to absolute system paths so xhtml2pdf can access those
+            resources
+            """
+            result = finders.find(uri)
+            if result:
+                    if not isinstance(result, (list, tuple)):
+                            result = [result]
+                    result = list(os.path.realpath(path) for path in result)
+                    path=result[0]
+            else:
+                    sUrl = settings.STATIC_URL        # Typically /static/
+                    sRoot = settings.STATIC_ROOT      # Typically /home/userX/project_static/
+                    mUrl = settings.MEDIA_URL         # Typically /media/
+                    mRoot = settings.MEDIA_ROOT       # Typically /home/userX/project_static/media/
+
+                    if uri.startswith(mUrl):
+                            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+                    elif uri.startswith(sUrl):
+                            path = os.path.join(sRoot, uri.replace(sUrl, ""))
+                    else:
+                            return uri
+
+            # make sure that file exists
+            if not os.path.isfile(path):
+                    raise Exception(
+                            'media URI must start with %s or %s' % (sUrl, mUrl)
+                    )
+            return path
+
+    def get(self, request, *args, **kwargs):
+        try:
+            template = get_template('usuarios/imprimir_orden_servicio.html')
+            context = {
+                'orden_servicio': OrdenServicio.objects.get(pk=self.kwargs['pk']),
+                'icon': 'static/img/logo_racing.png',
+                'articulos_orden': TblRelOrdenServicioArticulos.objects.filter(tbl_orden_servicio_idorden_servicio=self.kwargs['pk']),
+                'empresa': Empresa.objects.get(empr_estado=1),
+                'sucursal': 'Bogotá, Colombia',
+            }
+            html = template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            #response['Content-Disposition'] = 'attachment; filename="factura.pdf"'
+            pisa_status = pisa.CreatePDF(
+            html, dest=response,
+            link_callback=self.link_callback
+            )
+            return response
+        except:
+            pass
+        return HttpResponseRedirect(reverse_lazy('ordenes_servicio'))
+
+def historial_ord_servicio(request):
+    titulo = "Historial ordenes de servicio"
+    ordenes_servicio_h = OrdenServicio.objects.filter(ser_estado='1', ord_s_estado_pago='Pagado')
+    context = {
+        'titulo':titulo,
+        'ordenes_servicio_h':ordenes_servicio_h,
+    }
+    return render(request, 'usuarios/interfaz_historial_ord_servicio.html', context)
+
+def tbl_rel_orden_ser_art_hist(request, pk):
+    titulo = f"Detalle de la orden de servicio {pk}"
+    rel = TblRelOrdenServicioArticulos.objects.filter(tbl_orden_servicio_idorden_servicio_id=pk)
+    print(rel)
+    context = {
+        'titulo':titulo,
+        'rel':rel,
+    }
+    return render(request, 'usuarios/interfaz_detall_hist_ord_ser.html', context)

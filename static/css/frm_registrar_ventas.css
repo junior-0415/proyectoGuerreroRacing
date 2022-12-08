@@ -161,15 +161,20 @@ input:focus, select:focus, textarea:focus {
     top: 58.42%;
 }
 
-#div_id_fac_descuentos {
+#div_id_fac_costo_servicio {
     left: 10px;
     top: 73.79%;
+}
+
+#div_id_fac_descuentos {
+    left: 10px;
+    top: 89.17%;
 }
 
 #div_id_fac_observaciones {
     left: 10px;
     height: 185px !important;
-    top: 89.16%;
+    top: 107.94%;
 }
 
 #div_id_fac_observaciones textarea {
@@ -182,7 +187,7 @@ input:focus, select:focus, textarea:focus {
     width: 91.86%;
     height: 38px;
     left: 10px;
-    top: 130%;
+    top: 148.78%;
     background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
@@ -289,8 +294,16 @@ table tbody tr td:first-child {
     padding: 0%;
 }
 
-.btn_eliminar {
-    width: 24px;
-    height: 24px;
+.btn_finalizar_tarea {
     margin-left: 10px;
+}
+
+.btn_imprimir {
+    margin-left: 10px;
+}
+
+.imprimir_factura {
+    position: absolute;
+    left: 10px;
+    bottom: 3%;
 }

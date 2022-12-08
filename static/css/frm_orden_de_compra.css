@@ -1,9 +1,9 @@
-.titulo {
+.titulo_superior {
     position: absolute;
     width: 100%;
     height: 10.53%;
-    left: 0px;
-    top: 0px;
+    left: 0%;
+    top: 0%;
 
     background: rgba(0, 117, 128, 0.982);
 
@@ -11,44 +11,74 @@
     place-items: center;
 }
 
-.titulo h1 {
+.titulo_superior h1 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 8px;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+}
+
+.form_ordenes {
+    position: absolute;
+    width: 34.08%;
+    height: 84%;
+    left: 0%;
+    top: 14.43%;
+    border: 1px solid #ACACAC;
+    border-radius: 5px;
+
+    overflow: auto;
+}
+
+.sub_frm_ord {
+    position: absolute;
+    width: 91.14%;
+    height: 38px;
+    left: 10px;
+    top: 12px;
+
+    display: grid;
+    place-items: center;
+
+    background: #007580;
+    border-radius: 5px;
+}
+
+.sub_frm_ord h2, .titulo_tabla h2 {
+    /* Agregar facturas */
+
     position: absolute;
     width: auto;
     height: auto;
 
     font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
-    font-size: 40px;
-    line-height: 48px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
 
     color: #FFFFFF;
 
-    margin: 0%;
     padding: 0%;
-    padding-bottom: 8px;
+    margin: 0%;
 }
 
-section {
+.form_orden {
     position: absolute;
     width: 100%;
     height: 100%;
 
     margin: 0%;
     padding: 0%;
-}
-
-form {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    margin: 0%;
-    padding: 0%;
-}
-
-.control-group {
-    width: 35.64%;
-    height: 66px;
 }
 
 label {
@@ -64,18 +94,15 @@ label {
     color: #000000;
 }
 
-input, select, textarea {
+input, select {
     box-sizing: border-box;
-
     width: 100%;
     height: 38px;
-
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 15px;
     line-height: 19px;
-
     background: none;
     border: 1.5px solid #acacac;
     border-radius: 5px;
@@ -86,198 +113,212 @@ input:focus, select:focus, textarea:focus {
     outline: 4.5px solid #C2DAFF;
 }
 
-label {
+#div_id_ord_lugar_emision label, #div_id_ord_direccion label, #div_id_ord_telefono label, #div_id_ord_celular label, #div_id_ord_email label, #div_id_ord_fecha label, #div_id_ord_termino_pago label, #div_id_ord_termino_entrega label, #div_id_ord_otras_tarifas label {
     position: absolute;
     left: 0%;
     top: 0%;
 }
 
-input, select, textarea {
+#div_id_ord_lugar_emision input, #div_id_ord_direccion input, #div_id_ord_telefono input, #div_id_ord_celular input, #div_id_ord_email input, #div_id_ord_fecha input, #div_id_ord_termino_pago input, #div_id_ord_termino_entrega input, #div_id_ord_otras_tarifas input, select, textarea {
     position: absolute;
     left: 0%;
     bottom: 0%;
 }
 
+.control-group {
+    position: absolute;
+    width: 91.86%;
+    height: 66px;
+}
+
+.select2-selection__rendered {
+    line-height: 38px !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 38px !important;
+}
+
 #div_id_ord_lugar_emision {
-    position: absolute;
-    width: 45% !important;
-    height: 38px !important;
-    left: 0.97%;
-    top: 13.58%;
-}
-
-#div_id_ord_lugar_emision label {
-    top: 23%;
-}
-
-#div_id_ord_lugar_emision input {
-    width: 70%;
-    left: 30%;
-}
-
-#div_id_ord_fecha {
-    position: absolute;
-    width: 45% !important;
-    height: 38px !important;
-    right: 2%;
-    top: 13.58%;
-}
-
-#div_id_ord_fecha label {
-    top: 23%;
-}
-
-#div_id_ord_fecha input {
-    width: 70%;
-    left: 15%;
-}
-
-.hr_p {
-    position: absolute;
-    width: 100%;
-    left: 0%;
-    top: 22%;
-
-    border: 0.5px solid #000000;
-}
-
-#div_id_tbl_cotizaciones_idcotizacion {
-    position: absolute;
-    left: 0.97%;
-    top: 25%;
-}
-
-#div_id_ord_empleado {
-    position: absolute;
-    left: 0.97%;
-    top: 38.42%;
+    left: 10px;
+    top: 12.31%;
 }
 
 #div_id_ord_direccion {
-    position: absolute;
-    left: 0.97%;
-    top: 51.84%;
+    left: 10px;
+    top: 27.68%;
 }
 
 #div_id_ord_telefono {
-    position: absolute;
-    left: 0.97%;
-    top: 65.26%;
+    left: 10px;
+    top: 43.05%;
 }
 
 #div_id_ord_celular {
-    position: absolute;
-    left: 0.97%;
-    top: 78.68%;
+    left: 10px;
+    top: 58.42%;
 }
 
 #div_id_ord_email {
-    position: absolute;
-    left: 0.97%;
-    top: 92.10%;
+    left: 10px;
+    top: 73.79%;
+}
+
+#div_id_ord_fecha {
+    left: 10px;
+    top: 89.16%;
 }
 
 #div_id_ord_proveedor {
-    position: absolute;
-    left: 0.97%;
-    top: 105.52%;
+    left: 10px;
+    top: 104.54%;
 }
 
 #div_id_ord_termino_pago {
-    position: absolute;
-    left: 0.97%;
-    top: 118.94%;
-}
-
-#img1 {
-    position: absolute;
-    left: 7.5%;
-    top: 132.35%;
+    left: 10px;
+    top: 119.92%;
 }
 
 #div_id_ord_termino_entrega {
-    position: absolute;
-    left: 50.05%;
-    top: 118.94%;
+    left: 10px;
+    top: 135.3%;
 }
 
 #div_id_ord_otras_tarifas {
-    position: absolute;
-    left: 50.05%;
-    top: 132.36%;
+    left: 10px;
+    top: 150.68%;
 }
 
-#div_id_ord_costo_total {
+.btn_agregar {
     position: absolute;
-    left: 50.05%;
-    top: 145.78%;
-}
-
-.frame_b {
-    position: absolute;
-    width: 26.1%;
-    height: 4.92%;
-    left: 55%;
-    top: 160%;
-}
-
-#btn_guardar {
-    position: absolute;
-    width: 46.64%;
-    height: 100%;
-    left: 0%;
-    top: 0%;
-
+    width: 91.86%;
+    height: 38px;
+    left: 10px;
+    top: 166.06%;
     background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
     border: #00B9CA;
-
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 16.4671px;
     line-height: 19px;
     color: #FFFFFF;
-
-    margin-bottom: 50px;
 }
 
-#btn_guardar:hover {
+.btn_agregar:hover {
     background: rgba(0, 117, 128, 0.982);
 }
 
-#btn_guardar:active {
+.btn_agregar:active {
     background: #ffffff;
     color: rgba(0, 117, 128, 0.982);
     border: 1.5px solid rgba(0, 117, 128, 0.982);
 }
 
-#btn_cancelar {
+.contenedor_secundario {
     position: absolute;
-    width: 46.64%;
-    height: 100%;
-    right: 0%;
-    top: 0%;
+    width: 60%;
+    height: 84%;
+    left: 38%;
+    top: 14.43%;
 
-    background: #6C757D;
-    box-shadow: 0px 2.87356px 2.87356px rgba(0, 0, 0, 0.6);
-    border-radius: 7.18391px;
-    border: #6C757D;
+    border: 1px solid #ACACAC;
+    border-radius: 5px;
+}
+
+.titulo_tabla {
+    position: absolute;
+    width: 95%;
+    height: 38px;
+    left: 10px;
+    top: 12px;
+
+    display: grid;
+    place-items: center;
+
+    background: #007580;
+    border-radius: 5px;
+}
+
+.contenedor_tabla {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    max-height: 89%;
+    left: 0%;
+    top: 10%;
+    display: grid;
+    justify-items: center;
+
+    overflow: auto;
+}
+
+table {
+    background-color: #FFFFFF;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
-    font-size: 16.4671px;
-    line-height: 19px;
-    color: #FFFFFF;
+    font-size: 15px;
+    line-height: 18px;
 }
 
-#btn_cancelar:hover {
-    background: #3f454b;
+th,
+td {
+    padding: 15px;
 }
 
-#btn_cancelar:active {
-    background: #FFFFFF;
-    color: #3f454b;
+tbody tr {
+    border-bottom: 1px solid #DCDCDC;
+}
+
+thead {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+}
+
+/* iluminar celdas */
+
+
+tr:hover td {
+    background-color: #E5E5E5;
+}
+
+table tbody tr td:first-child {
+    font-weight: 700;
+}
+
+.reset {
+    border: none;
+    background: none;
+    margin: 0%;
+    padding: 0%;
+}
+
+.btn_eliminar {
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+.btn_imprimir {
+    margin-left: 10px;
+}
+
+.imprimir_factura {
+    position: absolute;
+    left: 10px;
+    bottom: 3%;
+}
+
+.btn_finalizar_tarea {
+    margin-left: 10px;
 }

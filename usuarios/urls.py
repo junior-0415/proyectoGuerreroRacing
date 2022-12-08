@@ -1,6 +1,6 @@
 from django.urls import path
 
-from usuarios.views import ciudades, clientes, departamentos, editar_ciudad, editar_cliente, editar_departamento, editar_empleado, editar_empresa, editar_servicio, editar_sucursal, editar_vehiculo, editar_vehiculo_taller, eliminar_ciudad, eliminar_cliente, eliminar_departamento, eliminar_empleado, eliminar_orden_ser, eliminar_servicio, eliminar_sucursal, eliminar_vehiculo, empleado, empresa, ingresar_vehiculo_taller, ordenes_servicio, quitar_art_rel_ord_art, registrar_cliente, registrar_empleado, registrar_empresa, registrar_vehiculo, sacar_vehiculo_taller, servicios, sucursales, tbl_rel_orden_ser_articulos, vehiculos, vehiculos_taller
+from usuarios.views import ImprimirOrdenServicio, cerrar_orden_servicio, ciudades, clientes, departamentos, editar_ciudad, editar_cliente, editar_departamento, editar_empleado, editar_empresa, editar_servicio, editar_sucursal, editar_vehiculo, editar_vehiculo_taller, eliminar_ciudad, eliminar_cliente, eliminar_departamento, eliminar_empleado, eliminar_orden_ser, eliminar_servicio, eliminar_sucursal, eliminar_vehiculo, empleado, empresa, historial_ord_servicio, ingresar_vehiculo_taller, ordenes_servicio, quitar_art_rel_ord_art, registrar_cliente, registrar_empleado, registrar_empresa, registrar_vehiculo, sacar_vehiculo_taller, servicios, sucursales, tbl_rel_orden_ser_art_hist, tbl_rel_orden_ser_articulos, vehiculos, vehiculos_taller
 
 
 urlpatterns = [
@@ -35,7 +35,11 @@ urlpatterns = [
     path('ordenes-de-servicio/', ordenes_servicio, name='ordenes_servicio'),
     path('ordenes-de-servicio/articulos/<int:pk>/', tbl_rel_orden_ser_articulos, name='detalle_orden_servicio'),
     path('quitar-articulo-orden-compra/<int:pk>/', quitar_art_rel_ord_art, name="quitar_art_rel_ord_art"),
-    path('ordenes-de-servicio/eliminar/<int:pk>/', eliminar_orden_ser, name='eliminar_orden_ser'),
+    path('ordenes-de-servicio/cerrar/<int:pk>/', cerrar_orden_servicio, name='cerrar_orden_servicio'),
+    path('ordenes-de-servicio/historial/', historial_ord_servicio, name='historial_ord_servicio'),
+    path('ordenes-de-servicio/historial/detalles/<int:pk>/', tbl_rel_orden_ser_art_hist, name='tbl_rel_orden_ser_art_hist'),
+    path('ordenes-de-servicio/historial/eliminar/<int:pk>/', eliminar_orden_ser, name='eliminar_orden_ser'),
+    path('ordenes-de-servicio/imprimir/<int:pk>/', ImprimirOrdenServicio.as_view(), name='imprimir_factura_venta'),
     path('servicios/', servicios, name='servicios'),
     path('servicios/editar/<int:pk>/', editar_servicio, name='editar_servicio'),
     path('servicios/eliminar/<int:pk>/', eliminar_servicio, name='eliminar_servicio'),

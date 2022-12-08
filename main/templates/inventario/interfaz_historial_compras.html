@@ -29,25 +29,24 @@
             <thead>
                 <tr>
                     <th>Fecha</th>
-                    <th>Costo</th>
-                    <th>Número órden</th>
+                    <th>ped_precio</th>
                     <th>Número pedido</th>
                     <th>Recepcionada por</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             
-            {% for historial in historial_compras %}            
+            {% for historial in pedidos %}            
                 <tr>
                     <td>{{historial.ped_fecha_recivido}}</td>
                     <td>{{historial.ped_precio}}</td>
-                    <td>{{historial.pk}}</td>
+                    <td>{{historial.id}}</td>
                     <td>{{historial.ped_recivido_por}}</td>
                     <td> 
-                        <a href="#">
-                            <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar Órden">
+                        <a href="{% url 'historial_delt_pedido' historial.id %}">
+                            <img src="{% static 'img/ver.svg' %}" alt="Botón ver detalles" title="Ver detalles">
                         </a>
-                        <a href="#">
+                        <a href="#" onclick="eliminar_registros({{historial.id}})">
                             <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                         </a>
                     </td>

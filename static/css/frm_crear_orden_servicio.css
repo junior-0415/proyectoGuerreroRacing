@@ -305,8 +305,10 @@ table tbody tr td:first-child {
     padding: 0%;
 }
 
-.btn_eliminar {
-    width: 24px;
-    height: 24px;
+.btn_finalizar_tarea {
+    margin-left: 10px;
+}
+
+.btn_imprimir {
     margin-left: 10px;
 }

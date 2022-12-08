@@ -13,7 +13,7 @@ def articulos(request):
      articulos = Articulos.objects.filter(art_estado = '1')
      context = {
         'titulo':titulo,
-        'articulos':articulos
+        'articulos':articulos,
      }
      return render(request, 'articulos/interfaz_articulos.html', context)
 

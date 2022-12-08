@@ -7,18 +7,58 @@
 <link rel="stylesheet" href="{% static 'css/frm_pedidos_compras.css' %}">
 {% endblock css %}
     
-
 {% block contenido %}
-<div class="titulo">
-    <h1>Registrar pedido o compra</h1>
+<section>
+  <div class="titulo_superior">
+      <h1>Registrar pedidos o compras</h1>
   </div>
-  <form action="" method="POST">
-    {{form|crispy}}
-    {% csrf_token %}
-    <div class="frame_b">
-      <button id="btn_guardar" type="submit ">Guardar</button>
-      <button id="btn_cancelar" type="reset">Cancelar</button>
-    </div>
-    <img src="{% static 'img/pedidos_compras.svg' %}" alt="Icono alucivo a pedidos y compras" id="img1" id> 
-  </form>
+  <div class="form_compras">
+      <div class="sub_frm_compra">
+        <h2>Agregar Compra</h2>
+      </div>
+      <form action="" method="POST" class="form_compra">
+          {% csrf_token %}
+          {{form|crispy}}
+          <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">
+          <button class="btn_agregar" name="form-crear">Agregar compra</button>
+      </form>
+  </div>
+  <div class="contenedor_secundario">
+      <div class="titulo_tabla">
+          <h2>Gestiona tus compras</h2>
+      </div>
+      <div class="contenedor_tabla">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Recivido por:</th>
+                      <th>Fecha de recivido</th>
+                      <th>Precio total</th>
+                      <th>Acciones</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                  {% for compra in pedidos %}
+                  <tr>
+                      <td>{{compra.ped_recivido_por}}</td>
+                      <td>{{compra.ped_fecha_recivido}}</td>
+                      <td>{{compra.ped_precio}}</td>
+                      <td class="d-flex flex-row">
+                            {% csrf_token %}
+                            <a href="{% url 'detalle_compra_pedidos' compra.id %}">
+                                <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar compra">
+                            </a>
+                            <a href="#" onclick="cerrar_pedido({{compra.id }})" class="reset">
+                                <img src="{% static 'img/finalizar_tarea.svg' %}" class="btn_finalizar_tarea" alt="Cerrar pedido" title="Cerrar pedido">
+                            </a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+
+              </tbody>
+          </table>
+      </div>
+  </div>
+</section>
 {% endblock contenido %}

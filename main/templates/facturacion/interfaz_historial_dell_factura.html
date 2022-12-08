@@ -1,0 +1,46 @@
+{% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_historial_dell_factura.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+<section>
+    <div class="titulo_superior">
+        <h1>Artículos de la factura</h1>
+    </div>
+    <!-- formulario de busqueda -->
+    <form>
+        <label for="idOrdSBusqueda" class="label_buscar_orden">Buscar órden:</label>
+        <input type="search" name="OrdSBusqueda" id="idOrdSBusqueda" placeholder="Buscar">
+    </form>
+    <div class="container_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Factura</th>
+                    <th>Artículos</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for rel in rel %}
+                <tr>
+                    <td>{{rel.tbl_facturas_idfactura}}</td>
+                    <td>{{rel.tbl_articulos_idarticulo}}</td>
+                    <td>{{rel.dep_cantidad}}</td>
+                    <td>{{rel.dep_precio}}</td>
+                    <td>{{rel.dep_total}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock contenido %}

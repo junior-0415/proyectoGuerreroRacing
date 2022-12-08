@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Imprimir factura</title>
+    <style>
+        .img-factura {
+        width: 50px;
+        text-align: center;
+        margin: 0% auto;
+        }
+
+    .head {
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        #factura thead tr th {
+            text-align: left;
+            border-bottom: 1px solid black;
+            border-top: 1px solid black;
+            padding-top: 4px;
+        }
+
+        #factura thead tr {
+            margin-bottom: 0%;
+            padding-bottom: 0%;
+        }
+
+        #factura tbody tr {
+            padding: 0%;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <img src="{{ icon }}" alt="Icono empresa" class="img-factura">
+    <p class="head">
+        {{ empresa.empr_nombre }} <br>
+        {{ empresa.empr_nit }} <br>
+        {{ sucursal }}
+    </p>
+    <p>
+        <b>FACTURA:</b> {{ venta.fac_numero_serie }} <br>
+        <b>FECHA DE VENTA:</b> {{ venta.fac_fecha }} <br>
+        <b>CLIENTE:</b> {{ venta.tbl_clientes_idcliente}} <br>
+        <b>IDENTIFICACIÓN:</b> 1020203933 <br>
+        <b>EMPLEADO:</b> {{venta.tbl_empleados_idempleado}} <br>
+        <b>CAJA N°</b> {{venta.fac_caja}}
+    </p>
+    <table id="factura">
+        <thead>
+            <tr>
+                <th style="width: 40%;">ARTÍCULO</th>
+                <th style="width: 15%; text-align: center;">CANTIDAD</th>
+                <th style="width: 15%;">PRECIO UNIT</th>
+                <th style="width: 20%;">CATEGORÍA</th>
+                <th style="width: 10%;">TOTAL</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+            {% for d in detalle_venta %}
+                <tr>
+                    <td>{{ d.tbl_articulos_idarticulo }}</td>
+                    <td class="text-center">{{ d.dep_cantidad }}</td>
+                    <td>${{ d.dep_precio}}</td>
+                    <td>----------------</td>
+                    <td style="text-align: right;">${{ d.dep_total }}</td>
+                </tr>
+            {% endfor %}
+
+            <tr style="border-top: 1px solid black; padding-top: 4px;">
+                <td colspan="4"><b>SUBTOTAL ARTÍCULOS</b></td>
+                <td style="text-align: right;">${{ venta.subtotal }}</td>
+            </tr>
+            <tr style="padding-top: 0px;">
+                <td colspan="4"><b>COSTO DEL SERVICIO</b></td>
+                <td style="text-align: right;">${{ venta.fac_costo_servicio }}</td>
+            </tr>
+            <tr style="padding-top: 0px;">
+                <td colspan="4"><b>DESCUENTO</b></td>
+                <td style="text-align: right;">${{ venta.fac_descuentos }}</td>
+            </tr>
+            <tr style="padding-top: 0px;">
+                <td colspan="4"><b>TOTAL A PAGAR</b></td>
+                <td style="text-align: right;">${{ venta.fac_total_pagar }}</td>
+            </tr>
+                
+        </tbody>
+    </table>
+    <table style="margin-top: 100px;">
+    <thead>
+        <tr>
+            <th>****GRACIAS POR SU COMPRA****</th>
+        </tr>
+        <tr>
+            <th>NOSE ACEPTAN CAMBIOS NI DEVOLUCIONES</th>
+        </tr>
+    </thead>
+    </table>
+</body>
+</html>

@@ -19,7 +19,7 @@
                     <a href="{% url 'ordenes_servicio' %}" class="nav__link nav__link--inside">Crear órden de servicio</a>
                 </li>
                 <li class="list__inside">
-                    <a href="#" class="nav__link nav__link--inside">Historial órden de servicio</a>
+                    <a href="{% url 'historial_ord_servicio' %}" class="nav__link nav__link--inside">Historial órden de servicio</a>
                 </li>
                 <li class="list__inside">
                     <a href="{% url 'servicios' %}" class="nav__link nav__link--inside">Servicios de tu empresa</a>
@@ -125,8 +125,7 @@
 
             <ul class="list__show">
                 <li class="list__inside">
-                    <a href="reporte_semanal.html" target="iframe1"
-                        class="nav__link nav__link--inside">Semanales</a>
+                    <a href="{% url 'reporte_semanal' %}" class="nav__link nav__link--inside">Semanales</a>
                 </li>
                 <li class="list__inside">
                     <a href="reporte_mes.html" target="iframe1"
@@ -226,8 +225,7 @@
                         ventas</a>
                 </li>
                 <li class="list__inside">
-                    <a href="frm_historial_de_las_ventas_realizadas.html" target="iframe1"
-                        class="nav__link nav__link--inside">Historial de ventas</a>
+                    <a href="{% url 'historial_ventas' %}" class="nav__link nav__link--inside">Historial de ventas</a>
                 </li>
 
             </ul>
@@ -249,7 +247,7 @@
                     <a href="{% url 'historial_compras' %}" class="nav__link nav__link--inside">Historial de compras</a>
                 </li>
                 <li class="list__inside">
-                    <a href="{% url 'crear_orden_compra' %}" class="nav__link nav__link--inside">Crear orden de compra</a>
+                    <a href="{% url 'ordenes_compra' %}" class="nav__link nav__link--inside">Crear orden de compra</a>
                 </li>
                 <li class="list__inside">
                     <a href="{% url 'historial_ord_compra' %}" class="nav__link nav__link--inside">Historial de órdenes de compra</a>
