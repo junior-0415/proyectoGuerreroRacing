@@ -9,24 +9,14 @@
 
 {% block contenido %}
 <section>
-    <form>
-        <div id="titulo_superior">
-            <h1>Estos vehículos están aun dentro del taller</h1>
-        </div>
-        <div>
-            <label for="idVehTBusqueda" class="label_buscar_VehT">Buscar vehículo:</label>
-            <input type="search" name="VehTBusqueda" id="idVehTBusqueda" placeholder="Buscar" required>
+    <div id="titulo_superior">
+        <h1>Estos vehículos están aún dentro del taller</h1>
+    </div>
+    <form method="GET">
+        <label for="idVehTBusqueda" class="label_buscar">Buscar vehículo:</label>
+        <input type="search" name="veh_busqueda" id="idVehTBusqueda" value="{{request.GET.veh_busqueda}}" placeholder="Buscar">
 
-            <label for="FiltroVehiculosTaller" class="label_filtrar">Filtrar:</label>
-            <input list="FiltroVehiculosTaller" name="FiltroVehiculosTaller" id="css_propiedades_filtro"
-                placeholder="Elige un filtro" required>
-            <datalist id="FiltroVehiculosTaller">
-                <option value="Mas recientes">Opción 1</option>
-                <option value="Menos recientes">Opción 2</option>
-                <option value="Mostrar todo"></option>
-            </datalist>
-            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
-        </div>
+        <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
     </form>
     <div class="container_tabla">
         <table>
@@ -42,8 +32,8 @@
                     <th>Año</th>
                     <th>Chasis_VIN</th>
                     <th>Motor</th>
-                    <th>Ultima fecha ingreso</th>
-                    <th>Ultima fecha salida</th>
+                    <th>Última fecha ingreso</th>
+                    <th>Última fecha salida</th>
                     <th>informe técnico</th>
                     <th>Acciones</th>
                 </tr>

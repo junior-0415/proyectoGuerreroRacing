@@ -18,7 +18,7 @@
     width: auto;
     height: auto;
 
-    font-family: 'Comic Sans MS', 'cursive';
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 40px;
     line-height: 48px;
@@ -86,16 +86,26 @@ input:focus, select:focus, textarea:focus {
     outline: 4.5px solid #C2DAFF;
 }
 
-label {
+#div_id_id_matricula label, #div_id_veh_modelo label, #div_id_veh_color label, #div_id_veh_version label, #div_id_veh_anio label, #div_id_veh_chasis_vin label, #div_id_veh_motor label, #div_id_veh_ultima_fecha_ingreso label, #div_id_veh_ultima_fecha_salida label, #div_id_veh_ultima_fecha_salida label {
     position: absolute;
     left: 0%;
     top: 0%;
 }
 
-input, select, textarea {
+#div_id_id_matricula input, #div_id_veh_modelo input, #div_id_veh_color input, #div_id_veh_version input, #div_id_veh_anio input, #div_id_veh_chasis_vin input, #div_id_veh_motor input, #div_id_veh_ultima_fecha_ingreso input, #div_id_veh_ultima_fecha_salida input, #div_id_veh_ultima_fecha_salida input, select, textarea {
     position: absolute;
     left: 0%;
     bottom: 0%;
+}
+
+.select2-selection__rendered {
+    line-height: 38px !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 38px !important;
 }
 
 #div_id_id_matricula {

@@ -14,18 +14,11 @@
         <h2>Marcas establecidas</h2>
     </div>
     <div class="contenedor_form">
-        <form>
+        <form method="GET">
             <label for="MarABusqueda" class="label_buscar">Buscar marca:</label>
-            <input type="search" name="MarABusqueda" id="MarABusqueda" placeholder="Buscar">
-
-            <label for="FiltroMarcasA" class="label_filtrar">Filtrar:</label>
-            <input list="FiltroMarcasA" name="FiltroMarcasA" id="css_propiedades_filtro"
-                placeholder="Elige un filtro">
-            <datalist id="FiltroMarcasA">
-                <option value="A-Z">Opción 1</option>
-                <option value="Z-A">Opción 2</option>
-            </datalist>
-            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+            <input type="search" name="mar_busqueda" id="MarABusqueda" value="{{request.GET.mar_busqueda}}" placeholder="Buscar">
+    
+            <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
         </form>
     </div>
     <div class="contenedor_tabla">

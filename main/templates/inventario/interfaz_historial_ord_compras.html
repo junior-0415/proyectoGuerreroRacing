@@ -12,17 +12,11 @@
     <div id="titulo_superior">
         <h1>Historial de órdenes de compra</h1>
     </div>
-    <form>
-        <label for="idbuscar_orden_compra" id="label_buscar_orden_compra">Buscar compra:</label>
-        <input type="search" name="BuscarOrdenCompra" id="idobuscar_orden_compra" placeholder="Buscar">
-        
-        <label for="FiltroOrdCompras" id="label_filtrar">Filtrar:</label>
-        <input list="FiltroOrdCompras" name="FiltroOrdCompras" id="css_propiedades_filtro" placeholder="Elige un filtro">
-        <datalist id="FiltroOrdCompras">
-            <option value="Mas recientes">Opción 1</option>
-            <option value="Menos recientes">Opción 2</option>
-        </datalist>
-        <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+    <form method="GET">
+        <label for="idbuscar_orden_compra" class="label_buscar_orden_compra">Buscar órden:</label>
+        <input type="search" name="ord_busqueda" id="idbuscar_orden_compra" value="{{request.GET.ord_busqueda}}" placeholder="Buscar">
+
+        <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
     </form>
     <div class="container_tabla">
         <table>
@@ -33,7 +27,7 @@
                     <th>Realizado por</th>
                     <th>Provedor</th>
                     <th>Término de pago</th>
-                    <th>Otras tarifas</th>
+                    <th>Ótras tarifas</th>
                     <th>Término de entrega</th>
                     <th>Costo</th>
                     <th>Acciones</th>

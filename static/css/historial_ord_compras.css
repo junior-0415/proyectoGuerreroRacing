@@ -19,7 +19,7 @@
     padding: 0%;
     padding-bottom: 8px;
 
-    font-family: 'Comic Sans MS', 'cursive';
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 40px;
     line-height: 48px;
@@ -51,7 +51,7 @@ input:focus {
     outline: 4.5px solid #C2DAFF;
 }
 
-#label_buscar_orden_compra {
+.label_buscar_orden_compra {
     position: absolute;
     width: auto;
     height: auto;
@@ -71,54 +71,13 @@ input:focus {
     color: #000000;
 }
 
-#idobuscar_orden_compra {
+#idbuscar_orden_compra {
     box-sizing: border-box;
 
     position: absolute;
     width: 16.36%;
     height: 29px;
-    left: 13.34%;
-    top: 13.41%;
-
-    border: 1px solid #000000;
-    border-radius: 10px;
-
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-}
-
-#label_filtrar {
-    /* Filtrar: */
-
-    position: absolute;
-    width: auto;
-    height: auto;
-    left: 32.23%;
-    top: 14.26%;
-
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    /* identical to box height */
-
-    display: flex;
-    align-items: center;
-
-    color: #000000;
-}
-
-#css_propiedades_filtro {
-    box-sizing: border-box;
-
-    position: absolute;
-    width: 16.36%;
-    height: 29px;
-    left: 37.29%;
+    left: 12.34%;
     top: 13.41%;
 
     border: 1px solid #000000;
@@ -133,32 +92,8 @@ input:focus {
 
 #btn_mostrar_filtro {
     position: absolute;
-    width: 12.17%;
-    height: 29px;
-    left: 55.01%;
+    left: 29.5%;
     top: 13.41%;
-
-    background: #00B9CA;
-    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
-    border-radius: 7.48503px;
-    border: #00B9CA;
-
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16.4671px;
-    line-height: 19px;
-    color: #FFFFFF;
-}
-
-#btn_mostrar_filtro:hover {
-    background: rgba(0, 117, 128, 0.982);
-}
-
-#btn_mostrar_filtro:active {
-    background: #ffffff;
-    color: rgba(0, 117, 128, 0.982);
-    border: 1.5px solid rgba(0, 117, 128, 0.982);
 }
 
 .container_tabla {

@@ -13,19 +13,11 @@
         <h1>Historial de ventas</h1>
     </div>
     <!-- formulario de busqueda -->
-    <form>
-        <label for="idOrdSBusqueda" class="label_buscar_orden">Buscar órden:</label>
-        <input type="search" name="OrdSBusqueda" id="idOrdSBusqueda" placeholder="Buscar">
+    <form method="GET">
+        <label for="idOrdSBusqueda" class="label_buscar">Buscar venta:</label>
+        <input type="search" name="venta_busqueda" id="idOrdSBusqueda" value="{{request.GET.venta_busqueda}}" placeholder="Buscar">
 
-        <label for="FiltroOrden-Servicio" class="label_filtrar">Filtrar:</label>
-        <input list="FiltroOrden-Servicio" name="FiltroOrden-Servicio" id="css_propiedades_filtro" placeholder="Elige un filtro">
-        <datalist id="FiltroOrden-Servicio">
-            <option value="Mas recientes"> Opción 1</option>
-            <option value="Menos recientes">Opción 2</option>
-            <option value="Ordenes pagadas">Opción 3</option>
-            <option value="Ordenes sin pagar">Opción 4</option>
-            <option value="Mostrar todo">Opción 5</option>
-        </datalist>
+        <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
     </form>
     <div class="container_tabla">
         <table>

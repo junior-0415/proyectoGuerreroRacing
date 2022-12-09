@@ -14,17 +14,11 @@
         <h2>Servicios de tu empresa</h2>
     </div>
     <div class="contenedor_form">
-        <form>
-            <label for="Serv_Busqueda" class="label_buscar">Buscar ciudad:</label>
-            <input type="search" name="ServBusqueda" id="Serv_Busqueda" placeholder="Buscar">
-
-            <label for="FiltroServicios" class="label_filtrar">Filtrar:</label>
-            <input list="FiltroServicios" name="FiltroServicios" id="css_propiedades_filtro"
-                placeholder="Elige un filtro">
-            <datalist id="FiltroServicios">
-                <option value="A-Z">Opción 1</option>
-                <option value="Z-A">Opción 2</option>
-            </datalist>
+        <form method="GET">
+            <label for="Serv_Busqueda" class="label_buscar">Buscar servicio:</label>
+            <input type="search" name="serv_busqueda" id="Serv_Busqueda" value="{{request.GET.OrdSBusqueda}}" placeholder="Buscar">
+    
+            <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
         </form>
     </div>
     <div class="contenedor_tabla">

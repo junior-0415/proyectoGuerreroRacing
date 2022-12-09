@@ -13,7 +13,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="form-inline position-relative my-2 ">
+            <!-- <form class="form-inline position-relative my-2 ">
                 <input class="form-control mr-sm-2" type="search" placeholder="Buscar" aria-label="Buscar">
                 <button class="btn btn-outline-success " type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -21,16 +21,13 @@
                         <path
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
                     </svg></button>
-            </form>
+            </form> -->
             <ul class="navbar-nav ml-auto">
                 <div class="text-end">
                     <a class="nav-link" href="{% url 'inicio-admin' %}">Inicio</a>
                 </div>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'nosotros' %}">Nosotros</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#productos">Productos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'empresa' %}">Empresa</a>
@@ -41,10 +38,6 @@
                           Mi perfil
                         </a>
                         <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Cuenta</a>
-                          <a class="dropdown-item" href="#">Mensajes</a>
-                          <a class="dropdown-item" href="{% url 'papelera' %}">Papelera</a>
-                          <a class="dropdown-item" href="configuracion_admin.html" target="iframe1">Configuración</a>
                           <a class="dropdown-item" href="interfaz_soporte_ayuda.html" target="iframe1">Soporte y ayuda</a>
                           <a class="dropdown-item" href="{% url 'logout' %}">Cerrar sesión</a>
 

@@ -10,22 +10,14 @@
 {% block contenido %}
 <section>
     <div class="titulo_superior">
-        <h1>Órdenes de servicios</h1>
+        <h1>Historial órdenes de servicios</h1>
     </div>
     <!-- formulario de busqueda -->
-    <form>
+    <form method="GET">
         <label for="idOrdSBusqueda" class="label_buscar_orden">Buscar órden:</label>
-        <input type="search" name="OrdSBusqueda" id="idOrdSBusqueda" placeholder="Buscar">
+        <input type="search" name="ord_s_busqueda" id="idOrdSBusqueda" value="{{request.GET.OrdSBusqueda}}" placeholder="Buscar">
 
-        <label for="FiltroOrden-Servicio" class="label_filtrar">Filtrar:</label>
-        <input list="FiltroOrden-Servicio" name="FiltroOrden-Servicio" id="css_propiedades_filtro" placeholder="Elige un filtro">
-        <datalist id="FiltroOrden-Servicio">
-            <option value="Mas recientes"> Opción 1</option>
-            <option value="Menos recientes">Opción 2</option>
-            <option value="Ordenes pagadas">Opción 3</option>
-            <option value="Ordenes sin pagar">Opción 4</option>
-            <option value="Mostrar todo">Opción 5</option>
-        </datalist>
+        <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
     </form>
     <div class="container_tabla">
         <table>
@@ -38,7 +30,7 @@
                     <th>Identificación</th>
                     <th>Celular</th>
                     <th>Servicio</th>
-                    <th>Vehiculo</th>
+                    <th>Vehículo</th>
                     <th>Estado</th>
                     <th>Informe técnico</th>
                     <th>Acciones</th>

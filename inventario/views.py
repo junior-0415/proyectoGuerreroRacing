@@ -9,6 +9,7 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.urls import reverse_lazy
 from django.contrib.staticfiles import finders
+from django.db.models import Q
 
 from inventario.models import OrdenCompra, Pedidos, TblRelOrdenCompraArticulos, TblRelPedidosArticulos
 from usuarios.models import Empleados, Empresa
@@ -66,22 +67,33 @@ def tbl_rel_orden_com_articulos(request, pk):
     return render(request, 'inventario/rel_orden_compra_articulos.html', context)
 
 def historial_compras(request):
-     titulo = "Historial de compras"
-     pedidos = Pedidos.objects.filter(ped_estado = '2')
-     context = {
-        'titulo':titulo,
-        'pedidos':pedidos
-     }
-     return render(request, 'inventario/interfaz_historial_compras.html', context)
+    titulo = "Historial de compras"
+    pedidos = Pedidos.objects.filter(ped_estado = '2')
+    busqueda = request.GET.get('com_busqueda')
+    if busqueda:
+        pedidos = Pedidos.objects.filter(
+            Q(id__icontains = busqueda) |
+            Q(ped_recivido_por__icontains = busqueda)
+        ).distinct()
+    context = {
+    'titulo':titulo,
+    'pedidos':pedidos
+    }
+    return render(request, 'inventario/interfaz_historial_compras.html', context)
 
 def historial_ord_compra(request):
-     titulo = "Historial órdenes de compras"
-     orden_compra = OrdenCompra.objects.filter(ord_estado = '2')
-     context = {
-        'titulo':titulo,
-        'orden_compra':orden_compra
-     }
-     return render(request, 'inventario/interfaz_historial_ord_compras.html', context)
+    titulo = "Historial órdenes de compras"
+    orden_compra = OrdenCompra.objects.filter(ord_estado = '2')
+    busqueda = request.GET.get('com_busqueda')
+    if busqueda:
+        orden_compra = OrdenCompra.objects.filter(
+            Q(id__icontains = busqueda)
+        ).distinct()
+    context = {
+    'titulo':titulo,
+    'orden_compra':orden_compra
+    }
+    return render(request, 'inventario/interfaz_historial_ord_compras.html', context)
 
 def eliminar_orden_compra(request, pk):
     OrdenCompra.objects.filter(id=pk).update(
@@ -331,7 +343,7 @@ def cerrar_pedido(request, pk):
     return redirect('registrar_pedido_compra')
 
 def historial_delt_pedido(request, pk):
-    titulo = f"Detalle de la orden de servicio {pk}"
+    titulo = f"Detalle de la compra {pk}"
     rel = TblRelPedidosArticulos.objects.filter(tbl_pedidos_idpedido_id=pk)
     print(rel)
     context = {

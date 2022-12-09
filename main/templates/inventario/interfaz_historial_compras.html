@@ -12,24 +12,18 @@
     <div id="titulo_superior">
         <h1>Historial de compras</h1>
     </div>
-    <form>
-        <label for="idbuscar_compra" id="label_buscar_compra">Buscar compra:</label>
-        <input type="search" name="BuscarCompra" id="idbuscar_compra" placeholder="Buscar">
-        
-        <label for="FiltroCompras" id="label_filtrar">Filtrar:</label>
-        <input list="FiltroCompras" name="FiltroCompras" id="css_propiedades_filtro" placeholder="Elige un filtro">
-        <datalist id="FiltroCompras">
-            <option value="Mas recientes">Opción 1</option>
-            <option value="Menos recientes">Opción 2</option>
-        </datalist>
-        <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+    <form method="GET">
+        <label for="idbuscar_compra" class="label_buscar_compra">Buscar compra:</label>
+        <input type="search" name="com_busqueda" id="idbuscar_compra" value="{{request.GET.com_busqueda}}" placeholder="Buscar">
+
+        <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
     </form>
     <div class="container_tabla">
         <table>
             <thead>
                 <tr>
                     <th>Fecha</th>
-                    <th>ped_precio</th>
+                    <th>Costo total</th>
                     <th>Número pedido</th>
                     <th>Recepcionada por</th>
                     <th>Acciones</th>
@@ -39,7 +33,7 @@
             {% for historial in pedidos %}            
                 <tr>
                     <td>{{historial.ped_fecha_recivido}}</td>
-                    <td>{{historial.ped_precio}}</td>
+                    <td>${{historial.ped_precio}}</td>
                     <td>{{historial.id}}</td>
                     <td>{{historial.ped_recivido_por}}</td>
                     <td> 

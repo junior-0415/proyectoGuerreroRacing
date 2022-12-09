@@ -18,7 +18,7 @@
     width: auto;
     height: auto;
 
-    font-family: 'Comic Sans MS', 'cursive';
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 40px;
     line-height: 48px;
@@ -89,17 +89,28 @@ input:focus, select:focus {
     outline: 4.5px solid #C2DAFF;
 }
 
-label {
+#div_id_cli_nombres label, #div_id_cli_apellidos label, #div_id_cli_tipo_documento label, #div_id_id_identificacion label, #div_id_cli_genero label, #div_id_cli_direccion label, #div_id_cli_telefono label, #div_id_cli_celular label {
     position: absolute;
     left: 0%;
     top: 0%;
 }
 
-input, select {
+#div_id_cli_nombres input, #div_id_cli_apellidos input, #div_id_id_identificacion input, #div_id_cli_direccion input, #div_id_cli_telefono input, #div_id_cli_celular input, select {
     position: absolute;
     left: 0%;
     bottom: 0%;
 }
+
+.select2-selection__rendered {
+    line-height: 38px !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 38px !important;
+}
+
 
 #div_id_cli_nombres {
     position: absolute;

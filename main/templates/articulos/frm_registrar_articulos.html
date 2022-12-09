@@ -29,6 +29,25 @@
 
 
 {% block js %}
-
+<script>
+    $(function () {
+        $("#sidebarToggle").click();
+        $("#id_tbl_categoria_idcategoria").select2({
+            placeholder:"Selecciona una categoría",
+            allowClear:true,
+            width:"100%",
+        });
+        $("#id_tbl_proveedores_idproveedor").select2({
+            placeholder:"Selecciona un proveedor",
+            allowClear:true,
+            width:"100%",
+        });
+        $("#id_tbl_marcas_idmarca").select2({
+            placeholder:"Selecciona una marca",
+            allowClear:true,
+            width:"100%",
+        });
+    });
+</script>
 {% endblock js %}
     

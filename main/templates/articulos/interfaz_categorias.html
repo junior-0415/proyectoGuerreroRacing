@@ -14,18 +14,11 @@
         <h2>Categorías en artículos establecidas</h2>
     </div>
     <div class="contenedor_form">
-        <form>
+        <form method="GET">
             <label for="CatBusqueda" class="label_buscar">Buscar categoría:</label>
-            <input type="search" name="CatBusqueda" id="CatBusqueda" placeholder="Buscar">
-
-            <label for="FiltroCategorias" class="label_filtrar">Filtrar:</label>
-            <input list="FiltroCategorias" name="FiltroCategorias" id="css_propiedades_filtro"
-                placeholder="Elige un filtro">
-            <datalist id="FiltroCategorias">
-                <option value="A-Z">Opción 1</option>
-                <option value="Z-A">Opción 2</option>
-            </datalist>
-            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+            <input type="search" name="cat_busqueda" id="CatBusqueda" value="{{request.GET.cat_busqueda}}" placeholder="Buscar">
+    
+            <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
         </form>
     </div>
     <div class="contenedor_tabla">

@@ -29,5 +29,14 @@
 
 
 {% block js %}
-
+<script>
+    $(function () {
+        $("#sidebarToggle").click();
+        $("#id_tbl_ciudades_idciudad").select2({
+            placeholder:"Selecciona una ciudad o municipio",
+            allowClear:true,
+            width:"100%",
+        });
+    });
+</script>
 {% endblock js %}

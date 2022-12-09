@@ -11,21 +11,13 @@
     <div id="titulo_superior">
         <h1>Empleados y control de usuarios</h1>
     </div>
-    <form>
+    <form method="GET">
         <label for="idBusquedaEmp" class="label_buscar">Buscar empleado:</label>
-        <input type="search" name="EmpBusqueda" id="idBusquedaEmp" placeholder="Buscar">
+        <input type="search" name="emp_busqueda" id="idBusquedaEmp" value="{{request.GET.emp_busqueda}}" placeholder="Buscar">
 
-        <label for="FiltroEmp" class="label_filtrar">Filtrar:</label>
-        <input list="FiltroEmp" name="FiltroEmp" id="css_propiedades_filtro" placeholder="Elige un filtro">
-        <datalist id="FiltroEmp">
-            <option value="A-Z">Opción 1</option>
-            <option value="Z-A">Opción 2</option>
-            <option value="Mas recientes">Opción 3</option>
-            <option value="Menos recientes">Opción 4</option>
-            <option value="Mostrar todo"></option>
-        </datalist>
-        <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+        <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
     </form>
+    
     <div class="container_tabla">
         <table>
             <thead>

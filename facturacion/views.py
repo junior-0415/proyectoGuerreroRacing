@@ -8,6 +8,7 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.urls import reverse_lazy
 from django.contrib.staticfiles import finders
+from django.db.models import Q
 
 from facturacion.forms import DetalleFacturaVentaForm, FacturaVentaForm
 from facturacion.models import DetalleFacturaVenta, FacturaVenta
@@ -212,6 +213,11 @@ def cerrar_factura(request, pk):
 def historial_ventas(request):
     titulo = "Historial ventas"
     historial_ventas_ = FacturaVenta.objects.filter(fac_estado='2')
+    busqueda = request.GET.get('venta_busqueda')
+    if busqueda:
+        historial_ventas_ = FacturaVenta.objects.filter(
+            Q(fac_numero_serie__icontains = busqueda)
+        ).distinct()
     context = {
         'titulo':titulo,
         'historial_ventas_':historial_ventas_,

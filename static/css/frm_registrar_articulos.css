@@ -17,7 +17,7 @@
     width: auto;
     height: auto;
 
-    font-family: 'Comic Sans MS', 'cursive';
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 40px;
     line-height: 48px;
@@ -87,16 +87,26 @@ input:focus, select:focus, textarea:focus {
     outline: 4.5px solid #C2DAFF;
 }
 
-label {
+#div_id_art_nombre label, #div_id_art_stock_maximo label, #div_id_art_stock_minimo label, #div_id_art_precio label, #div_id_art_descripcion label, #div_id_art_foto label {
     position: absolute;
     left: 0%;
     top: 0%;
 }
 
-input, select, textarea {
+#div_id_art_nombre input, #div_id_art_stock_maximo input, #div_id_art_stock_minimo input,#div_id_art_precio input, #div_id_art_foto input, select, textarea {
     position: absolute;
     left: 0%;
     bottom: 0%;
+}
+
+.select2-selection__rendered {
+    line-height: 38px !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 38px !important;
 }
 
 #div_id_art_nombre {
@@ -123,11 +133,17 @@ input, select, textarea {
     top: 54.67%;
 }
 
+#div_id_art_precio {
+    position: absolute;
+    left: 0.97%;
+    top: 68.08%;
+}
+
 #div_id_art_descripcion {
     position: absolute;
     height: 34.97% !important;
     left: 0.97%;
-    top: 68.08%;
+    top: 81%;
 }
 
 #div_id_art_descripcion textarea {

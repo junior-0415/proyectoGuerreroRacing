@@ -10,21 +10,14 @@
 {% block contenido %}
 <section>
     <div class="titulo_superior">
-        <h1 class="text-center py-2">Vehículos registrados</h1>
+        <h1>Vehículos registrados</h1>
     </div>
     <!-- formulario de busqueda -->
-    <form>
+    <form method="GET">
         <label for="idVehBusqueda" class="label_buscar_vehiculo">Buscar vehículo:</label>
-        <input type="search" name="CliBusqueda" id="idVehBusqueda" placeholder="Buscar">
+        <input type="search" name="buscar" id="idVehBusqueda" value="{{request.GET.buscar}}" placeholder="Buscar">
 
-        <label for="FiltroVehiculos" class="label_filtrar">Filtrar:</label>
-        <input list="FiltroVehiculos" name="FiltroVehiculos" id="css_propiedades_filtro" placeholder="Elige un filtro">
-        <datalist id="FiltroVehiculos">
-            <option value="Mas recientes"> Opción 1</option>
-            <option value="Menos recientes">Opción 2</option>
-            <option value="Mostrar todo"></option>
-        </datalist>
-        <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+        <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
     </form>
     <div class="container_tabla">
         <table>
@@ -39,8 +32,8 @@
                     <th>Año</th>
                     <th>Chasis_VIN</th>
                     <th>Motor</th>
-                    <th>Ultima fecha ingreso</th>
-                    <th>Ultima fecha salida</th>
+                    <th>Última fecha ingreso</th>
+                    <th>Última fecha salida</th>
                     <th>informe técnico</th>
                     <th>Acciones</th>
                 </tr>

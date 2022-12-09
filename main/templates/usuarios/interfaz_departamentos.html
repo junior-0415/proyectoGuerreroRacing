@@ -14,18 +14,11 @@
         <h2>Departamentos guardados</h2>
     </div>
     <div class="contenedor_form">
-        <form>
-            <label for="DepBusqueda" class="label_buscar">Buscar departamento:</label>
-            <input type="search" name="DepBusqueda" id="DepBusqueda" placeholder="Buscar">
-
-            <label for="FiltroDepartamentos" class="label_filtrar">Filtrar:</label>
-            <input list="FiltroDepartamentos" name="FiltroDepartamentos" id="css_propiedades_filtro"
-                placeholder="Elige un filtro">
-            <datalist id="FiltroDepartamentos">
-                <option value="A-Z">Opción 1</option>
-                <option value="Z-A">Opción 2</option>
-            </datalist>
-            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+        <form method="GET">
+            <label for="DepBusqueda" class="label_buscar">Buscar depatamento:</label>
+            <input type="search" name="dep_busqueda" id="DepBusqueda" value="{{request.GET.dep_busqueda}}" placeholder="Buscar">
+    
+            <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
         </form>
     </div>
     <div class="contenedor_tabla">
