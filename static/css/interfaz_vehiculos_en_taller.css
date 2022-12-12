@@ -82,7 +82,7 @@ form {
 input:focus {
     border: 1px solid #C2DAFF;
     outline: 4.5px solid #C2DAFF;
-}  
+}
 
 .container_tabla {
     position: absolute;
@@ -138,8 +138,8 @@ table tbody tr td:first-child {
 .btn_mandar_al_taller {
     width: 24px;
     margin-left: 10px;
-  }
-  
+}
+
 .flex {
     display: flex;
     flex-direction: row;
@@ -167,36 +167,21 @@ table tbody tr td:first-child {
         line-height: 37px;
     }
 
-    #label_buscar_proveedores {
-        /* Buscar: */
-        width: 55px;
-        left: 4.34%;
-        top: 9%;
+    .label_buscar {
+        left: 2.34%;
+        top: 9.5%;
     }
 
-    #idbuscar_proveedor {
-        width: 28.97%;
-        left: 20.09%;
-        top: 9.29%;
-    }
-
-    #label_filtrar {
-        /* Filtrar: */
-
-        left: 50.23%;
-        top: 9.87%;
-    }
-
-    #css_propiedades_filtro {
-        width: 28.97%;
-        left: 61.92%;
+    #idVehTBusqueda {
+        width: 55%;
+        left: 33%;
         top: 9.29%;
     }
 
     #btn_mostrar_filtro {
-        width: 6.7%;
-        left: 91.22%;
+        left: 89%;
         top: 9.29%;
+        z-index: 1;
     }
 
     .container_tabla {
@@ -208,5 +193,35 @@ table tbody tr td:first-child {
         right: 4.77%;
         top: 85.08%;
         bottom: 10.04%;
+    }
+}
+
+@media (max-width: 550px) {
+    #titulo_superior {
+        height: 110px;
+    }
+
+    #titulo_superior h1 {
+        padding-top: 10px;
+    }
+
+    .label_buscar {
+        left: 2.34%;
+        top: 17.5%;
+    }
+
+    #idVehTBusqueda {
+        width: 55%;
+        left: 33%;
+        top: 17%;
+    }
+
+    #btn_mostrar_filtro {
+        left: 89%;
+        top: 17%;
+    }
+
+    .container_tabla {
+        top: 21.51%;
     }
 }

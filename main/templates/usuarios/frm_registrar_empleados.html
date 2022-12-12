@@ -18,7 +18,7 @@
         <img src="{% static 'img/registrar_cliente_empleado.svg' %}" alt="Imgem aluciva a empleados" id="img1">
         {{form|crispy}}
         {% csrf_token %}
-        <div class="frame_b f15">
+        <div class="frame_b">
             <button type="submit" id="btn_guardar">Guardar</button>
             <button type="reset" id="btn_cancelar">Cancelar</button>
         </div>

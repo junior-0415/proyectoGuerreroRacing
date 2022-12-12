@@ -1,10 +1,10 @@
 {% load static %}
 
-<nav class="col-md-3 col-sm-12 p-0 container_nav modal- ">
+<nav class="col-md-3 col-sm-12 p-0 container_nav modalMenu">
     <ul class="list container_modal">
         <li class="list__item">
-            <div class="text-end">
-                <img src="{% static 'img/logo racing.png' %}" class="m-3" width="90" alt="">
+            <div class="">
+                <H4 class="text-start m-5" id="nombre_software">SOFTWARE RACING</H4>
             </div>
         </li>
         <li class="list__item list__item--click">
@@ -16,10 +16,10 @@
 
             <ul class="list__show">
                 <li class="list__inside">
-                    <a href="{% url 'ordenes_servicio' %}" class="nav__link nav__link--inside">Crear órden de servicio</a>
+                    <a href="{% url 'ordenes_servicio' %}" class="nav__link nav__link--inside">Crear orden de servicio</a>
                 </li>
                 <li class="list__inside">
-                    <a href="{% url 'historial_ord_servicio' %}" class="nav__link nav__link--inside">Historial órden de servicio</a>
+                    <a href="{% url 'historial_ord_servicio' %}" class="nav__link nav__link--inside">Historial orden de servicio</a>
                 </li>
                 <li class="list__inside">
                     <a href="{% url 'servicios' %}" class="nav__link nav__link--inside">Servicios de tu empresa</a>
@@ -97,7 +97,7 @@
         <li class="list__item list__item--click">
             <div class="list__button list__button--click">
                 <img src="{% static 'aset/articulos.svg' %}" alt="" class="list__img">
-                <a href="#" class="nav__link">Articulos</a>
+                <a href="#" class="nav__link">Artículos</a>
                 <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
             </div>
             <ul class="list__show">
@@ -115,29 +115,6 @@
                 </li>
             </ul>
         </li>
-
-        <!-- <li class="list__item list__item--click">
-            <div class="list__button list__button--click">
-                <img src="{% static 'aset/reportes.svg' %}" alt="" class="list__img">
-                <a href="#" class="nav__link">Reportes</a>
-                <img src="{% static 'aset/flecha.svg' %}" alt="" class="list__arrow">
-            </div>
-
-            <ul class="list__show">
-                <li class="list__inside">
-                    <a href="{% url 'reporte_semanal' %}" class="nav__link nav__link--inside">Semanales</a>
-                </li>
-                <li class="list__inside">
-                    <a href="reporte_mes.html" target="iframe1"
-                        class="nav__link nav__link--inside">Mensuales</a>
-                </li>
-                <li class="list__inside">
-                    <a href="reporte_anio.html" target="iframe1" class="nav__link nav__link--inside">Anual</a>
-                </li>
-
-            </ul>
-
-        </li> -->
         <li class="list__item list__item--click">
             <div class="list__button list__button--click">
                 <img src="{% static 'aset/Proveedores.svg' %}" alt="" class="list__img">
@@ -219,7 +196,7 @@
             </ul>
         </li>
 
-        <a href="#" class="modal_close">
+        <a href="#" class="modal_close_menu">
             <img src="{% static 'img/double_arrow_close.svg' %}" alt="" class="img_modal_close">
         </a>
     </ul>

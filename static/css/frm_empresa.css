@@ -214,3 +214,68 @@ input, select {
     background: #FFFFFF;
     color: #3f454b;
 }
+
+@media (max-width: 767px) {
+    .titulo_superior {
+        height: 7.76%;
+    }
+
+    .titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    .control-group {
+        width: 85.51%;
+    }
+
+    #div_id_empr_nombre {
+        left: 2.34%;
+        top: 9.87%;
+    }
+
+    #div_id_empr_nit {
+        left: 2.34%;
+        top: 19.16%;
+    }
+
+    #div_id_empr_dueno {
+        left: 2.34%;
+        top: 28.44%;
+    }
+
+    #div_id_empr_sitio_web {
+        left: 2.34%;
+        top: 37.72%;
+    }
+
+    #div_id_empr_foto {
+        left: 2.34%;
+        top: 47.01%;
+    }
+
+    #div_id_empr_razon_social {
+        height: 206px !important;
+        left: 2.34%;
+        top: 56.29%;
+    }
+
+    #div_id_empr_razon_social textarea {
+        width: 98%;
+        height: 80%;
+        bottom: 0%;
+    }
+
+    .frame_b {
+        width: 62.62%;
+        left: 14.95%;
+        top: 85%;
+    }
+
+    #img1 {
+        width: 90%;
+        left: 2.34%;
+        top: 9.87%;
+        opacity: 50%;
+    }
+}

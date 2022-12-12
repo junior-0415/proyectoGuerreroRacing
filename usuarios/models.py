@@ -82,7 +82,7 @@ class Servicios(models.Model):
 
 class Empleados(models.Model):
     tbl_sucursal_idsucursal = models.ForeignKey(Sucursales, on_delete=models. CASCADE, verbose_name="Sucursal:")
-    id_emp_identificacion = models.CharField(max_length=50, verbose_name="Identificación:")
+    id_emp_identificacion = models.CharField(max_length=50, unique=True, verbose_name="Identificación:")
     class TipoDocumento(models.TextChoices): 
         TI = 'T.I', _('Tarjeta de Identidad')
         CC = 'C.C', _('Cédula de Ciudadanía')
@@ -99,7 +99,7 @@ class Empleados(models.Model):
     emp_direccion = models.CharField(max_length=100, verbose_name="Dirección:")
     emp_telefono = models.CharField(max_length=20, verbose_name="Teléfono:")
     emp_celular = models.CharField(max_length=20, verbose_name="Celular:")
-    emp_email = models.EmailField(max_length=100, verbose_name="E-mail:")
+    emp_email = models.EmailField(max_length=100, unique=True, verbose_name="E-mail:")
     emp_fecha_nacimiento = models.DateField( verbose_name="Fecha de nacimiento:")
     emp_cargo = models.CharField(max_length=50, verbose_name="Cargo:")
     emp_num_contrato = models.CharField(max_length=50, verbose_name="Número de Contrato:")
@@ -199,9 +199,9 @@ class OrdenServicio(models.Model):
 
 class TblRelOrdenServicioArticulos(models.Model):
     tbl_orden_servicio_idorden_servicio = models.ForeignKey(OrdenServicio, on_delete=models.CASCADE, verbose_name="Orden de servicio:")
-    Ttbl_articulos_idarticulo = models.ForeignKey(Articulos, blank=True, on_delete=models.CASCADE, verbose_name="Artículos:")
-    art_cantidad = models.SmallIntegerField(blank=True, verbose_name="Cantidad:")
-    art_precio = models.DecimalField(max_digits=9, decimal_places=2, blank=True, verbose_name="Precio:")
+    Ttbl_articulos_idarticulo = models.ForeignKey(Articulos, on_delete=models.CASCADE, verbose_name="Artículos:")
+    art_cantidad = models.SmallIntegerField(verbose_name="Cantidad:")
+    art_precio = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="Precio:")
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')

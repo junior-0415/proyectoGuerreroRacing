@@ -302,3 +302,79 @@ table tbody tr td:first-child {
     height: 24px;
     margin-left: 10px;
 }
+
+@media (max-width: 767px) {
+    .titulo_superior {
+        height: 7.76%;
+    }
+
+    .titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    .form_sucursales {
+        width: 95%;
+        height: 869.25px;
+        left: 2.34%;
+        top: 9.87%;
+        overflow: hidden;
+    }
+
+    #div_id_suc_nombre {
+        left: 10px;
+        top: 7%;
+    }
+    
+    #div_id_tbl_ciudad_idciudad {
+        left: 10px;
+        top: 16.5%;
+    }
+    
+    #div_id_tbl_empresas_idempresa {
+        left: 10px;
+        top: 26%;
+    }
+    
+    #div_id_suc_administrador {
+        left: 10px;
+        top: 35.5%;
+    }
+    
+    #div_id_suc_direccion {
+        left: 10px;
+        top: 45%;
+    }
+    
+    #div_id_suc_tipo {
+        left: 10px;
+        top: 54.5%;
+    }
+    
+    #div_id_suc_telefono {
+        left: 10px;
+        top: 64%;
+    }
+    
+    #div_id_suc_celular {
+        left: 10px;
+        top: 73.5%;
+    }
+    
+    #div_id_suc_email {
+        left: 10px;
+        top: 83%;
+    }
+
+    .frame_b {
+        width: 62.62%;
+        left: 14.95%;
+        top: 92.5%;
+    }
+
+    .contenedor_tabla {
+        width: 95%;
+        left: 2.34%;
+        top: 108%;
+    }
+}

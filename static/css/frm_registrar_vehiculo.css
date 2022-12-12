@@ -197,8 +197,7 @@ input:focus, select:focus, textarea:focus {
 .frame_b {
     position: absolute;
     width: 26.1%;
-    min-height: 29px;
-    max-height: 5.23%;
+    height: 30px;
     left: 54.72%;
     top: 130%;
 }
@@ -283,68 +282,97 @@ input:focus, select:focus, textarea:focus {
         height: 7.76%;
     }
 
-    #div_id_CliNombres {
+    #div_id_id_matricula {
         left: 2.34%;
         top: 9.87%;
     }
 
-    #div_id_CliApellidos {
+    #div_id_tbl_cliente_ididentificacion {
         left: 2.34%;
         top: 19.16%;
     }
 
-    #div_id_CliTipoDocumento {
+    #div_id_veh_modelo {
         left: 2.34%;
         top: 28.44%;
     }
 
-    #div_id_idIdentificacion {
+    #div_id_veh_color {
         left: 2.34%;
         top: 37.72%;
     }
 
-    #div_id_CliGenero {
+    #div_id_tbl_marcas_idmarca {
         width: 55px !important;
         left: 2.34%;
         top: 47.01%;
     }
 
-    #div_id_CliDireccion {
+    #div_id_veh_version {
         left: 2.34%;
         top: 56.29%;
     }
 
-    #div_id_TblCiudades_idCiudad {
+    #div_id_veh_anio {
         left: 2.34%;
         top: 65.57%;
     }
 
-    #img1 {
+    #div_id_veh_chasis_vin {
+        left: 2.34%;
+        top: 74.86%;
+    }
+
+    #div_id_veh_motor {
+        left: 2.34%;
+        top: 84.15%;
+    }
+
+    #icono_add_proveedor {
         width: 94.86%;
         height: 35.96%;
         left: 2.34%;
-        top: 74.5%;
+        top: 93.16%;
     }
 
-    #div_id_CliTelefono {
-        left: 2.34%;
-        top: 110.46%;
-    }
-
-    #div_id_CliCelular {
-        left: 2.34%;
-        top: 119.74%;
-    }
-
-    #div_id_CliEmail {
+    #div_id_veh_ultima_fecha_ingreso {
         left: 2.34%;
         top: 129.03%;
     }
 
+    #div_id_veh_ultima_fecha_salida {
+        left: 2.34%;
+        top: 138.32%;
+    }
+
+    #div_id_veh_informe_tecnico {
+        height: 206px !important;
+        left: 2.34%;
+        top: 147.7%;
+    }
+
+    #div_id_veh_informe_tecnico textarea {
+        width: 100%;
+        height: 80%;
+        bottom: 0%;
+    }
+
     .frame_b {
         width: 62.62%;
-        left: 14.95%;
-        top: 139.49%;
+        height: 45px;
+        left: 19%;
+        top: 172%;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .titulo {
+        height: 70px;
+    }
+
+    .titulo h1 {
+        padding-top: 10px;
     }
 
 }

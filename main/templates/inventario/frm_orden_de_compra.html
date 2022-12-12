@@ -11,17 +11,17 @@
 {% block contenido %}
 <section>
   <div class="titulo_superior">
-      <h1>Crear órden de compra</h1>
+      <h1>Crear orden de compra</h1>
   </div>
   <div class="form_ordenes">
       <div class="sub_frm_ord">
-          <h2>Agregar órden de compra</h2>
+          <h2>Agregar orden de compra</h2>
       </div>
       <form action="" method="POST" class="form_orden">
           {% csrf_token %}
           {{form|crispy}}
           <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">
-          <button class="btn_agregar" name="form-crear">Agregar Órden</button>
+          <button class="btn_agregar" name="form-crear">Agregar orden</button>
       </form>
   </div>
   <div class="contenedor_secundario">

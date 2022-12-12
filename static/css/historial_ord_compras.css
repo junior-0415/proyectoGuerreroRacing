@@ -174,35 +174,19 @@ table tbody tr td:nth-child(2) {
         line-height: 37px;
     }
 
-    #label_buscar_articulo {
-        /* Buscar: */
-        width: 55px;
-        left: 4.34%;
-        top: 9%;
+    .label_buscar_orden_compra {
+        left: 2.34%;
+        top: 9.5%;
     }
 
-    #idbuscar_articulo {
-        width: 28.97%;
-        left: 20.09%;
-        top: 9.29%;
-    }
-
-    #label_filtrar {
-        /* Filtrar: */
-
-        left: 50.23%;
-        top: 9.87%;
-    }
-
-    #css_propiedades_filtro {
-        width: 28.97%;
-        left: 61.92%;
+    #idbuscar_orden_compra {
+        width: 55%;
+        left: 33%;
         top: 9.29%;
     }
 
     #btn_mostrar_filtro {
-        width: 6.7%;
-        left: 91.22%;
+        left: 89%;
         top: 9.29%;
     }
 
@@ -215,5 +199,35 @@ table tbody tr td:nth-child(2) {
         right: 4.77%;
         top: 85.08%;
         bottom: 10.04%;
+    }
+}
+
+@media (max-width: 550px) {
+    #titulo_superior {
+        height: 100px;
+    }
+
+    #titulo_superior h1 {
+        padding-top: 16px;
+    }
+
+    .label_buscar_orden_compra {
+        left: 2.34%;
+        top: 16.5%;
+    }
+
+    #idbuscar_orden_compra {
+        width: 55%;
+        left: 33%;
+        top: 16%;
+    }
+
+    #btn_mostrar_filtro {
+        left: 89%;
+        top: 16%;
+    }
+
+    .container_tabla {
+        top: 21.51%;
     }
 }

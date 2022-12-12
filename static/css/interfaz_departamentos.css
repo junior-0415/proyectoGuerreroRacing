@@ -421,3 +421,95 @@ table tbody tr td:first-child {
     left: 13.72%;
     top: 0%;
 }
+
+@media (max-width: 767px) {
+    .titulo_superior {
+        height: 7.76%;
+    }
+
+    .titulo_superior h2 {
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    .label_buscar {
+        left: 2.34%;
+        top: 9.5%;
+    }
+
+    #DepBusqueda {
+        width: 55%;
+        left: 33%;
+        top: 9.29%;
+        z-index: 1;
+    }
+
+    #btn_mostrar_filtro {
+        left: 89%;
+        top: 9.29%;
+        z-index: 1;
+    }
+
+    #img1 {
+        width: 90%;
+        left: 8%;
+        top: 6%;
+        z-index: 0;
+    }
+
+    #btn_anadir {
+        left: 36%;
+        top: 45%;
+    }
+
+    .container_tabla {
+        top: 13.51%;
+    }
+
+    .contenedor_tabla {
+        width: 100%;
+        left: 0%;
+        top: 50%;
+    }
+
+    .container_modal-form {
+        width: 100%;
+        height: 500px;
+    }
+
+    .frame_b {
+        width: 80%;
+        height: 45px;
+    }
+}
+
+@media (max-width: 380px) {
+    .titulo_superior {
+        height: 110px;
+    }
+
+    .titulo_superior h2 {
+        padding-top: 16px;
+    }
+
+    .contenedor_secundario {
+        top: 175%;
+    }
+
+    #img1 {
+        width: 70%;
+        top: 12%;
+    }
+
+    .label_buscar {
+        top: 16.5%;
+    }
+
+    #DepBusqueda {
+        top: 16.29%;
+    }
+
+    #btn_mostrar_filtro {
+    top: 16.29%;
+    }
+}

@@ -171,49 +171,33 @@ table tbody tr td:first-child {
 }
 
 @media (max-width: 767px) {
-    .titulo_superior {
+    /* .titulo_superior {
         height: 7.76%;
-    }
+    } */
 
     .titulo_superior h2 {
         font-size: 32px;
         line-height: 37px;
     }
 
-    .label_buscar_cliente {
-        /* Buscar: */
-        width: 55px;
-        left: 4.34%;
-        top: 9%;
+    .label_buscar_orden {
+        left: 2.34%;
+        top: 12.5%;
     }
 
-    #idCliBusqueda {
-        width: 28.97%;
-        left: 20.09%;
-        top: 9.29%;
-    }
-
-    .label_filtrar {
-        /* Filtrar: */
-
-        left: 50.23%;
-        top: 9.87%;
-    }
-
-    #css_propiedades_filtro {
-        width: 28.97%;
-        left: 61.92%;
-        top: 9.29%;
+    #idOrdSBusqueda {
+        width: 55%;
+        left: 33%;
+        top: 12%;
     }
 
     #btn_mostrar_filtro {
-        width: 6.7%;
-        left: 91.22%;
-        top: 9.29%;
+        left: 89%;
+        top: 12%;
     }
 
     .container_tabla {
-        top: 13.51%;
+        top: 15.51%;
     }
 
     #ancla {
@@ -221,5 +205,31 @@ table tbody tr td:first-child {
         right: 4.77%;
         top: 85.08%;
         bottom: 10.04%;
+    }
+}
+
+@media (max-width: 550px) {
+    .titulo_superior {
+        height: 120px;
+    }
+
+    .label_buscar_orden {
+        left: 2.34%;
+        top: 17.5%;
+    }
+
+    #idOrdSBusqueda {
+        width: 55%;
+        left: 33%;
+        top: 17%;
+    }
+
+    #btn_mostrar_filtro {
+        left: 89%;
+        top: 17%;
+    }
+
+    .container_tabla {
+        top: 21.51%;
     }
 }

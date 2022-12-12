@@ -24,6 +24,13 @@ def nosotros(request):
     }
     return render(request, 'nosotros.html', context)
 
+def soporte_ayuda(request):
+    titulo = "Soporte y ayuda"
+    context = {
+        'titulo': titulo
+    }
+    return render(request, 'interfaz_soporte_ayuda.html', context)
+
 # def loggedIn(request):
 #     if request.user.is_authenticated:
 #         respuesta:"Ingresado como: "  + request.user.username

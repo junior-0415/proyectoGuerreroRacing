@@ -18,6 +18,7 @@
             <h2>Agregar Facturas</h2>
         </div>
         <form action="" method="POST" class="form_factura">
+            <h4 class="control-group" id="num_factura">El número de tu factura se generará automáticamente</h4>
             {% csrf_token %}
             {{form|crispy}}
             <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">

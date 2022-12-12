@@ -176,7 +176,6 @@ input:focus, select:focus {
     top: 149.74%;
 }
 
-
 #div_id_emp_fecha_nacimiento {
     position: absolute;
     left: 50.05%;
@@ -203,28 +202,14 @@ input:focus, select:focus {
 
 #div_id_emp_foto {
     position: absolute;
-    height: 13.07% !important;
     left: 50.05%;
     top: 112.05%;
-}
-
-fieldset {
-    height: 65px;
-    width: auto;
-    left: 0%;
-    top: 0%;
-    margin: 0%;
-    padding: 0%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
 }
 
 .frame_b {
     position: absolute;
     width: 26.1%;
-    height: 4.92%;
+    height: 30px;
     left: 54.72%;
     top: 127.33%;
 }
@@ -308,57 +293,58 @@ fieldset {
         line-height: 37px;
     }
 
-    .frame_f {
+    .control-group {
         width: 85.51%;
         height: 7.76%;
     }
 
-    .f1 {
+    #div_id_emp_tipo_documento {
         left: 2.34%;
         top: 9.87%;
     }
 
-    .f2 {
+    #div_id_id_emp_identificacion {
         left: 2.34%;
         top: 19.16%;
     }
 
-    .f3 {
+    #div_id_emp_nombre {
         left: 2.34%;
         top: 28.44%;
     }
 
-    .f4 {
+    #div_id_emp_apellidos {
         left: 2.34%;
         top: 36.72%;
     }
 
-    .f5 {
+    #div_id_emp_genero {
+        width: 18% !important;
         left: 2.34%;
         top: 47.01%;
     }
 
-    .f6 {
+    #div_id_emp_direccion {
         left: 2.34%;
         top: 56.29%;
     }
 
-    .f7 {
+    #div_id_tbl_ciudad_idciudad {
         left: 2.34%;
         top: 65.57%;
     }
 
-    .f8 {
+    #div_id_emp_telefono {
         left: 2.34%;
         top: 74.86%;
     }
 
-    .f9 {
+    #div_id_emp_celular {
         left: 2.34%;
         top: 84.14%;
     }
 
-    .f10 {
+    #div_id_emp_email {
         left: 2.34%;
         top: 93.42%;
     }
@@ -366,42 +352,44 @@ fieldset {
     #img1 {
         width: 94.86%;
         height: 35.96%;
-        left: 2.34%;
+        left: 1.9%;
         top: 98.24%;
     }
 
-    .f11 {
+    #div_id_tbl_sucursal_idsucursal {
         left: 2.34%;
         top: 130.67%;
     }
 
-    .f12 {
+    #div_id_emp_fecha_nacimiento {
         left: 2.34%;
         top: 139.96%;
     }
 
-    .f13 {
+    #div_id_emp_cargo {
         left: 2.34%;
         top: 149.24%;
     }
 
-    .f14 {
+    #div_id_emp_num_contrato {
         left: 2.34%;
         top: 158.52%;
     }
 
-    .f15 {
+    #div_id_emp_fecha_ingreso {
         left: 2.34%;
         top: 167.8%;
     }
 
-    .f16 {
-        left: 14.95% !important;
+    #div_id_emp_foto {
+        left: 2.34%;
         top: 177.44%;
     }
 
     .frame_b {
         width: 62.62%;
-        left: 3.41%;
+        height: 45px;
+        left: 17%;
+        top: 187%;
     }
 }

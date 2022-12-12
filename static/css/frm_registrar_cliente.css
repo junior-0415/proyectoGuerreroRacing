@@ -270,38 +270,38 @@ input:focus, select:focus {
         height: 7.76%;
     }
 
-    #div_id_CliNombres {
+    #div_id_cli_nombres {
         left: 2.34%;
         top: 9.87%;
     }
 
-    #div_id_CliApellidos {
+    #div_id_cli_apellidos {
         left: 2.34%;
         top: 19.16%;
     }
 
-    #div_id_CliTipoDocumento {
+    #div_id_cli_tipo_documento {
         left: 2.34%;
         top: 28.44%;
     }
 
-    #div_id_idIdentificacion {
+    #div_id_id_identificacion {
         left: 2.34%;
         top: 37.72%;
     }
 
-    #div_id_CliGenero {
+    #div_id_cli_genero {
         width: 55px !important;
         left: 2.34%;
         top: 47.01%;
     }
 
-    #div_id_CliDireccion {
+    #div_id_cli_direccion {
         left: 2.34%;
         top: 56.29%;
     }
 
-    #div_id_TblCiudades_idCiudad {
+    #div_id_tbl_ciudades_idciudad {
         left: 2.34%;
         top: 65.57%;
     }
@@ -313,17 +313,17 @@ input:focus, select:focus {
         top: 74.5%;
     }
 
-    #div_id_CliTelefono {
+    #div_id_cli_telefono {
         left: 2.34%;
         top: 110.46%;
     }
 
-    #div_id_CliCelular {
+    #div_id_cli_celular {
         left: 2.34%;
         top: 119.74%;
     }
 
-    #div_id_CliEmail {
+    #div_id_cli_email {
         left: 2.34%;
         top: 129.03%;
     }
@@ -334,4 +334,15 @@ input:focus, select:focus {
         top: 139.49%;
     }
 
+}
+
+@media (max-width: 380px) {
+    .titulo {
+        height: 80px;
+    }
+
+    .titulo h1 {
+        padding-top: 10px;
+        font-size: 25px;
+    }
 }

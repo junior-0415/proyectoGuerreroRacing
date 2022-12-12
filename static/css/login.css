@@ -25,6 +25,14 @@ h2 {
     background-color: grey !important;
 }
 
+.fondo1 {
+    background: #8b8b8b !important;
+}
+
+#id_username {
+    margin-left: 25px;
+}
+
 /* modales */
 /* ************************************************************************************************ */
 
@@ -857,5 +865,13 @@ input:focus {
     .container_modal4 {
         width: 100%;
         height: 31.49%;
+    }
+
+    #id_username {
+        margin: 0%;
+    }
+
+    input {
+        width: 100%;
     }
 }

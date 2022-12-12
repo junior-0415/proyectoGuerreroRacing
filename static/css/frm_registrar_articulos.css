@@ -281,67 +281,84 @@ input:focus, select:focus, textarea:focus {
         line-height: 37px;
     }
 
-    .frame_f {
+    .control-group {
         width: 85.51%;
         height: 7.76%;
     }
 
-    .f1 {
+    #div_id_art_nombre {
         left: 2.34%;
         top: 9.87%;
     }
 
-    .f2 {
+    #div_id_tbl_categoria_idcategoria {
         left: 2.34%;
         top: 19.16%;
     }
 
-    .f3 {
+    #div_id_art_stock_maximo {
         left: 2.34%;
         top: 28.44%;
     }
 
-    .f4 {
+    #div_id_art_stock_minimo {
         left: 2.34%;
         top: 37.72%;
     }
 
-    .f5 {
-        height: 24.21% !important;
+    #div_id_art_precio {
         left: 2.34%;
         top: 47.01%;
     }
 
-    .f5 input {
-        height: 86.41% !important;
-    }
-
-    .f6 {
+    #div_id_art_descripcion {
+        height: 206px !important;
         left: 2.34%;
-        top: 91.89%;
-    }
-
-    .f7 {
-        left: 2.34%;
-        top: 101.18%;
+        top: 56.29%;
     }
 
     #img1 {
         width: 36.64%;
         height: 23.18%;
         left: 31.78%;
-        top: 72%;
+        top: 77%;
     }
 
-    .frame_b {
-        width: 62.62%;
-        left: 14.95%;
-        top: 111.64%;
+    #div_id_art_foto {
+        left: 2.34%;
+        top: 93.89%;
+    }
+    
+    #div_id_tbl_proveedores_idproveedor {
+        left: 2.34%;
+        top: 103.18%;
+    }
+    
+    #div_id_tbl_marcas_idmarca {
+        left: 2.34%;
+        top: 112%;
     }
 
     #texto_guia1 {
         width: 70.56%;
         left: 14.72%;
-        top: 117.39%;
+        top: 120%;
+    }
+
+    .frame_b {
+        width: 62.62%;
+        left: 14.95%;
+        top: 130%;
+    }
+}
+
+@media (max-width: 380px) {
+    #titulo_superior {
+        height: 80px;
+    }
+
+    #titulo_superior h1 {
+        padding-top: 16px;
+        font-size: 25px;
     }
 }

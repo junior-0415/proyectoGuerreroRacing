@@ -164,7 +164,6 @@ table tbody tr td:first-child {
 }
 
 #btn_eliminar {
-    /* position: absolute; */
     width: 24px;
     height: 24px;
     margin-left: 10px;
@@ -175,41 +174,26 @@ table tbody tr td:first-child {
         height: 7.76%;
     }
 
-    .titulo_superior h2 {
+    .titulo_superior h1 {
         font-size: 32px;
         line-height: 37px;
     }
 
     .label_buscar_cliente {
-        /* Buscar: */
-        width: 55px;
-        left: 4.34%;
-        top: 9%;
+        left: 2.34%;
+        top: 9.5%;
     }
 
     #idCliBusqueda {
-        width: 28.97%;
-        left: 20.09%;
-        top: 9.29%;
-    }
-
-    .label_filtrar {
-        /* Filtrar: */
-
-        left: 50.23%;
-        top: 9.87%;
-    }
-
-    #css_propiedades_filtro {
-        width: 28.97%;
-        left: 61.92%;
+        width: 55%;
+        left: 33%;
         top: 9.29%;
     }
 
     #btn_mostrar_filtro {
-        width: 6.7%;
-        left: 91.22%;
+        left: 89%;
         top: 9.29%;
+        z-index: 1;
     }
 
     .container_tabla {
@@ -221,5 +205,35 @@ table tbody tr td:first-child {
         right: 4.77%;
         top: 85.08%;
         bottom: 10.04%;
+    }
+}
+
+@media (max-width: 380px) {
+    .titulo_superior {
+        height: 70px;
+    }
+
+    .titulo_superior h1 {
+        padding-top: 15px !important;
+    }
+
+    .contenedor_secundario {
+        top: 175%;
+    }
+
+    .label_buscar_cliente {
+        top: 11.5%;
+    }
+
+    #idCliBusqueda {
+        top: 11.29%;
+    }
+
+    #btn_mostrar_filtro {
+    top: 11.29%;
+    }
+
+    .container_tabla {
+        top: 15.51%;
     }
 }

@@ -234,40 +234,39 @@ table tbody tr td:first-child {
     margin-left: 10px;
 }
 
+.info1 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 0.97%;
+    top: 14.43%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+}
+
 @media (max-width: 767px) {
     .titulo_superior {
         height: 7.76%;
     }
 
-    .titulo_superior h2 {
+    .titulo_superior h1 {
         font-size: 32px;
         line-height: 37px;
     }
 
-    .label_buscar_cliente {
-        /* Buscar: */
-        width: 55px;
-        left: 4.34%;
-        top: 9%;
-    }
-
-    #idCliBusqueda {
-        width: 28.97%;
-        left: 20.09%;
-        top: 9.29%;
-    }
-
-    .label_filtrar {
-        /* Filtrar: */
-
-        left: 50.23%;
-        top: 9.87%;
-    }
-
-    #css_propiedades_filtro {
-        width: 28.97%;
-        left: 61.92%;
-        top: 9.29%;
+    .info1 {
+        left: 2.34%;
+        top: 9.5%;
     }
 
     #btn_mostrar_filtro {
@@ -285,5 +284,45 @@ table tbody tr td:first-child {
         right: 4.77%;
         top: 85.08%;
         bottom: 10.04%;
+    }
+}
+
+@media (max-width: 550px) {
+    .titulo_superior {
+        height: 90px;
+    }
+
+    .titulo_superior h1{
+        padding-top: 20px;
+    }
+
+    .info1 {
+        top: 11.5%;
+    }
+  
+    .container_tabla {
+        top: 18.51%;
+    }
+}
+
+@media (max-width: 380px) {
+    .titulo_superior {
+        height: 70px;
+    }
+  
+    .titulo_superior h1 {
+        padding-top: 15px !important;
+    }
+  
+    .contenedor_secundario {
+        top: 175%;
+    }
+  
+    .info1 {
+        top: 11.5%;
+    }
+  
+    .container_tabla {
+        top: 18.51%;
     }
 }

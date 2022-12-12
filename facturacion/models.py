@@ -7,7 +7,7 @@ from usuarios.models import Cliente, Empleados, OrdenServicio
 # Create your models here.
 
 class FacturaVenta(models.Model):
-    fac_numero_serie = models.IntegerField(primary_key=True, verbose_name="Número de serie:", unique=True)
+    fac_numero_serie = models.AutoField(primary_key=True, verbose_name="Número de serie:", unique=True)
     tbl_ordenes_servicio_idorden_servicio = models.OneToOneField(OrdenServicio, on_delete=models.CASCADE, blank=True, null=True, verbose_name="Órden de servicio número:")
     tbl_empleados_idempleado = models.ForeignKey(Empleados, on_delete=models.CASCADE, verbose_name="Empleado:")
     tbl_clientes_idcliente = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Cliente:")

@@ -322,3 +322,109 @@ table tbody tr td:first-child {
 .btn_finalizar_tarea {
     margin-left: 10px;
 }
+
+@media (max-width: 767px) {
+    .titulo_superior {
+        height: 7.76%;
+    }
+
+    .titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    .form_ordenes {
+        width: 95%;
+        height: 950px;
+        left: 2.34%;
+        top: 9.87%;
+        overflow: hidden;
+    }
+
+    #div_id_ord_lugar_emision {
+        left: 10px;
+        top: 7%;
+    }
+    
+    #div_id_ord_direccion {
+        left: 10px;
+        top: 15%;
+    }
+    
+    #div_id_ord_telefono {
+        left: 10px;
+        top: 23%;
+    }
+    
+    #div_id_ord_celular {
+        left: 10px;
+        top: 31%;
+    }
+    
+    #div_id_ord_email {
+        left: 10px;
+        top: 39%;
+    }
+    
+    #div_id_ord_fecha {
+        left: 10px;
+        top: 47%;
+    }
+    
+    #div_id_ord_proveedor {
+        left: 10px;
+        top: 55%;
+    }
+    
+    #div_id_ord_termino_pago {
+        left: 10px;
+        top: 63%;
+    }
+    
+    #div_id_ord_termino_entrega {
+        left: 10px;
+        top: 71%;
+    }
+
+    #div_id_ord_otras_tarifas {
+        left: 10px;
+        top: 80%;
+    }
+
+    .btn_agregar {
+        left: 4%;
+        top: 90%;
+    }
+
+    .contenedor_secundario {
+        width: 95%;
+        height: 500px;
+        left: 2.34%;
+        top: 115%;
+    }
+    
+}
+
+@media (max-width: 550px) {
+    .titulo_superior {
+        height: 90px;
+    }
+
+    .titulo_superior h1{
+        padding-top: 20px;
+    }
+
+    .form_ordenes {
+        top: 14%;
+    }
+
+    .contenedor_secundario {
+        top: 125%;
+    }
+}
+
+@media (max-width: 380px) {
+    .contenedor_secundario {
+        top: 160%;
+    }
+}
