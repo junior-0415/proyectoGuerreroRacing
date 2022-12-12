@@ -490,6 +490,40 @@
         </table>
     </div>
     <div class="titulo_tablas flex_item">
+        <h2>Compras o pedidos</h2>
+    </div>
+    <div class="container_tabla flex_item">
+        <table>
+            <thead>
+                <tr>
+                    <th>Recivido por:</th>
+                    <th>Fecha de recivido</th>
+                    <th>Precio total</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for compra in pedidos %}
+                <tr>
+                    <td>{{compra.ped_recivido_por}}</td>
+                    <td>{{compra.ped_fecha_recivido}}</td>
+                    <td>{{compra.ped_precio}}</td>
+                    <td>
+                        <a href="{% url 'restablecer_compra_pedido' compra.id %}">
+                            <img src="{% static 'img/recuperar_desde_papelera.svg' %}" alt="Botón restablecer" class="btn_restablecer" title="Recuperar desde papelera">
+                        </a>
+                        <a href="#" onclick="eliminar_compra_pedido_def_alert({{compra.id}})">
+                            <img src="{% static 'img/eliminar_definitivamente.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Eliminar definitivamente">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+    <div class="titulo_tablas flex_item">
         <h2>Sucursales</h2>
     </div>
     <div class="container_tabla flex_item">

@@ -6,6 +6,7 @@ from django.views.generic import View, TemplateView, ListView, DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from articulos.models import Articulos, Categoria, Marcas, Proveedores
+from inventario.models import Pedidos
 from usuarios.models import Ciudades, Cliente, Departamentos, Empleados, OrdenServicio, Servicios, Sucursales, Vehiculo
 
 #from clientes.models import Cliente, Ciudades, Departamentos, Vehiculo
@@ -22,6 +23,13 @@ def nosotros(request):
         'titulo': titulo
     }
     return render(request, 'nosotros.html', context)
+
+def soporte_ayuda(request):
+    titulo = "Soporte y ayuda"
+    context = {
+        'titulo': titulo
+    }
+    return render(request, 'interfaz_soporte_ayuda.html', context)
 
 # def loggedIn(request):
 #     if request.user.is_authenticated:
@@ -63,6 +71,7 @@ def papelera_reciclaje(request):
     servicios = Servicios.objects.filter(ser_estado = '0')
     sucursales = Sucursales.objects.filter(suc_estado = '0')
     ordenes = OrdenServicio.objects.filter(ser_estado = '0')
+    pedidos = Pedidos.objects.filter(ped_estado = '0')
     context = {
         'titulo':titulo,
         'clientes':clientes,
@@ -77,6 +86,7 @@ def papelera_reciclaje(request):
         'servicios':servicios,
         'sucursales':sucursales,
         'ordenes':ordenes,
+        'pedidos':pedidos,
     }
     return render(request, 'interfaz_papelera.html', context)
 
@@ -428,6 +438,22 @@ def restablecer_orden_ser(request, pk):
 
 def eliminar_def_orden_ser(request, pk):
     OrdenServicio.objects.filter(id=pk).delete()
+    messages.warning(
+        request,f"Se eliminó definitivamente el registro"
+    )
+    return redirect('papelera')
+
+def restablecer_compra_pedido(request, pk):
+    Pedidos.objects.filter(id=pk).update(
+        ped_estado='1'
+    )
+    messages.success(
+        request,f"Se restableció el registro exitosamente"
+    )
+    return redirect('registrar_pedido_compra')
+
+def eliminar_def_compra_pedido(request, pk):
+    Pedidos.objects.filter(id=pk).delete()
     messages.warning(
         request,f"Se eliminó definitivamente el registro"
     )

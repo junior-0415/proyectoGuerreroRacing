@@ -274,3 +274,73 @@ table tbody tr td:first-child {
     width: 24px;
     height: 24px;
 }
+
+@media (max-width: 767px) {
+    .titulo_superior {
+        height: 7.76%;
+    }
+
+    .titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    .form_articulos {
+        width: 95%;
+        height: 380px;
+        left: 2.34%;
+        top: 9.87%;
+        overflow: hidden;
+    }
+
+    #div_id_tbl_articulos_idarticulo {
+        left: 10px;
+        top: 15%;
+    }
+    
+    #div_id_dep_precio {
+        left: 10px;
+        top: 36%;
+    }
+    
+    #div_id_dep_cantidad {
+        left: 10px;
+        top: 57%;
+    }
+
+    .btn_agregar {
+        left: 4%;
+        top: 82%;
+    }
+
+    .contenedor_secundario {
+        width: 95%;
+        height: 500px;
+        left: 2.34%;
+        top: 55%;
+    }
+}
+
+@media (max-width: 550px) {
+    .titulo_superior {
+        height: 90px;
+    }
+
+    .titulo_superior h1{
+        padding-top: 20px;
+    }
+
+    .form_articulos {
+        top: 14%;
+    }
+
+    .contenedor_secundario {
+        top: 65%;
+    }
+}
+
+@media (max-width: 380px) {
+    .contenedor_secundario {
+        top: 80%;
+    }
+}

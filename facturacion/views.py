@@ -1,9 +1,18 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+from django.views.generic import View
+import os
+from django.conf import settings
+from django.template import Context
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.urls import reverse_lazy
+from django.contrib.staticfiles import finders
+from django.db.models import Q
 
 from facturacion.forms import DetalleFacturaVentaForm, FacturaVentaForm
 from facturacion.models import DetalleFacturaVenta, FacturaVenta
-from usuarios.models import Empleados
+from usuarios.models import Empleados, Empresa, Sucursales
 from django.contrib import messages
 
 # Create your views here.
@@ -11,6 +20,9 @@ from django.contrib import messages
 def facturar_venta(request, modal_status='hid'):
     titulo = "Registrar y facturar venta"
     facturas = FacturaVenta.objects.filter(fac_estado='1')
+    #detalle_factura = DetalleFacturaVenta.objects.get().all
+
+    #print(detalle_factura)
 
     ### cuerpo del modal ###
     modal_title = ""
@@ -99,6 +111,7 @@ def facturar_venta(request, modal_status='hid'):
         'pk':pk_factura,
         'tipo':tipo,
         'form_update':form_update,
+        #'detalle_factura':detalle_factura,
     }
     return render(request, 'facturacion/frm_registrar_ventas.html', context)
 
@@ -133,3 +146,99 @@ def eliminar_art_detalle_fac(request, pk):
         request,f"Se ha quitado el artículo"
     )
     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+
+class ImprimirFacturaVenta(View,):
+    def link_callback(self, uri, rel):
+            """
+            Convert HTML URIs to absolute system paths so xhtml2pdf can access those
+            resources
+            """
+            result = finders.find(uri)
+            if result:
+                    if not isinstance(result, (list, tuple)):
+                            result = [result]
+                    result = list(os.path.realpath(path) for path in result)
+                    path=result[0]
+            else:
+                    sUrl = settings.STATIC_URL        # Typically /static/
+                    sRoot = settings.STATIC_ROOT      # Typically /home/userX/project_static/
+                    mUrl = settings.MEDIA_URL         # Typically /media/
+                    mRoot = settings.MEDIA_ROOT       # Typically /home/userX/project_static/media/
+
+                    if uri.startswith(mUrl):
+                            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+                    elif uri.startswith(sUrl):
+                            path = os.path.join(sRoot, uri.replace(sUrl, ""))
+                    else:
+                            return uri
+
+            # make sure that file exists
+            if not os.path.isfile(path):
+                    raise Exception(
+                            'media URI must start with %s or %s' % (sUrl, mUrl)
+                    )
+            return path
+
+    def get(self, request, *args, **kwargs):
+        try:
+            template = get_template('facturacion/imprimir_factura.html')
+            context = {
+                'venta': FacturaVenta.objects.get(pk=self.kwargs['pk']),
+                'icon': 'static/img/logo_racing.png',
+                'detalle_venta': DetalleFacturaVenta.objects.filter(tbl_facturas_idfactura=self.kwargs['pk']),
+                'empresa': Empresa.objects.get(empr_estado=1),
+                'sucursal': 'Bogotá, Colombia',
+            }
+            html = template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            #response['Content-Disposition'] = 'attachment; filename="factura.pdf"'
+            pisa_status = pisa.CreatePDF(
+            html, dest=response,
+            link_callback=self.link_callback
+            )
+            return response
+        except:
+            pass
+        return HttpResponseRedirect(reverse_lazy('facturar_venta'))
+
+def cerrar_factura(request, pk):
+    FacturaVenta.objects.filter(fac_numero_serie=pk).update(
+        fac_estado='2'
+    )
+    messages.success(
+        request,f"La factura se ha cerrado exitosamente"
+    )
+    return redirect('ordenes_servicio')
+
+def historial_ventas(request):
+    titulo = "Historial ventas"
+    historial_ventas_ = FacturaVenta.objects.filter(fac_estado='2')
+    busqueda = request.GET.get('venta_busqueda')
+    if busqueda:
+        historial_ventas_ = FacturaVenta.objects.filter(
+            Q(fac_numero_serie__icontains = busqueda)
+        ).distinct()
+    context = {
+        'titulo':titulo,
+        'historial_ventas_':historial_ventas_,
+    }
+    return render(request, 'facturacion/interfaz_historial_ventas.html', context)
+
+def tbl_rel_factura_art_hist(request, pk):
+    titulo = f"Detalle de la factura {pk}"
+    rel = DetalleFacturaVenta.objects.filter(tbl_facturas_idfactura_id=pk)
+    print(rel)
+    context = {
+        'titulo':titulo,
+        'rel':rel,
+    }
+    return render(request, 'facturacion/interfaz_historial_dell_factura.html', context)
+
+def eliminar_factura_venta(request, pk):
+    FacturaVenta.objects.filter(fac_numero_serie=pk).update(
+        fac_estado='0'
+    )
+    messages.success(
+        request,f"La factura se eliminó exitosamente"
+    )
+    return redirect('historial_ventas')

@@ -23,7 +23,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 #########################################
 
-from main.views import eliminar_def_articulo, eliminar_def_categoria, eliminar_def_ciudad, eliminar_def_cliente, eliminar_def_depart, eliminar_def_empleado, eliminar_def_marca, eliminar_def_orden_ser, eliminar_def_proveedor, eliminar_def_servicio, eliminar_def_sucursal, eliminar_def_vehiculo, inicio, inicioAdmin, logout_user, nosotros, papelera_reciclaje, restablecer_articulo, restablecer_categoria, restablecer_ciudad, restablecer_cliente, restablecer_departamento, restablecer_empleado, restablecer_marca, restablecer_orden_ser, restablecer_proveedor, restablecer_servicio, restablecer_sucursal, restablecer_vehiculo
+from main.views import eliminar_def_articulo, eliminar_def_categoria, eliminar_def_ciudad, eliminar_def_cliente, eliminar_def_compra_pedido, eliminar_def_depart, eliminar_def_empleado, eliminar_def_marca, eliminar_def_orden_ser, eliminar_def_proveedor, eliminar_def_servicio, eliminar_def_sucursal, eliminar_def_vehiculo, inicio, inicioAdmin, logout_user, nosotros, papelera_reciclaje, restablecer_articulo, restablecer_categoria, restablecer_ciudad, restablecer_cliente, restablecer_compra_pedido, restablecer_departamento, restablecer_empleado, restablecer_marca, restablecer_orden_ser, restablecer_proveedor, restablecer_servicio, restablecer_sucursal, restablecer_vehiculo, soporte_ayuda
 
 # handler404= Error_404.as_view()s
 
@@ -46,6 +46,7 @@ urlpatterns = [
     path('', include('facturacion.urls')),
     path('', include('django.contrib.auth.urls')),
     #path("select2/", include('django_select2.urls')),
+    path('soporte-ayuda/', soporte_ayuda, name="soporte_ayuda"),
     path('papelera-de-reciclaje/', papelera_reciclaje, name="papelera"),
     path('papelera-de-reciclaje/clientes/restablecer/<int:pk>/', restablecer_cliente, name="restablecer_cliente"),
     path('papelera-de-reciclaje/clientes/eliminar/<int:pk>/', eliminar_def_cliente, name="eliminar_def_cliente"),
@@ -71,4 +72,6 @@ urlpatterns = [
     path('papelera-de-reciclaje/sucursales/eliminar/<int:pk>/', eliminar_def_sucursal, name='eliminar_def_sucursal'),
     path('papelera-de-reciclaje/ordenes-servicio/restablecer/<int:pk>/', restablecer_orden_ser, name='restablecer_orden_ser'),
     path('papelera-de-reciclaje/ordenes-sericio/eliminar/<int:pk>/', eliminar_def_orden_ser, name='eliminar_def_orden_ser'),
+    path('papelera-de-reciclaje/compras-pedidos/restablecer/<int:pk>/', restablecer_compra_pedido, name='restablecer_compra_pedido'),
+    path('papelera-de-reciclaje/compras-pedidos/eliminar/<int:pk>/', eliminar_def_compra_pedido, name='eliminar_def_compra_pedido'),
 ]+ static(settings.MEDIA_URL, document_root= settings.MEDIA_ROOT)

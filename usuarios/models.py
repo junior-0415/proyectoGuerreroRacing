@@ -37,7 +37,7 @@ class Empresa(models.Model):
     empr_nit = models.CharField(max_length=20, verbose_name="Nit:")
     empr_dueno = models.CharField(max_length=80, verbose_name="Dueño:")
     empr_sitio_web = models.CharField(max_length=100, verbose_name="Sitio Web:")
-    empr_razon_social = models.TextField(max_length=300, verbose_name="Razon Social:")
+    empr_razon_social = models.TextField(max_length=300, verbose_name="Razón Social:")
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
@@ -52,7 +52,7 @@ class Sucursales(models.Model):
     tbl_empresas_idempresa = models.ForeignKey(Empresa, on_delete=models. CASCADE, verbose_name="Empresa:")
     suc_nombre = models.CharField(max_length=80, verbose_name="Nombre:")
     suc_administrador = models.CharField(max_length=80, verbose_name="Administrador:")
-    suc_direccion = models.CharField(max_length=80, verbose_name="Direccion:")
+    suc_direccion = models.CharField(max_length=80, verbose_name="Dirección:")
     class Tipo(models.TextChoices):
         PRINCIPAL = '1', _('Principal')
         SEDE = '0', _('Sede')
@@ -82,7 +82,7 @@ class Servicios(models.Model):
 
 class Empleados(models.Model):
     tbl_sucursal_idsucursal = models.ForeignKey(Sucursales, on_delete=models. CASCADE, verbose_name="Sucursal:")
-    id_emp_identificacion = models.CharField(max_length=50, verbose_name="Identificación:")
+    id_emp_identificacion = models.CharField(max_length=50, unique=True, verbose_name="Identificación:")
     class TipoDocumento(models.TextChoices): 
         TI = 'T.I', _('Tarjeta de Identidad')
         CC = 'C.C', _('Cédula de Ciudadanía')
@@ -95,11 +95,11 @@ class Empleados(models.Model):
     class Genero(models.TextChoices):
         FEMENINO = 'F', _('Femenino')
         MASCULINO = 'M', _('Masculino')
-    emp_genero = models.CharField(max_length=1, choices=Genero.choices, verbose_name="Genero:")
+    emp_genero = models.CharField(max_length=1, choices=Genero.choices, verbose_name="Género:")
     emp_direccion = models.CharField(max_length=100, verbose_name="Dirección:")
     emp_telefono = models.CharField(max_length=20, verbose_name="Teléfono:")
     emp_celular = models.CharField(max_length=20, verbose_name="Celular:")
-    emp_email = models.EmailField(max_length=100, verbose_name="E-mail:")
+    emp_email = models.EmailField(max_length=100, unique=True, verbose_name="E-mail:")
     emp_fecha_nacimiento = models.DateField( verbose_name="Fecha de nacimiento:")
     emp_cargo = models.CharField(max_length=50, verbose_name="Cargo:")
     emp_num_contrato = models.CharField(max_length=50, verbose_name="Número de Contrato:")
@@ -115,7 +115,7 @@ class Empleados(models.Model):
         return "%s - %s" % (self.emp_nombre, self.emp_apellidos)
 
 class Cliente(models.Model):
-    id_identificacion = models.CharField(max_length=50, verbose_name="Identificación:")
+    id_identificacion = models.CharField(max_length=50, unique=True, verbose_name="Identificación:")
     class TipoDocumento(models.TextChoices):
         TI = 'T.I', _('Tarjeta de Identidad')
         CC = 'C.C', _('Cédula de Ciudadanía')
@@ -127,7 +127,7 @@ class Cliente(models.Model):
     class Genero(models.TextChoices):
         FEMENINO = 'F', _('Femenino')
         MASCULINO = 'M', _('Masculino')
-    cli_genero = models.CharField(max_length=2, choices=Genero.choices, verbose_name="Genero:")
+    cli_genero = models.CharField(max_length=2, choices=Genero.choices, verbose_name="Género:")
     cli_direccion = models.CharField(max_length=100, verbose_name="Dirección:")
     tbl_ciudades_idciudad = models.ForeignKey(Ciudades, on_delete=models.CASCADE, verbose_name="Ciudad")
     cli_telefono = models.CharField(max_length=20, blank=True, verbose_name="Teléfono:")
@@ -142,7 +142,7 @@ class Cliente(models.Model):
         return "%s - %s" % (self.cli_nombres, self.cli_apellidos)
 
 class Vehiculo(models.Model):
-    id_matricula = models.CharField(max_length=6, verbose_name="Matrícula:")
+    id_matricula = models.CharField(unique=True, max_length=6, verbose_name="Matrícula:")
     tbl_cliente_ididentificacion = models.ForeignKey(Cliente, on_delete=models.CASCADE, verbose_name="Dueño:")
     veh_modelo = models.CharField(max_length=45, verbose_name="Modelo:")
     veh_color = models.CharField(max_length=20, verbose_name="Color:")
@@ -151,9 +151,9 @@ class Vehiculo(models.Model):
     veh_anio = models.CharField(max_length=4, verbose_name="Año:")  # preguntas
     veh_chasis_vin = models.CharField(max_length=45, verbose_name="Chasis_VIN:")
     veh_motor = models.CharField(max_length=45, verbose_name="Motor:")
-    veh_ultima_fecha_ingreso = models.DateField(verbose_name="Ultima fecha de ingreso:")
-    veh_ultima_fecha_salida = models.DateField(verbose_name="Ultima fecha de salida:")
-    veh_informe_tecnico = models.TextField(max_length=200, verbose_name="Informe técnico:")
+    veh_ultima_fecha_ingreso = models.DateField(verbose_name="Última fecha de ingreso:")
+    veh_ultima_fecha_salida = models.DateField(blank=True, null=True, verbose_name="Última fecha de salida:")
+    veh_informe_tecnico = models.TextField(max_length=500, verbose_name="Informe técnico:")
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
@@ -184,11 +184,11 @@ class OrdenServicio(models.Model):
     ord_s_celular_cli = models.CharField(max_length=20, verbose_name="Celular:")
     tbl_servicos_idservicio = models.ForeignKey(Servicios, on_delete=models.CASCADE, verbose_name="Servicio:")
     ord_s_vehiculo = models.CharField(max_length=6, verbose_name="Vehículo:")
-    ord_s_informe_tecnico = models.TextField(max_length=300, verbose_name="Informe técnico:")
+    ord_s_informe_tecnico = models.TextField(max_length=500, verbose_name="Informe técnico:")
     class EstadoPago(models.TextChoices):
-        PAGADO = '1', _('Pagado')
-        SINPAGAR = '0', _('Sin pagar')
-    ord_s_estado_pago = models.CharField(max_length=1, choices=EstadoPago.choices, verbose_name="Estado de pago")
+        PAGADO = 'Pagado', _('Pagado')
+        SINPAGAR = 'Sin pagar', _('Sin pagar')
+    ord_s_estado_pago = models.CharField(max_length=9, choices=EstadoPago.choices, verbose_name="Estado de pago")
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')
@@ -199,9 +199,9 @@ class OrdenServicio(models.Model):
 
 class TblRelOrdenServicioArticulos(models.Model):
     tbl_orden_servicio_idorden_servicio = models.ForeignKey(OrdenServicio, on_delete=models.CASCADE, verbose_name="Orden de servicio:")
-    Ttbl_articulos_idarticulo = models.ForeignKey(Articulos, blank=True, on_delete=models.CASCADE, verbose_name="Artículos:")
-    art_cantidad = models.SmallIntegerField(blank=True, verbose_name="Cantidad:")
-    art_precio = models.DecimalField(max_digits=9, decimal_places=2, blank=True, verbose_name="Precio:")
+    Ttbl_articulos_idarticulo = models.ForeignKey(Articulos, on_delete=models.CASCADE, verbose_name="Artículos:")
+    art_cantidad = models.SmallIntegerField(verbose_name="Cantidad:")
+    art_precio = models.DecimalField(max_digits=9, decimal_places=2, verbose_name="Precio:")
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')

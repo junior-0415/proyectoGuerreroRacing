@@ -7,7 +7,16 @@ from django.contrib.auth.decorators import login_required, permission_required
 from articulos.models import Articulos
 from usuarios.forms import CiudadesForm, ClienteForm, DepartamentosForm, EmpleadosForm, EmpresaForm, OrdenServicioForm, ServiciosForm, SucursalesForm, TblRelOrdenServicioArticulosForm, VehiculosForm
 from django.contrib.auth.models import User
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
+from django.db.models import Q
+
+from django.views.generic import View
+import os
+from django.conf import settings
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.urls import reverse_lazy
+from django.contrib.staticfiles import finders
 
 from usuarios.models import Ciudades, Cliente, Departamentos, Empleados, Empresa, OrdenServicio, Servicios, Sucursales, TblRelOrdenServicioArticulos, Vehiculo
 
@@ -114,13 +123,18 @@ def eliminar_sucursal(request, pk):
         suc_estado='0'
     )
     messages.success(
-        request,f"La sucursal se envió a papelera exitosamente"
+        request,f"La sucursal se eliminó exitosamente"
     )
     return redirect('sucursales')
 
 def servicios(request):
     titulo = "Servicios"
     servicios = Servicios.objects.filter(ser_estado = '1')
+    busqueda = request.GET.get('serv_busqueda')
+    if busqueda:
+        servicios = Servicios.objects.filter(
+            Q(ser_nombre__icontains = busqueda)
+        ).distinct()
     if request.method == "POST":
         form = ServiciosForm(request.POST)
         if form.is_valid():
@@ -168,13 +182,20 @@ def eliminar_servicio(request, pk):
         ser_estado='0'
     )
     messages.success(
-        request,f"El servicio se envió a papelera exitosamente"
+        request,f"El servicio se eliminó exitosamente"
     )
     return redirect('servicios')
 
 def clientes(request):
     titulo = "Clientes"
     clientes = Cliente.objects.filter(cli_estado = '1')
+    busqueda = request.GET.get('cli_busqueda')
+    if busqueda:
+        clientes = Cliente.objects.filter(
+            Q(id_identificacion__icontains = busqueda) |
+            Q(cli_nombres__icontains = busqueda) |
+            Q(cli_apellidos__icontains = busqueda)
+        ).distinct()
     context = {
         'titulo': titulo,
         'clientes': clientes
@@ -232,7 +253,7 @@ def eliminar_cliente(request, pk):
         cli_estado='0'
     )
     messages.success(
-        request,f"El cliente se envió a papelera exitosamente"
+        request,f"El cliente se eliminó exitosamente"
     )
     return redirect('clientes')
 
@@ -241,6 +262,12 @@ def eliminar_cliente(request, pk):
 def ciudades(request):
     titulo = "Ciudades y municipios"
     ciudades = Ciudades.objects.filter(ciu_estado = '1')
+    busqueda = request.GET.get('ciu_busqueda')
+    if busqueda:
+        ciudades = Ciudades.objects.filter(
+            Q(id_ciudad__icontains = busqueda) |
+            Q(ciu_nombre__icontains = busqueda)
+        ).distinct()
     if request.method == "POST":
         form = CiudadesForm(request.POST)
         if form.is_valid():
@@ -289,7 +316,7 @@ def eliminar_ciudad(request, pk):
         ciu_estado='0'
     )
     messages.success(
-        request,f"La ciudad o municipio se envió a papelera exitosamente"
+        request,f"La ciudad o municipio se eliminó exitosamente"
     )
     return redirect('ciudades')
 
@@ -297,6 +324,12 @@ def eliminar_ciudad(request, pk):
 def departamentos(request):
     titulo = "Departamentos"
     departamentos = Departamentos.objects.filter(dep_estado = '1')
+    busqueda = request.GET.get('dep_busqueda')
+    if busqueda:
+        departamentos = Departamentos.objects.filter(
+            Q(id_depart__icontains = busqueda) |
+            Q(dep_nombre__icontains = busqueda)
+        ).distinct()
     if request.method == 'POST':
         form = DepartamentosForm(request.POST)
         if form.is_valid():
@@ -345,13 +378,18 @@ def eliminar_departamento(request, pk):
         dep_estado='0'
     )
     messages.success(
-        request,f"El departamento se envió a papelera exitosamente"
+        request,f"El departamento se eliminó exitosamente"
     )
     return redirect('departamentos')
 
 def vehiculos(request):
     titulo = "Vehículos"
     vehiculos = Vehiculo.objects.filter(veh_estado = '1')
+    busqueda = request.GET.get("buscar")
+    if busqueda:
+        vehiculos = Vehiculo.objects.filter(
+            Q(id_matricula__icontains = busqueda)
+        ).distinct()
     context = {
         'titulo': titulo,
         'vehiculos': vehiculos
@@ -407,13 +445,18 @@ def eliminar_vehiculo(request, pk):
         veh_estado='0'
     )
     messages.success(
-        request,f"El vehículo se envió a papelera exitosamente"
+        request,f"El vehículo se eliminó exitosamente"
     )
     return redirect('vehiculos')
 
 def vehiculos_taller(request):
     titulo = "Vehículos en taller"
     vehiculos = Vehiculo.objects.filter(veh_taller = 'Si', veh_estado = '1')
+    busqueda = request.GET.get('veh_busqueda')
+    if busqueda:
+        vehiculos = Vehiculo.objects.filter(
+            Q(id_matricula__icontains = busqueda)
+        ).distinct()
     context = {
         'titulo': titulo,
         'vehiculos': vehiculos
@@ -464,7 +507,13 @@ def ingresar_vehiculo_taller(request, pk):
 def empleado(request):
     titulo = "Empleados"
     empleado = Empleados.objects.filter(emp_estado='1')
-
+    busqueda = request.GET.get('emp_busqueda')
+    if busqueda:
+        empleado = Empleados.objects.filter(
+            Q(id_emp_identificacion__icontains = busqueda) |
+            Q(emp_nombre__icontains = busqueda) |
+            Q(emp_apellidos__icontains = busqueda)
+        ).distinct()
     context = {
         'titulo': titulo,
         'empleado': empleado
@@ -551,13 +600,13 @@ def eliminar_empleado(request, pk):
         emp_estado='0'
     )
     messages.success(
-        request,f"El empleado se envió a papelera exitosamente"
+        request,f"El empleado se eliminó exitosamente"
     )
     return redirect('empleados')
 
 def ordenes_servicio(request, modal_status='hid'):
     titulo = "Registrar órdenes de venta"
-    ordenes = OrdenServicio.objects.filter(ser_estado='1')
+    ordenes = OrdenServicio.objects.filter(ser_estado='1', ord_s_estado_pago='Sin pagar')
 
     ### cuerpo del modal ###
     modal_title = ""
@@ -679,7 +728,16 @@ def eliminar_orden_ser(request, pk):
         ser_estado='0'
     )
     messages.success(
-        request,f"La órden se envió a papelera exitosamente"
+        request,f"La órden se eliminó exitosamente"
+    )
+    return redirect('ordenes_servicio')
+
+def cerrar_orden_servicio(request, pk):
+    OrdenServicio.objects.filter(id=pk).update(
+        ord_s_estado_pago='Pagado'
+    )
+    messages.success(
+        request,f"La órden se ha cerrado exitosamente"
     )
     return redirect('ordenes_servicio')
 
@@ -689,3 +747,82 @@ def quitar_art_rel_ord_art(request, pk):
         request,f"Se ha quitado el artículo"
     )
     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
+
+class ImprimirOrdenServicio(View):
+    def link_callback(self, uri, rel):
+            """
+            Convert HTML URIs to absolute system paths so xhtml2pdf can access those
+            resources
+            """
+            result = finders.find(uri)
+            if result:
+                    if not isinstance(result, (list, tuple)):
+                            result = [result]
+                    result = list(os.path.realpath(path) for path in result)
+                    path=result[0]
+            else:
+                    sUrl = settings.STATIC_URL        # Typically /static/
+                    sRoot = settings.STATIC_ROOT      # Typically /home/userX/project_static/
+                    mUrl = settings.MEDIA_URL         # Typically /media/
+                    mRoot = settings.MEDIA_ROOT       # Typically /home/userX/project_static/media/
+
+                    if uri.startswith(mUrl):
+                            path = os.path.join(mRoot, uri.replace(mUrl, ""))
+                    elif uri.startswith(sUrl):
+                            path = os.path.join(sRoot, uri.replace(sUrl, ""))
+                    else:
+                            return uri
+
+            # make sure that file exists
+            if not os.path.isfile(path):
+                    raise Exception(
+                            'media URI must start with %s or %s' % (sUrl, mUrl)
+                    )
+            return path
+
+    def get(self, request, *args, **kwargs):
+        try:
+            template = get_template('usuarios/imprimir_orden_servicio.html')
+            context = {
+                'orden_servicio': OrdenServicio.objects.get(pk=self.kwargs['pk']),
+                'icon': 'static/img/logo_racing.png',
+                'articulos_orden': TblRelOrdenServicioArticulos.objects.filter(tbl_orden_servicio_idorden_servicio=self.kwargs['pk']),
+                'empresa': Empresa.objects.get(empr_estado=1),
+                'sucursal': 'Bogotá, Colombia',
+            }
+            html = template.render(context)
+            response = HttpResponse(content_type='application/pdf')
+            #response['Content-Disposition'] = 'attachment; filename="factura.pdf"'
+            pisa_status = pisa.CreatePDF(
+            html, dest=response,
+            link_callback=self.link_callback
+            )
+            return response
+        except:
+            pass
+        return HttpResponseRedirect(reverse_lazy('ordenes_servicio'))
+
+def historial_ord_servicio(request):
+    titulo = "Historial ordenes de servicio"
+    ordenes_servicio_h = OrdenServicio.objects.filter(ser_estado='1', ord_s_estado_pago='Pagado')
+    busqueda = request.GET.get("ord_s_busqueda")
+    if busqueda:
+        ordenes_servicio_h = OrdenServicio.objects.filter(
+            Q(ord_s_identificacion_cli = busqueda) |
+            Q(ord_s_vehiculo = busqueda)
+        ).distinct()
+    context = {
+        'titulo':titulo,
+        'ordenes_servicio_h':ordenes_servicio_h,
+    }
+    return render(request, 'usuarios/interfaz_historial_ord_servicio.html', context)
+
+def tbl_rel_orden_ser_art_hist(request, pk):
+    titulo = f"Detalle de la orden de servicio {pk}"
+    rel = TblRelOrdenServicioArticulos.objects.filter(tbl_orden_servicio_idorden_servicio_id=pk)
+    print(rel)
+    context = {
+        'titulo':titulo,
+        'rel':rel,
+    }
+    return render(request, 'usuarios/interfaz_detall_hist_ord_ser.html', context)

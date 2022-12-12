@@ -14,18 +14,11 @@
         <h2>Ciudades y municipios guardados</h2>
     </div>
     <div class="contenedor_form">
-        <form>
+        <form method="GET">
             <label for="CiuBusqueda" class="label_buscar">Buscar ciudad:</label>
-            <input type="search" name="CiuBusqueda" id="CiuBusqueda" placeholder="Buscar">
-
-            <label for="FiltroCiudades" class="label_filtrar">Filtrar:</label>
-            <input list="FiltroCiudades" name="FiltroCiudades" id="css_propiedades_filtro"
-                placeholder="Elige un filtro">
-            <datalist id="FiltroCiudades">
-                <option value="A-Z">Opción 1</option>
-                <option value="Z-A">Opción 2</option>
-            </datalist>
-            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+            <input type="search" name="ciu_busqueda" id="CiuBusqueda" value="{{request.GET.ciu_busqueda}}" placeholder="Buscar">
+    
+            <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
         </form>
     </div>
     <div class="contenedor_tabla">
@@ -99,5 +92,15 @@
 
 
 {% block js %}
+<script>
+    $(function () {
+        $("#sidebarToggle").click();
+        $("#id_tbl_departamento_iddepart").select2({
+            placeholder:"Selecciona un departamento",
+            allowClear:true,
+            width:"100%",
+        });
+    });
+</script>
 <script src="{% static 'js/interfaz_ciu_municipios.js' %}"></script>
 {% endblock js %}

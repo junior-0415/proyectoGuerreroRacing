@@ -12,22 +12,11 @@
         <div id="titulo_superior">
             <h1>Artículos registrados</h1>
         </div>
-        <form>
-            <label for="idbuscar_articulo" id="label_buscar_articulo">Buscar artículos:</label>
-            <input type="search" name="BuscarArticulo" id="idbuscar_articulo" placeholder="Buscar">
-            
-            <label for="FiltroArticulos" id="label_filtrar">Filtrar:</label>
-            <input list="FiltroArticulos" name="FiltroArticulos" id="css_propiedades_filtro" placeholder="Elige un filtro">
-            <datalist id="FiltroArticulos">
-                <option value="Artículos sin stock">Opción 1</option>
-                <option value="Artículos con stock menor a 5">Opción 2</option>
-                <option value="Artículos de la categoria buscada">Opción 3</option>
-                <option value="Artículos del proveedor buscado">Opción 4</option>
-                <option value="Artículos mas vendidos">Opción 5</option>
-                <option value="Artículos con menos ventas">Opción 6</option>
-                <option value="Mostrar todo"></option>
-            </datalist>
-            <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+        <form method="GET">
+            <label for="idbuscar_articulo" class="label_buscar_articulo">Buscar artículo:</label>
+            <input type="search" name="art_busqueda" id="idbuscar_articulo" value="{{request.GET.art_busqueda}}" placeholder="Buscar">
+    
+            <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
         </form>
         <div class="container_tabla">
             <table>
@@ -54,7 +43,7 @@
                         </td>
                         <td>{{articulo.pk}}</td>
                         <td>{{articulo.art_nombre}}</td>
-                        <td>{{articulo.tbl_marca_articulos_idmarca_articulo}}</td>
+                        <td>{{articulo.tbl_marcas_idmarca}}</td>
                         <td>{{articulo.tbl_categoria_idcategoria}}</td>
                         <td>{{articulo.art_stock_disp}}</td>
                         <td>{{articulo.art_precio}}</td>

@@ -9,24 +9,85 @@
     
 
 {% block contenido %}
-<div class="titulo">
-    <h1>Crear órden de compra</h1>
+<section>
+  <div class="titulo_superior">
+      <h1>Crear orden de compra</h1>
   </div>
-  <form action="" method="POST">
-    {{form|crispy}}
-    {% csrf_token %}
-    <div class="hr_p"></div>
-    <div class="frame_b">
-      <button id="btn_guardar" type="submit ">Guardar</button>
-      <button id="btn_cancelar" type="reset">Cancelar</button>
-    </div>
-    <img src="{% static 'img/orden_compra.svg' %}" alt="Icono alucivo a proveedores" id="img1" id> 
-  </form>
+  <div class="form_ordenes">
+      <div class="sub_frm_ord">
+          <h2>Agregar orden de compra</h2>
+      </div>
+      <form action="" method="POST" class="form_orden">
+          {% csrf_token %}
+          {{form|crispy}}
+          <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">
+          <button class="btn_agregar" name="form-crear">Agregar orden</button>
+      </form>
+  </div>
+  <div class="contenedor_secundario">
+      <div class="titulo_tabla">
+          <h2>Órdenes abiertas</h2>
+      </div>
+      <div class="contenedor_tabla">
+          <table>
+              <thead>
+                  <tr>
+                      <th>Empleado responsable</th>
+                      <th>Lugar de emisión</th>
+                      <th>Proveedor</th>
+                      <th>Fecha</th>
+                      <th>Término de pago</th>
+                      <th>Término de entrega</th>
+                      <th>Ótras tarifas</th>
+                      <th>Costo estimado</th>
+                      <th>Acciones</th>
+                  </tr>
+              </thead>
+              <tbody>
+
+                  {% for orden in ordenes_compra %}
+                  <tr>
+                      <td>{{orden.ord_empleado}}</td>
+                      <td>{{orden.ord_lugar_emision}}</td>
+                      <td>{{orden.ord_proveedor}}</td>
+                      <td>{{orden.ord_fecha}}</td>
+                      <td>{{orden.ord_termino_pago}}</td>
+                      <td>{{orden.ord_termino_entrega}}</td>
+                      <td>${{orden.ord_otras_tarifas}}</td>
+                      <td>${{orden.ord_costo_estimado}}</td>
+                      <td class="d-flex flex-row">
+                            {% csrf_token %}
+                            <a href="{% url 'detalle_orden_compra' orden.id %}">
+                                <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar órden">
+                            </a>
+
+                            <a href="#" onclick="cerrar_orden_compra({{orden.id}})" class="reset">
+                            <img src="{% static 'img/finalizar_tarea.svg' %}" class="btn_finalizar_tarea" alt="Cerrar órden" title="Cerrar órden">
+                            </a>
+
+                            <a href="{% url 'imprimir_orden_compra' orden.id %}">
+                                <img src="{% static 'img/imprimir.svg' %}" alt="Imprimir factura" class="btn_imprimir" title="Imprimir factura">
+                            </a>
+                      </td>
+                  </tr>
+                  {% endfor %}
+
+              </tbody>
+          </table>
+      </div>
+  </div>
+</section>
 {% endblock contenido %}
 
-
 {% block js %}
-
+<script>
+    $(function () {
+        $("#sidebarToggle").click();
+        $("#id_ord_proveedor").select2({
+            placeholder:"Selecciona un proveedor",
+            allowClear:true,
+            width:"100%",
+        });
+    });
+</script>
 {% endblock js %}
-    
-    

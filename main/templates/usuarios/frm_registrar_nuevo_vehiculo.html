@@ -29,7 +29,21 @@
 
 
 {% block js %}
-
+<script>
+    $(function () {
+        $("#sidebarToggle").click();
+        $("#id_tbl_cliente_ididentificacion").select2({
+            placeholder:"Selecciona un cliente",
+            allowClear:true,
+            width:"100%",
+        });
+        $("#id_tbl_marcas_idmarca").select2({
+            placeholder:"Selecciona una marca",
+            allowClear:true,
+            width:"100%",
+        });
+    });
+</script>
 {% endblock js %}
     
 

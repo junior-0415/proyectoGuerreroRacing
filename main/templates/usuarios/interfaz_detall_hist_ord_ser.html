@@ -1,0 +1,44 @@
+{% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_detall_hist_ord_ser.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+<section>
+    <div class="titulo_superior">
+        <h1>Artículos de la órden de servicio</h1>
+    </div>
+    <!-- formulario de busqueda -->
+    <h3 class="info1">Estas viendo los artículos que se agregarón en la orden que seleccionaste</h3>
+    <div class="container_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Orden de servicio</th>
+                    <th>Artículos</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for rel in rel %}
+                <tr>
+                    <td>{{rel.tbl_orden_servicio_idorden_servicio}}</td>
+                    <td>{{rel.Ttbl_articulos_idarticulo}}</td>
+                    <td>{{rel.art_cantidad}}</td>
+                    <td>{{rel.art_precio}}</td>
+                    <td>{{rel.art_costo}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock contenido %}
+    

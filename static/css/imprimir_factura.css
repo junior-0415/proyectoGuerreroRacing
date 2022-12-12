@@ -1,0 +1,30 @@
+.img-factura {
+    width: 50px;
+    text-align: center;
+    margin: 0% auto;
+}
+
+.head {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#factura thead tr th {
+    text-align: left;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    padding-top: 4px;
+}
+
+#factura thead tr {
+    margin-bottom: 0%;
+    padding-bottom: 0%;
+}
+
+#factura tbody tr {
+    padding: 0%;
+}
+
+.text-center {
+    text-align: center;
+}

@@ -16,7 +16,7 @@
     width: auto;
     height: auto;
 
-    font-family: 'Comic Sans MS', 'cursive';
+    font-family: 'Open Sans', sans-serif;
     font-weight: 400;
     font-size: 40px;
     line-height: 48px;
@@ -236,42 +236,42 @@ input, select, textarea {
         line-height: 37px;
     }
 
-    .frame_f {
+    .control-group {
         width: 85.51%;
         height: 7.76%;
     }
 
-    .f1 {
+    #div_id_pro_nit {
         left: 2.34%;
         top: 9.87%;
     }
 
-    .f2 {
+    #div_id_pro_nombre {
         left: 2.34%;
         top: 19.16%;
     }
 
-    .f3 {
+    #div_id_pro_categoria {
         left: 2.34%;
         top: 28.44%;
     }
 
-    .f4 {
+    #div_id_pro_persona_nat {
         left: 2.34%;
         top: 37.72%;
     }
 
-    .f5 {
+    #div_id_pro_direccion {
         left: 2.34%;
         top: 47.01%;
     }
 
-    .f6 {
+    #div_id_pro_telefono {
         left: 2.34%;
         top: 56.29%;
     }
 
-    .f7 {
+    #div_id_pro_celular {
         left: 2.34%;
         top: 65.57%;
     }
@@ -283,12 +283,12 @@ input, select, textarea {
         top: 73.33%;
     }
 
-    .f8 {
+    #div_id_pro_email {
         left: 2.34%;
         top: 100.24%;
     }
 
-    .f9 {
+    #div_id_pro_sitio_web {
         left: 2.34%;
         top: 109.52%;
     }
@@ -297,5 +297,16 @@ input, select, textarea {
         width: 62.62%;
         left: 18.69%;
         top: 119.98%;
+    }
+}
+
+@media (max-width: 380px) {
+    .titulo {
+        height: 80px;
+    }
+
+    .titulo h1 {
+        padding-top: 16px;
+        font-size: 25px;
     }
 }

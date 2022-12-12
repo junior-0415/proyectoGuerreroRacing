@@ -1,0 +1,347 @@
+.titulo_superior {
+    position: absolute;
+    width: 100%;
+    height: 10.53%;
+    left: 0%;
+    top: 0%;
+
+    background: rgba(0, 117, 128, 0.982);
+
+    display: grid;
+    place-items: center;
+}
+
+.titulo_superior h1 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 8px;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+}
+
+.form_articulos {
+    position: absolute;
+    width: 34.08%;
+    height: 60%;
+    left: 0%;
+    top: 14.43%;
+    border: 1px solid #ACACAC;
+    border-radius: 5px;
+
+    overflow: auto;
+}
+
+.sub_articulos {
+    position: absolute;
+    width: 91.14%;
+    height: 38px;
+    left: 9px;
+    top: 12px;
+
+    display: grid;
+    place-items: center;
+
+    background: #007580;
+    border-radius: 5px;
+}
+
+.sub_articulos h2, .titulo_tabla h2 {
+    /* Registrar sucursal */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+
+    color: #FFFFFF;
+
+    padding: 0%;
+    margin: 0%;
+}
+
+form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    margin: 0%;
+    padding: 0%;
+}
+
+.control-group {
+    position: absolute;
+    width: 91.86%;
+    height: 66px;
+}
+
+label {
+    width: auto;
+    height: auto;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #000000;
+}
+
+input, select {
+    box-sizing: border-box;
+    width: 100%;
+    height: 38px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+    background: none;
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+.select2-selection__rendered {
+    line-height: 38px !important;
+}
+.select2-container .select2-selection--single {
+    height: 38px !important;
+}
+.select2-selection__arrow {
+    height: 38px !important;
+}
+
+input:focus, select:focus, textarea:focus {
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+#div_id_rel_articulo_cantidad label, #div_id_rel_articulo_cantidad label, #div_id_rel_precio_compra label {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+#div_id_rel_articulo_cantidad input, #div_id_rel_articulo_cantidad input, #div_id_rel_precio_compra input {
+    position: absolute;
+    left: 0%;
+    bottom: 0%;
+}
+
+#div_id_tbl_articulos_idarticulo {
+    left: 10px;
+    top: 20%;
+}
+
+#div_id_rel_articulo_cantidad {
+    left: 10px;
+    top: 40%;
+}
+
+#div_id_rel_precio_compra {
+    left: 10px;
+    top: 62%;
+}
+
+.btn_agregar {
+    position: absolute;
+    width: 91.86%;
+    height: 38px;
+    left: 10px;
+    bottom: 3%;
+    background: #00B9CA;
+    box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
+    border-radius: 7.48503px;
+    border: #00B9CA;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16.4671px;
+    line-height: 19px;
+    color: #FFFFFF;
+}
+
+.btn_agregar:hover {
+    background: rgba(0, 117, 128, 0.982);
+}
+
+.btn_agregar:active {
+    background: #ffffff;
+    color: rgba(0, 117, 128, 0.982);
+    border: 1.5px solid rgba(0, 117, 128, 0.982);
+}
+
+.contenedor_secundario {
+    position: absolute;
+    width: 60%;
+    height: 84%;
+    left: 38%;
+    top: 14.43%;
+
+    border: 1px solid #ACACAC;
+    border-radius: 5px;
+}
+
+
+.titulo_tabla {
+    position: absolute;
+    width: 95%;
+    height: 38px;
+    left: 10px;
+    top: 12px;
+
+    display: grid;
+    place-items: center;
+
+    background: #007580;
+    border-radius: 5px;
+}
+
+.contenedor_tabla {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    max-height: 89%;
+    left: 0%;
+    top: 10%;
+    display: grid;
+    justify-items: center;
+
+    overflow: auto;
+}
+
+table {
+    background-color: #FFFFFF;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #DCDCDC;
+}
+
+thead {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+}
+
+/* iluminar celdas */
+
+
+tr:hover td {
+    background-color: #E5E5E5;
+}
+
+table tbody tr td:first-child {
+    font-weight: 700;
+}
+
+.reset {
+    border: none;
+    background: none;
+    margin: 0% !important;
+    padding: 0%;
+
+    display: flex;
+}
+
+.btn_eliminar {
+    width: 24px;
+    height: 24px;
+}
+
+@media (max-width: 767px) {
+    .titulo_superior {
+        height: 7.76%;
+    }
+
+    .titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    .form_articulos {
+        width: 95%;
+        height: 380px;
+        left: 2.34%;
+        top: 9.87%;
+        overflow: hidden;
+    }
+
+    #div_id_tbl_articulos_idarticulo {
+        left: 10px;
+        top: 15%;
+    }
+    
+    #div_id_rel_articulo_cantidad {
+        left: 10px;
+        top: 36%;
+    }
+    
+    #div_id_rel_precio_compra {
+        left: 10px;
+        top: 57%;
+    }
+
+    .btn_agregar {
+        left: 4%;
+        top: 82%;
+    }
+
+    .contenedor_secundario {
+        width: 95%;
+        height: 500px;
+        left: 2.34%;
+        top: 55%;
+    }
+}
+
+@media (max-width: 550px) {
+    .titulo_superior {
+        height: 90px;
+    }
+
+    .titulo_superior h1{
+        padding-top: 20px;
+    }
+
+    .form_articulos {
+        top: 14%;
+    }
+
+    .contenedor_secundario {
+        top: 65%;
+    }
+}
+
+@media (max-width: 380px) {
+    .contenedor_secundario {
+        top: 80%;
+    }
+}

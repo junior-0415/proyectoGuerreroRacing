@@ -18,19 +18,7 @@
         <img src="{% static 'img/registrar_cliente_empleado.svg' %}" alt="Imgem aluciva a empleados" id="img1">
         {{form|crispy}}
         {% csrf_token %}
-        
-        <!-- <div class="frame_f f14">
-            <fieldset>
-                <legend>Servicios asociados:</legend>
-                <label for="s_ventas" id="label_s_ventas">S.Ventas</label>
-                <input type="checkbox" id="s_ventas" name="s_ventas" value="Ventas">
-                <label for="s_mantenimiento" id="label_s_mantenimiento">S.Mantenimiento</label>
-                <input type="checkbox" id="s_mantenimiento" name="s_mantenimiento" value="Mantenimiento">
-                <label for="solo_cargo" id="label_solo_cargo">Solo cargo</label>
-                <input type="checkbox" id="solo_cargo" name="solo_cargo" value="Solo cargo">
-            </fieldset>
-        </div> -->
-        <div class="frame_b f15">
+        <div class="frame_b">
             <button type="submit" id="btn_guardar">Guardar</button>
             <button type="reset" id="btn_cancelar">Cancelar</button>
         </div>
@@ -40,6 +28,14 @@
 
 
 {% block js %}
-
+<script>
+    $(function () {
+        $("#sidebarToggle").click();
+        $("#id_tbl_ciudad_idciudad").select2({
+            placeholder:"Selecciona una ciudad",
+            allowClear:true,
+            width:"100%",
+        });
+    });
+</script>
 {% endblock js %}
-    

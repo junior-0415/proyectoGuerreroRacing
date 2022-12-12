@@ -1,0 +1,165 @@
+.titulo_superior {
+    position: absolute;
+    width: 100%;
+    height: 10.53%;
+    left: 0%;
+    top: 0%;
+
+    background: rgba(0, 117, 128, 0.982);
+
+    display: grid;
+    place-items: center;
+}
+
+.titulo_superior h1 {
+    /* Clientes registrados */
+
+    position: absolute;
+    width: auto;
+    height: auto;
+    margin: 0%;
+    padding: 0%;
+    padding-bottom: 8px;
+
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+
+    color: #FFFFFF;
+}
+
+form {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    padding: 0%;
+}
+
+input {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+
+    border: 1.5px solid #acacac;
+    border-radius: 5px;
+}
+
+input:focus {
+    border: 1px solid #C2DAFF;
+    outline: 4.5px solid #C2DAFF;
+}
+
+
+.info1 {
+    position: absolute;
+    width: auto;
+    height: auto;
+    left: 0.97%;
+    top: 14.43%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 19px;
+}
+
+#ancla {
+    position: fixed;
+    left: 93.96%;
+    right: 1.99%;
+    top: 89.47%;
+    bottom: 3.46%;
+
+    display: grid;
+    justify-content: end;
+}
+
+.container_tabla {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    /* left: 10px; */
+    top: 21.73%;
+    display: grid;
+    justify-items: center;
+
+    overflow: auto;
+}
+
+table {
+    background-color: #FFFFFF;
+    text-align: left;
+    border-collapse: collapse;
+    width: 100%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+th,
+td {
+    padding: 15px;
+}
+
+tbody tr {
+    border-bottom: 1px solid #DCDCDC;
+}
+
+thead {
+    background-color: #ffffff;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+}
+
+/* iluminar celdas */
+
+
+tr:hover td {
+    background-color: #E5E5E5;
+}
+
+table tbody tr td:first-child {
+    font-weight: 700;
+}
+
+#btn_eliminar {
+    /* position: absolute; */
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+}
+
+@media (max-width: 767px) {
+    .titulo_superior {
+        height: 7.76%;
+    }
+
+    .titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    .info1 {
+        left: 2.34%;
+        top: 9.5%;
+    }
+
+    .container_tabla {
+        top: 13.51%;
+    }
+
+    #ancla {
+        left: 85.51%;
+        right: 4.77%;
+        top: 85.08%;
+        bottom: 10.04%;
+    }
+}

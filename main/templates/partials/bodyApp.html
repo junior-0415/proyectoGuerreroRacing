@@ -53,6 +53,9 @@
             {% endblock contenido %}
             {% include 'partials/modal.html' %}
         </section>
+        <a href="#" class="open_modal_btn ">
+            <img src="{% static 'img/double_arrow_open.svg' %}" alt="icono desplegar menú lateral" id="open_modal_menu_img">
+        </a>
 
         {% include 'partials/accessibilityMenu.html' %}
 
@@ -77,6 +80,9 @@
     <script src="{% static 'js/alertas_mensajes_emergentes.js' %}"></script>
     {% include 'partials/alertas_mensajes_emergentes.html' %}
     <!-- /SweetAlert2 -->
+    <!-- CharJS -->
+    <script src="{% static 'chart.js/Chart.min.js' %}"></script>
+    <!-- /CharJS -->
 </body>
 
 

@@ -1,0 +1,43 @@
+{% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_historial_dell_factura.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+<section>
+    <div class="titulo_superior">
+        <h1>Artículos de la factura</h1>
+    </div>
+    <!-- formulario de busqueda -->
+    <h3 class="info1">Estas viendo los artículos que se vendierón en la factura que seleccionaste</h3>
+    <div class="container_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Factura</th>
+                    <th>Artículos</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for rel in rel %}
+                <tr>
+                    <td>{{rel.tbl_facturas_idfactura}}</td>
+                    <td>{{rel.tbl_articulos_idarticulo}}</td>
+                    <td>{{rel.dep_cantidad}}</td>
+                    <td>{{rel.dep_precio}}</td>
+                    <td>{{rel.dep_total}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock contenido %}

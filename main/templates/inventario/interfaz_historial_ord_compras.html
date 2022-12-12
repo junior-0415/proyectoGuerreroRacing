@@ -10,43 +10,45 @@
 {% block contenido %}
 <section>
     <div id="titulo_superior">
-        <h1>Historial de compras</h1>
+        <h1>Historial de órdenes de compra</h1>
     </div>
-    <form>
-        <label for="idbuscar_orden_compra" id="label_buscar_orden_compra">Buscar compra:</label>
-        <input type="search" name="BuscarOrdenCompra" id="idobuscar_orden_compra" placeholder="Buscar">
-        
-        <label for="FiltroOrdCompras" id="label_filtrar">Filtrar:</label>
-        <input list="FiltroOrdCompras" name="FiltroOrdCompras" id="css_propiedades_filtro" placeholder="Elige un filtro">
-        <datalist id="FiltroOrdCompras">
-            <option value="Mas recientes">Opción 1</option>
-            <option value="Menos recientes">Opción 2</option>
-        </datalist>
-        <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+    <form method="GET">
+        <label for="idbuscar_orden_compra" class="label_buscar_orden_compra">Buscar orden:</label>
+        <input type="search" name="ord_busqueda" id="idbuscar_orden_compra" value="{{request.GET.ord_busqueda}}" placeholder="Buscar">
+
+        <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
     </form>
     <div class="container_tabla">
         <table>
             <thead>
                 <tr>
                     <th>Fecha</th>
-                    <th>Costo</th>
                     <th>Número orden</th>
                     <th>Realizado por</th>
+                    <th>Provedor</th>
+                    <th>Término de pago</th>
+                    <th>Ótras tarifas</th>
+                    <th>Término de entrega</th>
+                    <th>Costo</th>
                     <th>Acciones</th>
                 </tr>
             </thead>
             
-            {% for historial in historial_ord_compra %}            
+            {% for historial in orden_compra %}            
                 <tr>
                     <td>{{historial.ord_fecha}}</td>
-                    <td>{{historial.ord_costo_total}}</td>
-                    <td>{{historial.pk}}</td>
+                    <td>{{historial.id}}</td>
                     <td>{{historial.ord_empleado}}</td>
+                    <td>{{historial.ord_proveedor}}</td>
+                    <td>{{historial.ord_termino_pago}}</td>
+                    <td>${{historial.ord_otras_tarifas}}</td>
+                    <td>{{historial.ord_termino_entrega}}</td>
+                    <td>${{historial.ord_costo_total}}</td>
                     <td> 
-                        <a href="#">
-                            <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar Órden">
+                        <a href="{% url 'historial_delt_ord_compra' historial.id %}">
+                            <img src="{% static 'img/ver.svg' %}" alt="Botón ver detalles" id="btn_editar" title="Ver detalles">
                         </a>
-                        <a href="#">
+                        <a href="#" onclick="eliminar_registros({{historial.id}})">
                             <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                         </a>
                     </td>
@@ -54,8 +56,8 @@
             {% endfor %}
         </table>
     </div>
-    <a href="{% url 'crear_orden_compra' %}" id="ancla">
-        <img src="{% static 'img/anadir.svg' %}" alt="Icono registrar compra" title="Registrar nueva órden compra">
+    <a href="{% url 'ordenes_compra' %}" id="ancla">
+        <img src="{% static 'img/anadir.svg' %}" alt="Icono registrar nueva órden" title="Registrar nueva órden compra">
     </a>
 </section>
 {% endblock contenido %}
@@ -64,4 +66,3 @@
 {% block js %}
     
 {% endblock js %}
-    

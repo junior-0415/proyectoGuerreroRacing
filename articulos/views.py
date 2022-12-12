@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from multiprocessing import context
 from articulos.forms import ArticulosForm, CategoriasForm, MarcasForm, ProveedoresForm
 from django.contrib import messages
+from django.db.models import Q
 
 from articulos.models import Articulos, Categoria, Marcas, Proveedores
 
@@ -9,13 +10,19 @@ from articulos.models import Articulos, Categoria, Marcas, Proveedores
 # Create your views here
 
 def articulos(request):
-     titulo = "Artículos"
-     articulos = Articulos.objects.filter(art_estado = '1')
-     context = {
+    titulo = "Artículos"
+    articulos = Articulos.objects.filter(art_estado = '1')
+    busqueda = request.GET.get('art_busqueda')
+    if busqueda:
+        articulos = Articulos.objects.filter(
+            Q(id__icontains = busqueda) |
+            Q(art_nombre__icontains = busqueda)
+        ).distinct()
+    context = {
         'titulo':titulo,
-        'articulos':articulos
-     }
-     return render(request, 'articulos/interfaz_articulos.html', context)
+        'articulos':articulos,
+    }
+    return render(request, 'articulos/interfaz_articulos.html', context)
 
 def registrar_articulo(request):
     titulo = "Registrar nuevo artículo"
@@ -72,6 +79,12 @@ def eliminar_articulo(request, pk):
 def categorias(request):
     titulo = "Categorías en artículos"
     categorias = Categoria.objects.filter(cat_estado = '1')
+    busqueda = request.GET.get('cat_busqueda')
+    if busqueda:
+        categorias = Categoria.objects.filter(
+            Q(id__icontains = busqueda) |
+            Q(cat_nombre__icontains = busqueda)
+        ).distinct()
     if request.method == "POST":
         form = CategoriasForm(request.POST)
         if form.is_valid():
@@ -126,6 +139,12 @@ def eliminar_categoria(request, pk):
 def marcas(request):
     titulo = "Marcas"
     marcas = Marcas.objects.filter(mar_estado = '1')
+    busqueda = request.GET.get('mar_busqueda')
+    if busqueda:
+        marcas = Marcas.objects.filter(
+            Q(id__icontains = busqueda) |
+            Q(mar_nombre__icontains = busqueda)
+        ).distinct()
     if request.method == "POST":
         form = MarcasForm(request.POST)
         if form.is_valid():
@@ -179,6 +198,13 @@ def eliminar_marca(request, pk):
 def proveedores(request):
     titulo = "Proveedores"
     proveedores = Proveedores.objects.filter(pro_estado = '1')  # ver formulario
+    busqueda = request.GET.get('pro_busqueda')
+    if busqueda:
+        proveedores = Proveedores.objects.filter(
+            Q(id__icontains = busqueda) |
+            Q(pro_nit__icontains = busqueda) |
+            Q(pro_nombre__icontains = busqueda)
+        ).distinct()
     context = {
         'titulo': titulo,
         'proveedores': proveedores

@@ -27,6 +27,10 @@ class VehiculosForm(forms.ModelForm):
     class Meta:
         model= Vehiculo
         exclude = ['veh_estado', 'veh_taller']
+        widgets = {
+            'veh_ultima_fecha_ingreso': widgets.DateInput(attrs={'type':'date'}),
+            'veh_ultima_fecha_salida': widgets.DateInput(attrs={'type':'date'}),
+        }
 
 class EmpleadosForm(forms.ModelForm):
     class Meta:

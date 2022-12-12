@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5', # pip install django-bootstrap-v5
     'crispy_forms', # pip install crispy-bootstrap5
-    'django_select2', # pip install django-select2 pip install django-redis buscar en google git redis msi
+ # pip install django-select2 pip install django-redis buscar en google git redis msi
     'articulos',
     'inventario',
     'facturacion',

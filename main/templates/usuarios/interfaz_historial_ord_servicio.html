@@ -1,0 +1,71 @@
+{% extends 'partials/bodyApp.html' %}
+{% load static %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/interfaz_historial_ord_servicio.css' %}">
+{% endblock css %}
+    
+
+{% block contenido %}
+<section>
+    <div class="titulo_superior">
+        <h1>Historial órdenes de servicios</h1>
+    </div>
+    <!-- formulario de busqueda -->
+    <form method="GET">
+        <label for="idOrdSBusqueda" class="label_buscar_orden">Buscar orden:</label>
+        <input type="search" name="ord_s_busqueda" id="idOrdSBusqueda" value="{{request.GET.OrdSBusqueda}}" placeholder="Buscar">
+
+        <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
+    </form>
+    <div class="container_tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Empleado</th>
+                    <th>Fecha de registro</th>
+                    <th>Entrega</th>
+                    <th>Cliente</th>
+                    <th>Identificación</th>
+                    <th>Celular</th>
+                    <th>Servicio</th>
+                    <th>Vehículo</th>
+                    <th>Estado</th>
+                    <th>Informe técnico</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for orden in ordenes_servicio_h %}
+                <tr>
+                    <td>{{orden.tbl_empleados_idempleado}}</td>
+                    <td>{{orden.ord_s_fecha}}</td>
+                    <td>{{orden.ord_s_fecha_entrega}}</td>
+                    <td>{{orden.tbl_clientes_idcliente}}</td>
+                    <td>{{orden.ord_s_identificacion_cli}}</td>
+                    <td>{{orden.ord_s_celular_cli}}</td>
+                    <td>{{orden.tbl_servicos_idservicio}}</td>
+                    <td>{{orden.ord_s_vehiculo}}</td>
+                    <td>{{orden.ord_s_estado_pago}}</td>
+                    <td>{{orden.ord_s_informe_tecnico}}</td>
+                    <td>
+                        <a href="{% url 'tbl_rel_orden_ser_art_hist' orden.id %}">
+                            <img src="{% static 'img/ver.svg' %}" alt="Botón ver detalles" id="btn_editar" title="Ver detalles">
+                        </a>
+                        <a href="#" onclick="eliminar_registros({{orden.id}})">
+                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" id="btn_eliminar" title="Eliminar del historial">
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="{% url 'ordenes_servicio' %}" id="ancla">
+        <img src="{% static 'img/anadir.svg' %}" alt="Boton añadir" id="btn_anadir" title="Crear nueva orden">
+    </a>
+</section>
+{% endblock contenido %}
+    

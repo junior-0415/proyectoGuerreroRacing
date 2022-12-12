@@ -12,20 +12,13 @@
         <h1 class="text-center py-2">Clientes Registrados</h1>
     </div>
     <!-- formulario de busqueda -->
-    <form>
+    <form method="GET">
         <label for="idCliBusqueda" class="label_buscar_cliente">Buscar cliente:</label>
-        <input type="search" name="CliBusqueda" id="idCliBusqueda" placeholder="Buscar">
+        <input type="search" name="cli_busqueda" id="idCliBusqueda" value="{{request.GET.cli_busqueda}}" placeholder="Buscar">
 
-        <label for="FiltroClientes" class="label_filtrar">Filtrar:</label>
-        <input list="FiltroClientes" name="FiltroClientes" id="css_propiedades_filtro" placeholder="Elige un filtro">
-        <datalist id="FiltroClientes">
-            <option value="Solo clientes con vehiculos"> Opción 1</option>
-            <option value="Clientes sin vehiculo registrado">Opción 2</option>
-            <option value="Mostrar numero de clientes registrados">Opción 3</option>
-            <option value="Mostrar numero de hombre y mujeres registrados">Opción 4</option>
-        </datalist>
-        <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+        <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
     </form>
+
     <div class="container_tabla">
         <table>
             <thead>

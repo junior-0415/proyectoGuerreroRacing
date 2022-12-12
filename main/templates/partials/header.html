@@ -1,59 +1,39 @@
-<!-- cargar imagness -->
 {% load static %}
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light fixed-top mask-custom shadow-2 bg-white">
-    <div class="container">
-      <a class="navbar-brand" href="#intro"><span style="color: #5e9693;">GUERRERO</span><span
-          style="color: #042c2a;">RACING</span></a>
-      <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-        data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#productos">PRODUCTOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#redes">REDES</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#ubicacion">ENCUENTRANOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#nosotros">NOSOTROS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#carouselExampleCaptions">SERVICIOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#opiniones">COMENTARIOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contactenos">CONTACTENOS</a>
-          </li>
-          <li class="nav-item">
-            <a href="{% url 'login' %}" type="submit" class="nav-link" target="_blank">INICIAR SESIÓN</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav d-flex flex-row">
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fas fa-shopping-cart"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fab fa-twitter"></i>
-            </a>
-          </li>
-          <li class="nav-item me-3 me-lg-0">
-            <a class="nav-link" href="#!">
-              <i class="fab fa-instagram"></i>
-            </a>
-          </li>
-        </ul>
-      </div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">GUERRERO RACING</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#productos">PRODUCTOS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#redes">REDES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#ubicacion">ENCUÉNTRANOS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#nosotros">NOSOTROS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#carouselExampleCaptions">SERVICIOS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#opiniones">COMENTARIOS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contactenos">CONTÁCTENOS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}" target="_blank">INICIAR SESIÓN</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>

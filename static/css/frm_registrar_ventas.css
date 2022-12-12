@@ -141,9 +141,15 @@ input:focus, select:focus, textarea:focus {
     height: 38px !important;
 }
 
-#div_id_fac_numero_serie {
+#num_factura {
     left: 10px;
     top: 12.31%;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
 }
 
 #div_id_tbl_ordenes_servicio_idorden_servicio {
@@ -161,15 +167,20 @@ input:focus, select:focus, textarea:focus {
     top: 58.42%;
 }
 
-#div_id_fac_descuentos {
+#div_id_fac_costo_servicio {
     left: 10px;
     top: 73.79%;
+}
+
+#div_id_fac_descuentos {
+    left: 10px;
+    top: 89.17%;
 }
 
 #div_id_fac_observaciones {
     left: 10px;
     height: 185px !important;
-    top: 89.16%;
+    top: 107.94%;
 }
 
 #div_id_fac_observaciones textarea {
@@ -182,7 +193,7 @@ input:focus, select:focus, textarea:focus {
     width: 91.86%;
     height: 38px;
     left: 10px;
-    top: 130%;
+    top: 148.78%;
     background: #00B9CA;
     box-shadow: 0px 2.99401px 2.99401px rgba(0, 0, 0, 0.6);
     border-radius: 7.48503px;
@@ -289,8 +300,115 @@ table tbody tr td:first-child {
     padding: 0%;
 }
 
-.btn_eliminar {
-    width: 24px;
-    height: 24px;
+.btn_finalizar_tarea {
     margin-left: 10px;
+}
+
+.btn_imprimir {
+    margin-left: 10px;
+}
+
+.imprimir_factura {
+    position: absolute;
+    left: 10px;
+    bottom: 3%;
+}
+
+@media (max-width: 767px) {
+    .titulo_superior {
+        height: 7.76%;
+    }
+
+    .titulo_superior h1 {
+        font-size: 32px;
+        line-height: 37px;
+    }
+
+    .form_facturas {
+        width: 95%;
+        height: 850px;
+        left: 2.34%;
+        top: 9.87%;
+        overflow: hidden;
+    }
+
+    #num_factura {
+        left: 10px;
+        top: 7%;
+        font-size: 16px;
+    }
+    
+    #div_id_tbl_ordenes_servicio_idorden_servicio {
+        left: 10px;
+        top: 16.5%;
+    }
+    
+    #div_id_tbl_clientes_idcliente {
+        left: 10px;
+        top: 26%;
+    }
+    
+    #div_id_fac_caja {
+        left: 10px;
+        top: 35.5%;
+    }
+    
+    #div_id_fac_costo_servicio {
+        left: 10px;
+        top: 45%;
+    }
+    
+    #div_id_fac_descuentos {
+        left: 10px;
+        top: 54.5%;
+    }
+    
+    #div_id_fac_observaciones {
+        height: 206px !important;
+        left: 10px;
+        top: 64%;
+    }
+
+    #div_id_fac_observaciones textarea {
+        width: 98%;
+        height: 80%;
+        bottom: 0%;
+    }
+
+    .btn_agregar {
+        left: 4%;
+        top: 91%;
+    }
+
+    .contenedor_secundario {
+        width: 95%;
+        height: 500px;
+        left: 2.34%;
+        top: 106%;
+    }
+}
+
+
+@media (max-width: 550px) {
+    .titulo_superior {
+        height: 90px;
+    }
+
+    .titulo_superior h1{
+        padding-top: 20px;
+    }
+
+    .form_facturas {
+        top: 14%;
+    }
+
+    .contenedor_secundario {
+        top: 125%;
+    }
+}
+
+@media (max-width: 380px) {
+    .contenedor_secundario {
+        top: 145%;
+    }
 }

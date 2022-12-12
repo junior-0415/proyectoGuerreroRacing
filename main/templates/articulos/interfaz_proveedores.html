@@ -12,19 +12,11 @@
 <div id="titulo_superior">
     <h1>Proveedores registrados</h1>
 </div>
-<form>
-    <label for="idbuscar_proveedor" id="label_buscar_proveedores">Buscar proveedor:</label>
-    <input type="search" name="Buscar_Proveedor" id="idbuscar_proveedor" placeholder="Buscar">
+<form method="GET">
+    <label for="idbuscar_proveedor" class="label_buscar_proveedores">Buscar proveedor:</label>
+    <input type="search" name="pro_busqueda" id="idbuscar_proveedor" value="{{request.GET.pro_busqueda}}" placeholder="Buscar">
 
-    <label for="FiltroProveedores" id="label_filtrar">Filtrar:</label>
-    <input list="FiltroProveedores" name="FiltroProveedore" id="css_propiedades_filtro" placeholder="Elige un filtro">
-    <datalist id="FiltroProveedores">
-        <option value="Proveedores del artículo consultado">Opción 1</option>
-        <option value="Proveedores más recurridos">Opción 2</option>
-        <option value="Proveedores de la categoría consultada">Opción 3</option>
-        <option value="Mostrar todo"></option>
-    </datalist>
-    <button type="submit" id="btn_mostrar_filtro">Mostrar filtro</button>
+    <button type="submit" id="btn_mostrar_filtro" class="btn btn-outline-success"><i class="bi bi-search"></i></button>
 </form>
 <div class="container_tabla">
     <table>
