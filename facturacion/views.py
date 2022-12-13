@@ -5,6 +5,7 @@ import os
 from django.conf import settings
 from django.template import Context
 from django.template.loader import get_template
+from articulos.models import Articulos
 from xhtml2pdf import pisa
 from django.urls import reverse_lazy
 from django.contrib.staticfiles import finders
@@ -40,6 +41,7 @@ def facturar_venta(request, modal_status='hid'):
         if form.is_valid():
             aux = form.save(commit=False)
             aux.tbl_empleados_idempleado = Empleados.objects.get(user_id=request.user.id)
+            aux.fac_total_pagar = 0
             aux.save()
             messages.success(
                 request, f"La factura {aux.fac_numero_serie} ha sido abierta"
@@ -124,7 +126,14 @@ def detalle_fac_venta(request, pk):
         if form.is_valid():
             temp = form.save(commit=False)
             temp.tbl_facturas_idfactura_id = pk
+            # numArt = temp.dep_cantidad
+            # if numArt > Articulos.objects.filter(
+            #     art_stock_disp = 
+            # )
             temp.save()
+            factura = FacturaVenta.objects.get(fac_numero_serie=pk)
+            factura.fac_total_pagar += temp.dep_precio * temp.dep_cantidad
+            factura.save()
             messages.success(
                 request, f"Se agregó el artículo con codígo {request.POST['tbl_articulos_idarticulo']} existosamente"
             )
@@ -140,8 +149,14 @@ def detalle_fac_venta(request, pk):
     }
     return render(request, 'facturacion/detalle_factura_venta.html', context)
 
-def eliminar_art_detalle_fac(request, pk):
-    DetalleFacturaVenta.objects.filter(id=pk).delete()
+def eliminar_art_detalle_fac(request, pk, tbl_facturas_idfactura):
+    temp = DetalleFacturaVenta.objects.get(id=pk)
+
+    factura = FacturaVenta.objects.get(fac_numero_serie=tbl_facturas_idfactura)
+    factura.fac_total_pagar -= temp.dep_precio * temp.dep_cantidad
+    factura.save()
+    #DetalleFacturaVenta.objects.filter(id=pk).delete()
+    temp.delete()
     messages.success(
         request,f"Se ha quitado el artículo"
     )

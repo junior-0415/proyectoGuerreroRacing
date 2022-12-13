@@ -5,7 +5,7 @@
 {% block contenido %}
 <div class="container w-75 bg-primary mt-5 rounted shadow">
     <div class="row align-items-stretch">
-        <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+        <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded fondo1">
             <div class="bg">
                 <img src="{% static 'img/Portada.jpg' %}" width="500px" alt="200px">
             </div>
@@ -43,17 +43,5 @@
         </div>
     </div>
 </div>
-
-<!-- Mododulo de olvidar contraseña -->
-
-<section>
-    <div class="modal4 ">
-        <div class="container_modal4">
-            <img src="{% static 'img/operacion_existosa.svg' %}" alt="Operación exitosa" id="operacion_existosa">
-            <h2>¡Operación exitosa!</h2>
-            <p>Su contraseña se ha reestablecido con éxito, por favor vuelve a iniciar sesión</p>
-            <button type="submit" id="btn_aceptar_m4" class="modal_close4">Aceptar</button>
-        </div>
-</section>
 
 {% endblock contenido %}

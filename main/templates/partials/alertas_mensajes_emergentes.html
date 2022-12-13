@@ -1,20 +1,33 @@
 {% load static %}
 
-{% if messages %}
-                
-    {% for message in messages %}
-        <script>
-            Swal.fire({
-                title: 'Operación exitosa!',
-                text: '{{message}}',
-                icon: 'success',
-                confirmButtonText: 'Entendio',
-                confirmButtonColor: '#00B9CA'
-            })
-        </script>
-    {% endfor %}
-                    
+
+{% for message in messages %}
+    
+{% if message.tags == 'success' %}           
+    <script>
+        Swal.fire({
+            title: 'Operación exitosa!',
+            text: '{{message}}',
+            icon: 'success',
+            confirmButtonText: 'Entendio',
+            confirmButtonColor: '#00B9CA'
+        })
+    </script>                 
 {% endif %}
+
+{% if message.tags == 'error' %}           
+    <script>
+        Swal.fire({
+            title: 'Upps!',
+            text: '{{message}}',
+            icon: 'error',
+            confirmButtonText: 'Entendio',
+            confirmButtonColor: '#00B9CA'
+        })
+    </script>                 
+{% endif %}
+
+{% endfor %}
 
 <!-- Ventanas de confirmacion -->
 
