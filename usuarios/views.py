@@ -362,7 +362,7 @@ def editar_departamento(request, pk):
             )
             return redirect('departamentos')
         else:
-            print('Error al guardar')
+            print('Se ha producido un error al editar el departamento')
     else:
         form = DepartamentosForm(instance=departamento)
 
@@ -534,10 +534,10 @@ def registrar_empleado(request):
                 user.email = request.POST['emp_email']
                 user.password = "@" + request.POST['id_emp_identificacion']
                 user.save()
-                user_group = User
-                my_group = Group.objects.get(name='User_Normal')
-                usuario.user.groups.clear() # para cuando se borre el grupo de usuarios, se borre el viejo y quede el nuevo grupo
-                my_group.user_set.add(usuario.user)
+                # user_group = User
+                # my_group = Group.objects.get(name='User_Normal')
+                # usuario.user.groups.clear() # para cuando se borre el grupo de usuarios, se borre el viejo y quede el nuevo grupo
+                # my_group.user_set.add(usuario.user)
             else:
                 user = User.objects.get(username=request.POST['id_emp_identificacion'])
             

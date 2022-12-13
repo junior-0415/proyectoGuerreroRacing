@@ -65,10 +65,9 @@ input:focus {
     left: 0%;
     right: 0%;
     bottom: 0%;
-    /* background-color: #111111bd; */
+    background-color: #c7c7c7bd;
     display: flex;
-    opacity: 1;
-    transition: opacity .6s;
+
 
 }
 
@@ -263,11 +262,8 @@ input:focus {
     left: 0%;
     right: 0%;
     bottom: 0%;
-    background-color: #111111bd;
+    background-color: #c7c7c7bd;
     display: flex;
-    opacity: 1;
-    /* pointer-events: none;
-    transition: opacity .6s; */
 }
 
 /* .modal--show2 {
@@ -475,11 +471,11 @@ input:focus {
     color: #000000;
 }
 
-#reenviar_codigo {
+#btn_entendido {
     position: absolute;
     width: auto;
     height: auto;
-    left: 8.48%;
+    left: 35%;
     top: 72%;
 
     font-family: 'Roboto';
@@ -491,9 +487,12 @@ input:focus {
 
     display: flex;
     align-items: center;
-    text-decoration-line: underline;
+    text-decoration-line: none;
+    padding: 10px;
+    background: rgba(0, 117, 128, 0.982);
+    border-radius: 5px;
 
-    color: #2400FF;
+    color: #ffffff;
 }
 
 #btn_siguiente2 {
@@ -564,11 +563,8 @@ input:focus {
     left: 0%;
     right: 0%;
     bottom: 0%;
-    background-color: #111111bd;
+    background-color: #c7c7c7bd;
     display: flex;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .6s;
 }
 
 .modal--show3 {
@@ -746,11 +742,8 @@ input:focus {
     left: 0%;
     right: 0%;
     bottom: 0%;
-    background-color: #111111bd;
+    background-color: #c7c7c7bd;
     display: flex;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .6s;
 }
 
 .modal--show4 {

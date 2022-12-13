@@ -334,7 +334,7 @@ function eliminar_sucursal_def_alert(id){
 
 };
 
-function eliminar_art_detalle_fac(id){
+function eliminar_art_detalle_fac(id, tbl_facturas_idfactura){
     Swal.fire({
         title: 'Confirmar acción',
         text: "¿Deseas quitar este artículo de la factura?",
@@ -349,7 +349,7 @@ function eliminar_art_detalle_fac(id){
     })
     .then(function(result){
         if (result.isConfirmed) {
-            window.location.href = "/quitar-articulo-factura/"+id+"/" 
+            window.location.href = "/quitar-articulo-factura/"+id+"/"+tbl_facturas_idfactura+"/"
         }
     });
 
@@ -455,7 +455,7 @@ function quitar_art_rel_ord_comp_art(id){
     .then(function(result){
         if (result.isConfirmed) {
             window.location.href = "/compras/crear-orden-de-compra/articulos/eliminar/"+id+"/" 
-        }c
+        }
     });
 
 };

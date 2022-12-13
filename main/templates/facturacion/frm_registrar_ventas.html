@@ -54,9 +54,9 @@
                         <td>{{factura.tbl_clientes_idcliente}}</td>
                         <td>{{factura.fac_fecha}}</td>
                         <td>{{factura.fac_caja}}</td>
-                        <td>{{factura.fac_costo_servicio}}</td>
-                        <td>{{factura.fac_descuentos}}</td>
-                        <td>{{factura.fac_total_pagar}}</td>
+                        <td>${{factura.fac_costo_servicio}}</td>
+                        <td>${{factura.fac_descuentos}}</td>
+                        <td>${{factura.fac_pagar_cliente}}</td>
                         <td>{{factura.fac_observaciones}}</td>
                         <td class="d-flex flex-row">
                                 {% csrf_token %}

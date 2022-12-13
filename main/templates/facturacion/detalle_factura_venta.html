@@ -45,12 +45,12 @@
                     <tr>
                         <td>{{detalle.tbl_facturas_idfactura}}</td>
                         <td>{{detalle.tbl_articulos_idarticulo}}</td>
-                        <td>{{detalle.dep_precio}}</td>
+                        <td>${{detalle.dep_precio}}</td>
                         <td>{{detalle.dep_cantidad}}</td>
                         <td>{{detalle.dep_total}}</td>
 
                         <td>
-                                <a href="#" onclick="eliminar_art_detalle_fac({{detalle.id}})">
+                                <a href="#" onclick="eliminar_art_detalle_fac({{detalle.id}}, {{detalle.tbl_facturas_idfactura}})">
                                     <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Quitar artículo">
                                 </a>
                         </td>
