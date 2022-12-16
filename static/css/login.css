@@ -646,14 +646,14 @@ input:focus {
     color: #000000;
 }
 
-#idcontrasena_r1 {
+#id_new_password1 {
     box-sizing: border-box;
 
-    position: absolute;
-    width: 81.25%;
-    height: 10.4%;
-    left: 8.48%;
-    top: 45.6%;
+    position: absolute !important;
+    width: 81.25% !important;
+    height: 10.4% !important;
+    left: 8.48% !important;
+    top: 45.6% !important;
 
     border: 1.5px solid #ACACAC;
     border-radius: 5px;
@@ -682,7 +682,7 @@ input:focus {
     color: #000000;
 }
 
-#idcontrasena_r2 {
+#id_new_password2 {
     box-sizing: border-box;
 
     position: absolute;
@@ -827,6 +827,7 @@ input:focus {
     font-size: 16.4671px;
     line-height: 19px;
     color: #FFFFFF;
+    text-align: center;
 }
 
 #btn_aceptar_m4:hover {

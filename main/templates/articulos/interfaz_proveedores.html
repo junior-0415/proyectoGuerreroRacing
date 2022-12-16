@@ -32,7 +32,10 @@
                 <th>Celular</th>
                 <th>Email</th>
                 <th>Sitio Web</th>
+                
+                {% if perms.articulos.change_proveedores or perms.articulos.delete_proveedores %}       
                 <th>Acciones</th>
+                {% endif %}
             </tr>
         </thead>
         
@@ -48,14 +51,22 @@
             <td>{{proveedor.pro_celular}}</td>
             <td>{{proveedor.pro_email}}</td>
             <td>{{proveedor.pro_sitio_web}}</td>
+            {% if perms.articulos.change_proveedores or perms.articulos.delete_proveedores %}       
             <td>
+                
+                {% if perms.articulos.change_proveedores %}                    
                 <a href="{% url 'editar_proveedor' proveedor.id %}">
                     <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar proveedor">
                 </a>
+                {% endif %}
+                
+                {% if perms.articulos.delete_proveedores %}
                 <a href="#" onclick="eliminar_registros({{ proveedor.id }})">
                     <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                 </a>
+                {% endif %}
             </td>
+            {% endif %}
         </tr>
         {% endfor %}
     </table>

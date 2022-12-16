@@ -17,12 +17,17 @@
       <div class="sub_frm_ord">
         <h2>Agregar orden</h2>
       </div>
-      <form action="" method="POST" class="form_orden">
-          {% csrf_token %}
-          {{form|crispy}}
-          <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">
-          <button class="btn_agregar" name="form-crear">Agregar orden</button>
-      </form>
+      
+      {% if perms.usuarios.add_ordenservicio %}
+        <form action="" method="POST" class="form_orden">
+            {% csrf_token %}
+            {{form|crispy}}
+            <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">
+            <button class="btn_agregar" name="form-crear">Agregar orden</button>
+        </form>
+        {% else %}
+        <h5 class="control-group text_perms" id="div_id_ord_s_fecha">Lo sentimos, no cuentas con los permisos para crear una orden.</h5>
+      {% endif %}
   </div>
   <div class="contenedor_secundario">
       <div class="titulo_tabla">
@@ -41,8 +46,9 @@
                       <th>Servicio</th>
                       <th>Vehículo</th>
                       <th>Estado</th>
-                      <th>Informe técnico</th>
+                      <th>Informe técnico</th>      
                       <th>Acciones</th>
+
                   </tr>
               </thead>
               <tbody>
@@ -58,9 +64,9 @@
                       <td>{{orden.tbl_servicos_idservicio}}</td>
                       <td>{{orden.ord_s_vehiculo}}</td>
                       <td>{{orden.ord_s_estado_pago}}</td>
-                      <td>{{orden.ord_s_informe_tecnico}}</td>
-                      <td class="d-flex flex-row">
-                            {% csrf_token %}
+                      <td>{{orden.ord_s_informe_tecnico}}</td>                       
+                        <td class="d-flex flex-row">
+                            {% csrf_token %}    
                             <a href="{% url 'detalle_orden_servicio' orden.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar orden">
                             </a>
@@ -70,7 +76,7 @@
                             <a href="#" onclick="imprimir_orden_ser_redirec({{orden.id}})">
                                 <img src="{% static 'img/imprimir.svg' %}" alt="Imprimir factura" class="btn_imprimir" title="Imprimir factura">
                             </a>
-                      </td>
+                        </td>
                   </tr>
                   {% endfor %}
 

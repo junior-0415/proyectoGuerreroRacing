@@ -32,32 +32,43 @@
                         <th>Stock mín.</th>
                         <th>Stock máx.</th>
                         <th>Proveedor</th>
+                        
+                        {% if perms.articulos.change_articulos or perms.articulos.delete_articulos %}               
                         <th>Acciones</th>
+                        {% endif %}
                     </tr>
                 </thead>
                 
                 {% for articulo in articulos %}            
                     <tr>
                         <td class="align moddle text-center">
-                            <img class="rounded-circle" src="{{ MEDIA_URL }}{{articulo.art_foto.url}}" width="50" height="50" alt="">
+                            <img class="rounded-circle" src="{{ MEDIA_URL }}{{articulo.art_foto.url}}" width="50" height="50" alt="Foto artículo">
                         </td>
                         <td>{{articulo.pk}}</td>
                         <td>{{articulo.art_nombre}}</td>
                         <td>{{articulo.tbl_marcas_idmarca}}</td>
                         <td>{{articulo.tbl_categoria_idcategoria}}</td>
                         <td>{{articulo.art_stock_disp}}</td>
-                        <td>{{articulo.art_precio}}</td>
+                        <td>${{articulo.art_precio}}</td>
                         <td>{{articulo.art_stock_minimo}}</td>
                         <td>{{articulo.art_stock_maximo}}</td>
                         <td>{{articulo.tbl_proveedores_idproveedor}}</td>
+                        {% if perms.articulos.change_articulos or perms.articulos.delete_articulos %}               
                         <td> 
+                            
+                            {% if perms.articulos.change_articulos %}                                
                             <a href="{% url 'editar_articulo' articulo.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar artículo">
                             </a>
+                            {% endif %}
+                            
+                            {% if perms.articulos.delete_articulos %}
                             <a href="#" onclick="eliminar_registros({{ articulo.id }})">
                                 <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                             </a>
+                            {% endif %}
                         </td>
+                        {% endif %}
                     </tr>
                 {% endfor %}
             </table>

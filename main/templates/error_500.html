@@ -1,0 +1,60 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 500</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2? family=Faster+One&family=Roboto:ital,wght@0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500&family=Vollkorn:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/error_500.css' %}">
+</head>
+
+<body class="container-">
+    <section>
+        <div class="container_img1">
+            <img src="{% static 'img/error_500.svg' %}" alt="Imagen error 500">
+        </div>
+        <div>
+            <p id="p_1">Error interno del servidor (Error 500)</p>
+            <p id="p_2">Algo ha salido mal</p>
+            <p id="p_3">Por favor refresca esta página en unos minutos, si el problema persiste no dudes en contactarte
+                con los desarrolladores de (nombre del software). </p>
+        </div>
+        <div class="container_iconos">
+            <a href="{% url 'soporte_ayuda' %}">
+                <img src="{% static 'img/icono_soporte.svg' %}" alt="Icono de soporte" id="icono_soporte">
+            </a>
+            <a href="#">
+                <img src="{% static 'img/icono_ayuda.svg' %}" alt="Icono de ayuda" id="icono_ayuda">
+            </a>
+        </div>
+    </section>
+
+    <!-- inicio modal -->
+
+    <section class="modal ">
+        <div class="container_modal">
+            <div id="container_ico_info">
+                <img src="{% static 'img/info.svg' %}" alt="Icono ver información">
+            </div>
+            <div id="text">
+                <p>Upss, al parecer se ha generado un error 500, esto se debe a una posible falla del lado del sistema o servidor. Los errores 500 pueden implicar distintas fallas del lado del servidor por lo que no se debe a un problema de parte del usuario. Si el error persiste por favor no dudes en contactar a los desarrolladores, en la parte inferior derecha de esta pantalla encontraras el botón de soporte arriba del botón ayuda.</p>
+            </div>
+            <button id="btn_entendido" type="button" class="modal_close">Entendido</button>
+        </div>
+        <script src="{% static 'js/error_500.js' %}"></script>
+    </section>
+
+</body>
+
+</html>

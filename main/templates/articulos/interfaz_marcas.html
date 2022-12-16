@@ -28,7 +28,10 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
+                    
+                    {% if perms.articulos.change_marcas or perms.articulos.delete_marcas %}           
                     <th>Acciones</th>
+                    {% endif %}
                 </tr>
                 </tr>
             </thead>
@@ -40,21 +43,32 @@
                         <td>{{marca.pk}}</td>
                         <td>{{marca.mar_nombre}}</td>
                         <td>{{marca.mar_descripcion}}</td>
+                        
+                        {% if perms.articulos.change_marcas or perms.articulos.delete_marcas %}                            
                         <td>
+                            
+                            {% if perms.articulos.change_marcas %}
                             <a href="{% url 'editar_marca' marca.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar marca">
                             </a>
+                            {% endif %}
+                            
+                            {% if perms.articulos.delete_marcas %}                          
                             <a href="#" onclick="eliminar_registros({{ marca.id }})">
                                 <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                             </a>
+                            {% endif %}
                         </td>
+                        {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
     <img src="{% static 'img/Data_Arranging_Outline1.svg' %}" alt="Ilustración relativa a marcas" id="img1">
+    {% if perms.articulos.add_marcas %}
     <a href="#" id="btn_anadir" title="Añadir nueva marca">Añadir</a>
+    {% endif %}
 </section>
 <section class="modal-form1 ">
     <div class="container_modal-form1">
@@ -65,6 +79,8 @@
             </a>
         </div>
         <img src="{% static 'img/Data Arranging_Flatline.svg' %}" alt="Imagen ilustrativa a marcas" id="img2">
+        
+        {% if perms.articulos.add_marcas %}            
         <form action="" method="POST">
             {{form|crispy}}
             {% csrf_token %}
@@ -73,6 +89,7 @@
                 <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
             </div>
         </form>
+        {% endif %}
     </div>
 </section>
 {% endblock contenido %}

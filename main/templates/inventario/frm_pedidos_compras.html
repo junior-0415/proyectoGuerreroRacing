@@ -13,15 +13,20 @@
       <h1>Registrar pedidos o compras</h1>
   </div>
   <div class="form_compras">
-      <div class="sub_frm_compra">
-        <h2>Agregar Compra</h2>
-      </div>
-      <form action="" method="POST" class="form_compra">
-          {% csrf_token %}
-          {{form|crispy}}
-          <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">
-          <button class="btn_agregar" name="form-crear">Agregar compra</button>
-      </form>
+    <div class="sub_frm_compra">
+    <h2>Agregar Compra</h2>
+    </div>
+      
+    {% if perms.inventario.add_pedidos %}     
+    <form action="" method="POST" class="form_compra">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">
+        <button class="btn_agregar" name="form-crear">Agregar compra</button>
+    </form>
+    {% else %}
+    <h5 class="control-group text_perms" id="div_id_ped_recivido_por">Lo sentimos, no cuentas con los permisos para agregar un pedido o compra.</h5>
+    {% endif %}
   </div>
   <div class="contenedor_secundario">
       <div class="titulo_tabla">
@@ -43,15 +48,18 @@
                   <tr>
                       <td>{{compra.ped_recivido_por}}</td>
                       <td>{{compra.ped_fecha_recivido}}</td>
-                      <td>{{compra.ped_precio}}</td>
+                      <td>${{compra.ped_precio}}</td>
                       <td class="d-flex flex-row">
                             {% csrf_token %}
                             <a href="{% url 'detalle_compra_pedidos' compra.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar compra">
                             </a>
+                            
+                            {% if perms.inventario.change_pedidos %}                                
                             <a href="#" onclick="cerrar_pedido({{compra.id }})" class="reset">
                                 <img src="{% static 'img/finalizar_tarea.svg' %}" class="btn_finalizar_tarea" alt="Cerrar pedido" title="Cerrar pedido">
                             </a>
+                            {% endif %}
                       </td>
                   </tr>
                   {% endfor %}

@@ -56,7 +56,7 @@ class Articulos(models.Model):
     art_stock_maximo = models.SmallIntegerField(verbose_name="Stock máximo:")
     tbl_proveedores_idproveedor = models.ForeignKey(Proveedores, on_delete=models.CASCADE, verbose_name="Proveedor:")
     tbl_marcas_idmarca = models.ForeignKey(Marcas, on_delete=models.CASCADE, verbose_name="Marca:")
-    art_foto = models.ImageField(upload_to='images/articulos', blank=True, default='images/articulos/default.png', verbose_name="Foto:")
+    art_foto = models.ImageField(upload_to='images/articulos/', blank=True, default='images/articulos/default.png', verbose_name="Foto:")
 
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')

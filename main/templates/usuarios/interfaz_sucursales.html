@@ -13,14 +13,19 @@
     <div class="sub_sucursal">
         <h2>Registrar sucursal</h2>
     </div>
-    <form action="" method="POST">
-        {{form|crispy}}
-        {% csrf_token %}
-        <div class="frame_b">
-            <button type="submit" value="Guardar" id="btn_guardar">Guardar</button>
-            <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
-        </div>
-    </form>
+    
+    {% if perms.usuarios.add_sucursales %}
+        <form action="" method="POST">
+            {{form|crispy}}
+            {% csrf_token %}
+            <div class="frame_b">
+                <button type="submit" value="Guardar" id="btn_guardar">Guardar</button>
+                <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
+            </div>
+        </form>
+    {% else %}
+    <h5 class="control-group text_perms" id="div_id_suc_nombre">Lo sentimos, no cuentas con los permisos para registrar una sucursal.</h5>
+    {% endif %}
 </section>
 
 <section>
@@ -40,7 +45,10 @@
                     <th>Teléfono</th>
                     <th>Celular</th>
                     <th>Email</th>
-                    <th>Acciones</th>
+                    
+                    {% if perms.usuarios.change_sucursales or perms.usuarios.delete_sucursal %}
+                        <th>Acciones</th>
+                    {% endif %}
                 </tr>
                 </tr>
             </thead>
@@ -58,14 +66,22 @@
                         <td>{{sucursal.suc_telefono}}</td>
                         <td>{{sucursal.suc_celular}}</td>
                         <td>{{sucursal.suc_email}}</td>
-                        <td>
-                            <a href="{% url 'editar_sucursal' sucursal.id %}">
-                                <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar sucursal">
-                            </a>
-                            <a href="#" onclick="eliminar_registros({{ sucursal.id }})">
-                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
-                            </a>
-                        </td>
+                        {% if perms.usuarios.change_sucursales or perms.usuarios.delete_sucursal %}
+                            <td>
+                                
+                                {% if perms.usuarios.change_sucursales %}
+                                    <a href="{% url 'editar_sucursal' sucursal.id %}">
+                                        <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar sucursal">
+                                    </a>
+                                {% endif %}
+                                {% if perms.usuarios.delete_sucursales %}
+                                    <a href="#" onclick="eliminar_registros({{ sucursal.id }})">
+                                        <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
+                                    </a>
+                                {% endif %}
+                            </td>
+                        {% endif %}
+
                 </tr>
                 {% endfor %}
             </tbody>

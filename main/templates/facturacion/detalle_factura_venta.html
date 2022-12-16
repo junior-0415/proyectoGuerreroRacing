@@ -17,11 +17,16 @@
     <div class="sub_articulos">
         <h2>Agregar Artículo</h2>
     </div>
+    
+    {% if perms.facturacion.add_detallefacturaventa %}
     <form action="" method="POST" class="form1">
         {% csrf_token %}
         {{ form|crispy }}
         <button class="btn_agregar" name="agregar-producto">Agregar Artículo</button>
     </form>
+    {% else %}
+    <h5 class="control-group text_perms" id="div_id_tbl_articulos_idarticulo">Lo sentimos, no cuentas con los permisos editar esta orden.</h5>
+    {% endif %}
 </div>
 <div class="contenedor_secundario">
         <div class="titulo_tabla">
@@ -36,8 +41,10 @@
                         <th>Precio</th>
                         <th>Cantidad</th>
                         <th>Total</th>
+                        
+                        {% if perms.facturacion.delete_detallefacturaventa %}
                         <th>Acciones</th>
-
+                        {% endif %}
                     </tr>
                 </thead>
                 <tbody>
@@ -47,14 +54,14 @@
                         <td>{{detalle.tbl_articulos_idarticulo}}</td>
                         <td>${{detalle.dep_precio}}</td>
                         <td>{{detalle.dep_cantidad}}</td>
-                        <td>{{detalle.dep_total}}</td>
-
+                        <td>${{detalle.dep_total}}</td>
+                        {% if perms.facturacion.delete_detallefacturaventa %}
                         <td>
-                                <a href="#" onclick="eliminar_art_detalle_fac({{detalle.id}}, {{detalle.tbl_facturas_idfactura}})">
-                                    <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Quitar artículo">
-                                </a>
+                            <a href="#" onclick="eliminar_art_detalle_fac({{detalle.id}}, {{detalle.tbl_facturas_idfactura}})">
+                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" class="btn_eliminar" title="Quitar artículo">
+                            </a>
                         </td>
-
+                        {% endif %}
                     </tr>
                     {% endfor %}
                 </tbody>

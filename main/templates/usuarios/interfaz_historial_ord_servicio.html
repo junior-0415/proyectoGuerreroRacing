@@ -33,7 +33,10 @@
                     <th>Vehículo</th>
                     <th>Estado</th>
                     <th>Informe técnico</th>
-                    <th>Acciones</th>
+                    
+                    {% if perms.usuarios.view_tblrelordenservicioarticulos or perms.usuarios.delete_ordenservicio %}                        
+                        <th>Acciones</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -50,14 +53,22 @@
                     <td>{{orden.ord_s_vehiculo}}</td>
                     <td>{{orden.ord_s_estado_pago}}</td>
                     <td>{{orden.ord_s_informe_tecnico}}</td>
-                    <td>
-                        <a href="{% url 'tbl_rel_orden_ser_art_hist' orden.id %}">
-                            <img src="{% static 'img/ver.svg' %}" alt="Botón ver detalles" id="btn_editar" title="Ver detalles">
-                        </a>
-                        <a href="#" onclick="eliminar_registros({{orden.id}})">
-                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" id="btn_eliminar" title="Eliminar del historial">
-                        </a>
-                    </td>
+                    {% if perms.usuarios.view_tblrelordenservicioarticulos or perms.usuarios.delete_ordenservicio %}     
+                        <td>
+                            
+                            {% if perms.usuarios.view_tblrelordenservicioarticulos %}
+                                <a href="{% url 'tbl_rel_orden_ser_art_hist' orden.id %}">
+                                    <img src="{% static 'img/ver.svg' %}" alt="Botón ver detalles" id="btn_editar" title="Ver detalles">
+                                </a>
+                            {% endif %}
+                            
+                            {% if perms.usuarios.delete_ordenservicio %}
+                                <a href="#" onclick="eliminar_registros({{orden.id}})">
+                                    <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" id="btn_eliminar" title="Eliminar del historial">
+                                </a>
+                            {% endif %}
+                        </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>

@@ -13,7 +13,7 @@
         <div class="titulo_superior">
             <h1>Registra tu empresa aquí</h1>
         </div>
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data">
             {{form|crispy}}
             {% csrf_token %}
             <img src="{% static 'img/registrar_empresa.svg' %}" alt="Ilustración a gestionar empresa" id="img1">

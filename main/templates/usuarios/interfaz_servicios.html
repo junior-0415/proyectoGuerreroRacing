@@ -28,35 +28,50 @@
                     <th>Sucursal:</th>
                     <th>Servicio:</th>
                     <th>Descripción</th>
-                    <th>Acciones</th>
+                    
+                    {% if perms.usuarios.change_servicios or perms.usuarios.delete_servicios %}                        
+                        <th>Acciones</th>
+                    {% endif %}
                 </tr>
                 </tr>
             </thead>
             <tbody>
 
                 {% for servicio in servicios %}
-                <tr>
-                    
+                    <tr>
+                        
                         <td>{{servicio.tbl_sucursales_idsucursal}}</td>
                         <td>{{servicio.ser_nombre}}</td>
                         <td>{{servicio.ser_descripcion}}</td>
-                        <td>
-                            <a href="{% url 'editar_servicio' servicio.id %}">
-                                <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar servicio">
-                            </a>
-                            <a href="#" onclick="eliminar_registros({{ servicio.id }})">
-                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" id="btn_eliminar" title="Mover a papelera">
-                            </a>
-                        </td>
-                </tr>
+                        {% if perms.usuarios.change_servicios or perms.usuarios.delete_servicios %}                        
+                            <td>
+                                {% if perms.usuarios.change_servicios %}                                    
+                                    <a href="{% url 'editar_servicio' servicio.id %}">
+                                        <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar servicio">
+                                    </a>
+                                {% endif %}
+                                
+                                {% if  perms.usuarios.delete_servicios %}                                   
+                                    <a href="#" onclick="eliminar_registros({{ servicio.id }})">
+                                        <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" id="btn_eliminar" title="Mover a papelera">
+                                    </a>
+                                {% endif %}
+                            </td>
+                        {% endif %}
+
+                    </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
+    
     <img src="{% static 'img/interfaz_servicios.svg' %}" alt="Ilustración relativa a servicios" id="img1">
-    <a href="#" id="btn_anadir" title="Añadir nuevo servicio">Añadir</a>
+    {% if perms.usuarios.add_servicios %}
+        <a href="#" id="btn_anadir" title="Añadir nuevo servicio">Añadir</a>
+    {% endif %}
 </section>
 <section class="modal-form ">
+    {% if perms.usuarios.add_servicios %}
     <div class="container_modal-form">
         <div class="container_h2-form">
             <h2>Añadir nuevo servicio</h2>
@@ -74,6 +89,7 @@
             </div>
         </form>
     </div>
+    {% endif %}
 </section>
 {% endblock contenido %}
 

@@ -134,6 +134,13 @@ input:focus, select:focus, textarea:focus {
     top: 0%;
 }
 
+.text_perms {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    text-align: justify;
+}
+
 #div_id_dep_precio input, #div_id_dep_cantidad input {
     position: absolute;
     left: 0%;
@@ -147,7 +154,7 @@ input:focus, select:focus, textarea:focus {
 
 #div_id_dep_precio {
     left: 10px;
-    top: 40%;
+    top: 40% !important;
 }
 
 #div_id_dep_cantidad {

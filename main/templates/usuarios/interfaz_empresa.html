@@ -14,7 +14,11 @@
     </div>
     
     {% for empresa in empresa %}
-    <a href="{% url 'editar_empresa' empresa.id %}" id="editar">Editar</a>
+    
+        {% if perms.usuarios.change_empresa %}    
+            <a href="{% url 'editar_empresa' empresa.id %}" id="editar">Editar</a>    
+        {% endif %}
+
     {% endfor %}
     <a href="{% url 'sucursales' %}" id="sucursales">Ver sucursales</a>
     <div class="contenedor_tabla1">

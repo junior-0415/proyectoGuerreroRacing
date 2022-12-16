@@ -17,12 +17,17 @@
       <div class="sub_frm_ord">
           <h2>Agregar orden de compra</h2>
       </div>
-      <form action="" method="POST" class="form_orden">
-          {% csrf_token %}
-          {{form|crispy}}
-          <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">
-          <button class="btn_agregar" name="form-crear">Agregar orden</button>
-      </form>
+      
+        {% if perms.inventario.add_ordencompra %}     
+        <form action="" method="POST" class="form_orden">
+        {% csrf_token %}
+        {{form|crispy}}
+        <input type="hidden" name="modal-status" id="modal-status" value="{{modal_status}}">
+        <button class="btn_agregar" name="form-crear">Agregar orden</button>
+        </form>
+        {% else %}
+        <h5 class="control-group text_perms" id="div_id_ord_lugar_emision">Lo sentimos, no cuentas con los permisos para crear una orden de compra.</h5>
+        {% endif %}
   </div>
   <div class="contenedor_secundario">
       <div class="titulo_tabla">
@@ -39,7 +44,7 @@
                       <th>Término de pago</th>
                       <th>Término de entrega</th>
                       <th>Ótras tarifas</th>
-                      <th>Costo estimado</th>
+                      <th>Costo estimado</th>        
                       <th>Acciones</th>
                   </tr>
               </thead>
@@ -60,13 +65,15 @@
                             <a href="{% url 'detalle_orden_compra' orden.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar órden">
                             </a>
-
+                            
+                            {% if perms.inventario.change_ordencompra %}
                             <a href="#" onclick="cerrar_orden_compra({{orden.id}})" class="reset">
-                            <img src="{% static 'img/finalizar_tarea.svg' %}" class="btn_finalizar_tarea" alt="Cerrar órden" title="Cerrar órden">
+                                <img src="{% static 'img/finalizar_tarea.svg' %}" class="btn_finalizar_tarea" alt="Cerrar órden" title="Cerrar órden">
                             </a>
+                            {% endif %}
 
                             <a href="{% url 'imprimir_orden_compra' orden.id %}">
-                                <img src="{% static 'img/imprimir.svg' %}" alt="Imprimir factura" class="btn_imprimir" title="Imprimir factura">
+                                <img src="{% static 'img/imprimir.svg' %}" alt="Imprimir orden" class="btn_imprimir" title="Imprimir orden">
                             </a>
                       </td>
                   </tr>

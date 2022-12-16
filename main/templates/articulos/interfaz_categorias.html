@@ -28,7 +28,10 @@
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Descripción</th>
+                    
+                    {% if perms.articulos.change_categoria or perms.articulos.delete_categoria %}           
                     <th>Acciones</th>
+                    {% endif %}
                 </tr>
                 </tr>
             </thead>
@@ -40,21 +43,32 @@
                         <td>{{categoria.pk}}</td>
                         <td>{{categoria.cat_nombre}}</td>
                         <td>{{categoria.cat_descripcion}}</td>
+                        {% if perms.articulos.change_categoria or perms.articulos.delete_categoria %}           
                         <td>
+                            
+                            {% if perms.articulos.change_categoria %}                                
                             <a href="{% url 'editar_categoria' categoria.id %}">
                                 <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar categoría">
                             </a>
+                            {% endif %}
+                            
+                            {% if perms.articulos.delete_categoria %}                                
                             <a href="#" onclick="eliminar_registros({{ categoria.id }})">
                                 <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                             </a>
+                            {% endif %}
                         </td>
+                        {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
     <img src="{% static 'img/categoriasArt.svg' %}" alt="Ilustración relativa a categorías" id="img1">
+    
+    {% if perms.articulos.add_categoria %}
     <a href="#" id="btn_anadir" title="Añadir nueva categoría">Añadir</a>
+    {% endif %}
 </section>
 <section class="modal-form-cat ">
     <div class="container_modal-form-cat">
@@ -65,6 +79,8 @@
             </a>
         </div>
         <img src="{% static 'img/categoriasArt.svg' %}" alt="Imagen ilustrativa a categorías" id="img2">
+        
+        {% if perms.articulos.add_categoria %}         
         <form action="" method="POST">
             {{form|crispy}}
             {% csrf_token %}
@@ -73,6 +89,7 @@
                 <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
             </div>
         </form>
+        {% endif %}
     </div>
 </section>
 {% endblock contenido %}
