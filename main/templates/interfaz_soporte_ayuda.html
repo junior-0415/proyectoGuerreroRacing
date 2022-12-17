@@ -8,6 +8,7 @@
 
 {% block contenido %}
 <img src="{% static 'img/vector_fondo_pantalla2.svg' %}" alt="Fondo de pantalla" id="fondo_pantalla">
+<img src="{% static 'img/vector_fondo_pantalla4.svg' %}" alt="Fondo de pantalla" id="fondo_pantalla2">
 <div class="titulo_superior">
     <h1>Área de soporte y ayuda</h1>
 </div>
@@ -15,111 +16,23 @@
 <p class="p1">Aquí podrás buscar en nuestra base de datos las preguntas más frecuentes que normalmente surgen</p>
 <img src="{% static 'img/area_soporte_ayuda.svg' %}" alt="Area de soporte y ayuda" class="img1">
 
-<a href="#manual_titulo" class="cuadro cuadro1">
+<a href="https://drive.google.com/drive/folders/1bOXDAfgsR4zrALT7gK34e9tKY-Z-NiuF?usp=share_link" class="cuadro cuadro1" target="_blank">
     <div class="div_cuadro">
         <img src="{% static 'img/manual_usuario.svg' %}" alt="Imagen alusiva a manual de usuario">
         <h3>Manual de usuario</h3>
         <p>Revisa el manual de usuario, a lo mejor la inquietud que estas buscando se encuentra aquí.</p>
     </div>
 </a>
-<a href="#menu_preguntas" class="cuadro cuadro2">
+<a href="#" class="cuadro cuadro2">
     <div class="div_cuadro">
         <img src="{% static 'img/preguntas_frecuentes.svg' %}" alt="Imagen alusiva a preguntas frecuentes">
-        <h3>Preguntas frecuentes</h3>
-        <p>Consulta las preguntas más frecuentes por parte de los usuarios de (nombre del software).</p>
     </div>
 </a>
-<a href="#" class="cuadro cuadro3">
+<a href="{% url 'nosotros' %}" class="cuadro cuadro3">
     <div class="div_cuadro">
         <img src="{% static 'img/solicitar_soporte.svg' %}" alt="Imagen alusiva a soporte">
         <h3>Solicitar soporte</h3>
         <p>También aquí puedes solicitar soporte directamente a los desarrolladores de (nombre del software).</p>
     </div>
 </a>
-<h3 id="manual_titulo">Manual de usuario</h3>
-<p id="descripcion1">¡Conviertete es un esperto utilizando nuestro software con este manual!</p>
-
-<div class="accordion accordion-flush" id="accordionManual">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingOne">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-          Accordion Item #1
-        </button>
-      </h2>
-      <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-          Accordion Item #2
-        </button>
-      </h2>
-      <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-      </div>
-    </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="flush-headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-          Accordion Item #3
-        </button>
-      </h2>
-      <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-        <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-      </div>
-    </div>
-  </div>
-
-<!-- <div class="menu_desplegable md1">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Introducción a (nombre de software)</a>
-</div>
-<div class="menu_desplegable md2">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Registro</a>
-</div>
-<div class="menu_desplegable md3">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Acceso de un empleado al sistema</a>
-</div>
-<div class="menu_desplegable md4">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Herramientas del menú superior</a>
-</div>
-<div class="menu_desplegable md5">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Herramientas del menú lateral izquierdo</a>
-</div>
-<div class="menu_desplegable md6">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Solución de problemas</a>
-</div>
-<h3 id="menu_preguntas">Preguntas frecuentes</h3>
-<p id="descripcion2">¿Tienes dudas e inquietudes sin resolver? revisa aquí las preguntas más frecuentes.</p>
-<div class="menu_desplegable md7">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-</div>
-<div class="menu_desplegable md8">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-</div>
-<div class="menu_desplegable md9">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-</div>
-<div class="menu_desplegable md10">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-</div>
-<div class="menu_desplegable md11">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-</div>
-<div class="menu_desplegable md12">
-    <img src="{% static 'img/flecha_verde.svg' %}" alt="Expandir/contraer menu">
-    <a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a>
-</div> -->
 {% endblock contenido %}

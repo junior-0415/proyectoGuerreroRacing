@@ -85,7 +85,7 @@ def eliminar_articulo(request, pk):
         art_estado='0'
     )
     messages.success(
-        request,f"El artículo se envió a papelera exitosamente"
+        request,f"El artículo se eliminó exitosamente"
     )
     return redirect('articulos')
 
@@ -154,7 +154,7 @@ def eliminar_categoria(request, pk):
         cat_estado='0'
     )
     messages.success(
-        request,f"La categoría se envió a papelera exitosamente"
+        request,f"La categoría se eliminó exitosamente"
     )    
     return redirect('categorias')
 
@@ -224,7 +224,7 @@ def eliminar_marca(request, pk):
         mar_estado='0'
     )
     messages.success(
-        request,f"La marca se envió a papelera exitosamente"
+        request,f"La marca se eliminó exitosamente"
     )
     return redirect('marcas')
 
@@ -304,6 +304,6 @@ def eliminar_proveedor(request, pk):
         pro_estado='0'
     )
     messages.success(
-        request,f"El proveedor se envió a papelera exitosamente"
+        request,f"El proveedor se eliminó exitosamente"
     )
     return redirect('proveedores')

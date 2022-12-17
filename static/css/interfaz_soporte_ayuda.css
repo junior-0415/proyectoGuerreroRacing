@@ -446,9 +446,27 @@ form {
     width: 100%;
 }
 
+#fondo_pantalla2 {
+    display: none;
+    opacity: 0;
+}
+
 @media (max-width: 767px) {
-    .container {
+    /* .container {
         background-image: url("vectores_de_fondo/vector_fondo_pantalla4.svg");
+    } */
+    #fondo_pantalla {
+        display: none;
+        opacity: 0;    
+    }
+
+    #fondo_pantalla2 {
+        display: flex;
+        position: absolute;
+        left: 0%;
+        top: 0%;
+        opacity: 1;
+        width: 100%;
     }
 
     .titulo_superior {
@@ -629,5 +647,27 @@ form {
         height: 8.46% !important;
         left: 2.34%;
         top: 290.59%;
+    }
+}
+
+@media (max-width: 550px) {
+    .titulo_superior {
+        height: 90px;
+    }
+
+    .titulo_superior h1{
+        padding-top: 20px;
+    }
+
+    h2 {
+        top: 13%;
+    }
+
+    .p1 {
+        top: 25%;
+    }
+
+    .img1 {
+        top: 28%;
     }
 }

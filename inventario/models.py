@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from articulos.models import Articulos, Proveedores
-from herramientas.models import CotizacionesCompras
 
 from usuarios.models import Empleados
 
