@@ -37,7 +37,10 @@
                     <th>No_Contrato</th>
                     <th>Fecha de ingreso</th>
                     <th>Permisos de usuario</th>
+                    
+                    {% if perms.usuarios.change_empleados or perms.usuarios.delete_empleados %}
                     <th>Acciones</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -61,21 +64,29 @@
                     <td>{{empleado.emp_num_contrato}}</td>
                     <td>{{empleado.emp_fecha_ingreso}}</td>
                     <th>{{empleado.user.groups.all.0}}</th>
+                    {% if perms.usuarios.change_empleados or perms.usuarios.delete_empleados %}
                     <td>
+                        
+                        {% if perms.usuarios.change_empleados %}                            
                         <a href="{% url 'editar_empleado' empleado.id %}">
                             <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar empleado">
                         </a>
+                        {% endif %}
+                        
+                        {% if perms.usuarios.delete_empleados %}                            
                         <a href="#" onclick="eliminar_registros({{ empleado.id }})">
                             <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                         </a>
+                        {% endif %}
                     </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
     <a href="{% url 'registrar_empleado' %}" id="ancla">
-        <img src="{% static 'img/anadir.svg' %}" alt="Boton añadir" id="btn_anadir" title="Añadir nuevo cliente">
+        <img src="{% static 'img/anadir.svg' %}" alt="Boton añadir" id="btn_anadir" title="Añadir nuevo empleado">
     </a>
 </section>
 {% endblock contenido %}

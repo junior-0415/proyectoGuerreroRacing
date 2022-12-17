@@ -22,7 +22,7 @@
     <form>
         <section>
             <div id="intro" class="bg-image vh-100" style="
-                  background-image: url('img/Vector\ fondo\ pantalla.svg');
+                  background-image: url('img/Vector_fondo_pantalla.svg');
                   background-repeat: no-repeat;
                   background-size: cover;
                 ">
@@ -38,7 +38,7 @@
                                     servidor (error 404)</h3>
                             </div>
                             <div class="text-center">
-                                <p> <a href="frm.secundaria.html">Haga click aquí</a> para regresar a la pagina de
+                                <p> <a href="{% url 'inicio-admin' %}">Haga click aquí</a> para regresar a la pagina de
                                     inicio, también puedes realizar una búsqueda o ver otras rutas sugeridas a
                                     continuación:</p>
                             </div>
@@ -49,25 +49,19 @@
                                     <label for="text" class="form-label">Otras rutas sugeridas:</label>
                                 </div>
                                 <div>
-                                    <a href="frm_realizar_venta.html">>Registrar venta</a>
+                                    <a href="{% url 'facturar_venta' %}">>Registrar venta</a>
                                 </div>
                                 <div>
-                                    <a href="frm_crear_orden_de_compra.html">>Registrar compra</a>
+                                    <a href="{% url 'registrar_pedido_compra' %}">>Registrar compra</a>
                                 </div>
                                 <div>
-                                    <a href="interfaz_cliente.html">>Clientes registrados</a>
+                                    <a href="{% url 'clientes' %}">>Clientes registrados</a>
                                 </div>
                                 <div>
-                                    <a href="frm_estos_vehiculos_estan_dentro_del_taller.html">>Vehículos en taller</a>
+                                    <a href="{% url 'vehiculos_taller' %}">>Vehículos en taller</a>
                                 </div>
                                 <div>
-                                    <a href="reporte_de_los_inventarios.html">>Inventario</a>
-                                </div>
-                                <div>
-                                    <a href="frm_realizar_cotizacion_de_compra.html">>Cotizar compra</a>
-                                </div>
-                                <div>
-                                    <a href="frm_registrar_compra.html">>Crear orden de compra</a>
+                                    <a href="{% url 'ordenes_compra' %}">>Crear orden de compra</a>
                                 </div>
                             </div>
 

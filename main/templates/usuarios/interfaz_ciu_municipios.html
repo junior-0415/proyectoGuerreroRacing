@@ -65,7 +65,10 @@
         </table>
     </div>
     <img src="{% static 'img/ilustracion_ciudades.svg' %}" alt="Ilustración relativa a ciudades" id="img1">
+    
+    {% if perms.usuarios.add_ciudades %}
     <a href="#" id="btn_anadir" title="Añadir nueva ciudad">Añadir</a>
+    {% endif %}
 </section>    
 <section class="modal-form ">
     <div class="container_modal-form">

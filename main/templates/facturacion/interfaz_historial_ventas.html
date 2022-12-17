@@ -31,7 +31,10 @@
                     <th>Descuentos</th>
                     <th>Total a pagar</th>
                     <th>Observaciones</th>
+                    
+                    {% if perms.facturacion.view_facturaventa or perms.facturacion.delete_facturaventa %}           
                     <th>Acciones</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -43,21 +46,32 @@
                     <td>{{factura.tbl_clientes_idcliente}}</td>
                     <td>{{factura.fac_fecha}}</td>
                     <td>{{factura.fac_caja}}</td>
-                    <td>{{factura.fac_descuentos}}</td>
-                    <td>{{factura.fac_total_pagar}}</td>
+                    <td>${{factura.fac_descuentos}}</td>
+                    <td>${{factura.fac_total_pagar}}</td>
                     <td>{{factura.fac_observaciones}}</td>
+                    {% if perms.facturacion.view_facturaventa or perms.facturacion.delete_facturaventa %}           
                     <td class="d-flex flex-row">
-                            {% csrf_token %}
-                            <a href="{% url 'historial_detalle_factura' factura.fac_numero_serie %}">
-                                <img src="{% static 'img/ver.svg' %}" alt="Botón ver detalles" title="Ver detalles">
-                            </a>
-                            <a href="#" onclick="eliminar_registros({{factura.fac_numero_serie}})">
-                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" id="btn_eliminar" title="Eliminar del historial">
-                            </a>
-                            <a href="#" onclick="imprimir_factura_redirec({{factura.fac_numero_serie}})">
-                                <img src="{% static 'img/imprimir.svg' %}" alt="Imprimir factura" class="btn_imprimir" title="Imprimir factura">
-                            </a>
+                        {% csrf_token %}
+                        {% if perms.facturacion.view_facturaventa %}
+                        <a href="{% url 'historial_detalle_factura' factura.fac_numero_serie %}">
+                            <img src="{% static 'img/ver.svg' %}" alt="Botón ver detalles" title="Ver detalles">
+                        </a>
+                        {% endif %}
+                        
+                        {% if perms.facturacion.delete_facturaventa %}
+                        <a href="#" onclick="eliminar_registros({{factura.fac_numero_serie}})">
+                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" id="btn_eliminar" title="Eliminar del historial">
+                        </a>
+                        {% endif %}
+                        
+                        {% if perms.facturacion.view_facturaventa %}
+                        <a href="#" onclick="imprimir_factura_redirec({{factura.fac_numero_serie}})">
+                            <img src="{% static 'img/imprimir.svg' %}" alt="Imprimir factura" class="btn_imprimir" title="Imprimir factura">
+                        </a>
+                        {% endif %}
                     </td>
+                    {% endif %}
+
                 </tr>
                 {% endfor %}
 

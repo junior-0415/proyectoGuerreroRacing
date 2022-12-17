@@ -30,7 +30,10 @@
                     <th>Ótras tarifas</th>
                     <th>Término de entrega</th>
                     <th>Costo</th>
+                    
+                    {% if perms.inventario.view_tblrelordencompraarticulos or perms.inventario.delete_ordencompra %}           
                     <th>Acciones</th>
+                    {% endif %}
                 </tr>
             </thead>
             
@@ -44,14 +47,22 @@
                     <td>${{historial.ord_otras_tarifas}}</td>
                     <td>{{historial.ord_termino_entrega}}</td>
                     <td>${{historial.ord_costo_total}}</td>
+                    {% if perms.inventario.view_tblrelordencompraarticulos or perms.inventario.delete_ordencompra %}           
                     <td> 
+                        
+                        {% if perms.inventario.view_tblrelordencompraarticulos %}                            
                         <a href="{% url 'historial_delt_ord_compra' historial.id %}">
                             <img src="{% static 'img/ver.svg' %}" alt="Botón ver detalles" id="btn_editar" title="Ver detalles">
                         </a>
+                        {% endif %}
+                        
+                        {% if perms.inventario.delete_ordencompra %}
                         <a href="#" onclick="eliminar_registros({{historial.id}})">
-                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
+                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Eliminar">
                         </a>
+                        {% endif %}
                     </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
         </table>

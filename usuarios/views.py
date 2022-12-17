@@ -23,6 +23,7 @@ from usuarios.models import Ciudades, Cliente, Departamentos, Empleados, Empresa
 # Create your views here.
 
 @login_required(login_url='login')
+@permission_required('usuarios.view_empresa')
 def empresa(request):
     titulo = "Tu empresa"
     empresa = Empresa.objects.filter(empr_estado = '1')
@@ -32,10 +33,12 @@ def empresa(request):
     }
     return render(request, 'usuarios/interfaz_empresa.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.add_empresa')
 def registrar_empresa(request):
     titulo = "Registrar empresa"
     if request.method == "POST":
-        form = EmpresaForm(request.POST)
+        form = EmpresaForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             messages.success(
@@ -43,7 +46,9 @@ def registrar_empresa(request):
             )
             return redirect('empresa')
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al registrar la empresa"
+            )
     else:
         form = EmpresaForm()
     context = {
@@ -52,11 +57,13 @@ def registrar_empresa(request):
     }
     return render(request, 'usuarios/frm_empresa.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.change_empresa')
 def editar_empresa(request, pk):
     titulo = 'Editar empresa'
     empresa = Empresa.objects.get(id=pk)
     if request.method == "POST":
-        form = EmpresaForm(request.POST, instance=empresa)
+        form = EmpresaForm(request.POST, request.FILES, instance=empresa)
         if form.is_valid():
             form.save()
             messages.success(
@@ -64,7 +71,9 @@ def editar_empresa(request, pk):
             )
             return redirect('empresa')
         else:
-            print('Error al guardar')
+            messages.error(
+                request,f"Se ha producido un error al editar la empresa"
+            )
     else:
         form = EmpresaForm(instance=empresa)
 
@@ -74,6 +83,8 @@ def editar_empresa(request, pk):
     }
     return render(request, 'usuarios/frm_empresa.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.view_sucursales')
 def sucursales(request):
     titulo = "Sucursales"
     sucursales = Sucursales.objects.filter(suc_estado = '1')
@@ -86,7 +97,9 @@ def sucursales(request):
             )
             return redirect('sucursales')
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al guardar la sucursal"
+            )
     else:
         form = SucursalesForm()
     context = {
@@ -96,6 +109,8 @@ def sucursales(request):
     }
     return render(request, 'usuarios/interfaz_sucursales.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.change_sucursales')
 def editar_sucursal(request, pk):
     titulo = 'Editar sucursal'
     sucursal = Sucursales.objects.get(id=pk)
@@ -108,7 +123,9 @@ def editar_sucursal(request, pk):
             )
             return redirect('sucursales')
         else:
-            print('Error al guardar')
+            messages.error(
+                request,f"Se ha producido un error al editar la sucursal"
+            )
     else:
         form = SucursalesForm(instance=sucursal)
 
@@ -127,6 +144,8 @@ def eliminar_sucursal(request, pk):
     )
     return redirect('sucursales')
 
+@login_required(login_url='login')
+@permission_required('usuarios.view_servicios')
 def servicios(request):
     titulo = "Servicios"
     servicios = Servicios.objects.filter(ser_estado = '1')
@@ -144,7 +163,9 @@ def servicios(request):
             )
             return redirect('servicios')
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al registrar el servicio"
+            )
     else:
         form = ServiciosForm()
     context = {
@@ -166,7 +187,9 @@ def editar_servicio(request, pk):
             )
             return redirect('servicios')
         else:
-            print('Error al guardar')
+            messages.error(
+                request,f"Se ha producido un error al editar el servicio"
+            )
     else:
         form = ServiciosForm(instance=servicio)
 
@@ -186,6 +209,8 @@ def eliminar_servicio(request, pk):
     )
     return redirect('servicios')
 
+@login_required(login_url='login')
+@permission_required('usuarios.view_cliente')
 def clientes(request):
     titulo = "Clientes"
     clientes = Cliente.objects.filter(cli_estado = '1')
@@ -203,6 +228,8 @@ def clientes(request):
     return render(request, 'usuarios/interfaz_clientes.html', context)
 
 
+@login_required(login_url='login')
+@permission_required('usuarios.add_cliente')
 def registrar_cliente(request):
     titulo = "Registrar nuevo cliente"
     if request.method == "POST":
@@ -214,7 +241,9 @@ def registrar_cliente(request):
             )
             return redirect('clientes')
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al guardar el cliente"
+            )
     else:
         form = ClienteForm()
 
@@ -224,7 +253,8 @@ def registrar_cliente(request):
     }
     return render(request, 'usuarios/frm_registrar_cliente.html', context)
 
-
+@login_required(login_url='login')
+@permission_required('usuarios.change_cliente')
 def editar_cliente(request, pk):
     titulo = "Editar cliente"
     cliente = Cliente.objects.get(id=pk)
@@ -237,7 +267,9 @@ def editar_cliente(request, pk):
             )
             return redirect('clientes')
         else:
-            print('Error al guardar')
+            messages.error(
+                request,f"Se ha producido un error al editar al cliente"
+            )
     else:
         form = ClienteForm(instance=cliente)
 
@@ -247,7 +279,8 @@ def editar_cliente(request, pk):
     }
     return render(request, 'usuarios/frm_registrar_cliente.html', context)
 
-
+@login_required(login_url='login')
+@permission_required('usuarios.delete_cliente')
 def eliminar_cliente(request, pk):
     Cliente.objects.filter(id=pk).update(
         cli_estado='0'
@@ -277,7 +310,9 @@ def ciudades(request):
             )
             return redirect('ciudades')
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al guardar la ciudad"
+            )
     else:
         form = CiudadesForm()
     context = {
@@ -287,7 +322,8 @@ def ciudades(request):
     }
     return render(request, 'usuarios/interfaz_ciu_municipios.html', context)
 
-
+@login_required(login_url='login')
+@permission_required('usuarios.change_ciudades')
 def editar_ciudad(request, pk):
     titulo = "Editar ciudad"
     ciudad = Ciudades.objects.get(id=pk)
@@ -300,7 +336,9 @@ def editar_ciudad(request, pk):
             )
             return redirect('ciudades')
         else:
-            print('Error al guardar')
+            messages.error(
+                request,f"Se ha producido un error al editar la empresa"
+            )
     else:
         form = CiudadesForm(instance=ciudad)
 
@@ -310,7 +348,8 @@ def editar_ciudad(request, pk):
     }
     return render(request, 'usuarios/interfaz_ciu_municipios.html', context)
 
-
+@login_required(login_url='login')
+@permission_required('usuarios.delete_ciudades')
 def eliminar_ciudad(request, pk):
     Ciudades.objects.filter(id=pk).update(
         ciu_estado='0'
@@ -320,7 +359,8 @@ def eliminar_ciudad(request, pk):
     )
     return redirect('ciudades')
 
-
+@login_required(login_url='login')
+@permission_required('usuarios.view_departamentos')
 def departamentos(request):
     titulo = "Departamentos"
     departamentos = Departamentos.objects.filter(dep_estado = '1')
@@ -339,7 +379,9 @@ def departamentos(request):
             )
             return redirect('departamentos')
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al guardar el departamento"
+            )
     else:
         form = DepartamentosForm()
     context = {
@@ -349,7 +391,8 @@ def departamentos(request):
     }
     return render(request, 'usuarios/interfaz_departamentos.html', context)
 
-
+@login_required(login_url='login')
+@permission_required('usuarios.change_departamentos')
 def editar_departamento(request, pk):
     titulo = "Editar departamento"
     departamento = Departamentos.objects.get(id=pk)
@@ -362,7 +405,9 @@ def editar_departamento(request, pk):
             )
             return redirect('departamentos')
         else:
-            print('Se ha producido un error al editar el departamento')
+            messages.error(
+                request,f"Se ha producido un error al editar el departamento"
+            )
     else:
         form = DepartamentosForm(instance=departamento)
 
@@ -372,7 +417,8 @@ def editar_departamento(request, pk):
     }
     return render(request, 'usuarios/interfaz_departamentos.html', context)
 
-
+@login_required(login_url='login')
+@permission_required('usuarios.delete_departamentos')
 def eliminar_departamento(request, pk):
     Departamentos.objects.filter(id=pk).update(
         dep_estado='0'
@@ -382,6 +428,8 @@ def eliminar_departamento(request, pk):
     )
     return redirect('departamentos')
 
+@login_required(login_url='login')
+@permission_required('usuarios.view_vehiculo')
 def vehiculos(request):
     titulo = "Vehículos"
     vehiculos = Vehiculo.objects.filter(veh_estado = '1')
@@ -396,6 +444,8 @@ def vehiculos(request):
     }
     return render(request, 'usuarios/vehiculos_registrados.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.add_vehiculo')
 def registrar_vehiculo(request):
     titulo = "Registrar vehículo"
     if request.method == "POST":
@@ -407,7 +457,9 @@ def registrar_vehiculo(request):
             )
             return redirect('vehiculos')
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al guardar el vehículo"
+            )
     else:
         form = VehiculosForm()
 
@@ -417,6 +469,8 @@ def registrar_vehiculo(request):
     }
     return render(request, 'usuarios/frm_registrar_nuevo_vehiculo.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.change_vehiculo')
 def editar_vehiculo(request, pk):
     titulo = "Editar vehículo"
     vehiculo = Vehiculo.objects.get(id=pk)
@@ -429,7 +483,9 @@ def editar_vehiculo(request, pk):
             )
             return redirect('vehiculos')
         else:
-            print('Error al guardar')
+            messages.error(
+                request,f"Se ha producido un error al editar el vehículo"
+            )
     else:
         form = VehiculosForm(instance=vehiculo)
 
@@ -440,6 +496,8 @@ def editar_vehiculo(request, pk):
     return render(request, 'usuarios/frm_registrar_nuevo_vehiculo.html', context)
 
 
+@login_required(login_url='login')
+@permission_required('usuarios.delete_vehiculo')
 def eliminar_vehiculo(request, pk):
     Vehiculo.objects.filter(id=pk).update(
         veh_estado='0'
@@ -449,6 +507,8 @@ def eliminar_vehiculo(request, pk):
     )
     return redirect('vehiculos')
 
+@login_required(login_url='login')
+@permission_required('usuarios.view_vehiculo')
 def vehiculos_taller(request):
     titulo = "Vehículos en taller"
     vehiculos = Vehiculo.objects.filter(veh_taller = 'Si', veh_estado = '1')
@@ -463,6 +523,8 @@ def vehiculos_taller(request):
     }
     return render(request, 'usuarios/interfaz_vehiculos_en_taller.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.change_vehiculo')
 def editar_vehiculo_taller(request, pk):
     titulo = "Editar vehículo"
     vehiculo = Vehiculo.objects.get(id=pk)
@@ -475,7 +537,9 @@ def editar_vehiculo_taller(request, pk):
             )
             return redirect('vehiculos_taller')
         else:
-            print('Error al guardar')
+            messages.error(
+                request,f"Se ha producido un error al editar el vehículo"
+            )
     else:
         form = VehiculosForm(instance=vehiculo)
 
@@ -485,6 +549,8 @@ def editar_vehiculo_taller(request, pk):
     }
     return render(request, 'usuarios/frm_registrar_nuevo_vehiculo.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.change_vehiculo')
 def sacar_vehiculo_taller(request, pk):
     Vehiculo.objects.filter(id=pk).update(
         veh_taller='No'
@@ -494,6 +560,8 @@ def sacar_vehiculo_taller(request, pk):
     )
     return redirect('vehiculos_taller')
 
+@login_required(login_url='login')
+@permission_required('usuarios.change_vehiculo')
 def ingresar_vehiculo_taller(request, pk):
     Vehiculo.objects.filter(id=pk).update(
         veh_taller='Si'
@@ -503,7 +571,8 @@ def ingresar_vehiculo_taller(request, pk):
     )
     return redirect('vehiculos_taller')
 
-
+@login_required(login_url='login')
+@permission_required('usuarios.view_empleados')
 def empleado(request):
     titulo = "Empleados"
     empleado = Empleados.objects.filter(emp_estado='1')
@@ -521,6 +590,7 @@ def empleado(request):
     return render(request, 'usuarios/interfaz_empleado_usuarios.html', context)
 
 @login_required(login_url='login')
+@permission_required('usuarios.add_empleados')
 def registrar_empleado(request):
     titulo = "Registrar nuevo empleado"
     if request.method == "POST":
@@ -573,11 +643,13 @@ def registrar_empleado(request):
     }
     return render(request, 'usuarios/frm_registrar_empleados.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.change_empleados')
 def editar_empleado(request, pk):
     titulo = "Editar empleado"
     empleado = Empleados.objects.get(id=pk)
     if request.method == "POST":
-        form = EmpleadosForm(request.POST, instance=empleado)
+        form = EmpleadosForm(request.POST,  request.FILES, instance=empleado)
         if form.is_valid():
             form.save()
             messages.success(
@@ -585,7 +657,9 @@ def editar_empleado(request, pk):
             )
             return redirect('empleados')
         else:
-            print('Error al guardar')
+            messages.error(
+                request,f"Se ha producido un error al editar el empleado"
+            )
     else:
         form = EmpleadosForm(instance=empleado)
 
@@ -595,6 +669,8 @@ def editar_empleado(request, pk):
     }
     return render(request, 'usuarios/frm_registrar_empleados.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.delete_empleados')
 def eliminar_empleado(request, pk):
     Empleados.objects.filter(id=pk).update(
         emp_estado='0'
@@ -604,6 +680,8 @@ def eliminar_empleado(request, pk):
     )
     return redirect('empleados')
 
+@login_required(login_url='login')
+@permission_required('usuarios.view_ordenservicio')
 def ordenes_servicio(request, modal_status='hid'):
     titulo = "Registrar órdenes de venta"
     ordenes = OrdenServicio.objects.filter(ser_estado='1', ord_s_estado_pago='Sin pagar')
@@ -698,6 +776,8 @@ def ordenes_servicio(request, modal_status='hid'):
     }
     return render(request, 'usuarios/frm_crear_orden_servicio.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.view_ordenservicio')
 def tbl_rel_orden_ser_articulos(request, pk):
     titulo = f"Detalle de la orden de venta {pk}"
     rel = TblRelOrdenServicioArticulos.objects.filter(tbl_orden_servicio_idorden_servicio_id=pk)
@@ -713,7 +793,9 @@ def tbl_rel_orden_ser_articulos(request, pk):
             )
             return redirect('detalle_orden_servicio', pk)
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al agregar el artículo"
+            )
     else:
         form = TblRelOrdenServicioArticulosForm()
     context = {
@@ -723,6 +805,8 @@ def tbl_rel_orden_ser_articulos(request, pk):
     }
     return render(request, 'usuarios/rel_orden_servicio_articulos.html', context)
 
+@login_required(login_url='login')
+@permission_required('usuarios.view_ordenservicio')
 def eliminar_orden_ser(request, pk):
     OrdenServicio.objects.filter(id=pk).update(
         ser_estado='0'
@@ -732,6 +816,8 @@ def eliminar_orden_ser(request, pk):
     )
     return redirect('ordenes_servicio')
 
+@login_required(login_url='login')
+@permission_required('usuarios.view_ordenservicio')
 def cerrar_orden_servicio(request, pk):
     OrdenServicio.objects.filter(id=pk).update(
         ord_s_estado_pago='Pagado'
@@ -741,6 +827,8 @@ def cerrar_orden_servicio(request, pk):
     )
     return redirect('ordenes_servicio')
 
+@login_required(login_url='login')
+@permission_required('usuarios.view_ordenservicio')
 def quitar_art_rel_ord_art(request, pk):
     TblRelOrdenServicioArticulos.objects.filter(id=pk).delete()
     messages.success(

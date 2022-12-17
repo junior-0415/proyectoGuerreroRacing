@@ -27,8 +27,10 @@
                 <tr>
                     <th>Código nacional</th>
                     <th>Departamento</th>
+                    
+                    {% if perms.usuarios.change_departamentos or perms.usuarios.delete_departamentos %}
                     <th>Acciones</th>
-                </tr>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -37,14 +39,22 @@
                 <tr>
                     <td>{{depart.id_depart}}</td>
                     <td>{{depart.dep_nombre}}</td>
+                    {% if perms.usuarios.change_departamentos or perms.usuarios.delete_departamentos %}
                     <td>
+                        
+                        {% if perms.usuarios.change_departamentos %}                             
                         <a href="{% url 'editar_departamento' depart.pk %}">
                             <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar departamento">
                         </a>
+                        {% endif %}
+                        
+                        {% if perms.usuarios.delete_departamentos %}                            
                         <a href="#" onclick="eliminar_registros({{ depart.pk }})">
                             <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" class="btn_eliminar" title="Mover a papelera">
                         </a>
+                        {% endif %}
                     </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>
@@ -52,7 +62,10 @@
     </div>
     <img src="{% static 'img/ilustracion_departamentos.svg' %}" alt="Ilustración relaacionada a departamentos"
         id="img1">
+    
+    {% if perms.usuarios.add_departamentos %}
     <a href="#" id="btn_anadir" title="Añadir nuevo departamento">Añadir</a>
+    {% endif %}
 </section>
 <section class="modal-form ">
     <div class="container_modal-form">
@@ -63,6 +76,7 @@
             </a>
         </div>
         <img src="{% static 'img/ilustracion_departamentos.svg' %}" alt="Imagen ilustrativa a ciudades" id="img2">
+        {% if perms.usuarios.add_departamentos %}
         <form action="" method="POST">
             {{form|crispy}}
             {% csrf_token %}
@@ -71,6 +85,7 @@
                 <button type="reset" value="Cacelar" id="btn_cancelar">Cancelar</button>
             </div>
         </form>
+        {% endif %}
     </div>
 </section>
 {% endblock contenido %}

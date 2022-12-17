@@ -1,7 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from articulos.models import Articulos, Proveedores
-from herramientas.models import CotizacionesCompras
 
 from usuarios.models import Empleados
 
@@ -29,7 +28,7 @@ class OrdenCompra(models.Model):
         PERSONAL = 'Entrega persononal', _('Entrega personal')
         OTRO = 'Otro', _('Otro')
     ord_termino_entrega = models.CharField(max_length=18, choices=TerminoEntrega.choices, verbose_name="Término de entrega para el pedido")
-    ord_otras_tarifas = models.DecimalField(max_digits=7, decimal_places=2, verbose_name="Ótras tarifas:", blank=True)
+    ord_otras_tarifas = models.DecimalField(max_digits=7, decimal_places=2, default=0, verbose_name="Ótras tarifas:", blank=True)
     #ord_costo_total = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name="Costo total estimado:")
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')

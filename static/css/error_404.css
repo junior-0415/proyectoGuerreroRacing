@@ -12,3 +12,19 @@ h3 {
 .btn_color_1 {
     background: rgba(0, 117, 128, 0.982) !important;
 }
+
+body {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+
+    background-color: #D6F0F3;
+    background-image: url("vectores_de_fondo/Vector_fondo_pantalla.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0%;
+    padding: 0%;
+
+    overflow: hidden;
+}

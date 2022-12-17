@@ -135,6 +135,13 @@ input:focus, select:focus, textarea:focus {
     top: 0%;
 }
 
+.text_perms {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    text-align: justify;
+}
+
 #div_id_rel_precio input, #div_id_rel_cantidad input {
     position: absolute;
     left: 0%;

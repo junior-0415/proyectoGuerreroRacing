@@ -11,7 +11,6 @@ class Migration(migrations.Migration):
     dependencies = [
         ('usuarios', '0003_ordenservicio_ord_s_email_cli_and_more'),
         ('articulos', '0008_rename_artestado_articulos_art_estado'),
-        ('herramientas', '0001_initial'),
     ]
 
     operations = [

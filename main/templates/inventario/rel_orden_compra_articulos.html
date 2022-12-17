@@ -17,11 +17,16 @@
     <div class="sub_articulos">
         <h2>Agregar Artículo</h2>
     </div>
+    
+    {% if perms.inventario.add_tblrelordencompraarticulos %}
     <form action="" method="POST" class="form1">
         {% csrf_token %}
         {{ form|crispy }}
         <button class="btn_agregar" name="agregar-producto">Agregar Artículo</button>
     </form>
+    {% else %}
+    <h5 class="control-group text_perms" id="div_id_tbl_articulos_idarticulo">Lo sentimos, no cuentas con los permisos editar esta orden.</h5>
+    {% endif %}
 </div>
 <div class="contenedor_secundario">
     <div class="titulo_tabla">
@@ -36,8 +41,10 @@
                     <th>Cantidad</th>
                     <th>Precio estimado</th>
                     <th>Total estimado</th>
+                    
+                    {% if perms.inventario.delete_tblrelordencompraarticulos %}
                     <th>Acciones</th>
-
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -46,14 +53,16 @@
                     <td>{{rel.tbl_orden_compras_idorden_compra}}</td>
                     <td>{{rel.tbl_articulos_idarticulo}}</td>
                     <td>{{rel.rel_cantidad}}</td>
-                    <td>{{rel.rel_precio}}</td>
-                    <td>{{rel.rel_total}}</td>
+                    <td>${{rel.rel_precio}}</td>
+                    <td>${{rel.rel_total}}</td>
+                    {% if perms.inventario.delete_tblrelordencompraarticulos %}
                     <td>
                         <a href="#" onclick="quitar_art_rel_ord_comp_art({{rel.id}})">
                             <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" class="btn_eliminar"
                                 title="Quitar artículo">
                         </a>
                     </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>

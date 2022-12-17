@@ -10,6 +10,7 @@ from xhtml2pdf import pisa
 from django.urls import reverse_lazy
 from django.contrib.staticfiles import finders
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required, permission_required
 
 from facturacion.forms import DetalleFacturaVentaForm, FacturaVentaForm
 from facturacion.models import DetalleFacturaVenta, FacturaVenta
@@ -18,6 +19,8 @@ from django.contrib import messages
 
 # Create your views here.
 
+@login_required(login_url='login')
+@permission_required('facturacion.view_facturaventa')
 def facturar_venta(request, modal_status='hid'):
     titulo = "Registrar y facturar venta"
     facturas = FacturaVenta.objects.filter(fac_estado='1')
@@ -117,6 +120,8 @@ def facturar_venta(request, modal_status='hid'):
     }
     return render(request, 'facturacion/frm_registrar_ventas.html', context)
 
+@login_required(login_url='login')
+@permission_required('facturacion.view_detallefacturaventa')
 def detalle_fac_venta(request, pk):
     titulo = f"Detalle de la factura de venta {pk}"
     detalles = DetalleFacturaVenta.objects.filter(tbl_facturas_idfactura_id=pk)
@@ -139,7 +144,9 @@ def detalle_fac_venta(request, pk):
             )
             return redirect('detalle_fac_venta', pk)
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al agregar atículos"
+            )
     else:
         form = DetalleFacturaVentaForm()
     context = {
@@ -149,6 +156,8 @@ def detalle_fac_venta(request, pk):
     }
     return render(request, 'facturacion/detalle_factura_venta.html', context)
 
+@login_required(login_url='login')
+@permission_required('facturacion.delete_detallefacturaventa')
 def eliminar_art_detalle_fac(request, pk, tbl_facturas_idfactura):
     temp = DetalleFacturaVenta.objects.get(id=pk)
 
@@ -216,6 +225,8 @@ class ImprimirFacturaVenta(View,):
             pass
         return HttpResponseRedirect(reverse_lazy('facturar_venta'))
 
+@login_required(login_url='login')
+@permission_required('facturacion.change_facturaventa')
 def cerrar_factura(request, pk):
     FacturaVenta.objects.filter(fac_numero_serie=pk).update(
         fac_estado='2'
@@ -223,7 +234,7 @@ def cerrar_factura(request, pk):
     messages.success(
         request,f"La factura se ha cerrado exitosamente"
     )
-    return redirect('ordenes_servicio')
+    return redirect('facturar_venta')
 
 def historial_ventas(request):
     titulo = "Historial ventas"

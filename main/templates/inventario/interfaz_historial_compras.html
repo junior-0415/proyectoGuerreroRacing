@@ -26,7 +26,10 @@
                     <th>Costo total</th>
                     <th>Número pedido</th>
                     <th>Recepcionada por</th>
+                    
+                    {% if perms.inventario.view_tblrelpedidosarticulos or perms.inventario.delete_pedidos %}           
                     <th>Acciones</th>
+                    {% endif %}
                 </tr>
             </thead>
             
@@ -36,14 +39,22 @@
                     <td>${{historial.ped_precio}}</td>
                     <td>{{historial.id}}</td>
                     <td>{{historial.ped_recivido_por}}</td>
+                    {% if perms.inventario.view_tblrelpedidosarticulos or perms.inventario.delete_pedidos %}           
                     <td> 
+                        
+                        {% if perms.inventario.view_tblrelpedidosarticulos %}                            
                         <a href="{% url 'historial_delt_pedido' historial.id %}">
                             <img src="{% static 'img/ver.svg' %}" alt="Botón ver detalles" title="Ver detalles">
                         </a>
+                        {% endif %}
+                        
+                        {% if perms.inventario.delete_pedidos %}                            
                         <a href="#" onclick="eliminar_registros({{historial.id}})">
                             <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar" title="Mover a papelera">
                         </a>
+                        {% endif %}
                     </td>
+                    {% endif %}
                 </tr>
             {% endfor %}
         </table>

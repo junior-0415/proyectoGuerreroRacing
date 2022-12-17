@@ -10,12 +10,15 @@ from xhtml2pdf import pisa
 from django.urls import reverse_lazy
 from django.contrib.staticfiles import finders
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required, permission_required
 
 from inventario.models import OrdenCompra, Pedidos, TblRelOrdenCompraArticulos, TblRelPedidosArticulos
 from usuarios.models import Empleados, Empresa
 
 # Create your views here.
 
+@login_required(login_url='login')
+@permission_required('inventario.view_ordencompra')
 def ordenes_compra(request):
     titulo = "Crear órden de compra"
     ordenes_compra = OrdenCompra.objects.filter(ord_estado = '1')
@@ -30,7 +33,9 @@ def ordenes_compra(request):
             )
             return redirect('detalle_orden_compra', temp.id)
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al abrir la orden de compra"
+            )
     else:
         form = OrdenCompraForm()
 
@@ -41,6 +46,8 @@ def ordenes_compra(request):
     }
     return render(request, 'inventario/frm_orden_de_compra.html', context)
 
+@login_required(login_url='login')
+@permission_required('inventario.view_tblrelordencompraarticulos')
 def tbl_rel_orden_com_articulos(request, pk):
     titulo = f"Detalle de la orden de compra {pk}"
     rel = TblRelOrdenCompraArticulos.objects.filter(tbl_orden_compras_idorden_compra_id=pk)
@@ -56,7 +63,9 @@ def tbl_rel_orden_com_articulos(request, pk):
             )
             return redirect('detalle_orden_compra', pk)
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al agregar el artículo"
+            )
     else:
         form = TblRelOrdenCompraArticulosForm()
     context = {
@@ -66,6 +75,8 @@ def tbl_rel_orden_com_articulos(request, pk):
     }
     return render(request, 'inventario/rel_orden_compra_articulos.html', context)
 
+@login_required(login_url='login')
+@permission_required('inventario.view_pedidos')
 def historial_compras(request):
     titulo = "Historial de compras"
     pedidos = Pedidos.objects.filter(ped_estado = '2')
@@ -81,6 +92,8 @@ def historial_compras(request):
     }
     return render(request, 'inventario/interfaz_historial_compras.html', context)
 
+@login_required(login_url='login')
+@permission_required('inventario.view_ordencompra')
 def historial_ord_compra(request):
     titulo = "Historial órdenes de compras"
     orden_compra = OrdenCompra.objects.filter(ord_estado = '2')
@@ -95,6 +108,8 @@ def historial_ord_compra(request):
     }
     return render(request, 'inventario/interfaz_historial_ord_compras.html', context)
 
+@login_required(login_url='login')
+@permission_required('inventario.delete_ordencompra')
 def eliminar_orden_compra(request, pk):
     OrdenCompra.objects.filter(id=pk).update(
         ord_estado='0'
@@ -119,6 +134,8 @@ def reporte_semanal(request):
     }
     return render(request, 'inventario/interfaz_reporte_semanal.html', context)
 
+@login_required(login_url='login')
+@permission_required('inventario.view_pedidos')
 def registrar_pedidos_compras(request, modal_status='hid'):
     titulo = "Registrar compra o pedido"
     pedidos = Pedidos.objects.filter(ped_estado='1')
@@ -212,6 +229,8 @@ def registrar_pedidos_compras(request, modal_status='hid'):
     }
     return render(request, 'inventario/frm_pedidos_compras.html', context)
 
+@login_required(login_url='login')
+@permission_required('inventario.view_tblrelpedidosarticulos')
 def tbl_rel_pedido_articulos(request, pk):
     titulo = f"Detalle del pedido {pk}"
     rel = TblRelPedidosArticulos.objects.filter(tbl_pedidos_idpedido_id=pk)
@@ -227,7 +246,9 @@ def tbl_rel_pedido_articulos(request, pk):
             )
             return redirect('detalle_compra_pedidos', pk)
         else:
-            print('Error')
+            messages.error(
+                request,f"Se ha producido un error al agragar el artículo"
+            )
     else:
         form = TblRelPedidosArticulosForm()
     context = {
@@ -237,6 +258,8 @@ def tbl_rel_pedido_articulos(request, pk):
     }
     return render(request, 'inventario/rel_pedidos_articulos.html', context)
 
+@login_required(login_url='login')
+@permission_required('inventario.delete_tblrelordencompraarticulos')
 def quitar_art_det_ord_compra(request, pk):
     TblRelOrdenCompraArticulos.objects.filter(id=pk).delete()
     messages.success(
@@ -244,6 +267,8 @@ def quitar_art_det_ord_compra(request, pk):
     )
     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
     
+@login_required(login_url='login')
+@permission_required('inventario.change_ordencompra')
 def cerrar_orden_compra(request, pk):
     OrdenCompra.objects.filter(id=pk).update(
         ord_estado='2'
@@ -253,6 +278,8 @@ def cerrar_orden_compra(request, pk):
     )
     return redirect('ordenes_compra')
 
+@login_required(login_url='login')
+@permission_required('inventario.view_tblrelpedidosarticulos')
 def historial_delt_ord_compra(request, pk):
     titulo = f"Detalle de la orden de compra {pk}"
     rel = TblRelOrdenCompraArticulos.objects.filter(tbl_orden_compras_idorden_compra_id=pk)
@@ -317,6 +344,8 @@ class ImprimirOrdenCompra(View):
             pass
         return HttpResponseRedirect(reverse_lazy('ordenes_compra'))
 
+@login_required(login_url='login')
+@permission_required('inventario.delete_pedidos')
 def eliminar_compra_pedido(request, pk):
     Pedidos.objects.filter(id=pk).update(
         ped_estado='0'
@@ -326,6 +355,8 @@ def eliminar_compra_pedido(request, pk):
     )
     return redirect('historial_compras')
 
+@login_required(login_url='login')
+@permission_required('inventario.view_tblrelpedidosarticulos')
 def quitar_art_rel_pedido(request, pk):
     TblRelPedidosArticulos.objects.filter(id=pk).delete()
     messages.success(
@@ -333,6 +364,8 @@ def quitar_art_rel_pedido(request, pk):
     )
     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
+@login_required(login_url='login')
+@permission_required('inventario.change_pedidos')
 def cerrar_pedido(request, pk):
     Pedidos.objects.filter(id=pk).update(
         ped_estado='2'
@@ -342,6 +375,8 @@ def cerrar_pedido(request, pk):
     )
     return redirect('registrar_pedido_compra')
 
+@login_required(login_url='login')
+@permission_required('inventario.view_tblrelpedidosarticulos')
 def historial_delt_pedido(request, pk):
     titulo = f"Detalle de la compra {pk}"
     rel = TblRelPedidosArticulos.objects.filter(tbl_pedidos_idpedido_id=pk)

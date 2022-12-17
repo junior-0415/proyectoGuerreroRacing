@@ -17,11 +17,16 @@
     <div class="sub_articulos">
         <h2>Agregar Artículo (opcional)</h2>
     </div>
+    
+    {% if perms.usuarios.add_tblrelordenservicioarticulos %}
     <form action="" method="POST" class="form1">
         {% csrf_token %}
         {{ form|crispy }}
         <button class="btn_agregar" name="agregar-producto">Agregar Artículo</button>
     </form>
+    {% else %}
+    <h5 class="control-group text_perms" id="div_id_Ttbl_articulos_idarticulo">Lo sentimos, no cuentas con los permisos editar esta orden.</h5>
+    {% endif %}
 </div>
 <div class="contenedor_secundario">
     <div class="titulo_tabla">
@@ -36,7 +41,10 @@
                     <th>Cantidad</th>
                     <th>Precio</th>
                     <th>Total</th>
-                    <th>Acciones</th>
+                    
+                    {% if perms.usuarios.delete_tblrelordenservicioarticulos %}
+                        <th>Acciones</th>
+                    {% endif %}
 
                 </tr>
             </thead>
@@ -48,12 +56,14 @@
                     <td>{{rel.art_cantidad}}</td>
                     <td>{{rel.art_precio}}</td>
                     <td>{{rel.art_costo}}</td>
-                    <td>
-                        <a href="#" onclick="quitar_art_rel_ord_art({{rel.id}})">
-                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" class="btn_eliminar"
-                                title="Quitar artículo">
-                        </a>
-                    </td>
+                    {% if perms.usuarios.delete_tblrelordenservicioarticulos %}
+                        <td>
+                            <a href="#" onclick="quitar_art_rel_ord_art({{rel.id}})">
+                                <img src="{% static 'img/eliminar.svg' %}" alt="Botón eliminar" class="btn_eliminar"
+                                    title="Quitar artículo">
+                            </a>
+                        </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>

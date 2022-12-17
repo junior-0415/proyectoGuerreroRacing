@@ -16,7 +16,7 @@ class FacturaVenta(models.Model):
     fac_caja = models.CharField(max_length=10, verbose_name="Caja número:")
     fac_descuentos = models.DecimalField(max_digits=7, decimal_places=2, default=0, verbose_name="Descuento:")
     fac_total_pagar = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name="Total a pagar:")
-    fac_observaciones = models.TextField(max_length=350, verbose_name="Observaciones:")
+    fac_observaciones = models.TextField(max_length=500, verbose_name="Observaciones:")
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
         INACTIVO = '0', _('Inactivo')

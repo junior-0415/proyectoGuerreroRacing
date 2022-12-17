@@ -136,6 +136,13 @@ input, select, textarea {
     top: 10.31%;
 }
 
+.text_perms {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    text-align: justify;
+}
+
 #div_id_tbl_ciudad_idciudad {
     left: 10px;
     top: 25.68%;

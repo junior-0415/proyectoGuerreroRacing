@@ -35,7 +35,10 @@
                     <th>Última fecha ingreso</th>
                     <th>Última fecha salida</th>
                     <th>informe técnico</th>
-                    <th>Acciones</th>
+                    
+                    {% if perms.usuarios.change_vehiculo or perms.usuarios.delete_vehiculo %}           
+                        <th>Acciones</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -55,7 +58,10 @@
                     <td>{{vehiculo.veh_ultima_fecha_ingreso}}</td>
                     <td>{{vehiculo.veh_ultima_fecha_salida}}</td>
                     <td>{{vehiculo.veh_informe_tecnico}}</td>
+                    {% if perms.usuarios.change_vehiculo or perms.usuarios.delete_vehiculo %}           
                     <td>
+                        
+                        {% if perms.usuarios.change_vehiculo %}
                         <a href="{% url 'editar_vehiculo_taller' vehiculo.id %}">
                             <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar" title="Editar vehículo">
                         </a>
@@ -63,7 +69,9 @@
                             <img src="{% static 'img/sacar_del_taller.svg' %}" alt="Botón sacar Vehículo del taller"
                                 class="btn_mandar_al_taller" title="Sacar vehículo del taller">
                         </a>
+                        {% endif %}
                     </td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>

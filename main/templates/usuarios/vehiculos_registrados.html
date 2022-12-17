@@ -35,7 +35,10 @@
                     <th>Última fecha ingreso</th>
                     <th>Última fecha salida</th>
                     <th>informe técnico</th>
-                    <th>Acciones</th>
+                    
+                    {% if perms.usuarios.change_vehiculo or perms.usuarios.delete_vehiculo %}                        
+                        <th>Acciones</th>
+                    {% endif %}
                 </tr>
             </thead>
             <tbody>
@@ -54,20 +57,29 @@
                     <td>{{vehiculo.veh_ultima_fecha_ingreso}}</td>
                     <td>{{vehiculo.veh_ultima_fecha_salida}}</td>
                     <td>{{vehiculo.veh_informe_tecnico}}</td>
-                    <td class="flex">
-                        <a href="{% url 'editar_vehiculo' vehiculo.id %}">
-                            <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar"
-                                title="Editar vehículo">
-                        </a>
-                        <a href="{% url 'ingresar_vehiculo_taller' vehiculo.id %}">
-                            <img src="{% static 'img/ingresar_al_taller.svg' %}" alt="Botón ingresar Vehículo al taller"
-                                class="btn_mandar_al_taller" title="Ingresar vehículo al taller">
-                        </a>
-                        <a href="#" onclick="eliminar_registros({{ vehiculo.id }})">
-                            <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar"
-                                title="Mover a papelera">
-                        </a>
-                    </td>
+                    {% if perms.usuarios.change_vehiculo or perms.usuarios.delete_vehiculo %}                        
+                        <td class="flex">
+                            
+                            {% if perms.usuarios.change_vehiculo %}
+                                <a href="{% url 'editar_vehiculo' vehiculo.id %}">
+                                    <img src="{% static 'img/editar.svg' %}" alt="Botón editar" id="btn_editar"
+                                        title="Editar vehículo">
+                                </a>
+                                <a href="{% url 'ingresar_vehiculo_taller' vehiculo.id %}">
+                                    <img src="{% static 'img/ingresar_al_taller.svg' %}" alt="Botón ingresar Vehículo al taller"
+                                        class="btn_mandar_al_taller" title="Ingresar vehículo al taller">
+                                </a>
+                            {% endif %}
+                            
+                            {% if perms.usuarios.delete_vehiculo %}            
+                                <a href="#" onclick="eliminar_registros({{ vehiculo.id }})">
+                                    <img src="{% static 'img/eliminar.svg' %}" alt="Botón editar" id="btn_eliminar"
+                                        title="Mover a papelera">
+                                </a>
+                            {% endif %}
+                        </td>
+                    {% endif %}
+
                 </tr>
                 {% endfor %}
             </tbody>

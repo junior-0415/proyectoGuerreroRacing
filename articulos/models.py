@@ -51,12 +51,12 @@ class Articulos(models.Model):
     art_nombre = models.CharField(max_length=50, verbose_name="Nombre:")
     tbl_categoria_idcategoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, verbose_name="Categoría:")
     art_precio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Precio:")
-    art_descripcion = models.TextField(max_length=200, verbose_name="Descripción:")
+    art_descripcion = models.TextField(max_length=500, verbose_name="Descripción:")
     art_stock_minimo = models.SmallIntegerField(verbose_name="Stock mínimo:")
     art_stock_maximo = models.SmallIntegerField(verbose_name="Stock máximo:")
     tbl_proveedores_idproveedor = models.ForeignKey(Proveedores, on_delete=models.CASCADE, verbose_name="Proveedor:")
     tbl_marcas_idmarca = models.ForeignKey(Marcas, on_delete=models.CASCADE, verbose_name="Marca:")
-    art_foto = models.ImageField(upload_to='images/articulos', blank=True, default='images/articulos/default.png', verbose_name="Foto:")
+    art_foto = models.ImageField(upload_to='images/articulos/', blank=True, default='images/articulos/default.png', verbose_name="Foto:")
 
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')

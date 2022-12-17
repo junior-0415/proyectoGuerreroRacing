@@ -12,7 +12,7 @@
     <div id="titulo_superior">
         <h1>Registrar nuevo artículo</h1>
     </div>
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
             {{form|crispy}}
             {% csrf_token %}
         <div class="frame_b f8">
