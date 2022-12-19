@@ -63,8 +63,8 @@ class TblRelOrdenCompraArticulos(models.Model):
     rel_total = property(_rel_total)
 
 class Pedidos(models.Model):
-    ped_recivido_por = models.CharField(max_length=80, verbose_name="Recivido por:")
-    ped_fecha_recivido = models.DateField(verbose_name="Fecha de recivido:")
+    ped_recivido_por = models.CharField(max_length=80, verbose_name="Recibido por:")
+    ped_fecha_recivido = models.DateField(verbose_name="Fecha de recibido:")
     ped_precio = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Precio total:")
     class Estado(models.TextChoices):
         ACTIVO = '1', _('Activo')
